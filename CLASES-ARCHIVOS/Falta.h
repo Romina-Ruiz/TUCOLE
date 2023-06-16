@@ -5,6 +5,7 @@
 class Falta
 {
 private:
+    /// UTILIZAR DNI ALUMNO
     char _nombre_Alumno[30];
     int _id_alumno;
     int _anio_Curso;

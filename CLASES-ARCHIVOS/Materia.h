@@ -5,7 +5,7 @@
 class Materia
 {
 private:
-
+/// AGREGAR HORARIO + DIA DE CURSADA
     char _nombre[30];
     int _id;
     int _anio_de_curso;

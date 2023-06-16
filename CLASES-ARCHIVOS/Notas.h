@@ -7,6 +7,7 @@ class Notas
 
 private:
 
+/// CHEQUEAR DNI ALUMNO - ID PROSEDOR- ID MATERIA- TIPO DE NOTA (PRIMERA, SEGUNDA, RECUPERATORIO, FINAL)
     char _nombreMateria[30];
     int _id_materia;
     int _anio_curso;
