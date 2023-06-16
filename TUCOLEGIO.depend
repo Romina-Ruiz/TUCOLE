@@ -1,0 +1,241 @@
+# depslib dependency file v1.0
+1675810778 source:c:\users\romina\desktop\utn programacion\utn 3 cuatrimeste\04-laboratorio ii\tp laboratorio\tu colegio\tucolegio\fecha.cpp
+	"Fecha.h"
+	<ctime>
+	<cstring>
+	<iostream>
+
+1675810778 c:\users\romina\desktop\utn programacion\utn 3 cuatrimeste\04-laboratorio ii\tp laboratorio\tu colegio\tucolegio\fecha.h
+	<cstring>
+	<iostream>
+
+1686716241 source:c:\users\romina\desktop\utn programacion\utn 3 cuatrimeste\04-laboratorio ii\tp laboratorio\tu colegio\tucolegio\funciones_front.cpp
+	<iostream>
+	<iomanip>
+	<string>
+	"rlutil.h"
+	"FUNCIONES_FRONT.h"
+	"Fecha.h"
+	<cstring>
+
+1675136100 c:\users\romina\desktop\utn programacion\utn 3 cuatrimeste\04-laboratorio ii\tp laboratorio\tu colegio\tucolegio\rlutil.h
+	<iostream>
+	<string>
+	<cstdio>
+	<stdio.h>
+	<string.h>
+	<windows.h>
+	<conio.h>
+	<termios.h>
+	<unistd.h>
+	<sys/ioctl.h>
+	<sys/types.h>
+	<sys/time.h>
+
+1676089803 c:\users\romina\desktop\utn programacion\utn 3 cuatrimeste\04-laboratorio ii\tp laboratorio\tu colegio\tucolegio\funciones_front.h
+
+1686716241 source:c:\users\romina\desktop\utn programacion\utn 3 cuatrimeste\04-laboratorio ii\tp laboratorio\tu colegio\tucolegio\funciones_user.cpp
+	<iostream>
+	<iomanip>
+	<string>
+	"rlutil.h"
+	"FUNCIONES_USER.h"
+	"FUNCIONES_FRONT.h"
+	"Fecha.h"
+
+1686716242 c:\users\romina\desktop\utn programacion\utn 3 cuatrimeste\04-laboratorio ii\tp laboratorio\tu colegio\tucolegio\funciones_user.h
+
+1584205420 source:c:\users\romina\desktop\utn programacion\utn 3 cuatrimeste\04-laboratorio ii\tp laboratorio\tu colegio\tucolegio\main.cpp
+	<iostream>
+
+1686795714 source:c:\users\romina\desktop\utn programacion\utn 3 cuatrimeste\04-laboratorio ii\tp tu colegio\tu colegio\tucolegio\main.cpp
+	<iostream>
+	<cstdlib>
+	<cstring>
+	<windows.h>
+	<conio.h>
+	"MENUS/MENUS.h"
+
+1675810778 source:c:\users\romina\desktop\utn programacion\utn 3 cuatrimeste\04-laboratorio ii\tp tu colegio\tu colegio\tucolegio\menus\fecha.cpp
+	"Fecha.h"
+	<ctime>
+	<cstring>
+	<iostream>
+
+1675810778 c:\users\romina\desktop\utn programacion\utn 3 cuatrimeste\04-laboratorio ii\tp tu colegio\tu colegio\tucolegio\menus\fecha.h
+	<cstring>
+	<iostream>
+
+1686796375 source:c:\users\romina\desktop\utn programacion\utn 3 cuatrimeste\04-laboratorio ii\tp tu colegio\tu colegio\tucolegio\menus\funciones_admin.cpp
+	<iostream>
+	<iomanip>
+	<string>
+	"rlutil.h"
+	"FUNCIONES_FRONT.h"
+	"FUNCIONES_USER.h"
+	"MENUS.h"
+	"FUNCIONES_ADMIN.h"
+
+1675136100 c:\users\romina\desktop\utn programacion\utn 3 cuatrimeste\04-laboratorio ii\tp tu colegio\tu colegio\tucolegio\menus\rlutil.h
+	<iostream>
+	<string>
+	<cstdio>
+	<stdio.h>
+	<string.h>
+	<windows.h>
+	<conio.h>
+	<termios.h>
+	<unistd.h>
+	<sys/ioctl.h>
+	<sys/types.h>
+	<sys/time.h>
+
+1676089803 c:\users\romina\desktop\utn programacion\utn 3 cuatrimeste\04-laboratorio ii\tp tu colegio\tu colegio\tucolegio\menus\funciones_front.h
+
+1686716242 c:\users\romina\desktop\utn programacion\utn 3 cuatrimeste\04-laboratorio ii\tp tu colegio\tu colegio\tucolegio\menus\funciones_user.h
+
+1686796443 source:c:\users\romina\desktop\utn programacion\utn 3 cuatrimeste\04-laboratorio ii\tp tu colegio\tu colegio\tucolegio\menus\funciones_front.cpp
+	<iostream>
+	<iomanip>
+	<string>
+	"rlutil.h"
+	"FUNCIONES_FRONT.h"
+	"Fecha.h"
+	<cstring>
+
+1686796375 source:c:\users\romina\desktop\utn programacion\utn 3 cuatrimeste\04-laboratorio ii\tp tu colegio\tu colegio\tucolegio\menus\funciones_user.cpp
+	<iostream>
+	<iomanip>
+	<string>
+	"rlutil.h"
+	"FUNCIONES_USER.h"
+	"FUNCIONES_FRONT.h"
+	"Fecha.h"
+
+1686865124 source:c:\users\romina\desktop\utn programacion\utn 3 cuatrimeste\04-laboratorio ii\tp tu colegio\tu colegio\tucolegio\menus\menu_inicio.cpp
+	<iostream>
+	<iomanip>
+	<string>
+	"rlutil.h"
+	"FUNCIONES_FRONT.h"
+	"MENUS.h"
+
+1686791791 c:\users\romina\desktop\utn programacion\utn 3 cuatrimeste\04-laboratorio ii\tp tu colegio\tu colegio\tucolegio\menus\menus.h
+
+1686795069 c:\users\romina\desktop\utn programacion\utn 3 cuatrimeste\04-laboratorio ii\tp tu colegio\tu colegio\tucolegio\menus\funciones_admin.h
+
+1686704483 source:c:\users\romina\desktop\utn programacion\utn 3 cuatrimeste\04-laboratorio ii\tp tu colegio\tu colegio\tucolegio\clases-archivos\alumno.cpp
+	"Alumno.h"
+
+1686790960 c:\users\romina\desktop\utn programacion\utn 3 cuatrimeste\04-laboratorio ii\tp tu colegio\tu colegio\tucolegio\clases-archivos\alumno.h
+	"Persona.h"
+
+1686003596 c:\users\romina\desktop\utn programacion\utn 3 cuatrimeste\04-laboratorio ii\tp tu colegio\tu colegio\tucolegio\clases-archivos\persona.h
+
+1686006273 source:c:\users\romina\desktop\utn programacion\utn 3 cuatrimeste\04-laboratorio ii\tp tu colegio\tu colegio\tucolegio\clases-archivos\alumnoarchivo.cpp
+	"AlumnoArchivo.h"
+	"Alumno.h"
+	<cstdio>
+
+1686013075 c:\users\romina\desktop\utn programacion\utn 3 cuatrimeste\04-laboratorio ii\tp tu colegio\tu colegio\tucolegio\clases-archivos\alumnoarchivo.h
+	<cstdio>
+	"Alumno.h"
+
+1686790701 source:c:\users\romina\desktop\utn programacion\utn 3 cuatrimeste\04-laboratorio ii\tp tu colegio\tu colegio\tucolegio\clases-archivos\alumnomanager.cpp
+
+1686781906 source:c:\users\romina\desktop\utn programacion\utn 3 cuatrimeste\04-laboratorio ii\tp tu colegio\tu colegio\tucolegio\clases-archivos\faltas.cpp
+	"Faltas.h"
+
+1686781905 c:\users\romina\desktop\utn programacion\utn 3 cuatrimeste\04-laboratorio ii\tp tu colegio\tu colegio\tucolegio\clases-archivos\faltas.h
+
+1686794942 source:c:\users\romina\desktop\utn programacion\utn 3 cuatrimeste\04-laboratorio ii\tp tu colegio\tu colegio\tucolegio\clases-archivos\materia.cpp
+	<iostream>
+	"Materia.h"
+	<cstring>
+
+1686791679 c:\users\romina\desktop\utn programacion\utn 3 cuatrimeste\04-laboratorio ii\tp tu colegio\tu colegio\tucolegio\clases-archivos\materia.h
+
+1686007046 source:c:\users\romina\desktop\utn programacion\utn 3 cuatrimeste\04-laboratorio ii\tp tu colegio\tu colegio\tucolegio\clases-archivos\cuota.cpp
+	"Cuota.h"
+
+1686795464 c:\users\romina\desktop\utn programacion\utn 3 cuatrimeste\04-laboratorio ii\tp tu colegio\tu colegio\tucolegio\clases-archivos\cuota.h
+	"../MENUS/Fecha.h"
+
+1686790209 source:c:\users\romina\desktop\utn programacion\utn 3 cuatrimeste\04-laboratorio ii\tp tu colegio\tu colegio\tucolegio\clases-archivos\cuotaarchivo.cpp
+	<cstdio>
+	"Cuota.h"
+	"CuotaArchivo.h"
+
+1686790316 c:\users\romina\desktop\utn programacion\utn 3 cuatrimeste\04-laboratorio ii\tp tu colegio\tu colegio\tucolegio\clases-archivos\cuotaarchivo.h
+	<cstdio>
+	"Cuota.h"
+
+1686793033 source:c:\users\romina\desktop\utn programacion\utn 3 cuatrimeste\04-laboratorio ii\tp tu colegio\tu colegio\tucolegio\clases-archivos\materiaarchivo.cpp
+	<iostream>
+	"MateriaArchivo.h"
+	"Materia.h"
+
+1686792685 c:\users\romina\desktop\utn programacion\utn 3 cuatrimeste\04-laboratorio ii\tp tu colegio\tu colegio\tucolegio\clases-archivos\materiaarchivo.h
+	"Materia.h"
+
+1686793036 source:c:\users\romina\desktop\utn programacion\utn 3 cuatrimeste\04-laboratorio ii\tp tu colegio\tu colegio\tucolegio\clases-archivos\notas.cpp
+	<iostream>
+	"Notas.h"
+	<cstring>
+
+1686790382 c:\users\romina\desktop\utn programacion\utn 3 cuatrimeste\04-laboratorio ii\tp tu colegio\tu colegio\tucolegio\clases-archivos\notas.h
+
+1686790619 source:c:\users\romina\desktop\utn programacion\utn 3 cuatrimeste\04-laboratorio ii\tp tu colegio\tu colegio\tucolegio\clases-archivos\notasarchivo.cpp
+	<iostream>
+	"NotasArchivo.h"
+	"Notas.h"
+
+1686793213 c:\users\romina\desktop\utn programacion\utn 3 cuatrimeste\04-laboratorio ii\tp tu colegio\tu colegio\tucolegio\clases-archivos\notasarchivo.h
+	"Notas.h"
+
+1686011378 source:c:\users\romina\desktop\utn programacion\utn 3 cuatrimeste\04-laboratorio ii\tp tu colegio\tu colegio\tucolegio\clases-archivos\persona.cpp
+	"Persona.h"
+	<iostream>
+	<windows.h>
+
+1686794745 source:c:\users\romina\desktop\utn programacion\utn 3 cuatrimeste\04-laboratorio ii\tp tu colegio\tu colegio\tucolegio\clases-archivos\falta.cpp
+	<iostream>
+	"Falta.h"
+	<cstring>
+
+1686795476 c:\users\romina\desktop\utn programacion\utn 3 cuatrimeste\04-laboratorio ii\tp tu colegio\tu colegio\tucolegio\clases-archivos\falta.h
+	"../MENUS/Fecha.h"
+
+1686793116 source:c:\users\romina\desktop\utn programacion\utn 3 cuatrimeste\04-laboratorio ii\tp tu colegio\tu colegio\tucolegio\clases-archivos\faltaarchivo.cpp
+	<iostream>
+	"FaltaArchivo.h"
+	"Falta.h"
+
+1686792680 c:\users\romina\desktop\utn programacion\utn 3 cuatrimeste\04-laboratorio ii\tp tu colegio\tu colegio\tucolegio\clases-archivos\faltaarchivo.h
+	"Falta.h"
+
+1686788589 source:c:\users\romina\desktop\utn programacion\utn 3 cuatrimeste\04-laboratorio ii\tp tu colegio\tu colegio\tucolegio\clases-archivos\personaarchivo.cpp
+	<iostream>
+	"PersonaArchivo.h"
+	"Persona.h"
+
+1686788591 c:\users\romina\desktop\utn programacion\utn 3 cuatrimeste\04-laboratorio ii\tp tu colegio\tu colegio\tucolegio\clases-archivos\personaarchivo.h
+	"Persona.h"
+
+1686011795 source:c:\users\romina\desktop\utn programacion\utn 3 cuatrimeste\04-laboratorio ii\tp tu colegio\tu colegio\tucolegio\clases-archivos\profesor.cpp
+	<iostream>
+	<cstring>
+	"Profesor.h"
+
+1686007143 c:\users\romina\desktop\utn programacion\utn 3 cuatrimeste\04-laboratorio ii\tp tu colegio\tu colegio\tucolegio\clases-archivos\profesor.h
+	"Persona.h"
+
+1686794881 source:c:\users\romina\desktop\utn programacion\utn 3 cuatrimeste\04-laboratorio ii\tp tu colegio\tu colegio\tucolegio\clases-archivos\profesorarchivo.cpp
+	<iostream>
+	"Profesor.h"
+	"ProfesorArchivo.h"
+
+1686788937 c:\users\romina\desktop\utn programacion\utn 3 cuatrimeste\04-laboratorio ii\tp tu colegio\tu colegio\tucolegio\clases-archivos\profesorarchivo.h
+	<cstdio>
+	"Profesor.h"
+

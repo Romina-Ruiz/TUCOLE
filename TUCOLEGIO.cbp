@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="TUCOLEGIO" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/TUCOLEGIO" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/TUCOLEGIO" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="CLASES-ARCHIVOS/Alumno.cpp" />
+		<Unit filename="CLASES-ARCHIVOS/Alumno.h" />
+		<Unit filename="CLASES-ARCHIVOS/AlumnoArchivo.cpp" />
+		<Unit filename="CLASES-ARCHIVOS/AlumnoArchivo.h" />
+		<Unit filename="CLASES-ARCHIVOS/AlumnoManager.cpp" />
+		<Unit filename="CLASES-ARCHIVOS/AlumnoManager.h" />
+		<Unit filename="CLASES-ARCHIVOS/Cuota.cpp" />
+		<Unit filename="CLASES-ARCHIVOS/Cuota.h" />
+		<Unit filename="CLASES-ARCHIVOS/CuotaArchivo.cpp" />
+		<Unit filename="CLASES-ARCHIVOS/CuotaArchivo.h" />
+		<Unit filename="CLASES-ARCHIVOS/Falta.cpp" />
+		<Unit filename="CLASES-ARCHIVOS/Falta.h" />
+		<Unit filename="CLASES-ARCHIVOS/FaltaArchivo.cpp" />
+		<Unit filename="CLASES-ARCHIVOS/FaltaArchivo.h" />
+		<Unit filename="CLASES-ARCHIVOS/Faltas.cpp" />
+		<Unit filename="CLASES-ARCHIVOS/Faltas.h" />
+		<Unit filename="CLASES-ARCHIVOS/Materia.cpp" />
+		<Unit filename="CLASES-ARCHIVOS/Materia.h" />
+		<Unit filename="CLASES-ARCHIVOS/MateriaArchivo.cpp" />
+		<Unit filename="CLASES-ARCHIVOS/MateriaArchivo.h" />
+		<Unit filename="CLASES-ARCHIVOS/Notas.cpp" />
+		<Unit filename="CLASES-ARCHIVOS/Notas.h" />
+		<Unit filename="CLASES-ARCHIVOS/NotasArchivo.cpp" />
+		<Unit filename="CLASES-ARCHIVOS/NotasArchivo.h" />
+		<Unit filename="CLASES-ARCHIVOS/Persona.cpp" />
+		<Unit filename="CLASES-ARCHIVOS/Persona.h" />
+		<Unit filename="CLASES-ARCHIVOS/PersonaArchivo.cpp" />
+		<Unit filename="CLASES-ARCHIVOS/PersonaArchivo.h" />
+		<Unit filename="CLASES-ARCHIVOS/Profesor.cpp" />
+		<Unit filename="CLASES-ARCHIVOS/Profesor.h" />
+		<Unit filename="CLASES-ARCHIVOS/ProfesorArchivo.cpp" />
+		<Unit filename="CLASES-ARCHIVOS/ProfesorArchivo.h" />
+		<Unit filename="MENUS/FUNCIONES_ADMIN.cpp" />
+		<Unit filename="MENUS/FUNCIONES_ADMIN.h" />
+		<Unit filename="MENUS/FUNCIONES_FRONT.cpp" />
+		<Unit filename="MENUS/FUNCIONES_FRONT.h" />
+		<Unit filename="MENUS/FUNCIONES_USER.cpp" />
+		<Unit filename="MENUS/FUNCIONES_USER.h" />
+		<Unit filename="MENUS/Fecha.cpp" />
+		<Unit filename="MENUS/Fecha.h" />
+		<Unit filename="MENUS/MENUS.h" />
+		<Unit filename="MENUS/MENU_INICIO.CPP" />
+		<Unit filename="MENUS/rlutil.h" />
+		<Unit filename="TUCOLEGIO.cbp" />
+		<Unit filename="main.cpp" />
+		<Extensions />
+	</Project>
+</CodeBlocks_project_file>

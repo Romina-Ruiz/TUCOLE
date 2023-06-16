@@ -1,0 +1,10 @@
+#ifndef FUNCIONES_USER_H_INCLUDED
+#define FUNCIONES_USER_H_INCLUDED
+
+
+
+void SalirSistemaUser();
+
+
+
+#endif // FUNCIONES_USER_H_INCLUDED
