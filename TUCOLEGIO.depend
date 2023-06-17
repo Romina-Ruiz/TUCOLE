@@ -366,7 +366,7 @@
 	<conio.h>
 	"MENUS/MENUS.h"
 
-1686791791 c:\users\romina\documents\github\tucolegio\tucole\menus\menus.h
+1687036585 c:\users\romina\documents\github\tucolegio\tucole\menus\menus.h
 
 1675810778 source:c:\users\romina\documents\github\tucolegio\tucole\menus\fecha.cpp
 	"Fecha.h"
@@ -374,7 +374,7 @@
 	<cstring>
 	<iostream>
 
-1686976956 source:c:\users\romina\documents\github\tucolegio\tucole\menus\funciones_admin.cpp
+1687036597 source:c:\users\romina\documents\github\tucolegio\tucole\menus\funciones_admin.cpp
 	<iostream>
 	<iomanip>
 	<string>
@@ -403,11 +403,11 @@
 
 1676089803 c:\users\romina\documents\github\tucolegio\tucole\menus\funciones_front.h
 
-1686716242 c:\users\romina\documents\github\tucolegio\tucole\menus\funciones_user.h
+1686978034 c:\users\romina\documents\github\tucolegio\tucole\menus\funciones_user.h
 
 1686976787 c:\users\romina\documents\github\tucolegio\tucole\menus\funciones_admin.h
 
-1686796443 source:c:\users\romina\documents\github\tucolegio\tucole\menus\funciones_front.cpp
+1687036561 source:c:\users\romina\documents\github\tucolegio\tucole\menus\funciones_front.cpp
 	<iostream>
 	<iomanip>
 	<string>
@@ -416,7 +416,7 @@
 	"Fecha.h"
 	<cstring>
 
-1686796375 source:c:\users\romina\documents\github\tucolegio\tucole\menus\funciones_user.cpp
+1687036561 source:c:\users\romina\documents\github\tucolegio\tucole\menus\funciones_user.cpp
 	<iostream>
 	<iomanip>
 	<string>
@@ -425,7 +425,7 @@
 	"FUNCIONES_FRONT.h"
 	"Fecha.h"
 
-1686865124 source:c:\users\romina\documents\github\tucolegio\tucole\menus\menu_inicio.cpp
+1687036561 source:c:\users\romina\documents\github\tucolegio\tucole\menus\menu_inicio.cpp
 	<iostream>
 	<iomanip>
 	<string>

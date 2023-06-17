@@ -33,3 +33,11 @@ void menuIncio()
       menuAdmin();
     }
 }
+void SalirSistemaUser()
+{
+    rectangulo (2, 2, 100, 20);
+
+    rlutil::setColor(rlutil::YELLOW);
+    mostrar_mensaje ("*****   MUCHAS GRACIAS POR USAR NUESTRO SISTEMA *****", 28, 10);
+    mostrar_mensaje ("By ARIADNA & ROMINA", 68, 20);
+}

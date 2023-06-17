@@ -4,6 +4,6 @@
 void menuIncio();
 void menuAdmin();
 void menuUser(int dni);
-
+void SalirSistemaUser();
 
 #endif // MENUS_H_INCLUDED

@@ -6,7 +6,7 @@ using namespace std;
 
 #include "rlutil.h"
 #include "FUNCIONES_FRONT.h"
-#include "FUNCIONES_USER.h"
+#include"FUNCIONES_USER.h"
 #include "MENUS.h"
 #include "FUNCIONES_ADMIN.h"
 #include "../CLASES-ARCHIVOS/Cuota.h"
@@ -80,12 +80,13 @@ void menuAdmin()
             {
 
             case 0:     ///FACTURACION
-
+            {
                 system("cls");
                 menuFacturacion();
                 system("pause>nul");
                 system("cls");
-                break;
+            }
+            break;
 
             case 1:     ///PAGOS
 
@@ -161,12 +162,12 @@ void menuAdmin()
                 break;
 
             case 11:     ///SALIR
+             {
                 system("cls");
-                rectangulo (2, 2, 100, 26);
-                rlutil::setColor(rlutil::YELLOW);
-                mostrar_mensaje ("*** ¿ESTAS SEGURO DE SALIR?***", 40, 5);
+               SalirSistemaUser();
                 system("pause>nul");
                 system("cls");
+            }
                 break;
 
 
@@ -215,7 +216,7 @@ void menuPagos()
 {
     system("cls");
 
-    const char *opciones[] = {"CARGAR PAGO","MODIFICAR PAGO","SALIR"};
+    const char *opciones[] = {"CARGAR PAGO","MODIFICAR PAGO","VOLVER AL MENU PRINCIPAL"};
     int op=1, y=0;
 
     rlutil::hidecursor();
@@ -279,10 +280,12 @@ void menuPagos()
                 break;
 
             case 2:     ///SALIR
-
-                /// MENU SALIR O VOLVER
-
-                break;
+            {
+                system("cls");
+                menuAdmin();
+                system("cls");
+            }
+            break;
             }
         }
     }
@@ -297,7 +300,7 @@ void menuCargarAlumnos()
 {
     system("cls");
 
-    const char *opciones[] = {"CARGAR ALUMNO","MODIFICAR DATOS","SALIR"};
+    const char *opciones[] = {"CARGAR ALUMNO","MODIFICAR DATOS","VOLVER AL MENU PRINCIPAL"};
     int op=1, y=0;
 
     rlutil::hidecursor();
@@ -362,9 +365,12 @@ void menuCargarAlumnos()
 
             case 2:     ///SALIR
 
-                /// MENU SALIR O VOLVER
-
-                break;
+            {
+                system("cls");
+                menuAdmin();
+                system("cls");
+            }
+            break;
             }
         }
     }
@@ -380,7 +386,7 @@ void menuCargarProfesor()
 {
     system("cls");
 
-    const char *opciones[] = {"CARGAR PROFESOR","MODIFICAR DATOS","SALIR"};
+    const char *opciones[] = {"CARGAR PROFESOR","MODIFICAR DATOS","VOLVER AL MENU PRINCIPAL"};
     int op=1, y=0;
 
     rlutil::hidecursor();
@@ -444,10 +450,12 @@ void menuCargarProfesor()
                 break;
 
             case 2:     ///SALIR
-
-                /// MENU SALIR O VOLVER
-
-                break;
+            {
+                system("cls");
+                menuAdmin();
+                system("cls");
+            }
+            break;
             }
         }
     }
@@ -461,7 +469,7 @@ void menuCargarAdmin()
 {
     system("cls");
 
-    const char *opciones[] = {"CARGAR ADMINISTRADOR","MODIFICAR DATOS","SALIR"};
+    const char *opciones[] = {"CARGAR ADMINISTRADOR","MODIFICAR DATOS","VOLVER AL MENU PRINCIPAL"};
     int op=1, y=0;
 
     rlutil::hidecursor();
@@ -526,9 +534,12 @@ void menuCargarAdmin()
 
             case 2:     ///SALIR
 
-                /// MENU SALIR O VOLVER
-
-                break;
+            {
+                system("cls");
+                menuAdmin();
+                system("cls");
+            }
+            break;
             }
         }
     }
@@ -542,7 +553,7 @@ void menuCargarMateria()
 {
     system("cls");
 
-    const char *opciones[] = {"CARGAR MATERIA","MODIFICAR DATOS","SALIR"};
+    const char *opciones[] = {"CARGAR MATERIA","MODIFICAR DATOS","VOLVER AL MENU PRINCIPAL"};
     int op=1, y=0;
 
     rlutil::hidecursor();
@@ -606,10 +617,12 @@ void menuCargarMateria()
                 break;
 
             case 2:     ///SALIR
-
-                /// MENU SALIR O VOLVER
-
-                break;
+            {
+                system("cls");
+                menuAdmin();
+                system("cls");
+            }
+            break;
             }
         }
     }
@@ -622,7 +635,7 @@ void menuCargarNotas()
 {
     system("cls");
 
-    const char *opciones[] = {"CARGAR NOTAS","MODIFICAR DATOS","SALIR"};
+    const char *opciones[] = {"CARGAR NOTAS","MODIFICAR DATOS","VOLVER AL MENU PRINCIPAL"};
     int op=1, y=0;
 
     rlutil::hidecursor();
@@ -686,10 +699,12 @@ void menuCargarNotas()
                 break;
 
             case 2:     ///SALIR
-
-                /// MENU SALIR O VOLVER
-
-                break;
+            {
+                system("cls");
+                menuAdmin();
+                system("cls");
+            }
+            break;
             }
         }
     }
@@ -699,11 +714,12 @@ void menuCargarNotas()
 
 }
 
-void menuAusencias(){
+void menuAusencias()
+{
 
-  system("cls");
+    system("cls");
 
-    const char *opciones[] = {"CARGAR AUSENCIAS","MODIFICAR AUSENCIAS","SALIR"};
+    const char *opciones[] = {"CARGAR AUSENCIAS","MODIFICAR AUSENCIAS","VOLVER AL MENU PRINCIPAL"};
     int op=1, y=0;
 
     rlutil::hidecursor();
@@ -767,10 +783,12 @@ void menuAusencias(){
                 break;
 
             case 2:     ///SALIR
-
-                /// MENU SALIR O VOLVER
-
-                break;
+            {
+                system("cls");
+                menuAdmin();
+                system("cls");
+            }
+            break;
             }
         }
     }
@@ -780,11 +798,12 @@ void menuAusencias(){
 
 
 }
-void menuComunicados(){
+void menuComunicados()
+{
 
-system("cls");
+    system("cls");
 
-    const char *opciones[] = {"CARGAR COMUNICADOS","MODIFICAR COMUNICADOS","SALIR"};
+    const char *opciones[] = {"CARGAR COMUNICADOS","MODIFICAR COMUNICADOS","VOLVER AL MENU PRINCIPAL"};
     int op=1, y=0;
 
     rlutil::hidecursor();
@@ -848,10 +867,12 @@ system("cls");
                 break;
 
             case 2:     ///SALIR
-
-                /// MENU SALIR O VOLVER
-
-                break;
+            {
+                system("cls");
+                menuAdmin();
+                system("cls");
+            }
+            break;
             }
         }
     }
@@ -867,7 +888,7 @@ void menuInformes()
     system("cls");
 
     const char *opciones[] = {"PAGOS POR FECHA", "PAGOS POR ALUMNOS","AUSENCIAS POR FECHAS",
-                              "AUSENCIAS POR ALUMNOS","NOTAS POR ALUMNOS","ALUMNOS POR MATERIA","SALIR"
+                              "AUSENCIAS POR ALUMNOS","NOTAS POR ALUMNOS","ALUMNOS POR MATERIA","VOLVER AL MENU PRINCIPAL"
                              };
     int op=1, y=0;
 
@@ -950,9 +971,13 @@ void menuInformes()
 
                 break;
             case 6:     ///
+            {
+                system("cls");
+                menuAdmin();
+                system("cls");
+            }
 
-
-                break;
+            break;
             }
         }
     }
@@ -961,10 +986,11 @@ void menuInformes()
     system("pause");
 
 }
-void menuRespaldos(){
+void menuRespaldos()
+{
     system("cls");
 
-    const char *opciones[] = {"REALIZAR BACKUP","RESTAURAR BACKUP","SALIR"};
+    const char *opciones[] = {"REALIZAR BACKUP","RESTAURAR BACKUP","VOLVER AL MENU PRINCIPAL"};
     int op=1, y=0;
 
     rlutil::hidecursor();
@@ -1024,10 +1050,12 @@ void menuRespaldos(){
                 break;
 
             case 2:     ///SALIR
-
-                /// MENU SALIR O VOLVER
-
-                break;
+            {
+                system("cls");
+                menuAdmin();
+                system("cls");
+            }
+            break;
             }
         }
     }
