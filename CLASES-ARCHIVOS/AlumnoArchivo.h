@@ -13,6 +13,7 @@ class AlumnoArchivo
     bool modificar(Alumno registro, int nroRegistro);
     int getCantidad();
     int buscar(int dni);
+    bool guardar(Alumno reg, int posicionAReemplazar);
 
 };
 

@@ -9,7 +9,7 @@ class FaltaArchivo
    // void cargarFaltas(Falta alumno);
     void guardar(Falta falta);
     int cantidadFaltas();
-    bool agregar (Falta dto);
+//    bool agregar (Falta dto);
     bool modificar (Falta);
     bool eliminar (Falta dto);
     int obtenerTamanio();

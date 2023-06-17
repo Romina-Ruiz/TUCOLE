@@ -12,6 +12,10 @@ using namespace std;
 #include "../CLASES-ARCHIVOS/Cuota.h"
 #include "../CLASES-ARCHIVOS/Alumno.h"
 #include"../CLASES-ARCHIVOS/Persona.h"
+#include "../CLASES-ARCHIVOS/AlumnoManager.h"
+#include "ProfesorManager.h"
+
+ AlumnoManager reg;
 
 void menuAdmin()
 {
@@ -354,6 +358,9 @@ void menuCargarAlumnos()
 
                 ///LLAMAR A LA FUNCION CARGAR
 
+                reg.Cargar();
+
+
                 break;
 
             case 1:     /// MODIFICAR DATOS
@@ -439,6 +446,8 @@ void menuCargarProfesor()
 
 
                 ///LLAMAR A LA FUNCION CARGAR
+                ProfesorManager profe;
+                profe.Cargar();
 
                 break;
 

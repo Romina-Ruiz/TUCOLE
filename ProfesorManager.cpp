@@ -1,16 +1,15 @@
 #include <iostream>
-#include "AlumnoManager.h"
-#include "Alumno.h"
-#include "AlumnoArchivo.h"
+#include "ProfesorManager.h"
+
 using namespace std;
 
 
 
-void AlumnoManager::Cargar()
+void ProfesorManager::Cargar()
 {
 
 	int id;
-	int Curso;
+	char materiaAcargo[30];
 	bool Estado;
 
 //	cout << "Ingrese el ID: ";
@@ -22,8 +21,8 @@ void AlumnoManager::Cargar()
 //        return;
 //    }
     id = GenerarId();
-    cout << "ID alumno #" << id << endl;
-    cout<<"Ingrese el numero de curso"<<endl;
+    cout << "ID Profesor #" << id << endl;
+    cout<<"Ingrese el nombre de la materia a cargo"<<endl;
     cin>>Curso;
     cout<<"Estado"<<endl;
     cin>>Estado;

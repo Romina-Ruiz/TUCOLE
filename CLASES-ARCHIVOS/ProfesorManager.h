@@ -1,24 +1,25 @@
-#ifndef ALUMNOMANAGER_H
-#define ALUMNOMANAGER_H
-#include "Alumno.h"
-#include "AlumnoArchivo.h"
+#ifndef PROFESORMANAGER_H
+#define PROFESORMANAGER_H
+#include "Profesor.h"
+#include "ProfesorArchivo.h"
 
-class AlumnoManager {
+class ProfesorManager{
+
 public:
 	void Cargar();
 	void ListarTodos();
 	void ListarXId();
 	void Editar();
 	void Eliminar();
-	void Listar(Alumno alumno);
+	void Listar(Profesor profe);
 //	void HacerCopiaDeSeguridad();
 //	void RestaurarCopiaDeSeguridad();
 
 private:
-	AlumnoArchivo _archivo;
+	ProfesorArchivo _archivo;
 //	AlumnoArchivo _archivoBkp = AlumnoArchivo("alumno.bkp");
 	bool ExisteId(int id);
 	int GenerarId();
 };
 
-#endif // ALUMNOMANAGER_H
+#endif // PROFESORMANAGER_H

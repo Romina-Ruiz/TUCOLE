@@ -6,27 +6,27 @@
 const char *RUTA_PROFESOR = "Profesor.dat";
 
 
-bool ProfesorArchivo::eliminar(Profesor dto)
-{
-    Profesor aux;
-    bool eliminar = false;
-    FILE *p;
-    p = fopen(RUTA_PROFESOR,"rb+");
-    if (p!=NULL)
-    {
-        while(fread(&dto, sizeof (Profesor),1,p))
-        {
-            if(dto.getDni()==aux.getDni())
-            {
-                fseek(p,sizeof dto*(dto.getId()-1),SEEK_SET);
-                fwrite(&dto, sizeof (Profesor),1,p);
-                fclose (p);
-                eliminar = true;
-            }
-        }
-    }
-    return eliminar;
-}
+//bool ProfesorArchivo::eliminar(Profesor dto)
+//{
+//    Profesor aux;
+//    bool eliminar = false;
+//    FILE *p;
+//    p = fopen(RUTA_PROFESOR,"rb+");
+//    if (p!=NULL)
+//    {
+//        while(fread(&dto, sizeof (Profesor),1,p))
+//        {
+//            if(dto.getDni()==aux.getDni())
+//            {
+//                fseek(p,sizeof dto*(dto.getId()-1),SEEK_SET);
+//                fwrite(&dto, sizeof (Profesor),1,p);
+//                fclose (p);
+//                eliminar = true;
+//            }
+//        }
+//    }
+//    return eliminar;
+//}
 
 Profesor ProfesorArchivo::leer(int nroRegistro)
 {
@@ -109,3 +109,17 @@ int ProfesorArchivo::buscar(int dni){
   return nroRegistro;
 }
 
+bool ProfesorArchivo::guardar(Profesor reg, int posicionAReemplazar)
+{
+    FILE *p = fopen(RUTA_PROFESOR,"rb+");
+
+    if (p == NULL)
+    {
+        return false;
+    }
+
+    fseek(p, posicionAReemplazar * sizeof(Profesor), SEEK_SET);
+    bool pudoEscribir = fwrite(&reg, sizeof(Profesor), 1, p);
+    fclose(p);
+    return pudoEscribir;
+}

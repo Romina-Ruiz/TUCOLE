@@ -62,20 +62,20 @@ int FaltaArchivo::cantidadFaltas()
 
 
 
-bool FaltaArchivo::agregar (Falta dto)
-{
-    bool agregar = false;
-    FILE *p;
-    p = fopen(RUTA_FALTA,"ab");
-
-    if (p!=NULL)
-    {
-        fwrite(&dto, sizeof (Falta),1,p);
-        fclose (p);
-        agregar = true;
-    }
-    return agregar;
-}
+//bool FaltaArchivo::agregar (Falta dto)
+//{
+//    bool agregar = false;
+//    FILE *p;
+//    p = fopen(RUTA_FALTA,"ab");
+//
+//    if (p!=NULL)
+//    {
+//        fwrite(&dto, sizeof (Falta),1,p);
+//        fclose (p);
+//        agregar = true;
+//    }
+//    return agregar;
+//}
 
 bool FaltaArchivo:: modificar(Falta dto)
 {

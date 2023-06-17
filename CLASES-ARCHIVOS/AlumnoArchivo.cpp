@@ -109,3 +109,17 @@ int AlumnoArchivo::buscar(int dni){
   return nroRegistro;
 }
 
+bool AlumnoArchivo::guardar(Alumno reg, int posicionAReemplazar)
+{
+    FILE *p = fopen(RUTA_ALUMNO,"rb+");
+
+    if (p == NULL)
+    {
+        return false;
+    }
+
+    fseek(p, posicionAReemplazar * sizeof(Alumno), SEEK_SET);
+    bool pudoEscribir = fwrite(&reg, sizeof(Alumno), 1, p);
+    fclose(p);
+    return pudoEscribir;
+}

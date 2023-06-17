@@ -13,6 +13,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
+					<Add directory="CLASES-ARCHIVOS" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -22,6 +23,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-O2" />
+					<Add directory="CLASES-ARCHIVOS" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -64,6 +66,8 @@
 		<Unit filename="CLASES-ARCHIVOS/Profesor.h" />
 		<Unit filename="CLASES-ARCHIVOS/ProfesorArchivo.cpp" />
 		<Unit filename="CLASES-ARCHIVOS/ProfesorArchivo.h" />
+		<Unit filename="CLASES-ARCHIVOS/ProfesorManager.cpp" />
+		<Unit filename="CLASES-ARCHIVOS/ProfesorManager.h" />
 		<Unit filename="MENUS/FUNCIONES_ADMIN.cpp" />
 		<Unit filename="MENUS/FUNCIONES_ADMIN.h" />
 		<Unit filename="MENUS/FUNCIONES_FRONT.cpp" />

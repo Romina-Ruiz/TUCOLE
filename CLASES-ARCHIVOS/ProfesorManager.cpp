@@ -1,17 +1,17 @@
 #include <iostream>
-#include "AlumnoManager.h"
-#include "Alumno.h"
-#include "AlumnoArchivo.h"
+#include "ProfesorManager.h"
+#include "Profesor.h"
+#include "ProfesorArchivo.h"
 using namespace std;
 
 
 
-void AlumnoManager::Cargar()
+void ProfesorManager::Cargar()
 {
 
-	int id;
-	int Curso;
-	bool Estado;
+	int idProfesor;
+	int idMateria;
+	bool Activo;
 
 //	cout << "Ingrese el ID: ";
 //	cin >> id;
@@ -21,17 +21,17 @@ void AlumnoManager::Cargar()
 //        cout << "ID repetido" << endl;
 //        return;
 //    }
-    id = GenerarId();
-    cout << "ID alumno #" << id << endl;
-    cout<<"Ingrese el numero de curso"<<endl;
-    cin>>Curso;
-    cout<<"Estado"<<endl;
-    cin>>Estado;
+    idProfesor = GenerarId();
+    idMateria= GenerarId();
+    cout << "ID Profesor #" << idProfesor << endl;
+    cout<<"ID materia a cargo # "<<idMateria<<endl;
+    cout<<"Activo"<<endl;
+    cin>>Activo;
 
-	Alumno aux;
-	aux.setId(id);
-	aux.setCurso(Curso);
-	aux.setActivo(Estado);
+	Profesor aux;
+	aux.setidprofesor(idProfesor);
+	aux.setIdMateria(idMateria);
+	aux.setActivo(Activo);
 
 	if (_archivo.agregar(aux))
 	{
@@ -43,13 +43,13 @@ void AlumnoManager::Cargar()
 	}
 }
 
-void AlumnoManager::ListarTodos()
+void ProfesorManager::ListarTodos()
 {
 	int cantidadRegistros = _archivo.getCantidad();
 
 	for (int i = 0; i<cantidadRegistros; i++)
 	{
-		Alumno reg = _archivo.leer(i);
+		Profesor reg = _archivo.leer(i);
         if (reg.getActivo()==true)
         {
             Listar(reg);
@@ -61,35 +61,36 @@ void AlumnoManager::ListarTodos()
 
 
 
-void AlumnoManager::ListarXId()
+void ProfesorManager::ListarXId()
 {
-	int id;
+	int idProfesor;
 
 	cout << "Ingrese el ID: ";
-	cin >> id;
+	cin >> idProfesor;
 
-	int posicion = _archivo.buscar(id);
+	int posicion = _archivo.buscar(idProfesor);
 	if (posicion >= 0)
 	{
-		Alumno reg = _archivo.leer(posicion);
+		Profesor reg = _archivo.leer(posicion);
 		Listar(reg);
 	}
 	else
 	{
-		cout << "No existe el registro con ID #" << id << endl;
+		cout << "No existe el registro con ID #" << idProfesor << endl;
 	}
 }
 
-void AlumnoManager::Listar(Alumno alumno)
+void ProfesorManager::Listar(Profesor profesor)
 {
-	cout << "ID          : " << alumno.getId() << endl;
-	cout << "Curso : " << alumno.getCurso() << endl;
-	cout << "Activo      : " << alumno.getActivo() << endl;
+	cout << "ID PROFE          : " << profesor.getidProfesor() << endl;
+	cout << "ID Materia : " << profesor.getIdMateria() << endl;
+	cout << "Activo      : " << profesor.getActivo() << endl;
 }
 
-void AlumnoManager::Editar()
+
+void ProfesorManager::Editar()
 {
-	Alumno reg;
+	Profesor reg;
 	int id, posicion;
 	cout << "ID a buscar: ";
 	cin >> id;
@@ -114,7 +115,7 @@ void AlumnoManager::Editar()
 	}
 }
 
-void AlumnoManager::Eliminar()
+void ProfesorManager::Eliminar()
 {
     /*
     pedir el id
@@ -122,7 +123,7 @@ void AlumnoManager::Eliminar()
     cambiar el estado
     guardarlo
     */
-	Alumno reg;
+	Profesor reg;
 	int id, posicion;
 	cout << "ID a buscar: ";
 	cin >> id;
@@ -146,7 +147,7 @@ void AlumnoManager::Eliminar()
 
 
 
-bool AlumnoManager::ExisteId(int id)
+bool ProfesorManager::ExisteId(int id)
 {
     return _archivo.buscar(id) >= 0;
     /*
@@ -161,7 +162,7 @@ bool AlumnoManager::ExisteId(int id)
     */
 }
 
-int AlumnoManager::GenerarId()
+int ProfesorManager::GenerarId()
 {
     return _archivo.getCantidad() + 1;
     /*
@@ -171,7 +172,7 @@ int AlumnoManager::GenerarId()
     */
 }
 
-//void AlumnoManager::HacerCopiaDeSeguridad(){
+//void ProfesorManager::HacerCopiaDeSeguridad(){
 //	/*
 //		ArchivoDAT = Archivo donde trabajan las acciones del menú (Cargar, Listar, Editar)
 //		ArchivoBKP = Archivo de respaldo
@@ -201,7 +202,7 @@ int AlumnoManager::GenerarId()
 //	delete []vec;
 //}
 
-//void AlumnoManager::RestaurarCopiaDeSeguridad(){
+//void ProfesorManager::RestaurarCopiaDeSeguridad(){
 //	/*
 //	ArchivoDAT = Archivo donde trabajan las acciones del menú (Cargar, Listar, Editar)
 //	ArchivoBKP = Archivo de respaldo

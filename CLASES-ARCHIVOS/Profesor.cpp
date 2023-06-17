@@ -3,36 +3,31 @@
 
 #include "Profesor.h"
 
-void Profesor::setId(int id)
+void Profesor::setidprofesor(int id)
 {
-    _id = id;
+    _id_profesor = id;
+}
+void Profesor::setIdMateria(int id)
+{
+    _id_materia = id;
 }
 
-void Profesor::setMateriaAcargo(char *materia)
+void Profesor::setActivo(bool activo)
 {
-    strcpy(_materia_a_cargo,materia);
+    _activo = activo;
 }
 
-
-void Profesor::setEstado(bool estado)
+int Profesor::getidProfesor()
 {
-    _estado = estado;
+    return _id_profesor;
+}
+int Profesor::getIdMateria()
+{
+    return _id_materia;
 }
 
-
-int Profesor::getId()
+bool Profesor::getActivo()
 {
-    return _id;
-}
-
-
-char* Profesor::getMateriaAcargo()
-{
-    return _materia_a_cargo;
-}
-
-bool Profesor::getEstado()
-{
-    return _estado;
+    return _activo;
 }
 
