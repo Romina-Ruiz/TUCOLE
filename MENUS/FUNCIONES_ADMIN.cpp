@@ -16,7 +16,7 @@ using namespace std;
 void menuAdmin()
 {
     const char *opciones[] = {"FACTURACION","PAGOS", "CARGAR ALUMNOS", "CARGAR PROFESORES","CARGAR ADMINISTRADORES",
-                              "CARGAR MATERIAS", "CARGAR AUSENCIAS", "CARGAR COMUNICADS","INFORMES","RESPALDOS","SALIR"
+                              "CARGAR MATERIAS", "CARGAR NOTAS","CARGAR AUSENCIAS", "CARGAR COMUNICADOS","INFORMES","RESPALDOS","SALIR"
                              };
 
     int op=1, y=0;
@@ -44,6 +44,7 @@ void menuAdmin()
         showItem (opciones[8],30,18,y==8);
         showItem (opciones[9],30,19,y==9);
         showItem (opciones[10],30,20,y==10);
+        showItem (opciones[11],30,21,y==11);
 
 
         rlutil::locate(26,10+y);
@@ -67,9 +68,9 @@ void menuAdmin()
             cout <<"   " <<endl;
             y++;
 
-            if (y>10)
+            if (y>11)
             {
-                y=10;
+                y=11;
             }
             break;
 
@@ -110,7 +111,7 @@ void menuAdmin()
                 break;
 
             case 4:    ///CARGAR ADMINISTRADORES
-               system("cls");
+                system("cls");
                 menuCargarAdmin();
                 system("pause>nul");
                 system("cls");
@@ -126,32 +127,40 @@ void menuAdmin()
                 break;
 
             case 6:     ///CARGAR NOTAS
-                 system("cls");
+                system("cls");
                 menuCargarNotas();
                 system("pause>nul");
                 system("cls");
 
                 break;
-            case 7:     /// CARGAR COMUNICADO
+            case 7:     ///CARGAR AUSENCIAS
                 system("cls");
-
+                menuAusencias();
                 system("pause>nul");
                 system("cls");
                 break;
 
-            case 8:     ///INFORMES
-                 system("cls");
-
+            case 8:     /// CARGAR COMUNICADO
+                system("cls");
+                menuComunicados();
                 system("pause>nul");
                 system("cls");
                 break;
-                 case 9:     ///RESPALDOS
-                  system("cls");
-
+            case 9:     /// INFORMES
+                system("cls");
+                menuInformes();
                 system("pause>nul");
                 system("cls");
                 break;
-                 case 10:     ///SALIR
+
+            case 10:     /// RESPALDOS
+                system("cls");
+                menuRespaldos();
+                system("pause>nul");
+                system("cls");
+                break;
+
+            case 11:     ///SALIR
                 system("cls");
                 rectangulo (2, 2, 100, 26);
                 rlutil::setColor(rlutil::YELLOW);
@@ -159,6 +168,7 @@ void menuAdmin()
                 system("pause>nul");
                 system("cls");
                 break;
+
 
             }
 
@@ -179,6 +189,8 @@ void menuFacturacion()
     rlutil::setColor(rlutil::YELLOW);
     mostrar_mensaje ("*****  FACTURACION  ***** ", 34, 4);
 
+
+    /*
     rlutil::  locate (25,9);
     cout<<"INGRESE DNI DEL ALUMNO: ";
     rlutil::  locate (50,9);
@@ -195,32 +207,89 @@ void menuFacturacion()
     cout<<"NUMERO DE COMPROBANTE GENERADO: ";
     rlutil::  locate (60,12);
     ///ACA COLOCAR LA FUNCION DE COMPROBANTE AUTOMATICO
-///CARTEL DE CONFIRMACION Y VOLVER AL MENU ANTERIOR
-
+    ///CARTEL DE CONFIRMACION Y VOLVER AL MENU ANTERIOR
+    */
 }
 
 void menuPagos()
 {
     system("cls");
 
-    rectangulo (2, 2, 100, 26);
-    rlutil::setColor(rlutil::YELLOW);
-    mostrar_mensaje ("*****  PAGOS  ***** ", 34, 4);
+    const char *opciones[] = {"CARGAR PAGO","MODIFICAR PAGO","SALIR"};
+    int op=1, y=0;
 
-    rlutil::  locate (25,9);
-    cout<<"INGRESE DNI DEL ALUMNO: ";
-    rlutil::  locate (50,9);
-    /// cin>>_dni;
-    rlutil::  locate (25,10);
-    cout<<"INGRESE FECHA DEL PAGO: ";
-    rlutil::  locate (58,10);
-    ///cin>>_dia;  /// aca chequear como se ingresa la fecha
-    rlutil::  locate (25,11);
-    cout<<"INGRESE EL IMPORTE ABONADO: ";
-    rlutil::  locate (32,11);
-    ///cin>>_monto;
+    rlutil::hidecursor();
 
-    ///CARTEL DE CONFIRMACION Y VOLVER AL MENU ANTERIOR
+    do
+    {
+
+        rectangulo (2, 2, 100, 26);
+        rlutil::setColor(rlutil::YELLOW);
+        mostrar_mensaje ("***** CARGA DE PAGOS ***** ", 34, 4);
+
+        showItem (opciones[0],30,10,y==0);
+        showItem (opciones[1],30,11,y==1);
+        showItem (opciones[2],30,12,y==2);
+
+
+        rlutil::locate(26,10+y);
+        cout <<"==> " <<endl;
+
+        switch(rlutil::getkey())
+        {
+        case 14: //UP
+            rlutil::locate(26,10+y);
+            cout <<"   " <<endl;
+            y--;
+
+            if (y<0)
+            {
+                y=0;
+            }
+            break;
+
+        case 15: //DOWN
+            rlutil::locate(26,10+y);
+            cout <<"   " <<endl;
+            y++;
+
+            if (y>2)
+            {
+                y=2;
+            }
+            break;
+
+        case 1:     /// OPCIONES AL INGRESAR ENTER (EL ENTER ES LA TECLA 1):
+
+            switch(y)
+            {
+
+            case 0:     ///CARGAR PAGOS
+
+
+                ///LLAMAR A LA FUNCION CARGAR
+
+                break;
+
+            case 1:     /// MODIFICAR DATOS
+
+
+                ///LLAMAR A LA FUNCION MODIFICAR
+
+                break;
+
+            case 2:     ///SALIR
+
+                /// MENU SALIR O VOLVER
+
+                break;
+            }
+        }
+    }
+    while(op!=0);
+
+    system("pause");
+
 
 }
 
@@ -228,128 +297,244 @@ void menuCargarAlumnos()
 {
     system("cls");
 
-    rectangulo (2, 2, 100, 26);
-    rlutil::setColor(rlutil::YELLOW);
-    mostrar_mensaje ("***** CARGA DE ALUMNO ***** ", 34, 4);
+    const char *opciones[] = {"CARGAR ALUMNO","MODIFICAR DATOS","SALIR"};
+    int op=1, y=0;
 
-    rlutil::  locate (25,9);
-    cout<<"INGRESE DNI: ";
-    rlutil::  locate (50,9);
-    /// cin>>_dni;
-    rlutil::  locate (25,10);
-    cout<<"INGRESE NOMBRE ";
-    rlutil::  locate (58,10);
-    ///cin>>_nombre;
-    rlutil::  locate (25,11);
-    cout<<"INGRESE APELLIDO: ";
-    rlutil::  locate (32,11);
-    ///cin>>_apellido;
-    rlutil::  locate (25,12);
-    cout<<"INGRESE EMAIL: ";
-    rlutil::  locate (32,12);
-    ///cin>>_email;
-    rlutil::  locate (25,13);
-    cout<<"INGRESE TELEFONO: ";
-    rlutil::  locate (32,13);
-    ///cin>>_telefono;
-    rlutil::  locate (25,14);
-    cout<<"ID ALUMNO: ";
-    rlutil::  locate (32,14);
-    ///FUNCION AUTOMATICA DEL ALUMNO
-    rlutil::  locate (25,15);
-    cout<<"ACTIVO : ";
-    rlutil::  locate (32,15);
-    ///PONER EN ACTIVO EN AUTOMATICO
+    rlutil::hidecursor();
 
-    ///CARTEL DE CONFIRMACION Y VOLVER AL MENU ANTERIOR
+    do
+    {
 
+        rectangulo (2, 2, 100, 26);
+        rlutil::setColor(rlutil::YELLOW);
+        mostrar_mensaje ("***** CARGA DE ALUMNO ***** ", 34, 4);
+
+        showItem (opciones[0],30,10,y==0);
+        showItem (opciones[1],30,11,y==1);
+        showItem (opciones[2],30,12,y==2);
+
+
+        rlutil::locate(26,10+y);
+        cout <<"==> " <<endl;
+
+        switch(rlutil::getkey())
+        {
+        case 14: //UP
+            rlutil::locate(26,10+y);
+            cout <<"   " <<endl;
+            y--;
+
+            if (y<0)
+            {
+                y=0;
+            }
+            break;
+
+        case 15: //DOWN
+            rlutil::locate(26,10+y);
+            cout <<"   " <<endl;
+            y++;
+
+            if (y>2)
+            {
+                y=2;
+            }
+            break;
+
+        case 1:     /// OPCIONES AL INGRESAR ENTER (EL ENTER ES LA TECLA 1):
+
+            switch(y)
+            {
+
+            case 0:     ///CARGAR ALUMNO
+
+
+                ///LLAMAR A LA FUNCION CARGAR
+
+                break;
+
+            case 1:     /// MODIFICAR DATOS
+
+
+                ///LLAMAR A LA FUNCION MODIFICAR
+
+                break;
+
+            case 2:     ///SALIR
+
+                /// MENU SALIR O VOLVER
+
+                break;
+            }
+        }
+    }
+    while(op!=0);
+
+    system("pause");
 }
+/// EN LA PANTALLA DE CARGAR
+///PONER EN ACTIVO EN AUTOMATICO
+///CARTEL DE CONFIRMACION Y VOLVER AL MENU ANTERIOR
 
 void menuCargarProfesor()
 {
     system("cls");
 
-    rectangulo (2, 2, 100, 26);
-    rlutil::setColor(rlutil::YELLOW);
-    mostrar_mensaje ("***** CARGA DE PROFESOR ***** ", 34, 4);
+    const char *opciones[] = {"CARGAR PROFESOR","MODIFICAR DATOS","SALIR"};
+    int op=1, y=0;
 
-    rlutil::  locate (25,9);
-    cout<<"INGRESE DNI: ";
-    rlutil::  locate (50,9);
-    /// cin>>_dni;
-    rlutil::  locate (25,10);
-    cout<<"INGRESE NOMBRE ";
-    rlutil::  locate (58,10);
-    ///cin>>_nombre;
-    rlutil::  locate (25,11);
-    cout<<"INGRESE APELLIDO: ";
-    rlutil::  locate (32,11);
-    ///cin>>_apellido;
-    rlutil::  locate (25,12);
-    cout<<"INGRESE EMAIL: ";
-    rlutil::  locate (32,12);
-    ///cin>>_email;
-    rlutil::  locate (25,13);
-    cout<<"INGRESE TELEFONO: ";
-    rlutil::  locate (32,13);
-    ///cin>>_telefono;
-    rlutil::  locate (25,14);
-    cout<<"ID PROFESOR: ";
-    rlutil::  locate (32,14);
-    ///FUNCION AUTOMATICA DEL ALUMNO
-    rlutil::  locate (25,15);
-    cout<<"MATERIA A CARGO (id) : ";
-    rlutil::  locate (32,15);
-     ///cin>>_idMateria;
-    rlutil::  locate (25,16);
-    cout<<"ACTIVO : ";
-    rlutil::  locate (32,16);
-    ///PONER EN ACTIVO EN AUTOMATICO
+    rlutil::hidecursor();
+
+    do
+    {
+
+        rectangulo (2, 2, 100, 26);
+        rlutil::setColor(rlutil::YELLOW);
+        mostrar_mensaje ("***** CARGA DE PROFESOR ***** ", 34, 4);
+
+        showItem (opciones[0],30,10,y==0);
+        showItem (opciones[1],30,11,y==1);
+        showItem (opciones[2],30,12,y==2);
 
 
-    ///CARTEL DE CONFIRMACION Y VOLVER AL MENU ANTERIOR
+        rlutil::locate(26,10+y);
+        cout <<"==> " <<endl;
+
+        switch(rlutil::getkey())
+        {
+        case 14: //UP
+            rlutil::locate(26,10+y);
+            cout <<"   " <<endl;
+            y--;
+
+            if (y<0)
+            {
+                y=0;
+            }
+            break;
+
+        case 15: //DOWN
+            rlutil::locate(26,10+y);
+            cout <<"   " <<endl;
+            y++;
+
+            if (y>2)
+            {
+                y=2;
+            }
+            break;
+
+        case 1:     /// OPCIONES AL INGRESAR ENTER (EL ENTER ES LA TECLA 1):
+
+            switch(y)
+            {
+
+            case 0:     ///CARGAR PROFESOR
+
+
+                ///LLAMAR A LA FUNCION CARGAR
+
+                break;
+
+            case 1:     /// MODIFICAR DATOS
+
+
+                ///LLAMAR A LA FUNCION MODIFICAR
+
+                break;
+
+            case 2:     ///SALIR
+
+                /// MENU SALIR O VOLVER
+
+                break;
+            }
+        }
+    }
+    while(op!=0);
+
+    system("pause");
 
 }
+
 void menuCargarAdmin()
 {
     system("cls");
 
-    rectangulo (2, 2, 100, 26);
-    rlutil::setColor(rlutil::YELLOW);
-    mostrar_mensaje ("***** CARGA DE PROFESOR ***** ", 34, 4);
+    const char *opciones[] = {"CARGAR ADMINISTRADOR","MODIFICAR DATOS","SALIR"};
+    int op=1, y=0;
 
-    rlutil::  locate (25,9);
-    cout<<"INGRESE DNI: ";
-    rlutil::  locate (50,9);
-    /// cin>>_dni;
-    rlutil::  locate (25,10);
-    cout<<"INGRESE NOMBRE ";
-    rlutil::  locate (58,10);
-    ///cin>>_nombre;
-    rlutil::  locate (25,11);
-    cout<<"INGRESE APELLIDO: ";
-    rlutil::  locate (32,11);
-    ///cin>>_apellido;
-    rlutil::  locate (25,12);
-    cout<<"INGRESE EMAIL: ";
-    rlutil::  locate (32,12);
-    ///cin>>_email;
-    rlutil::  locate (25,13);
-    cout<<"INGRESE TELEFONO: ";
-    rlutil::  locate (32,13);
-    ///cin>>_telefono;
-    rlutil::  locate (25,14);
-    cout<<"ID ADMINISTRADOR: ";
-    rlutil::  locate (32,14);
-    ///FUNCION AUTOMATICA DEL ADMINISTRADOR
-    rlutil::  locate (25,15);
-    cout<<"ACTIVO : ";
-    rlutil::  locate (32,15);
-    ///PONER EN ACTIVO EN AUTOMATICO
+    rlutil::hidecursor();
+
+    do
+    {
+
+        rectangulo (2, 2, 100, 26);
+        rlutil::setColor(rlutil::YELLOW);
+        mostrar_mensaje ("***** CARGA DE ADMINISTRADOR ***** ", 34, 4);
+
+        showItem (opciones[0],30,10,y==0);
+        showItem (opciones[1],30,11,y==1);
+        showItem (opciones[2],30,12,y==2);
 
 
-    ///CARTEL DE CONFIRMACION Y VOLVER AL MENU ANTERIOR
+        rlutil::locate(26,10+y);
+        cout <<"==> " <<endl;
 
+        switch(rlutil::getkey())
+        {
+        case 14: //UP
+            rlutil::locate(26,10+y);
+            cout <<"   " <<endl;
+            y--;
+
+            if (y<0)
+            {
+                y=0;
+            }
+            break;
+
+        case 15: //DOWN
+            rlutil::locate(26,10+y);
+            cout <<"   " <<endl;
+            y++;
+
+            if (y>2)
+            {
+                y=2;
+            }
+            break;
+
+        case 1:     /// OPCIONES AL INGRESAR ENTER (EL ENTER ES LA TECLA 1):
+
+            switch(y)
+            {
+
+            case 0:     ///CARGAR ADMINISTRADOR
+
+
+                ///LLAMAR A LA FUNCION CARGAR
+
+                break;
+
+            case 1:     /// MODIFICAR DATOS
+
+
+                ///LLAMAR A LA FUNCION MODIFICAR
+
+                break;
+
+            case 2:     ///SALIR
+
+                /// MENU SALIR O VOLVER
+
+                break;
+            }
+        }
+    }
+    while(op!=0);
+
+    system("pause");
 }
 
 
@@ -357,72 +542,497 @@ void menuCargarMateria()
 {
     system("cls");
 
-    rectangulo (2, 2, 100, 26);
-    rlutil::setColor(rlutil::YELLOW);
-    mostrar_mensaje ("***** CARGA DE MATERIA ***** ", 34, 4);
+    const char *opciones[] = {"CARGAR MATERIA","MODIFICAR DATOS","SALIR"};
+    int op=1, y=0;
 
-    rlutil::  locate (25,9);
-    cout<<"INGRESE NOMBRE DE LA MATERIA: ";
-    rlutil::  locate (50,9);
-    /// cin>>_materia;
-    rlutil::  locate (25,10);
-    cout<<"ID MATERIA: ";
-    rlutil::  locate (32,10);
-    ///FUNCION AUTOMATICA DEL MATERIA
-    rlutil::  locate (25,11);
-    cout<<"AÑO DE CURSO ";
-    rlutil::  locate (58,11);
-    ///cin>>_aniocurso;
-    rlutil::  locate (25,12);
-    cout<<"INGRESE DNI ALUMNO: ";  ///MODIFICAR ESTO EN LA CLASE MATERIA
-    rlutil::  locate (32,12);
-    ///cin>>_dni;
-    rlutil::  locate (25,13);
-    cout<<"INGRESE ID PROFESOR: "; ///MODIFICAR ESTO EN LA CLASE MATERIA
-    rlutil::  locate (32,13);
-    ///cin>>_email;
-    rlutil::  locate (25,14);
-    cout<<"INGRESE HORARIO DE CURSADA: "; ///MODIFICAR ESTO EN LA CLASE MATERIA
-    rlutil::  locate (32,14);
-    ///cin>>_telefono;
-     rlutil::  locate (32,15);
-    cout<<"ACTIVO : ";
-    rlutil::  locate (40,15);
-    ///PONER EN ACTIVO EN AUTOMATICO
+    rlutil::hidecursor();
 
-    ///CARTEL DE CONFIRMACION Y VOLVER AL MENU ANTERIOR
+    do
+    {
+
+        rectangulo (2, 2, 100, 26);
+        rlutil::setColor(rlutil::YELLOW);
+        mostrar_mensaje ("***** CARGA DE MATERIAS ***** ", 34, 4);
+
+        showItem (opciones[0],30,10,y==0);
+        showItem (opciones[1],30,11,y==1);
+        showItem (opciones[2],30,12,y==2);
+
+
+        rlutil::locate(26,10+y);
+        cout <<"==> " <<endl;
+
+        switch(rlutil::getkey())
+        {
+        case 14: //UP
+            rlutil::locate(26,10+y);
+            cout <<"   " <<endl;
+            y--;
+
+            if (y<0)
+            {
+                y=0;
+            }
+            break;
+
+        case 15: //DOWN
+            rlutil::locate(26,10+y);
+            cout <<"   " <<endl;
+            y++;
+
+            if (y>2)
+            {
+                y=2;
+            }
+            break;
+
+        case 1:     /// OPCIONES AL INGRESAR ENTER (EL ENTER ES LA TECLA 1):
+
+            switch(y)
+            {
+
+            case 0:     ///CARGAR MATERIAS
+
+
+                ///LLAMAR A LA FUNCION CARGAR
+
+                break;
+
+            case 1:     /// MODIFICAR DATOS
+
+
+                ///LLAMAR A LA FUNCION MODIFICAR
+
+                break;
+
+            case 2:     ///SALIR
+
+                /// MENU SALIR O VOLVER
+
+                break;
+            }
+        }
+    }
+    while(op!=0);
+
+    system("pause");
 
 }
 void menuCargarNotas()
 {
     system("cls");
 
-    rectangulo (2, 2, 100, 26);
-    rlutil::setColor(rlutil::YELLOW);
-    mostrar_mensaje ("***** CARGA DE NOTAS ***** ", 34, 4);
+    const char *opciones[] = {"CARGAR NOTAS","MODIFICAR DATOS","SALIR"};
+    int op=1, y=0;
 
-    rlutil::  locate (25,9);
-    cout<<"INGRESE ID DE LA MATERIA: ";
-    rlutil::  locate (50,9);
-    /// cin>>_materia;
-    rlutil::  locate (25,10);
-    cout<<"INGRESE DNI DEL ALUMNO: ";
-    rlutil::  locate (32,10);
-    /// cin>>_dni;
-    rlutil::  locate (25,11);
-    cout<<"INGRESE ID DEL PROFESOR ";
-    rlutil::  locate (58,11);
-    ///cin>>_aniocurso;
-    rlutil::  locate (25,12);
-    cout<<"INGRESE NOTA DEL EXAMEN: ";
-    rlutil::  locate (32,12);
-    ///cin>>_dni;
-    rlutil::  locate (25,13);
-    cout<<"INGRESE TIPO DE NOTA: ";
-    rlutil::  locate (32,13);
-    ///cin>>_email;
+    rlutil::hidecursor();
+
+    do
+    {
+
+        rectangulo (2, 2, 100, 26);
+        rlutil::setColor(rlutil::YELLOW);
+        mostrar_mensaje ("***** CARGA DE NOTAS ***** ", 34, 4);
+
+        showItem (opciones[0],30,10,y==0);
+        showItem (opciones[1],30,11,y==1);
+        showItem (opciones[2],30,12,y==2);
 
 
-    ///CARTEL DE CONFIRMACION Y VOLVER AL MENU ANTERIOR
+        rlutil::locate(26,10+y);
+        cout <<"==> " <<endl;
+
+        switch(rlutil::getkey())
+        {
+        case 14: //UP
+            rlutil::locate(26,10+y);
+            cout <<"   " <<endl;
+            y--;
+
+            if (y<0)
+            {
+                y=0;
+            }
+            break;
+
+        case 15: //DOWN
+            rlutil::locate(26,10+y);
+            cout <<"   " <<endl;
+            y++;
+
+            if (y>2)
+            {
+                y=2;
+            }
+            break;
+
+        case 1:     /// OPCIONES AL INGRESAR ENTER (EL ENTER ES LA TECLA 1):
+
+            switch(y)
+            {
+
+            case 0:     ///CARGAR NOTAS
+
+
+                ///LLAMAR A LA FUNCION CARGAR
+
+                break;
+
+            case 1:     /// MODIFICAR DATOS
+
+
+                ///LLAMAR A LA FUNCION MODIFICAR
+
+                break;
+
+            case 2:     ///SALIR
+
+                /// MENU SALIR O VOLVER
+
+                break;
+            }
+        }
+    }
+    while(op!=0);
+
+    system("pause");
+
+}
+
+void menuAusencias(){
+
+  system("cls");
+
+    const char *opciones[] = {"CARGAR AUSENCIAS","MODIFICAR AUSENCIAS","SALIR"};
+    int op=1, y=0;
+
+    rlutil::hidecursor();
+
+    do
+    {
+
+        rectangulo (2, 2, 100, 26);
+        rlutil::setColor(rlutil::YELLOW);
+        mostrar_mensaje ("***** CARGA DE AUSENCIAS ***** ", 34, 4);
+
+        showItem (opciones[0],30,10,y==0);
+        showItem (opciones[1],30,11,y==1);
+        showItem (opciones[2],30,12,y==2);
+
+
+        rlutil::locate(26,10+y);
+        cout <<"==> " <<endl;
+
+        switch(rlutil::getkey())
+        {
+        case 14: //UP
+            rlutil::locate(26,10+y);
+            cout <<"   " <<endl;
+            y--;
+
+            if (y<0)
+            {
+                y=0;
+            }
+            break;
+
+        case 15: //DOWN
+            rlutil::locate(26,10+y);
+            cout <<"   " <<endl;
+            y++;
+
+            if (y>2)
+            {
+                y=2;
+            }
+            break;
+
+        case 1:     /// OPCIONES AL INGRESAR ENTER (EL ENTER ES LA TECLA 1):
+
+            switch(y)
+            {
+
+            case 0:     ///CARGAR AUSENCIAS
+
+
+                ///LLAMAR A LA FUNCION CARGAR
+
+                break;
+
+            case 1:     /// MODIFICAR AUSENCIAS
+
+
+                ///LLAMAR A LA FUNCION MODIFICAR
+
+                break;
+
+            case 2:     ///SALIR
+
+                /// MENU SALIR O VOLVER
+
+                break;
+            }
+        }
+    }
+    while(op!=0);
+
+    system("pause");
+
+
+}
+void menuComunicados(){
+
+system("cls");
+
+    const char *opciones[] = {"CARGAR COMUNICADOS","MODIFICAR COMUNICADOS","SALIR"};
+    int op=1, y=0;
+
+    rlutil::hidecursor();
+
+    do
+    {
+
+        rectangulo (2, 2, 100, 26);
+        rlutil::setColor(rlutil::YELLOW);
+        mostrar_mensaje ("***** CARGAR DE COMUNICADOS ***** ", 34, 4);
+
+        showItem (opciones[0],30,10,y==0);
+        showItem (opciones[1],30,11,y==1);
+        showItem (opciones[2],30,12,y==2);
+
+
+        rlutil::locate(26,10+y);
+        cout <<"==> " <<endl;
+
+        switch(rlutil::getkey())
+        {
+        case 14: //UP
+            rlutil::locate(26,10+y);
+            cout <<"   " <<endl;
+            y--;
+
+            if (y<0)
+            {
+                y=0;
+            }
+            break;
+
+        case 15: //DOWN
+            rlutil::locate(26,10+y);
+            cout <<"   " <<endl;
+            y++;
+
+            if (y>2)
+            {
+                y=2;
+            }
+            break;
+
+        case 1:     /// OPCIONES AL INGRESAR ENTER (EL ENTER ES LA TECLA 1):
+
+            switch(y)
+            {
+
+            case 0:     ///CARGAR DE COMUNICADOS
+
+
+                ///LLAMAR A LA FUNCION CARGAR
+
+                break;
+
+            case 1:     /// MODIFICAR COMUNICADO
+
+
+                ///LLAMAR A LA FUNCION MODIFICAR
+
+                break;
+
+            case 2:     ///SALIR
+
+                /// MENU SALIR O VOLVER
+
+                break;
+            }
+        }
+    }
+    while(op!=0);
+
+    system("pause");
+
+}
+
+
+void menuInformes()
+{
+    system("cls");
+
+    const char *opciones[] = {"PAGOS POR FECHA", "PAGOS POR ALUMNOS","AUSENCIAS POR FECHAS",
+                              "AUSENCIAS POR ALUMNOS","NOTAS POR ALUMNOS","ALUMNOS POR MATERIA","SALIR"
+                             };
+    int op=1, y=0;
+
+    rlutil::hidecursor();
+
+    do
+    {
+
+        rectangulo (2, 2, 100, 26);
+        rlutil::setColor(rlutil::YELLOW);
+        mostrar_mensaje ("***** INFORMES ***** ", 34, 4);
+
+        showItem (opciones[0],30,10,y==0);
+        showItem (opciones[1],30,11,y==1);
+        showItem (opciones[2],30,12,y==2);
+        showItem (opciones[3],30,13,y==3);
+        showItem (opciones[4],30,14,y==4);
+        showItem (opciones[5],30,15,y==5);
+        showItem (opciones[6],30,16,y==6);
+
+        rlutil::locate(26,10+y);
+        cout <<"==> " <<endl;
+
+        switch(rlutil::getkey())
+        {
+        case 14: //UP
+            rlutil::locate(26,10+y);
+            cout <<"   " <<endl;
+            y--;
+
+            if (y<0)
+            {
+                y=0;
+            }
+            break;
+
+        case 15: //DOWN
+            rlutil::locate(26,10+y);
+            cout <<"   " <<endl;
+            y++;
+
+            if (y>6)
+            {
+                y=6;
+            }
+            break;
+
+        case 1:     /// OPCIONES AL INGRESAR ENTER (EL ENTER ES LA TECLA 1):
+
+            switch(y)
+            {
+
+            case 0:     ///
+
+
+
+
+                break;
+
+            case 1:     ///
+
+
+
+                break;
+
+            case 2:     ///
+
+
+                break;
+            case 3:     ///
+
+
+                break;
+            case 4:     ///
+
+
+                break;
+            case 5:     ///
+
+
+                break;
+            case 6:     ///
+
+
+                break;
+            }
+        }
+    }
+    while(op!=0);
+
+    system("pause");
+
+}
+void menuRespaldos(){
+    system("cls");
+
+    const char *opciones[] = {"REALIZAR BACKUP","RESTAURAR BACKUP","SALIR"};
+    int op=1, y=0;
+
+    rlutil::hidecursor();
+
+    do
+    {
+
+        rectangulo (2, 2, 100, 26);
+        rlutil::setColor(rlutil::YELLOW);
+        mostrar_mensaje ("***** RESPALDOS ***** ", 34, 4);
+
+        showItem (opciones[0],30,10,y==0);
+        showItem (opciones[1],30,11,y==1);
+        showItem (opciones[2],30,12,y==2);
+
+
+        rlutil::locate(26,10+y);
+        cout <<"==> " <<endl;
+
+        switch(rlutil::getkey())
+        {
+        case 14: //UP
+            rlutil::locate(26,10+y);
+            cout <<"   " <<endl;
+            y--;
+
+            if (y<0)
+            {
+                y=0;
+            }
+            break;
+
+        case 15: //DOWN
+            rlutil::locate(26,10+y);
+            cout <<"   " <<endl;
+            y++;
+
+            if (y>2)
+            {
+                y=2;
+            }
+            break;
+
+        case 1:     /// OPCIONES AL INGRESAR ENTER (EL ENTER ES LA TECLA 1):
+
+            switch(y)
+            {
+
+            case 0:     ///
+
+
+                break;
+
+            case 1:     ///
+
+
+                break;
+
+            case 2:     ///SALIR
+
+                /// MENU SALIR O VOLVER
+
+                break;
+            }
+        }
+    }
+    while(op!=0);
+
+    system("pause");
 
 }

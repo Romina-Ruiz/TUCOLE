@@ -9,5 +9,11 @@ void menuCargarProfesor();
 void menuCargarAdmin();
 void menuCargarMateria();
 void menuCargarNotas();
+void menuAusencias();
+void menuComunicados();
+void menuInformes();
+void menuRespaldos();
+
+
 
 #endif // FUNCIONES_ADMIN_H_INCLUDED
