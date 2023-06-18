@@ -4,7 +4,83 @@
 const char *RUTA_ALUMNO = "Alumno.dat";
 
 
-bool AlumnoArchivo::eliminar(Alumno dto)
+
+bool AlumnoArchivo::agregar(Alumno registro)
+{
+    bool ok = false;
+    FILE* pFile = fopen(RUTA_ALUMNO, "ab");
+    if (pFile != NULL)
+    {
+        fwrite(&registro, sizeof(Alumno), 1, pFile);
+        fclose(pFile);
+        ok = true;
+    }
+    return ok;
+}
+
+int AlumnoArchivo::getCantidad(){
+
+int cantidad=0;
+  FILE* pFile = fopen(RUTA_ALUMNO, "rb");
+
+    if (pFile == NULL){
+        return 0;
+  }
+    fseek(pFile, 0, SEEK_END);
+    cantidad = ftell(pFile) / sizeof(Alumno);
+    fclose(pFile);
+  return cantidad;
+}
+
+Alumno AlumnoArchivo::leerReg(int nroRegistro)
+{
+    Alumno registro;
+    FILE* pFile = fopen(RUTA_ALUMNO, "rb");
+
+    if (pFile == NULL){
+        return registro;
+       }
+
+        fseek(pFile, nroRegistro * sizeof(Alumno), SEEK_SET);
+        fread(&registro, sizeof(Alumno), 1, pFile);
+        fclose(pFile);
+
+    return registro;
+}
+///revisar
+bool AlumnoArchivo::leerTodos(Alumno registros[], int cantidad)
+{
+    bool ok = false;
+    FILE* pFile = fopen(RUTA_ALUMNO, "rb");
+   if (pFile == NULL){
+        return 0;
+       }
+        fread(registros, sizeof(Alumno), cantidad, pFile);
+        fclose(pFile);
+        ok = true;
+
+    return ok;
+}
+
+
+bool AlumnoArchivo::modificarReg(Alumno registro, int nroRegistro)
+{
+    bool ok = false;
+    FILE* pFile = fopen(RUTA_ALUMNO, "rb+");
+
+   if (pFile == NULL){
+        return false;
+       }
+        fseek(pFile, nroRegistro * sizeof(Alumno), SEEK_SET);
+        fwrite(&registro, sizeof(Alumno), 1, pFile);
+        fclose(pFile);
+        ok = true;
+
+    return ok;
+}
+
+///ESTE  PARA QUE LO USARIAMOS? DEBERIAMOS CAMBIAR DE ESTA A FALSE.  SI NO HAY QUE MODIFICAR TODO EL REGISTRO
+bool AlumnoArchivo::eliminarReg(Alumno dto)
 {
     Alumno aux;
     bool eliminar = false;
@@ -26,80 +102,14 @@ bool AlumnoArchivo::eliminar(Alumno dto)
     return eliminar;
 }
 
-/**/
 
-Alumno AlumnoArchivo::leer(int nroRegistro)
-{
-    Alumno registro;
-    FILE* pFile = fopen(RUTA_ALUMNO, "rb");
-    if (pFile != NULL)
-    {
-        fseek(pFile, nroRegistro * sizeof(Alumno), SEEK_SET);
-        fread(&registro, sizeof(Alumno), 1, pFile);
-        fclose(pFile);
-    }
-    return registro;
-}
-
-bool AlumnoArchivo::leerTodos(Alumno registros[], int cantidad)
-{
-    bool ok = false;
-    FILE* pFile = fopen(RUTA_ALUMNO, "rb");
-    if (pFile != NULL)
-    {
-        fread(registros, sizeof(Alumno), cantidad, pFile);
-        fclose(pFile);
-        ok = true;
-    }
-    return ok;
-}
-
-bool AlumnoArchivo::agregar(Alumno registro)
-{
-    bool ok = false;
-    FILE* pFile = fopen(RUTA_ALUMNO, "ab");
-    if (pFile != NULL)
-    {
-        fwrite(&registro, sizeof(Alumno), 1, pFile);
-        fclose(pFile);
-        ok = true;
-    }
-    return ok;
-}
-
-bool AlumnoArchivo::modificar(Alumno registro, int nroRegistro)
-{
-    bool ok = false;
-    FILE* pFile = fopen(RUTA_ALUMNO, "rb+");
-    if (pFile != NULL)
-    {
-        fseek(pFile, nroRegistro * sizeof(Alumno), SEEK_SET);
-        fwrite(&registro, sizeof(Alumno), 1, pFile);
-        fclose(pFile);
-        ok = true;
-    }
-    return ok;
-}
-
-int AlumnoArchivo::getCantidad(){
-  int cantidad = 0;
-  FILE* pFile = fopen(RUTA_ALUMNO, "rb");
-  if (pFile != NULL)
-  {
-    fseek(pFile, 0, SEEK_END);
-    cantidad = ftell(pFile) / sizeof(Persona);
-    fclose(pFile);
-  }
-  return cantidad;
-}
-
-int AlumnoArchivo::buscar(int dni){
+int AlumnoArchivo::buscarReg(int dni){
   int nroRegistro = -1;
   int cantidad = getCantidad();
   Alumno registro;
   for (int i = 0; i < cantidad; i++)
   {
-    registro = leer(i);
+    registro =this->leerReg(i);
     if (registro.getDni() == dni)
     {
       nroRegistro = i;
@@ -109,17 +119,4 @@ int AlumnoArchivo::buscar(int dni){
   return nroRegistro;
 }
 
-bool AlumnoArchivo::guardar(Alumno reg, int posicionAReemplazar)
-{
-    FILE *p = fopen(RUTA_ALUMNO,"rb+");
 
-    if (p == NULL)
-    {
-        return false;
-    }
-
-    fseek(p, posicionAReemplazar * sizeof(Alumno), SEEK_SET);
-    bool pudoEscribir = fwrite(&reg, sizeof(Alumno), 1, p);
-    fclose(p);
-    return pudoEscribir;
-}

@@ -5,7 +5,7 @@
 class Persona
 {
    protected:
-    int _dni;
+   // int _dni;
     char _nombre[50];
     char _apellido[50];
     char _email[50];
@@ -14,13 +14,14 @@ class Persona
 public:
     Persona();
 
-    void setDni(int dni);
+    //void setDni(int dni);
     void setNombre(char *nombre);
     void setApellido(char *apellido);
     void setEmail(char *email);
     void setTelefono(int telefono);
+    void cargar();
 
-    int getDni();
+    //int getDni();
     char * getNombre();
     char * getApellido();
     char * getEmail();

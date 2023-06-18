@@ -67,16 +67,20 @@ int Persona::getTelefono()
     return _telefono;
 }
 
-/*
-void PersonaDTO::Copy(PersonaDTO persona)
-{
-    dni=persona.dni;
-    strcpy(nombre,persona.nombre);
-    strcpy(apellido,persona.apellido);
-    strcpy(email,persona.email);
-    strcpy(domicilio,persona.domicilio);
-    telefono=persona.telefono;
-}*/
+void Persona::cargar(){
+
+    cout << "DNI          : " << endl;
+    cin>>dni;
+    cout<<"NOMBRE   : "<<endl;
+    cin>>nombre;
+    cout<<"APELLIDO : "<<endl;
+    cin>>apellido;
+    cout<<"EMAIL       : "<<endl;
+    cin>>email;
+    cout<<"TELEFONO: "<<endl;
+    cin>>telefono;
+
+}
 
 
 

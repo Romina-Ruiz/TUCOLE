@@ -38,8 +38,6 @@
 		<Unit filename="CLASES-ARCHIVOS/Alumno.h" />
 		<Unit filename="CLASES-ARCHIVOS/AlumnoArchivo.cpp" />
 		<Unit filename="CLASES-ARCHIVOS/AlumnoArchivo.h" />
-		<Unit filename="CLASES-ARCHIVOS/AlumnoManager.cpp" />
-		<Unit filename="CLASES-ARCHIVOS/AlumnoManager.h" />
 		<Unit filename="CLASES-ARCHIVOS/Cuota.cpp" />
 		<Unit filename="CLASES-ARCHIVOS/Cuota.h" />
 		<Unit filename="CLASES-ARCHIVOS/CuotaArchivo.cpp" />
@@ -66,8 +64,11 @@
 		<Unit filename="CLASES-ARCHIVOS/Profesor.h" />
 		<Unit filename="CLASES-ARCHIVOS/ProfesorArchivo.cpp" />
 		<Unit filename="CLASES-ARCHIVOS/ProfesorArchivo.h" />
-		<Unit filename="CLASES-ARCHIVOS/ProfesorManager.cpp" />
 		<Unit filename="CLASES-ARCHIVOS/ProfesorManager.h" />
+		<Unit filename="MANAGER/AlumnoManager.cpp" />
+		<Unit filename="MANAGER/AlumnoManager.h" />
+		<Unit filename="MANAGER/ProfesorManager.cpp" />
+		<Unit filename="MANAGER/ProfesorManager.h" />
 		<Unit filename="MENUS/FUNCIONES_ADMIN.cpp" />
 		<Unit filename="MENUS/FUNCIONES_ADMIN.h" />
 		<Unit filename="MENUS/FUNCIONES_FRONT.cpp" />

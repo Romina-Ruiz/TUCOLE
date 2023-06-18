@@ -6,17 +6,18 @@
 class Alumno : public Persona
 {
 private:
+    int _dni;
     int _id;
-    int _curso;
     bool _activo;
 
 public:
+   void setDni(int dni);
     void setId(int id);
-    void setCurso(int curso);
     void setActivo(bool estado);
+    void cargar();
 
+    int getDni();
     int getId();
-    int getCurso();
     bool getActivo();
 
 

@@ -1,19 +1,26 @@
 #ifndef ALUMNOARCHIVO_H
 #define ALUMNOARCHIVO_H
 #include <cstdio>
+#include<cstring>
 #include "Alumno.h"
 
 class AlumnoArchivo
 {
+private:
+    char nombre[30];
+
    public:
-    bool eliminar (Alumno);
-    Alumno leer(int nroRegistro);
-    bool leerTodos(Alumno registros[], int cantidad);
+    AlumnoArchivo (const char *n){
+    strcpy(nombre,n); }
+
     bool agregar(Alumno registro);
-    bool modificar(Alumno registro, int nroRegistro);
     int getCantidad();
-    int buscar(int dni);
-    bool guardar(Alumno reg, int posicionAReemplazar);
+    Alumno leerReg(int nroRegistro);
+    bool leerTodos(Alumno registros[], int cantidad);
+    bool modificarReg(Alumno registro, int nroRegistro);
+    bool eliminarReg (Alumno); /// REVISAR ESTE
+    int buscarReg(int dni);
+
 
 };
 

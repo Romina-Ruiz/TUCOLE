@@ -88,7 +88,7 @@ bool PersonaArchivo::agregar (Persona dto)
     }
     return agregar;
 }
-
+/*
 bool PersonaArchivo::modificar(Persona dto)
 {
     Persona aux;
@@ -109,7 +109,7 @@ bool PersonaArchivo::modificar(Persona dto)
         }
     }
     return modificar;
-}
+}*/
 
 int PersonaArchivo::obtenerTamanio()
 {
@@ -140,7 +140,7 @@ Persona PersonaArchivo::buscarRegistro(int a,int b)
     }
     return dto;
 }
-
+/*
 Persona PersonaArchivo::obtenerPorDNI (int DNI)
 {
     bool encontro=false;
@@ -205,4 +205,4 @@ bool PersonaArchivo::eliminar(Persona dto)
     }
     return eliminar;
 }
-
+*/
