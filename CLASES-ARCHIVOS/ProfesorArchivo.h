@@ -7,9 +7,9 @@
 
 class ProfesorArchivo
 {
+
      public:
 
-//    bool eliminar (Profesor );
     Profesor leer(int nroRegistro);
     bool leerTodos(Profesor registros[], int cantidad);
     bool agregar(Profesor registro);

@@ -1,9 +1,8 @@
 #include "AlumnoArchivo.h"
 #include "Alumno.h"
 #include <cstdio>
+
 const char *RUTA_ALUMNO = "Alumno.dat";
-
-
 
 bool AlumnoArchivo::agregar(Alumno registro)
 {
@@ -34,18 +33,18 @@ int cantidad=0;
 
 Alumno AlumnoArchivo::leerReg(int nroRegistro)
 {
-    Alumno registro;
+  Alumno obj;
     FILE* pFile = fopen(RUTA_ALUMNO, "rb");
 
     if (pFile == NULL){
-        return registro;
+        return obj;
        }
 
         fseek(pFile, nroRegistro * sizeof(Alumno), SEEK_SET);
-        fread(&registro, sizeof(Alumno), 1, pFile);
+        fread(&obj, sizeof(Alumno), 1, pFile);
         fclose(pFile);
 
-    return registro;
+    return obj;
 }
 ///revisar
 bool AlumnoArchivo::leerTodos(Alumno registros[], int cantidad)
@@ -62,7 +61,6 @@ bool AlumnoArchivo::leerTodos(Alumno registros[], int cantidad)
     return ok;
 }
 
-
 bool AlumnoArchivo::modificarReg(Alumno registro, int nroRegistro)
 {
     bool ok = false;
@@ -77,29 +75,6 @@ bool AlumnoArchivo::modificarReg(Alumno registro, int nroRegistro)
         ok = true;
 
     return ok;
-}
-
-///ESTE  PARA QUE LO USARIAMOS? DEBERIAMOS CAMBIAR DE ESTA A FALSE.  SI NO HAY QUE MODIFICAR TODO EL REGISTRO
-bool AlumnoArchivo::eliminarReg(Alumno dto)
-{
-    Alumno aux;
-    bool eliminar = false;
-    FILE *p;
-    p = fopen(RUTA_ALUMNO,"rb+");
-    if (p!=NULL)
-    {
-        while(fread(&dto, sizeof (Alumno),1,p))
-        {
-            if(dto.getDni()==aux.getDni())
-            {
-                fseek(p,sizeof dto*(dto.getId()-1),SEEK_SET);
-                fwrite(&dto, sizeof (Alumno),1,p);
-                fclose (p);
-                eliminar = true;
-            }
-        }
-    }
-    return eliminar;
 }
 
 
@@ -118,5 +93,3 @@ int AlumnoArchivo::buscarReg(int dni){
   }
   return nroRegistro;
 }
-
-

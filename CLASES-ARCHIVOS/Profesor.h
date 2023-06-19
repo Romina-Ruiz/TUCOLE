@@ -1,25 +1,25 @@
 #ifndef PROFESOR_H
 #define PROFESOR_H
 #include "Persona.h"
-
+#include"../MENUS/Fecha.h"
 class Profesor : public Persona
 {
-    private:
-        int _id_profesor;
-        int _id_materia;
-      //  char _materia_a_cargo[30];
-        bool _activo;
+private:
+    bool _Estado;
+    int _Legajo;
+    Fecha _Ingreso;
 
-    public:
+public:
 
-    void setidprofesor(int id);
-    void setIdMateria(int idMateria);
-   // void setMateriaAcargo(char *materia);
-    void setActivo(bool activo);
-    int getidProfesor();
-    int getIdMateria();
-    //char *getMateriaAcargo();
-    bool getActivo();
+    void setEstado(bool estado);
+    void setLegajo(int legajo);
+    Fecha setIngreso(Fecha ingreso);
+
+    bool getEstado();
+    int getLegajo();
+    Fecha getIngreso();
+
+   void cargar(int dni);
 
 };
 

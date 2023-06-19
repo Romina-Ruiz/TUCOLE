@@ -2,15 +2,19 @@
 #include "AlumnoManager.h"
 #include "Alumno.h"
 #include "AlumnoArchivo.h"
+#include "Persona.h"
+#include"../MENUS/rlutil.h"
 using namespace std;
 
-const char *RUTA_ALUMNO = "Alumno.dat";
+//const char *RUTA_ALUMNO = "Alumno.dat";
 
 int AlumnoManager::buscarDNI(int dni) {
- AlumnoArchivo ArchAlumno (RUTA_ALUMNO);
+
+ AlumnoArchivo ArchAlumno ("Alumno.dat");
  Alumno obj;
 
- int cantRegArchivo=ArchAlumno.leerTodos();
+ int nroReg=-1;
+ int cantRegArchivo=ArchAlumno.getCantidad();
 
 
   for (int i = 0; i < cantRegArchivo; i++)
@@ -18,43 +22,48 @@ int AlumnoManager::buscarDNI(int dni) {
         obj=ArchAlumno.leerReg(i);
 
                 if (obj.getDni()== dni){
-                       return 1;
+                       nroReg=i;
+                       break;
                     }
                 }
 
-return 0;
-
+return nroReg;
 }
 
-void AlumnoManager::Cargar()
+int AlumnoManager::Cargar()
 {
-        Alumno obj;
-        AlumnoArchivo Archivo (RUTA_ALUMNO);
-        cout <<"INGRESE DNI: "<<endl;
-        cin >>dni <<endl;
-        int ok=this->buscarDNI(dni);
+ Alumno obj;
+AlumnoArchivo Archivo ("Alumno.dat");
+int dni, nroReg;
 
-        if (ok==0){
-        cout "EL ALUMNO YA FUE INGRESADO" <<endl;
-        }
+ bool agrego = false;
 
-       obj.cargar();
+    rlutil::  locate (20,8);
+    cout<<"DNI: ";
+    rlutil::  locate (25,8);
+    cin>>dni;
 
-       int id = this->GenerarId();
-      cout "EL ID DEL ALUMNO ES: " << id <<endl;
-      obj.setId(id);
-       obj.setActivo(true);
+  nroReg = this->buscarDNI(dni);
 
-	if (Archivo.agregar(obj))
+    if (nroReg!=-1)
+    {
+        rlutil::  locate (20,10);
+        cout<<"EL DNI YA EXISTE!";
+        system("pause>null");
+        return -1;
+    }
+    obj.cargar(dni);
+
+	if (Archivo.agregar(obj)==true)
 	{
-		cout << "Alumno guardada correctamente" << endl;
-	}
+		cout << "Alumno guardado correctamente" << endl;
+		}
 	else
 	{
 		cout << "Ups! Algo salio mal :(" << endl;
 	}
 }
-
+/*
 int AlumnoManager::GenerarId()
 {
 

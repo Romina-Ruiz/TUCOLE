@@ -1,25 +1,30 @@
 #ifndef ALUMNO_H
 #define ALUMNO_H
 #include "Persona.h"
-
+#include"../MENUS/Fecha.h"
 
 class Alumno : public Persona
 {
 private:
-    int _dni;
-    int _id;
-    bool _activo;
+    bool _Estado;
+    int _Legajo;
+    int _AnioCurso;
+    Fecha _Ingreso;
+
 
 public:
-   void setDni(int dni);
-    void setId(int id);
-    void setActivo(bool estado);
-    void cargar();
 
-    int getDni();
-    int getId();
-    bool getActivo();
+   void setEstado(bool estado);
+   void setLegajo(int legajo);
+   void setAnioCurso(int anio);
+   Fecha setIngreso(Fecha ingreso);
 
+    bool getEstado();
+    int getLegajo();
+    int getAnioCurso();
+    Fecha getIngreso();
+
+   void cargar(int dni);
 
 };
 #endif // ALUMNO_H

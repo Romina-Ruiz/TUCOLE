@@ -1,33 +1,46 @@
 #include <iostream>
 #include <cstring>
-
+#include "Persona.h"
 #include "Profesor.h"
 
-void Profesor::setidprofesor(int id)
+using namespace std;
+void Profesor::setEstado(bool estado)
 {
-    _id_profesor = id;
-}
-void Profesor::setIdMateria(int id)
-{
-    _id_materia = id;
+    _Estado = estado;
 }
 
-void Profesor::setActivo(bool activo)
+void Profesor::setLegajo(int legajo)
 {
-    _activo = activo;
+    _Legajo = legajo;
 }
 
-int Profesor::getidProfesor()
+Fecha Profesor::setIngreso(Fecha ingreso)
 {
-    return _id_profesor;
-}
-int Profesor::getIdMateria()
-{
-    return _id_materia;
+    _Ingreso=ingreso;
 }
 
-bool Profesor::getActivo()
+bool Profesor::getEstado(){
+
+return _Estado;
+}
+
+int Profesor::getLegajo()
 {
-    return _activo;
+    return _Legajo;
+}
+Fecha Profesor::getIngreso()
+{
+    return _Ingreso;
+}
+
+void Profesor::cargar(int dni)
+{
+    _Estado=true;
+    Persona::cargar(dni);
+    cout <<"LEGAJO: "<<endl;
+    cin >>_Legajo;
+    cout <<"FECHA INGRESO: "<<endl;
+   // cin >>_Ingreso;
+
 }
 

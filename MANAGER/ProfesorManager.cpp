@@ -28,6 +28,7 @@ void ProfesorManager::Cargar()
     cout<<"Activo"<<endl;
     cin>>Activo;
 
+    /*
 	Profesor aux;
 	aux.setidprofesor(idProfesor);
 	aux.setIdMateria(idMateria);
@@ -123,6 +124,7 @@ void ProfesorManager::Eliminar()
     cambiar el estado
     guardarlo
     */
+    /*
 	Profesor reg;
 	int id, posicion;
 	cout << "ID a buscar: ";

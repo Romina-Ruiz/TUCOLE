@@ -92,7 +92,7 @@ int ProfesorArchivo::getCantidad(){
   }
   return cantidad;
 }
-
+/*
 int ProfesorArchivo::buscar(int dni){
   int nroRegistro = -1;
   int cantidad = getCantidad();
@@ -123,3 +123,4 @@ bool ProfesorArchivo::guardar(Profesor reg, int posicionAReemplazar)
     fclose(p);
     return pudoEscribir;
 }
+*/

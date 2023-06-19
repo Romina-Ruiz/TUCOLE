@@ -1,25 +1,9 @@
 #include "Persona.h"
 #include <iostream>
-#include <windows.h>
+#include "cstring"
 
+using namespace std;
 
-
-char vacio[50] {"vacio"};
-
-Persona::Persona()
-{
-    _dni=0;
-    strcpy(vacio,_nombre);
-    strcpy(vacio,_apellido);
-    strcpy(vacio,_email);
-    _telefono=0;
-}
-
-
-void Persona::setDni(int val)
-{
-    _dni = val;
-}
 
 void Persona::setNombre(char *nombre)
 {
@@ -40,11 +24,10 @@ void Persona::setTelefono(int telefono)
 {
     _telefono = telefono;
 }
-
-
-int Persona::getDni()
+void Persona::setDNI (int dni)
 {
-    return _dni;
+
+    _DNI=dni;
 }
 
 char * Persona::getNombre()
@@ -66,19 +49,31 @@ int Persona::getTelefono()
 {
     return _telefono;
 }
+int Persona::getDni()
+{
+    return _DNI;
+}
 
-void Persona::cargar(){
+void Persona::cargar(int dni)
+{
+    if (dni!=0)
+    {
+        _DNI=dni;
+    }
+    else{
+    cout<<"DNI: "<<endl;
+    cin>>_DNI;
+        }
 
-    cout << "DNI          : " << endl;
-    cin>>dni;
-    cout<<"NOMBRE   : "<<endl;
-    cin>>nombre;
-    cout<<"APELLIDO : "<<endl;
-    cin>>apellido;
-    cout<<"EMAIL       : "<<endl;
-    cin>>email;
+    cout<<"NOMBRE: "<<endl;
+    cin>>_nombre;
+    cout<<"APELLIDO: "<<endl;
+    cin>>_apellido;
+    cout<<"EMAIL: "<<endl;
+    cin>>_email;
     cout<<"TELEFONO: "<<endl;
-    cin>>telefono;
+    cin>>_telefono;
+
 
 }
 

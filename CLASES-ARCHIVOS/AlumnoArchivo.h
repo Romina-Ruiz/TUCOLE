@@ -2,7 +2,7 @@
 #define ALUMNOARCHIVO_H
 #include <cstdio>
 #include<cstring>
-#include "Alumno.h"
+#include"Alumno.h"
 
 class AlumnoArchivo
 {
@@ -18,7 +18,6 @@ private:
     Alumno leerReg(int nroRegistro);
     bool leerTodos(Alumno registros[], int cantidad);
     bool modificarReg(Alumno registro, int nroRegistro);
-    bool eliminarReg (Alumno); /// REVISAR ESTE
     int buscarReg(int dni);
 
 

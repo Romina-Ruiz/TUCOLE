@@ -5,27 +5,28 @@
 class Persona
 {
    protected:
-   // int _dni;
     char _nombre[50];
     char _apellido[50];
     char _email[50];
     int _telefono;
+    int _DNI;
 
 public:
-    Persona();
 
-    //void setDni(int dni);
     void setNombre(char *nombre);
     void setApellido(char *apellido);
     void setEmail(char *email);
     void setTelefono(int telefono);
-    void cargar();
+    void setDNI(int dni);
 
-    //int getDni();
+    void cargar(int dni);
+
+
     char * getNombre();
     char * getApellido();
     char * getEmail();
     int getTelefono();
+    int getDni();
 
 
 };
