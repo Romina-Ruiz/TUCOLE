@@ -48,8 +48,6 @@
 		<Unit filename="CLASES-ARCHIVOS/Falta.h" />
 		<Unit filename="CLASES-ARCHIVOS/FaltaArchivo.cpp" />
 		<Unit filename="CLASES-ARCHIVOS/FaltaArchivo.h" />
-		<Unit filename="CLASES-ARCHIVOS/Faltas.cpp" />
-		<Unit filename="CLASES-ARCHIVOS/Faltas.h" />
 		<Unit filename="CLASES-ARCHIVOS/Materia.cpp" />
 		<Unit filename="CLASES-ARCHIVOS/Materia.h" />
 		<Unit filename="CLASES-ARCHIVOS/MateriaArchivo.cpp" />
@@ -66,11 +64,10 @@
 		<Unit filename="CLASES-ARCHIVOS/Profesor.h" />
 		<Unit filename="CLASES-ARCHIVOS/ProfesorArchivo.cpp" />
 		<Unit filename="CLASES-ARCHIVOS/ProfesorArchivo.h" />
-		<Unit filename="CLASES-ARCHIVOS/ProfesorManager.h" />
 		<Unit filename="MANAGER/AlumnoManager.cpp" />
 		<Unit filename="MANAGER/AlumnoManager.h" />
-		<Unit filename="MANAGER/CuotaManager.cpp" />
-		<Unit filename="MANAGER/CuotaManager.h" />
+		<Unit filename="MANAGER/MateriaManager.cpp" />
+		<Unit filename="MANAGER/MateriaManager.h" />
 		<Unit filename="MANAGER/ProfesorManager.cpp" />
 		<Unit filename="MANAGER/ProfesorManager.h" />
 		<Unit filename="MENUS/FUNCIONES_ADMIN.cpp" />
