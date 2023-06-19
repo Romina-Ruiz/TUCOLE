@@ -80,7 +80,7 @@ bool AlumnoArchivo::modificarReg(Alumno registro, int nroRegistro)
 
 int AlumnoArchivo::buscarReg(int dni){
   int nroRegistro = -1;
-  int cantidad = getCantidad();
+  int cantidad = this->getCantidad();
   Alumno registro;
   for (int i = 0; i < cantidad; i++)
   {

@@ -1,8 +1,12 @@
 #include <iostream>
 #include "Alumno.h"
 #include"../MENUS/Fecha.h"
+#include"../MENUS/rlutil.h"
+#include"AlumnoArchivo.h"
 
 using namespace std;
+
+//const char *RUTA_ALUMNO = "Alumno.dat";
 
 
 void Alumno::setEstado(bool estado)
@@ -10,9 +14,9 @@ void Alumno::setEstado(bool estado)
     _Estado = estado;
 }
 
-void Alumno::setLegajo(int legajo)
+void Alumno::setLegajo()
 {
-    _Legajo= legajo;
+       // _Legajo=this->GenerarId();
 }
 
 void Alumno::setAnioCurso(int anio)
@@ -45,12 +49,25 @@ void Alumno::cargar(int dni)
 {
     _Estado=true;
     Persona::cargar(dni);
+    rlutil::locate(20,13);
     cout <<"LEGAJO: "<<endl;
-    cin >>_Legajo;
+    rlutil::locate(29,13);
+   cout <<_Legajo <<endl;
+    rlutil::locate(20,14);
     cout <<"ANIO EN CURSO: "<<endl;
+    rlutil::locate(36,14);
     cin >>_AnioCurso;
+    rlutil::locate(20,15);
     cout <<"FECHA INGRESO: "<<endl;
+    rlutil::locate(37,15);
     //cin >> _Ingreso;
 
+
+}
+
+int GenerarId(){
+
+    AlumnoArchivo Archivo ("Alumno.dat");
+    return Archivo.getCantidad() + 1;
 
 }

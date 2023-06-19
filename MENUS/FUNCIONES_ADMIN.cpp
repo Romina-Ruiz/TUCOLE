@@ -18,8 +18,8 @@ using namespace std;
 
 void menuAdmin()
 {
-    const char *opciones[] = {"FACTURACION","PAGOS", "CARGAR ALUMNOS", "CARGAR PROFESORES","CARGAR ADMINISTRADORES",
-                              "CARGAR MATERIAS", "CARGAR NOTAS","CARGAR AUSENCIAS", "CARGAR COMUNICADOS","INFORMES","RESPALDOS","SALIR"
+    const char *opciones[] = {"FACTURACION","PAGOS", "ALUMNOS", "PROFESORES","CARGAR ADMINISTRADORES",
+                              "MATERIAS", "NOTAS","AUSENCIAS", "COMUNICADOS","INFORMES","RESPALDOS","SALIR"
                              };
 
     int op=1, y=0;
@@ -165,13 +165,13 @@ void menuAdmin()
                 break;
 
             case 11:     ///SALIR
-             {
+            {
                 system("cls");
-               SalirSistemaUser();
+                SalirSistemaUser();
                 system("pause>nul");
                 system("cls");
             }
-                break;
+            break;
 
 
             }
@@ -187,8 +187,9 @@ void menuAdmin()
 
 void menuFacturacion()
 {
+    Cuota obj;
     system("cls");
-
+    obj.Cargar();
     rectangulo (2, 2, 100, 26);
     rlutil::setColor(rlutil::YELLOW);
     mostrar_mensaje ("*****  FACTURACION  ***** ", 34, 4);
@@ -356,16 +357,18 @@ void menuCargarAlumnos()
 
 
                 ///LLAMAR A LA FUNCION CARGAR
-    {
+            {
                 system("cls");
 
                 AlumnoManager obj;
+                rectangulo (2, 2, 100, 26);
+                rlutil::setColor(rlutil::YELLOW);
+                mostrar_mensaje ("***** CARGA DE ALUMNO ***** ", 34, 4);
+                obj.Cargar();
+                system("cls");
+            }
 
-               obj.Cargar();
-               system("cls");
-    }
-
-                break;
+            break;
 
             case 1:     /// MODIFICAR DATOS
 

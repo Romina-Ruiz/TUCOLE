@@ -1,7 +1,8 @@
 #include "Persona.h"
 #include <iostream>
 #include "cstring"
-
+#include"../MENUS/rlutil.h"
+#include"../MENUS/FUNCIONES_FRONT.h"
 using namespace std;
 
 
@@ -56,22 +57,34 @@ int Persona::getDni()
 
 void Persona::cargar(int dni)
 {
+
+
     if (dni!=0)
     {
         _DNI=dni;
     }
-    else{
-    cout<<"DNI: "<<endl;
-    cin>>_DNI;
-        }
-
+    else
+    {
+        rlutil::locate(20,8);
+        cout<<"DNI: "<<endl;
+        rlutil::locate(26,8);
+        cin>>_DNI;
+    }
+    rlutil::locate(20,9);
     cout<<"NOMBRE: "<<endl;
+    rlutil::locate(29,9);
     cin>>_nombre;
+    rlutil::locate(20,10);
     cout<<"APELLIDO: "<<endl;
+    rlutil::locate(31,10);
     cin>>_apellido;
+    rlutil::locate(20,11);
     cout<<"EMAIL: "<<endl;
+    rlutil::locate(28,11);
     cin>>_email;
+    rlutil::locate(20,12);
     cout<<"TELEFONO: "<<endl;
+    rlutil::locate(32,12);
     cin>>_telefono;
 
 

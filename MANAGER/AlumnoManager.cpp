@@ -37,16 +37,16 @@ int dni, nroReg;
 
  bool agrego = false;
 
-    rlutil::  locate (20,8);
+     rlutil::locate(20,8);
     cout<<"DNI: ";
-    rlutil::  locate (25,8);
+    rlutil::  locate (26,8);
     cin>>dni;
 
   nroReg = this->buscarDNI(dni);
 
     if (nroReg!=-1)
     {
-        rlutil::  locate (20,10);
+       rlutil::locate(28,9);
         cout<<"EL DNI YA EXISTE!";
         system("pause>null");
         return -1;
@@ -55,11 +55,15 @@ int dni, nroReg;
 
 	if (Archivo.agregar(obj)==true)
 	{
-		cout << "Alumno guardado correctamente" << endl;
+	     rlutil::locate(28,20);
+		cout << "** Alumno guardado correctamente **" << endl;
+        system("pause>nul");
 		}
 	else
 	{
-		cout << "Ups! Algo salio mal :(" << endl;
+	    rlutil::locate(28,20);
+		cout << "** Ups! Algo salio mal :( **" << endl;
+		system("pause>nul");
 	}
 }
 /*

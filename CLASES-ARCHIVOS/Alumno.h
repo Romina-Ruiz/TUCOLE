@@ -15,9 +15,10 @@ private:
 public:
 
    void setEstado(bool estado);
-   void setLegajo(int legajo);
+   void setLegajo();
    void setAnioCurso(int anio);
    Fecha setIngreso(Fecha ingreso);
+   int GenerarId();
 
     bool getEstado();
     int getLegajo();
