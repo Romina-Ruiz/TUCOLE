@@ -6,7 +6,6 @@
 #include"../MENUS/rlutil.h"
 using namespace std;
 
-//const char *RUTA_ALUMNO = "Alumno.dat";
 
 int AlumnoManager::buscarDNI(int dni) {
 

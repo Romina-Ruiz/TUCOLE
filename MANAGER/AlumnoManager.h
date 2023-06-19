@@ -6,7 +6,6 @@
 class AlumnoManager {
 
 private:
-	//AlumnoArchivo _archivo;
 
 public:
     int buscarDNI(int dni);

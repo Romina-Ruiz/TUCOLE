@@ -674,7 +674,7 @@
 	"Profesor.h"
 	"ProfesorArchivo.h"
 
-1687149671 source:c:\users\romina\documents\github\tucolegio\tucole\manager\alumnomanager.cpp
+1687150508 source:c:\users\romina\documents\github\tucolegio\tucole\manager\alumnomanager.cpp
 	<iostream>
 	"AlumnoManager.h"
 	"Alumno.h"
@@ -682,7 +682,7 @@
 	"Persona.h"
 	"../MENUS/rlutil.h"
 
-1687149595 c:\users\romina\documents\github\tucolegio\tucole\manager\alumnomanager.h
+1687150432 c:\users\romina\documents\github\tucolegio\tucole\manager\alumnomanager.h
 	"Alumno.h"
 	"AlumnoArchivo.h"
 

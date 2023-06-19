@@ -356,9 +356,13 @@ void menuCargarAlumnos()
 
 
                 ///LLAMAR A LA FUNCION CARGAR
-    { AlumnoManager obj;
+    {
+                system("cls");
+
+                AlumnoManager obj;
 
                obj.Cargar();
+               system("cls");
     }
 
                 break;
