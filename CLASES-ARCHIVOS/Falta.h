@@ -6,30 +6,25 @@ class Falta
 {
 private:
     /// UTILIZAR DNI ALUMNO
-    char _nombre_Alumno[30];
-    int _id_alumno;
-    int _anio_Curso;
-    Fecha _fecha_ausencia;
-    int _cantidad_faltas_anuales;
-    int _cantidad_faltas_permitidas;
+    int _DNIalumno;
+    Fecha _fechaAusencia;
+    int _cantFaltasAnuales;
+    int _cantFaltasPermitidas;
 
 
 public:
 
+    void setDNIAlumno(int dni);
+    void setFechaAusencia(Fecha fecha);
+    void setCantFaltasAnuales( int anuales);
+    void setCantFaltasPermitidas(int permitidas);
 
-    void setNombreAlumno(char* nombrealumno);
-    void setidAlumno(int idalumno);
-    void setAnioCurso(int aniocurso);
-    void setFechaAusencia(Fecha fechaausencia);
-    void setCantidadFaltasAnuales( int faltasanuales);
-    void setCantidadFaltasPermitidas(int faltaspermitidas);
-
-    char* getNombreAlumno();
-    int getidAlumno();
-    int getAnioCurso();
+    int getDNIAlumno();
     Fecha getFechaAusencia();
-    int getCantidadFaltasAnuales();
-    int getCantidadFaltasPermitidas();
+    int getCantFaltasAnuales();
+    int getCantFaltasPermitidas();
+
+    void Cargar();
 
     };
 

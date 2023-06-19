@@ -3,17 +3,10 @@
 #include <cstring>
 
 
-void Falta::setNombreAlumno(char *nombrealumno)
+void Falta::setDNIAlumno(int dni)
 {
 
-    strcpy(_nombre_Alumno,nombrealumno);
-
-
-}
-void Falta::setidAlumno(int idalumno)
-{
-
-    _id_alumno = idalumno;
+    _DNIalumno = dni;
 
 }
 void Falta::setAnioCurso(int aniocurso)

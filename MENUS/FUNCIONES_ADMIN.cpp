@@ -187,33 +187,14 @@ void menuAdmin()
 
 void menuFacturacion()
 {
-    Cuota obj;
     system("cls");
-    obj.Cargar();
+    Cuota obj;
     rectangulo (2, 2, 100, 26);
     rlutil::setColor(rlutil::YELLOW);
     mostrar_mensaje ("*****  FACTURACION  ***** ", 34, 4);
+   obj.Cargar();
+    system("cls");
 
-
-    /*
-    rlutil::  locate (25,9);
-    cout<<"INGRESE DNI DEL ALUMNO: ";
-    rlutil::  locate (50,9);
-    /// cin>>_dni;
-    rlutil::  locate (25,10);
-    cout<<"INGRESE FECHA DE LA DEUDA: ";
-    rlutil::  locate (58,10);
-    ///cin>>_dia;  /// aca chequear como se ingresa la fecha
-    rlutil::  locate (25,11);
-    cout<<"INGRESE EL IMPORTE DE LA CUOTA: ";
-    rlutil::  locate (32,11);
-    ///cin>>_monto;
-    rlutil::  locate (25,12);
-    cout<<"NUMERO DE COMPROBANTE GENERADO: ";
-    rlutil::  locate (60,12);
-    ///ACA COLOCAR LA FUNCION DE COMPROBANTE AUTOMATICO
-    ///CARTEL DE CONFIRMACION Y VOLVER AL MENU ANTERIOR
-    */
 }
 
 void menuPagos()
