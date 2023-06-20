@@ -1,9 +1,10 @@
 #include "Cuota.h"
 #include"../MENUS/Fecha.h"
 #include"../MENUS/rlutil.h"
-#include"CuotaArchivo.h"
-#include"CuotaManager.h"
+
+
 using namespace std;
+
 void Cuota::setDNIalumno(int dni){
 
 _DNIalumno=dni;    /// tal vez hay que validar que este el dni en el archivo de alumno?
@@ -11,9 +12,8 @@ _DNIalumno=dni;    /// tal vez hay que validar que este el dni en el archivo de 
 
 void Cuota::settipoDeCuota(int cuota){
 
-    if (cuota >0 && cuota <4){
-       _tipoDeCuota=cuota;
-            }
+    _tipoDeCuota=cuota;
+
 }
 
 void Cuota::setNroFact(int numero){
@@ -35,14 +35,6 @@ void Cuota::setDebe(bool debe){
 
 _debe=true;
 
-if (_debe==true){
-
-    cout <<"NO" <<endl;
-}
-
-             cout <<"SI" <<endl;
-
-
 }
 
 int Cuota::getDNIalumno (){
@@ -52,7 +44,10 @@ int Cuota::getDNIalumno (){
 
 int Cuota::gettipoDeCuota(){
 
-        return _tipoDeCuota;
+
+    if (_tipoDeCuota>=1 && _tipoDeCuota <=3){
+      return _tipoDeCuota;
+                }
 }
 
 int Cuota::getNroFact(){
@@ -73,12 +68,12 @@ bool Cuota::getDebe(){
 
     return _debe;
 }
-void Cuota::Cargar(int dni){
+void Cuota::Cargar(){
 
     rlutil::locate(20,8);
     cout<<"DNI: "<<endl;
     rlutil::locate(26,8);
-    _DNIalumno=dni;
+    cin >> _DNIalumno;
     rlutil::locate(20,9);
     cout <<"CUOTA (1-mesual/ 2- matricula/ 3- extraordinaria): "<<endl;
     rlutil::locate(70,9);

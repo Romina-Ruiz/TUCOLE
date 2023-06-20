@@ -192,7 +192,7 @@ void menuFacturacion()
     rectangulo (2, 2, 100, 26);
     rlutil::setColor(rlutil::YELLOW);
     mostrar_mensaje ("*****  FACTURACION  ***** ", 34, 4);
-   obj.Cargar();
+ obj.Cargar();
     system("cls");
 
 }

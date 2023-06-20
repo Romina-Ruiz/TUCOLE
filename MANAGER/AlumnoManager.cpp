@@ -9,16 +9,15 @@ using namespace std;
 
 int AlumnoManager::buscarDNI(int dni) {
 
- AlumnoArchivo ArchAlumno ("Alumno.dat");
  Alumno obj;
 
  int nroReg=-1;
- int cantRegArchivo=ArchAlumno.getCantidad();
+ int cantRegArchivo=_archivo.getCantidad();
 
 
   for (int i = 0; i < cantRegArchivo; i++)
   {
-        obj=ArchAlumno.leerReg(i);
+        obj=_archivo.leerReg(i);
 
                 if (obj.getDni()== dni){
                        nroReg=i;
@@ -32,7 +31,6 @@ return nroReg;
 int AlumnoManager::Cargar()
 {
  Alumno obj;
-AlumnoArchivo Archivo ("Alumno.dat");
 int dni, nroReg;
 
  bool agrego = false;
@@ -53,7 +51,7 @@ int dni, nroReg;
     }
     obj.cargar(dni);
 
-	if (Archivo.agregar(obj)==true)
+	if (_archivo.agregar(obj)==true)
 	{
 	     rlutil::locate(28,20);
 		cout << "** Alumno guardado correctamente **" << endl;

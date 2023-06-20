@@ -7,13 +7,11 @@ class CuotaArchivo
 {
 private:
 
-    char nombre[30];
+    char _ruta[30];
 
 public:
-    CuotaArchivo (const char *n)
-    {
-        strcpy(nombre,n);
-    }
+    CuotaArchivo (const char *ruta);
+    CuotaArchivo();
 
     bool agregar(Cuota registro);
     int getCantidad();

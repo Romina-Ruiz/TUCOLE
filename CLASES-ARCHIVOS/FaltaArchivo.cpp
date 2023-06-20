@@ -5,48 +5,36 @@
 using namespace std;
 
 
-const char *RUTA_FALTA="Persona.dat";
 
+FaltaArchivo::FaltaArchivo(const char *ruta){
 
-void FaltaArchivo::leerFaltas(Falta falta[], int cantidad)
+    strcpy(_ruta,ruta);
+}
+ FaltaArchivo::FaltaArchivo(){
+
+    strcpy(_ruta,"Faltas.dat");
+
+ }
+
+bool FaltaArchivo::agregar(Falta reg)
 {
-    FILE* p;
-    p= fopen(RUTA_FALTA,"rb");
-
-    if(p==nullptr)
+    bool ok = false;
+    FILE* pFile = fopen(_ruta, "ab");
+    if (pFile != NULL)
     {
-        return;
+        fwrite(&reg, sizeof(Falta), 1, pFile);
+        fclose(pFile);
+        ok = true;
     }
-
-    fread(&falta, sizeof(Falta),cantidad,p);
-    fclose(p);
+    return ok;
 }
 
 
-void FaltaArchivo::guardar(Falta falta)
-{
-    FILE* p;
-    p = fopen(RUTA_FALTA,"ab");
-
-    if (p == nullptr)
-    {
-        cout<<"Error al abrir el archivo" <<endl;
-        exit(1552);
-    }
-    else
-    {
-        fwrite(&falta, sizeof(Falta), 1, p);
-        fclose(p);
-    }
-}
-
-
-int FaltaArchivo::cantidadFaltas()
+int FaltaArchivo::getCantidad()
 {
     FILE *p;
     int cantidad=0;
-    Falta falta;
-    p=fopen(RUTA_FALTA,"rb");
+    p=fopen(_ruta,"rb");
 
     if (p==nullptr)
     {
@@ -61,93 +49,75 @@ int FaltaArchivo::cantidadFaltas()
 }
 
 
-
-//bool FaltaArchivo::agregar (Falta dto)
-//{
-//    bool agregar = false;
-//    FILE *p;
-//    p = fopen(RUTA_FALTA,"ab");
-//
-//    if (p!=NULL)
-//    {
-//        fwrite(&dto, sizeof (Falta),1,p);
-//        fclose (p);
-//        agregar = true;
-//    }
-//    return agregar;
-//}
-
-bool FaltaArchivo:: modificar(Falta dto)
+Falta FaltaArchivo::leerReg(int nroReg)
 {
-    Falta aux;
-    bool modificar = false;
-    FILE *p;
-    p = fopen(RUTA_FALTA,"rb+");
-    if (p!=NULL)
-    {
-        while(fread(&dto, sizeof (Falta),1,p))
+
+    Falta obj;
+    FILE* pFile = fopen(_ruta, "rb");
+
+    if (pFile == NULL)
+
         {
-            if(dto.getidAlumno()==aux.getidAlumno())
-            {
-                fseek(p,sizeof dto*(-1),SEEK_CUR);
-                fwrite(&dto, sizeof (Falta),1,p);
-                fclose (p);
-                modificar = true;
-            }
+            return obj;
+        }
+
+        fseek(pFile, nroReg * sizeof(Falta), SEEK_SET);
+        fread(&obj, sizeof(Falta), 1, pFile);
+        fclose(pFile);
+
+        return obj;
+
+}
+
+
+bool FaltaArchivo::leerTodos(Falta falta[], int cantidad)
+{
+
+    bool ok = false;
+    FILE* pFile = fopen(_ruta, "rb");
+    if (pFile != NULL)
+    {
+        fread(falta, sizeof(Falta), cantidad, pFile);
+        fclose(pFile);
+        ok = true;
+    }
+    return ok;
+
+}
+
+
+bool FaltaArchivo:: modificar(Falta registro, int nroRegistro)
+{
+     bool ok = false;
+    FILE* pFile = fopen(_ruta, "rb+");
+    if (pFile != NULL)
+    {
+        fseek(pFile, nroRegistro * sizeof(Falta), SEEK_SET);
+        fwrite(&registro, sizeof(Falta), 1, pFile);
+        fclose(pFile);
+        ok = true;
+    }
+    return ok;
+}
+
+
+int FaltaArchivo::buscarReg(int dni)
+{
+    int nroRegistro = -1;
+    int cantidad = this->getCantidad();
+
+    Falta registro;
+    for (int i = 0; i < cantidad; i++)
+    {
+        registro =this->leerReg(i);
+        if (registro.getDNIAlumno() == dni)
+        {
+            nroRegistro = i;
+            break;
         }
     }
-    return modificar;
-}
-bool FaltaArchivo::eliminar(Falta dto)
-{
-    Falta aux;
-    bool eliminar = false;
-    FILE *p;
-    p = fopen(RUTA_FALTA,"rb+");
-    if (p!=NULL)
-    {
-        while(fread(&dto, sizeof (Falta),1,p))
-        {
-            if(dto.getidAlumno()==aux.getidAlumno())
-            {
-                fseek(p,sizeof dto*(-1),SEEK_CUR);
-                fwrite(&dto, sizeof (Falta),1,p);
-                fclose (p);
-                eliminar = true;
-            }
-        }
-    }
-    return eliminar;
-}
+    return nroRegistro;
 
-
-int FaltaArchivo::obtenerTamanio()
-{
-    int Resultado=0;
-    int CantBytes=0;
-    FILE *p;
-    p = fopen(RUTA_FALTA,"rb");
-    if (p!=NULL)
-    {
-        fseek(p,0,SEEK_END);
-        CantBytes=ftell(p);
-        Resultado=CantBytes/sizeof (Falta);
-        fclose(p);
-    }
-    return Resultado;
-}
-
-
-int FaltaArchivo::leerDeDisco(int pos)
-{
-    FILE *p;
-    int leyo=0;
-    p=fopen(RUTA_FALTA, "rb");
-    if(p==NULL)return -1;
-    fseek(p, sizeof(FaltaArchivo)*pos, 0);
-    leyo=fread(this, sizeof(FaltaArchivo),1, p);
-    fclose(p);
-    return leyo;
 }
 
 

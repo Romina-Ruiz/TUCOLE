@@ -7,11 +7,13 @@ class CuotaManager
 {
 private:
 
-  //char nombre[30];
+    char _ruta[30];
+    CuotaArchivo  _archivo;
 
 public:
-//    CuotaArchivo (const char *n){
-    //strcpy(nombre,n); }
+    CuotaManager (const char *n);
+    CuotaManager();
+
 
     int buscarDNI(int dni);
     int Cargar();

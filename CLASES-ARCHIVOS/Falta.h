@@ -24,7 +24,7 @@ public:
     int getCantFaltasAnuales();
     int getCantFaltasPermitidas();
 
-    void Cargar();
+    void Cargar(int dni);
 
     };
 

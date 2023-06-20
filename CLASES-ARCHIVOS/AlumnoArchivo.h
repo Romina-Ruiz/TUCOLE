@@ -7,11 +7,11 @@
 class AlumnoArchivo
 {
 private:
-    char nombre[30];
+    char _ruta[30];
 
    public:
-    AlumnoArchivo (const char *n){
-    strcpy(nombre,n); }
+    AlumnoArchivo (const char *ruta);
+    AlumnoArchivo ();
 
     bool agregar(Alumno registro);
     int getCantidad();

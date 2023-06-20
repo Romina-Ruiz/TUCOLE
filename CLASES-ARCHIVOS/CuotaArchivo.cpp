@@ -1,14 +1,24 @@
 #include <cstdio>
+#include<cstring>
 #include"Cuota.h"
 #include "CuotaArchivo.h"
 #include"CuotaManager.h"
 
-const char *RUTA_CUOTA = "Cuota.dat";
+
+CuotaArchivo::CuotaArchivo(const char *ruta){
+
+    strcpy(_ruta,ruta);
+}
+ CuotaArchivo::CuotaArchivo(){
+
+    strcpy(_ruta,"Cuota.dat");
+
+ }
 
 bool CuotaArchivo::agregar(Cuota registro)
 {
     bool ok = false;
-    FILE* pFile = fopen(RUTA_CUOTA, "ab");
+    FILE* pFile = fopen(_ruta, "ab");
     if (pFile != NULL)
     {
         fwrite(&registro, sizeof(Cuota), 1, pFile);
@@ -20,7 +30,7 @@ bool CuotaArchivo::agregar(Cuota registro)
 
 int CuotaArchivo::getCantidad(){
   int cantidad = 0;
-  FILE* pFile = fopen(RUTA_CUOTA, "rb");
+  FILE* pFile = fopen(_ruta, "rb");
   if (pFile != NULL)
   {
     fseek(pFile, 0, SEEK_END);
@@ -30,11 +40,11 @@ int CuotaArchivo::getCantidad(){
   return cantidad;
 }
 
-/*
+
 Cuota CuotaArchivo::leerReg(int nroRegistro){
 
-  Cuota obj;
-    FILE* pFile = fopen(RUTA_CUOTA, "rb");
+Cuota obj;
+    FILE* pFile = fopen(_ruta, "rb");
 
     if (pFile == NULL){
             {
@@ -47,12 +57,12 @@ Cuota CuotaArchivo::leerReg(int nroRegistro){
 
     return obj;
     }
-}*/
+}
 
 bool CuotaArchivo::leerTodos(Cuota registros[], int cantidad)
 {
     bool ok = false;
-    FILE* pFile = fopen(RUTA_CUOTA, "rb");
+    FILE* pFile = fopen(_ruta, "rb");
     if (pFile != NULL)
     {
         fread(registros, sizeof(Cuota), cantidad, pFile);
@@ -66,7 +76,7 @@ bool CuotaArchivo::leerTodos(Cuota registros[], int cantidad)
 bool CuotaArchivo::modificar(Cuota registro, int nroRegistro)
 {
     bool ok = false;
-    FILE* pFile = fopen(RUTA_CUOTA, "rb+");
+    FILE* pFile = fopen(_ruta, "rb+");
     if (pFile != NULL)
     {
         fseek(pFile, nroRegistro * sizeof(Cuota), SEEK_SET);
@@ -76,7 +86,7 @@ bool CuotaArchivo::modificar(Cuota registro, int nroRegistro)
     }
     return ok;
 }
-/*
+
 int CuotaArchivo::buscarReg(int dni){
 
   int nroRegistro = -1;
@@ -93,5 +103,5 @@ int CuotaArchivo::buscarReg(int dni){
     }
   }
   return nroRegistro;
-}*/
+}
 

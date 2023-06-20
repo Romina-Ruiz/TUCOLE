@@ -4,16 +4,20 @@
 
 class FaltaArchivo
 {
-    public:
-    void leerFaltas(Falta falta[], int cantidad);
-   // void cargarFaltas(Falta alumno);
-    void guardar(Falta falta);
-    int cantidadFaltas();
-//    bool agregar (Falta dto);
-    bool modificar (Falta);
-    bool eliminar (Falta dto);
-    int obtenerTamanio();
-    int leerDeDisco(int pos);
+private:
+    char _ruta[30];
+
+public:
+    FaltaArchivo (const char *ruta);
+    FaltaArchivo();
+
+    bool agregar(Falta reg);
+    int getCantidad();
+    Falta leerReg(int nroReg);
+    bool leerTodos(Falta falta[], int cantidad);
+    bool modificar (Falta registro, int nroRegistro);
+    int buscarReg(int dni);
+
 };
 
 #endif // FALTAARCHIVO_H

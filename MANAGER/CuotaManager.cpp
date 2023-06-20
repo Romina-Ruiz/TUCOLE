@@ -6,23 +6,31 @@
 
 
 using namespace std;
-#include"Cuota.h"
-#include"CuotaArchivo.h"
-//const char *RUTA_CUOTA = "Cuota.dat";
 
+
+
+
+CuotaManager::CuotaManager(const char *ruta){
+
+    strcpy(_ruta,ruta);
+}
+CuotaManager::CuotaManager(){
+
+    strcpy(_ruta,"CuotaManager.dat");
+
+ }
 int CuotaManager::buscarDNI(int dni)
 {
 
-    CuotaArchivo Archivo ("Cuota.dat");
     Cuota obj;
 
     int nroReg=-1;
-    int cantRegArchivo=Archivo.getCantidad();
+    int cantRegArchivo=_archivo.getCantidad();
 
 
     for (int i = 0; i < cantRegArchivo; i++)
     {
-        obj=Archivo.leerReg(i);
+        obj=_archivo.leerReg(i);
 
         if (obj.getDNIalumno()== dni)
         {
@@ -37,7 +45,7 @@ int CuotaManager::buscarDNI(int dni)
 int CuotaManager::Cargar()
 {
     Cuota obj;
-    CuotaArchivo Archivo ("Cuota.dat");
+
     int dni, nroReg;
 
 
@@ -57,9 +65,9 @@ int CuotaManager::Cargar()
         system("pause>null");
         return -1;
     }
-    obj.Cargar(dni);
+    obj.Cargar();
 
-    if (Archivo.agregar(obj)==true)
+    if (_archivo.agregar(obj)==true)
     {
         rlutil::locate(28,20);
         cout << "** Alumno guardado correctamente **" << endl;

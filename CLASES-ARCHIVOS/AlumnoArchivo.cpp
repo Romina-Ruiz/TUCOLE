@@ -2,12 +2,22 @@
 #include "Alumno.h"
 #include <cstdio>
 
-const char *RUTA_ALUMNO = "Alumno.dat";
+
+AlumnoArchivo::AlumnoArchivo(const char *ruta){
+
+    strcpy(_ruta,ruta);
+}
+ AlumnoArchivo::AlumnoArchivo(){
+
+    strcpy(_ruta,"Alumno.dat");
+
+ }
+
 
 bool AlumnoArchivo::agregar(Alumno registro)
 {
     bool ok = false;
-    FILE* pFile = fopen(RUTA_ALUMNO, "ab");
+    FILE* pFile = fopen(_ruta, "ab");
     if (pFile != NULL)
     {
         fwrite(&registro, sizeof(Alumno), 1, pFile);
@@ -20,7 +30,7 @@ bool AlumnoArchivo::agregar(Alumno registro)
 int AlumnoArchivo::getCantidad(){
 
 int cantidad=0;
-  FILE* pFile = fopen(RUTA_ALUMNO, "rb");
+  FILE* pFile = fopen(_ruta, "rb");
 
     if (pFile == NULL){
         return 0;
@@ -34,7 +44,7 @@ int cantidad=0;
 Alumno AlumnoArchivo::leerReg(int nroRegistro)
 {
   Alumno obj;
-    FILE* pFile = fopen(RUTA_ALUMNO, "rb");
+    FILE* pFile = fopen(_ruta, "rb");
 
     if (pFile == NULL){
         return obj;
@@ -50,7 +60,7 @@ Alumno AlumnoArchivo::leerReg(int nroRegistro)
 bool AlumnoArchivo::leerTodos(Alumno registros[], int cantidad)
 {
     bool ok = false;
-    FILE* pFile = fopen(RUTA_ALUMNO, "rb");
+    FILE* pFile = fopen(_ruta, "rb");
    if (pFile == NULL){
         return 0;
        }
@@ -64,7 +74,7 @@ bool AlumnoArchivo::leerTodos(Alumno registros[], int cantidad)
 bool AlumnoArchivo::modificarReg(Alumno registro, int nroRegistro)
 {
     bool ok = false;
-    FILE* pFile = fopen(RUTA_ALUMNO, "rb+");
+    FILE* pFile = fopen(_ruta, "rb+");
 
    if (pFile == NULL){
         return false;

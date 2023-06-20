@@ -1,8 +1,7 @@
 #ifndef CUOTA_H
 #define CUOTA_H
 #include "../MENUS/Fecha.h"
-#include"CuotaManager.h"
-#include"CuotaArchivo.h"
+
 class Cuota
 {
 private:
@@ -28,7 +27,7 @@ public:
     float getMonto();
     Fecha getFechaDeFact();
     bool getDebe();
-    void Cargar(int dni);
+    void Cargar();
 
 };
 

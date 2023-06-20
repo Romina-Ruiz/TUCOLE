@@ -66,6 +66,10 @@
 		<Unit filename="CLASES-ARCHIVOS/ProfesorArchivo.h" />
 		<Unit filename="MANAGER/AlumnoManager.cpp" />
 		<Unit filename="MANAGER/AlumnoManager.h" />
+		<Unit filename="MANAGER/CuotaManager.cpp" />
+		<Unit filename="MANAGER/CuotaManager.h" />
+		<Unit filename="MANAGER/FaltaManager.cpp" />
+		<Unit filename="MANAGER/FaltaManager.h" />
 		<Unit filename="MANAGER/MateriaManager.cpp" />
 		<Unit filename="MANAGER/MateriaManager.h" />
 		<Unit filename="MANAGER/ProfesorManager.cpp" />
