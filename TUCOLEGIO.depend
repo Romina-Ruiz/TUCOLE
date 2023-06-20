@@ -703,7 +703,7 @@
 	"Profesor.h"
 	"ProfesorArchivo.h"
 
-1687290409 source:c:\users\romina\documents\github\tucolegio\tucole\manager\alumnomanager.cpp
+1687291495 source:c:\users\romina\documents\github\tucolegio\tucole\manager\alumnomanager.cpp
 	<iostream>
 	"AlumnoManager.h"
 	"Alumno.h"

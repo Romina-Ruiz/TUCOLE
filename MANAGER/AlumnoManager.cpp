@@ -100,7 +100,7 @@ void AlumnoManager::Cargar()
 	else
 	{
 	     rlutil::locate(30,25);
-		cout << "Ups! Algo salio mal :(" << endl;
+		cout << "** Ups! Algo salio mal :( **" << endl;
 		system("pause>nul");
 	}
 }
@@ -151,13 +151,6 @@ void AlumnoManager::Listar(Alumno alumno)
 }
 
 
-//int AlumnoManager::GenerarId()
-//{
-//
-//    AlumnoArchivo Archivo (RUTA_ALUMNO);
-//    return Archivo.getCantidad() + 1;
-//
-//}
 
 //void AlumnoManager::ListarTodos()
 //{

@@ -285,7 +285,7 @@ void menuCargarAlumnos()
 {
     system("cls");
 
-    const char *opciones[] = {"CARGAR ALUMNO","MODIFICAR DATOS","VOLVER AL MENU PRINCIPAL"};
+    const char *opciones[] = {"CARGAR ALUMNO","MODIFICAR DATOS","BUSCAR ALUMNO", "VOLVER AL MENU PRINCIPAL"};
     int op=1, y=0;
 
     rlutil::hidecursor();
@@ -295,11 +295,12 @@ void menuCargarAlumnos()
 
         rectangulo (2, 2, 100, 26);
         rlutil::setColor(rlutil::YELLOW);
-        mostrar_mensaje ("***** CARGA DE ALUMNO ***** ", 34, 4);
+        mostrar_mensaje ("***** ALUMNO ***** ", 34, 4);
 
         showItem (opciones[0],30,10,y==0);
         showItem (opciones[1],30,11,y==1);
         showItem (opciones[2],30,12,y==2);
+        showItem (opciones[3],30,13,y==3);
 
 
         rlutil::locate(26,10+y);
@@ -323,9 +324,9 @@ void menuCargarAlumnos()
             cout <<"   " <<endl;
             y++;
 
-            if (y>2)
+            if (y>3)
             {
-                y=2;
+                y=3;
             }
             break;
 
@@ -336,9 +337,7 @@ void menuCargarAlumnos()
 
             case 0:     ///CARGAR ALUMNO
 
-
-                ///LLAMAR A LA FUNCION CARGAR
-            {
+                {
                 system("cls");
 
                 AlumnoManager obj;
@@ -346,7 +345,7 @@ void menuCargarAlumnos()
                 rlutil::setColor(rlutil::YELLOW);
                 mostrar_mensaje ("***** CARGA DE ALUMNO ***** ", 34, 4);
                 obj.Cargar();
-
+                system("pause>nul");
                 system("cls");
             }
 
@@ -354,12 +353,41 @@ void menuCargarAlumnos()
 
             case 1:     /// MODIFICAR DATOS
 
+            {
+                system("cls");
 
+                AlumnoManager obj;
+                rectangulo (2, 2, 100, 26);
+                rlutil::setColor(rlutil::YELLOW);
+                mostrar_mensaje ("***** MODIFICAR DE ALUMNO ***** ", 34, 4);
+
+              //LLAMAR A LA FUNCION MODIFICAR
+
+                system("pause>nul");
+                system("cls");
+            }
+
+
+                break;
+                  case 2:     ///BUSCAR ALUMNO
+
+            {
+                system("cls");
+
+                AlumnoManager obj;
+                rectangulo (2, 2, 100, 26);
+                rlutil::setColor(rlutil::YELLOW);
+                mostrar_mensaje ("***** BUSCAR ALUMNO ***** ", 34, 4);
+                obj.ListarTodos();
+                system("pause>nul");
+                system("cls");
+            }
                 ///LLAMAR A LA FUNCION MODIFICAR
 
                 break;
 
-            case 2:     ///SALIR
+
+            case 3:     ///SALIR
 
             {
                 system("cls");
