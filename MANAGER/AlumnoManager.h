@@ -14,7 +14,7 @@ public:
     AlumnoManager();
 
     int buscarDNI(int dni);
-	int Cargar();
+	void Cargar();
 	void ListarTodos();
 //	void ListarXId();
 //	void Editar();

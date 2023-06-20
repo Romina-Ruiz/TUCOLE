@@ -342,6 +342,7 @@ void menuCargarAlumnos()
                 system("cls");
 
                 AlumnoManager obj;
+                obj.Cargar();
                 rectangulo (2, 2, 100, 26);
                 rlutil::setColor(rlutil::YELLOW);
                 mostrar_mensaje ("***** CARGA DE ALUMNO ***** ", 34, 4);
