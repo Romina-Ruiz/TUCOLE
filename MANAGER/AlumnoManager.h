@@ -2,7 +2,7 @@
 #define ALUMNOMANAGER_H
 #include "Alumno.h"
 #include"AlumnoArchivo.h"
-
+#include "Persona.h"
 class AlumnoManager {
 
 private:
@@ -14,7 +14,7 @@ public:
     AlumnoManager();
 
     int buscarDNI(int dni);
-	int Cargar();
+	void Cargar();
 	void ListarTodos();
 //	void ListarXId();
 //	void Editar();

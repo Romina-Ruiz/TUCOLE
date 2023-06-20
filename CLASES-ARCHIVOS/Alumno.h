@@ -3,6 +3,7 @@
 #include "Persona.h"
 #include"../MENUS/Fecha.h"
 
+
 class Alumno : public Persona
 {
 private:
@@ -15,7 +16,7 @@ private:
 public:
 
    void setEstado(bool estado);
-   void setLegajo();
+   void setLegajo(int legajo);
    void setAnioCurso(int anio);
    Fecha setIngreso(Fecha ingreso);
    int GenerarId();
@@ -25,8 +26,7 @@ public:
     int getAnioCurso();
     Fecha getIngreso();
 
-   void cargar(int dni);
-   void Mostrar(int dni);
+
 
 };
 #endif // ALUMNO_H

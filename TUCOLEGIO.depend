@@ -456,7 +456,7 @@
 	"FUNCIONES_FRONT.h"
 	"MENUS.h"
 
-1687275347 source:c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\clases-archivos\alumno.cpp
+1687282386 source:c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\clases-archivos\alumno.cpp
 	<iostream>
 	"Alumno.h"
 	"../MENUS/Fecha.h"
@@ -464,7 +464,7 @@
 	"AlumnoArchivo.h"
 	"Persona.h"
 
-1687274167 c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\clases-archivos\alumno.h
+1687283910 c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\clases-archivos\alumno.h
 	"Persona.h"
 	"../MENUS/Fecha.h"
 
@@ -607,13 +607,13 @@
 
 1687038385 c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\menus\menus.h
 
-1687192514 source:c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\menus\fecha.cpp
+1687279946 source:c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\menus\fecha.cpp
 	"Fecha.h"
 	<ctime>
 	<cstring>
 	<iostream>
 
-1687268127 source:c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\menus\funciones_admin.cpp
+1687282126 source:c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\menus\funciones_admin.cpp
 	<iostream>
 	<iomanip>
 	<string>
@@ -765,17 +765,19 @@
 	"Cuota.h"
 	"CuotaArchivo.h"
 
-1687270511 source:c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\manager\alumnomanager.cpp
+1687284004 source:c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\manager\alumnomanager.cpp
 	<iostream>
 	"AlumnoManager.h"
 	"Alumno.h"
 	"AlumnoArchivo.h"
 	"Persona.h"
 	"../MENUS/rlutil.h"
+	"../MENUS/Fecha.h"
 
-1687275732 c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\manager\alumnomanager.h
+1687281101 c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\manager\alumnomanager.h
 	"Alumno.h"
 	"AlumnoArchivo.h"
+	"Persona.h"
 
 1687270238 source:c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\manager\cuotamanager.cpp
 	<iostream>

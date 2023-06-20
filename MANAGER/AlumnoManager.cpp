@@ -4,8 +4,9 @@
 #include "AlumnoArchivo.h"
 #include "Persona.h"
 #include"../MENUS/rlutil.h"
-using namespace std;
+#include "../MENUS/Fecha.h"
 
+using namespace std;
 AlumnoManager::AlumnoManager(char *ruta)
 {
 
@@ -17,6 +18,66 @@ AlumnoManager::AlumnoManager()
     strcpy(_ruta,"AlumnoManager.dat");
 
 }
+
+
+void AlumnoManager::Cargar()
+
+{
+
+    char nombre[30], apellido[30], email[30];
+	bool Estado;
+    int Legajo, telefono;
+    int AnioCurso;
+    int dni, dia, mes, anio;
+
+    dni = buscarDNI(dni);
+
+    cout << "DNI #" << dni << endl;
+    cout << "Ingrese el nombre : "<<endl;
+	cin>>nombre;
+    cout << "Ingrese el apellido: "<<endl;
+	cin >> apellido;
+    cout << "Ingrese el email: "<<endl;
+	cin >> email;
+    cout << "Ingrese el telefono "<<endl;
+	cin >> telefono;
+    cout << "Ingrese el estado "<<endl;
+	cin>>Estado;
+	cout << "Ingrese el legajo "<<endl;
+	cout<<"--"<<endl;
+	cin>>Legajo;
+	cout<<" Anio en curso :"<<endl;
+	cin>>AnioCurso;
+    cout << "Ingrese día ingreso: "<<endl;
+	cin >> dia;
+    cout << "Ingrese mes de ingreso: "<<endl;
+	cin >> mes;
+    cout << "Ingrese año de ingreso: "<<endl;
+	cin >> anio;
+
+
+
+	Alumno aux;
+	aux.setDNI(dni);
+	aux.setNombre(nombre);
+	aux.setApellido(apellido);
+	aux.setEmail(email);
+    aux.setTelefono(telefono);
+	aux.setEstado(Estado);
+	aux.setLegajo(Legajo);
+    aux.setIngreso(Fecha(dia, mes, anio));
+
+	if (_archivo.agregar(aux))
+	{
+		cout << "Alumno guardado correctamente" << endl;
+	}
+	else
+	{
+		cout << "Ups! Algo salio mal :(" << endl;
+	}
+	 system("pause");
+}
+
 
 int AlumnoManager::buscarDNI(int dni)
 {
@@ -41,42 +102,36 @@ int AlumnoManager::buscarDNI(int dni)
     return nroReg;
 }
 
-int AlumnoManager::Cargar()
+void AlumnoManager::ListarTodos()
 {
-    Alumno obj;
-    int dni, nroReg;
+    AlumnoArchivo _archivo;
+	int cantidadRegistros = _archivo.getCantidad();
 
-    bool agrego = false;
-
-    rlutil::locate(20,8);
-    cout<<"DNI: ";
-    rlutil::  locate (26,8);
-    cin>>dni;
-
-    nroReg = this->buscarDNI(dni);
-
-    if (nroReg!=-1)
-    {
-        rlutil::locate(28,9);
-        cout<<"EL DNI YA EXISTE!";
-        system("pause>null");
-        return -1;
-    }
-    obj.cargar(dni);
-
-    if (_archivo.agregar(obj)==true)
-    {
-        rlutil::locate(28,20);
-        cout << "** Alumno guardado correctamente **" << endl;
-        system("pause>nul");
-    }
-    else
-    {
-        rlutil::locate(28,20);
-        cout << "** Ups! Algo salio mal :( **" << endl;
-        system("pause>nul");
-    }
+	for (int i = 0; i<cantidadRegistros; i++)
+	{
+		Alumno reg = _archivo.leerReg(i);
+        if (reg.getEstado()==true)
+        {
+            Listar(reg);
+            cout << endl;
+        }
+	}
 }
+void AlumnoManager::Listar(Alumno alumno)
+{
+    cout<<"DNI" <<alumno.getDni()<<endl;
+    cout<<" NOMBRE: "<<alumno.getNombre()<<endl;
+    cout<<"APELLIDO: "<<alumno.getApellido()<<endl;
+    cout<<"EMAIL :" <<alumno.getEmail()<<endl;
+    cout<<" TELEFONO : "<<alumno.getTelefono()<<endl;
+    cout << "ESTADO         : " << alumno.getEstado() << endl;
+	cout << "LEGAJO : " << alumno.getLegajo() << endl;
+	cout << "ANIO EN CURSO       : " << alumno.getAnioCurso() << endl;
+	cout << "FECHA DE INGRESO  : " << alumno.getIngreso().toString()<< endl;
+
+
+}
+
 
 //int AlumnoManager::GenerarId()
 //{
