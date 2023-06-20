@@ -61,6 +61,7 @@ void AlumnoManager::Cargar()
 	aux.setEmail(email);
     aux.setTelefono(telefono);
 	aux.setEstado(Estado);
+	aux.setLegajo(Legajo);
     aux.setIngreso(Fecha(dia, mes, anio));
 
 	if (_archivo.agregar(aux))
@@ -71,6 +72,7 @@ void AlumnoManager::Cargar()
 	{
 		cout << "Ups! Algo salio mal :(" << endl;
 	}
+	 system("pause");
 }
 
 

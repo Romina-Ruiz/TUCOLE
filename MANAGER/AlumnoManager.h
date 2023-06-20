@@ -2,7 +2,7 @@
 #define ALUMNOMANAGER_H
 #include "Alumno.h"
 #include"AlumnoArchivo.h"
-
+#include "Persona.h"
 class AlumnoManager {
 
 private:

@@ -347,6 +347,7 @@ void menuCargarAlumnos()
                 rlutil::setColor(rlutil::YELLOW);
                 mostrar_mensaje ("***** CARGA DE ALUMNO ***** ", 34, 4);
                 obj.Cargar();
+                obj.ListarTodos();
                 system("cls");
             }
 

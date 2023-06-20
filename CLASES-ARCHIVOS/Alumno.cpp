@@ -15,7 +15,7 @@ void Alumno::setEstado(bool estado)
     _Estado = estado;
 }
 
-void Alumno::setLegajo()
+void Alumno::setLegajo(int legajo)
 {
        // _Legajo=this->GenerarId();
 }
