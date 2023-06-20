@@ -7,13 +7,8 @@ class CuotaManager
 {
 private:
 
-  char _ruta[30];
- // CuotaArchivo _archivo;
 
 public:
-
-    CuotaManager (char* ruta);
-    CuotaManager();
 
 
     int buscarDNI(int dni);
