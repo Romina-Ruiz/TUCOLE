@@ -21,7 +21,9 @@ AlumnoManager::AlumnoManager()
 
 
 void AlumnoManager::Cargar()
+
 {
+
     char nombre[30], apellido[30], email[30];
 	bool Estado;
     int Legajo, telefono;
@@ -42,6 +44,7 @@ void AlumnoManager::Cargar()
     cout << "Ingrese el estado "<<endl;
 	cin>>Estado;
 	cout << "Ingrese el legajo "<<endl;
+	cout<<"--"<<endl;
 	cin>>Legajo;
 	cout<<" Anio en curso :"<<endl;
 	cin>>AnioCurso;
@@ -116,8 +119,12 @@ void AlumnoManager::ListarTodos()
 }
 void AlumnoManager::Listar(Alumno alumno)
 {
-
-	cout << "ESTADO         : " << alumno.getEstado() << endl;
+    cout<<"DNI" <<alumno.getDni()<<endl;
+    cout<<" NOMBRE: "<<alumno.getNombre()<<endl;
+    cout<<"APELLIDO: "<<alumno.getApellido()<<endl;
+    cout<<"EMAIL :" <<alumno.getEmail()<<endl;
+    cout<<" TELEFONO : "<<alumno.getTelefono()<<endl;
+    cout << "ESTADO         : " << alumno.getEstado() << endl;
 	cout << "LEGAJO : " << alumno.getLegajo() << endl;
 	cout << "ANIO EN CURSO       : " << alumno.getAnioCurso() << endl;
 	cout << "FECHA DE INGRESO  : " << alumno.getIngreso().toString()<< endl;

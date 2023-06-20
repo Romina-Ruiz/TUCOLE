@@ -3,6 +3,7 @@
 #include "Persona.h"
 #include"../MENUS/Fecha.h"
 
+
 class Alumno : public Persona
 {
 private:

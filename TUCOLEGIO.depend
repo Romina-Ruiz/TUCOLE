@@ -464,7 +464,7 @@
 	"AlumnoArchivo.h"
 	"Persona.h"
 
-1687282386 c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\clases-archivos\alumno.h
+1687283910 c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\clases-archivos\alumno.h
 	"Persona.h"
 	"../MENUS/Fecha.h"
 
@@ -765,7 +765,7 @@
 	"Cuota.h"
 	"CuotaArchivo.h"
 
-1687282299 source:c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\manager\alumnomanager.cpp
+1687284004 source:c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\manager\alumnomanager.cpp
 	<iostream>
 	"AlumnoManager.h"
 	"Alumno.h"
