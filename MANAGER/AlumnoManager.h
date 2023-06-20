@@ -15,6 +15,7 @@ public:
 
     int buscarDNI(int dni);
 	void Cargar();
+	int generarLegajo();
 	void ListarTodos();
 //	void ListarXId();
 //	void Editar();

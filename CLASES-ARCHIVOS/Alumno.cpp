@@ -47,10 +47,3 @@ Fecha Alumno::getIngreso()
     return _Ingreso;
 }
 
-
-int GenerarId(){
-
-    AlumnoArchivo Archivo ("Alumno.dat");
-    return Archivo.getCantidad() + 1;
-
-}

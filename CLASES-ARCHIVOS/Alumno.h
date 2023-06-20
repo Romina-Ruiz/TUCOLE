@@ -19,7 +19,7 @@ public:
    void setLegajo(int legajo);
    void setAnioCurso(int anio);
    Fecha setIngreso(Fecha ingreso);
-   int GenerarId();
+
 
     bool getEstado();
     int getLegajo();
