@@ -3,23 +3,30 @@
 #include "Profesor.h"
 #include "ProfesorArchivo.h"
 
-class ProfesorManager{
+class ProfesorManager
+{
 
 public:
-	void Cargar();
-	void ListarTodos();
-	void ListarXId();
-	void Editar();
-	void Eliminar();
-	void Listar(Profesor profe);
+    ProfesorManager (char* ruta);
+    ProfesorManager();
+
+    void Cargar();
+    void ListarTodos();
+    void ListarXId();
+    void Editar();
+    void Eliminar();
+    void Listar(Profesor profe);
 //	void HacerCopiaDeSeguridad();
 //	void RestaurarCopiaDeSeguridad();
 
 private:
-	ProfesorArchivo _archivo;
+    char _ruta[30];
+
+
+    ProfesorArchivo _archivo;
 //	AlumnoArchivo _archivoBkp = AlumnoArchivo("alumno.bkp");
-	bool ExisteId(int id);
-	int GenerarId();
+    bool ExisteId(int id);
+    int GenerarId();
 };
 
 #endif // PROFESORMANAGER_H

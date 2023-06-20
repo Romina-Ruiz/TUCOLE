@@ -13,7 +13,7 @@ private:
     bool _debe;         ///true=debe  false=pago;
 
 public:
-    Cuota();
+   // Cuota();
     void setDNIalumno(int dni);
     void settipoDeCuota(int cuota);
     void setNroFact(int numero);

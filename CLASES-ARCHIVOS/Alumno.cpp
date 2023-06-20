@@ -3,6 +3,7 @@
 #include"../MENUS/Fecha.h"
 #include"../MENUS/rlutil.h"
 #include"AlumnoArchivo.h"
+#include "Persona.h"
 
 using namespace std;
 
@@ -63,6 +64,15 @@ void Alumno::cargar(int dni)
     //cin >> _Ingreso;
 
 
+}
+void Alumno::Mostrar(int dni){
+
+    Persona::Mostrar(dni);
+
+    cout<<"NOMBRE: "   <<_nombre;
+    cout<<"APELLIDO: " <<_apellido;
+    cout<<"EMAIL: "    <<_email;
+   cout<<"TELEFONO: " <<_telefono;
 }
 
 int GenerarId(){

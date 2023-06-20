@@ -1,17 +1,18 @@
 #ifndef CUOTAMANAGER_H
 #define CUOTAMANAGER_H
-#include"Cuota.h"
-#include"CuotaArchivo.h"
+#include "Cuota.h"
+#include "CuotaArchivo.h"
 
 class CuotaManager
 {
 private:
 
-    char _ruta[30];
-    CuotaArchivo  _archivo;
+  char _ruta[30];
+ // CuotaArchivo _archivo;
 
 public:
-    CuotaManager (const char *n);
+
+    CuotaManager (char* ruta);
     CuotaManager();
 
 

@@ -10,7 +10,7 @@ using namespace std;
 
 
 
-CuotaManager::CuotaManager(const char *ruta){
+CuotaManager::CuotaManager(char *ruta){
 
     strcpy(_ruta,ruta);
 }
@@ -21,7 +21,7 @@ CuotaManager::CuotaManager(){
  }
 int CuotaManager::buscarDNI(int dni)
 {
-
+    CuotaArchivo _archivo;
     Cuota obj;
 
     int nroReg=-1;
@@ -45,11 +45,9 @@ int CuotaManager::buscarDNI(int dni)
 int CuotaManager::Cargar()
 {
     Cuota obj;
+    CuotaArchivo _archivo;
 
     int dni, nroReg;
-
-
-    bool agrego = false;
 
     rlutil::locate(20,8);
     cout<<"DNI: ";

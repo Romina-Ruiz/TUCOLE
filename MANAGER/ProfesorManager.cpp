@@ -5,6 +5,15 @@
 using namespace std;
 
 
+ProfesorManager::ProfesorManager(char *ruta){
+
+    strcpy(_ruta,ruta);
+}
+ProfesorManager::ProfesorManager(){
+
+    strcpy(_ruta,"ProfesorManager.dat");
+
+ }
 
 void ProfesorManager::Cargar()
 {

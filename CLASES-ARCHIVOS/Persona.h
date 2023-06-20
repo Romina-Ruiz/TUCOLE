@@ -20,6 +20,7 @@ public:
     void setDNI(int dni);
 
     void cargar(int dni);
+    void Mostrar(int dni);
 
 
     char * getNombre();

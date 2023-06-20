@@ -1,9 +1,20 @@
 #include <iostream>
+#include <cstring>
 #include "MateriaManager.h"
 #include "Materia.h"
 #include "MateriaArchivo.h"
 
 using namespace std;
+
+MateriaManager::MateriaManager(char *ruta){
+
+    strcpy(_ruta,ruta);
+}
+MateriaManager::MateriaManager(){
+
+    strcpy(_ruta,"MateriaManager.dat");
+
+ }
 
 
 int MateriaManager::Cargar()

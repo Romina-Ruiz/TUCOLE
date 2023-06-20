@@ -26,6 +26,7 @@ public:
     Fecha getIngreso();
 
    void cargar(int dni);
+   void Mostrar(int dni);
 
 };
 #endif // ALUMNO_H

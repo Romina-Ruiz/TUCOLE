@@ -5,8 +5,13 @@
 
 class MateriaManager
 {
-
+private:
+      char _ruta[30];
+     MateriaArchivo _archivo;
 public:
+
+    MateriaManager (char* ruta);
+    MateriaManager();
 
 	int Cargar();
 //	void ListarTodos();

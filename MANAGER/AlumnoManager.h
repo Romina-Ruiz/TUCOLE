@@ -6,16 +6,20 @@
 class AlumnoManager {
 
 private:
+  char _ruta[30];
+  AlumnoArchivo _archivo;
 
-AlumnoArchivo _archivo;
 public:
+    AlumnoManager (char* ruta);
+    AlumnoManager();
+
     int buscarDNI(int dni);
 	int Cargar();
-//	void ListarTodos();
+	void ListarTodos();
 //	void ListarXId();
 //	void Editar();
 //	void Eliminar();
-//	void Listar(Alumno alumno);
+	void Listar(Alumno alumno);
 //	int buscarDNI(int dni);
 //	int GenerarId();
 
@@ -24,5 +28,6 @@ public:
 
 
 };
+
 
 #endif // ALUMNOMANAGER_H

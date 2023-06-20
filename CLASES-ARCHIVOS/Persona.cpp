@@ -89,6 +89,19 @@ void Persona::cargar(int dni)
 
 
 }
+void Persona::Mostrar(int dni)
+{
+
+    if(dni==0)
+    {
+
+        cout<<"DNI: "  <<_DNI;
+    }
+    cout<<"NOMBRE: "   <<_nombre;
+    cout<<"APELLIDO: " <<_apellido;
+    cout<<"EMAIL: "    <<_email;
+    cout<<"TELEFONO: " <<_telefono;
+}
 
 
 
