@@ -761,7 +761,7 @@
 	"Falta.h"
 	"FaltaArchivo.h"
 
-1687270208 c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\manager\cuotamanager.h
+1687286222 c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\manager\cuotamanager.h
 	"Cuota.h"
 	"CuotaArchivo.h"
 
@@ -779,7 +779,7 @@
 	"AlumnoArchivo.h"
 	"Persona.h"
 
-1687270238 source:c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\manager\cuotamanager.cpp
+1687286222 source:c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\manager\cuotamanager.cpp
 	<iostream>
 	<iomanip>
 	<cstring>

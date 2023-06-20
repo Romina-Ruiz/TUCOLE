@@ -23,7 +23,6 @@ AlumnoManager::AlumnoManager()
 void AlumnoManager::Cargar()
 
 {
-
     char nombre[30], apellido[30], email[30];
 	bool Estado;
     int Legajo, telefono,AnioCurso;
@@ -31,6 +30,15 @@ void AlumnoManager::Cargar()
 
     cout << "INGRESE EL DNI # " <<endl;
     cin>>dni;
+
+    int numerodeRegistro=buscarDNI(dni);
+
+    if(numerodeRegistro>0){
+
+        cout<<"EL DNI YA EXISTE :";
+    }
+    else {
+
     cout << "Ingrese el nombre : "<<endl;
 	cin>>nombre;
     cout << "Ingrese el apellido: "<<endl;
@@ -72,9 +80,10 @@ void AlumnoManager::Cargar()
 	{
 		cout << "Ups! Algo salio mal :(" << endl;
 	}
-	 system("pause");
 }
+	 system("pause");
 
+}
 
 int AlumnoManager::buscarDNI(int dni)
 {
