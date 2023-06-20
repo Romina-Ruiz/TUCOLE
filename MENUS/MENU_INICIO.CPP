@@ -7,7 +7,8 @@ using namespace std;
 #include "rlutil.h"
 #include "FUNCIONES_FRONT.h"
 #include "MENUS.h"
-
+#include"FUNCIONES_USER.h"
+#include"AlumnoArchivo.h"
 
 void menuIncio()
 {
@@ -19,7 +20,10 @@ void menuIncio()
     mostrar_mensaje ("___________________________", 40, 6);
 
 
+    AlumnoArchivo Obj;
+
     int dni;
+
 
     rlutil::  locate (36,12);
     cout <<"INGRESE SU DNI: ";
@@ -31,7 +35,24 @@ void menuIncio()
         system("cls");
 
       menuAdmin();
+
+                }
+
+    else if (Obj.buscarReg(dni)){
+
+        menuUser(dni);
+
+        system("cls");
+    } else {
+
+      rlutil::  locate (30,16);
+    cout <<"** EL DNI NO EXISTE EN NUESTROS REGISTROS ** ";
+    system("pause>nul");
+    system("cls");
+
     }
+
+
 }
 void SalirSistemaUser()
 {
