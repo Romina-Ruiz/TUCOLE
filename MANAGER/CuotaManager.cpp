@@ -9,16 +9,6 @@ using namespace std;
 
 
 
-
-CuotaManager::CuotaManager(char *ruta){
-
-    strcpy(_ruta,ruta);
-}
-CuotaManager::CuotaManager(){
-
-    strcpy(_ruta,"CuotaManager.dat");
-
- }
 int CuotaManager::buscarDNI(int dni)
 {
     CuotaArchivo _archivo;
@@ -46,6 +36,8 @@ int CuotaManager::Cargar()
 {
     Cuota obj;
     CuotaArchivo _archivo;
+
+
 
     int dni, nroReg;
 
