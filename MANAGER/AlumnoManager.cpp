@@ -151,159 +151,119 @@ void AlumnoManager::Listar(Alumno alumno)
 }
 
 
+void AlumnoManager::ListarXdni()
+{
+	int dni;
 
-//void AlumnoManager::ListarTodos()
-//{
-//    AlumnoArchivo ArchAlumno;
-//    int cantidadRegistros = ArchAlumno.getCantidad();
-//
-//    for (int i = 0; i<cantidadRegistros; i++)
-//    {
-//        Alumno reg = ArchAlumno.leerReg(i);
-//        if (reg.getEstado()==true)
-//        {
-//            Listar(reg);
-//            cout << endl;
-//        }
-//    }
-//}
+	cout << "Ingrese el dni: ";
+	cin >> dni;
 
-//void AlumbvgbgtnoManager::ListarXId()
-//{
-//	int id;
-//
-//	cout << "Ingrese el ID: ";
-//	cin >> id;
-//
-//	int posicion = _archivo.buscar(id);
-//	if (posicion >= 0)
-//	{
-//		Alumno reg = _archivo.leer(posicion);
-//		Listar(reg);
-//	}
-//	else
-//	{
-//		cout << "No existe el registro con ID #" << id << endl;
-//	}
-//}
+	int posicion = _archivo.buscarReg(dni);
+	if (posicion >= 0)
+	{
+		Alumno reg = _archivo.leerReg(posicion);
+		Listar(reg);
+	}
+	else
+	{
+		cout << "No existe el registro con DNI #" << dni << endl;
+	}
+}
 
 
 
-//
-//void AlumnoManager::Editar()
-//{
-//	Alumno reg;
-//	int id, posicion;
-//	cout << "ID a buscar: ";
-//	cin >> id;
-//	cout << endl;
-//
-//	posicion = _archivo.buscar(id);
-//	if (posicion >= 0)
-//	{
-//		reg = _archivo.leer(posicion);
-//		Listar(reg);
-//		cout << endl;
-//
-//		int nuevoEstado;
-//		cout << "Nuevo estado: ";
-//		cin >> nuevoEstado;
-//		reg.setActivo(nuevoEstado);
-//		_archivo.guardar(reg, posicion);
-//	}
-//	else
-//	{
-//		cout << "No existe el registro con ID #" << id << endl;
-//	}
-//}
-//
-//void AlumnoManager::Eliminar()
-//{
-//    /*
-///    pedir el id
-///    buscarlo
-///    cambiar el estado
-///    guardarlo
-///    */
-//	Alumno reg;
-//	int id, posicion;
-//	cout << "ID a buscar: ";
-//	cin >> id;
-//	cout << endl;
-//
-//	posicion = _archivo.buscar(id);
-//	if (posicion >= 0)
-//	{
-//		reg = _archivo.leer(posicion);
-//		Listar(reg);
-//		cout << endl;
-//		reg.setActivo(false);
-//		_archivo.guardar(reg, posicion);
-//		cout << "Registro #" << id << " eliminado correctamente" << endl;
-//        }
-//	else	{
-//		cout << "No existe el registro con ID #" << id << endl;
-//	}
-//}
-//
-//
-//bool AlumnoManager::ExisteId(int id)
-//{
-//    return _archivo.buscar(id) >= 0;
-//
-////   if (_archivo.buscar(id) >= 0)
-////   {
-////       return true;
-////   }
-////   else
-////    {
-////        return false;
-////    }
-//
-//}
-//
-//
-//
-//void AlumnoManager::HacerCopiaDeSeguridad(){
-//
-//	int cantidadRegistros = _archivo.getCantidadRegistros();
-//	Alumno *vec = new Alumno[cantidadRegistros];
-//
-//	if (vec == nullptr){
-//		cout << "Falla al realizar backup" << endl;
-//		return;
-//	}
-//
-//	_archivo.leer(vec, cantidadRegistros);
-//	_archivoBkp.vaciar();
-//	if (_archivoBkp.guardar(vec, cantidadRegistros)){
-//		cout << "Backup realizado correctamente" << endl;
-//	}
-//	else{
-//		cout << "Falla al realizar backup" << endl;
-//	}
-//
-//	delete []vec;
-//}
-//
-//void AlumnoManager::RestaurarCopiaDeSeguridad(){
-//
-//	int cantidadRegistros = _archivoBkp.getCantidadRegistros();
-//	Tarea *vec = new Alumno[cantidadRegistros];
-//
-//	if (vec == nullptr){
-//		cout << "Falla al restaurar backup" << endl;
-//		return;
-//	}
-//
-//	_archivoBkp.leer(vec, cantidadRegistros);
-//	_archivo.vaciar();
-//	if (_archivo.guardar(vec, cantidadRegistros)){
-//		cout << "Backup restaurado correctamente" << endl;
-//	}
-//	else{
-//		cout << "Falla al restaurar backup" << endl;
-//	}
-//
-//	delete []vec;
-//}
+
+void AlumnoManager::Editar()
+{
+	Alumno reg;
+	int dni, posicion;
+	cout << "DNI a buscar: ";
+	cin >> dni;
+	cout << endl;
+
+	posicion = _archivo.buscarReg(dni);
+	if (posicion >= 0)
+	{
+		reg = _archivo.leerReg(posicion);
+		Listar(reg);
+		cout << endl;
+
+		int nuevoEstado;
+		cout << "Nuevo estado: ";
+		cin >> nuevoEstado;
+		reg.setEstado(nuevoEstado);
+		_archivo.guardar(reg, posicion);
+	}
+	else
+	{
+		cout << "No existe el registro con DNI #" << dni << endl;
+	}
+}
+
+void AlumnoManager::Eliminar()
+{
+
+	Alumno reg;
+	int dni, posicion;
+	cout << "DNI a buscar: ";
+	cin >> dni;
+	cout << endl;
+
+	posicion = _archivo.buscarReg(dni);
+	if (posicion >= 0)
+	{
+		reg = _archivo.leerReg(posicion);
+		Listar(reg);
+		cout << endl;
+		reg.setEstado(false);
+		_archivo.guardar(reg, posicion);
+		cout << "Registro #" << dni << " eliminado correctamente" << endl;
+        }
+	else	{
+		cout << "No existe el registro con DNI #" << dni << endl;
+	}
+}
+
+void AlumnoManager::HacerCopiaDeSeguridad(){
+
+	int cantidadRegistros = _archivo.getCantidad();
+	Alumno *vec = new Alumno[cantidadRegistros];
+
+	if (vec == nullptr){
+		cout << "Falla al realizar backup" << endl;
+		return;
+	}
+
+	_archivo.leer(vec, cantidadRegistros);
+	_archivoBkp.vaciar();
+	if (_archivoBkp.guardar(vec, cantidadRegistros)){
+		cout << "Backup realizado correctamente" << endl;
+	}
+	else{
+		cout << "Falla al realizar backup" << endl;
+	}
+
+	delete []vec;
+}
+
+void AlumnoManager::RestaurarCopiaDeSeguridad(){
+
+	int cantidadRegistros = _archivoBkp.getCantidad();
+	Alumno *vec = new Alumno[cantidadRegistros];
+
+	if (vec == nullptr){
+		cout << "Falla al restaurar backup" << endl;
+		return;
+	}
+
+	_archivoBkp.leer(vec, cantidadRegistros);
+	_archivo.vaciar();
+	if (_archivo.guardar(vec, cantidadRegistros)){
+		cout << "Backup restaurado correctamente" << endl;
+	}
+	else{
+		cout << "Falla al restaurar backup" << endl;
+	}
+
+	delete []vec;
+}

@@ -8,6 +8,7 @@ class AlumnoManager {
 private:
   char _ruta[30];
   AlumnoArchivo _archivo;
+  	AlumnoArchivo _archivoBkp = AlumnoArchivo("alumnos.bkp");
 
 public:
     AlumnoManager (char* ruta);
@@ -17,15 +18,15 @@ public:
 	void Cargar();
 	int generarLegajo();
 	void ListarTodos();
-//	void ListarXId();
-//	void Editar();
-//	void Eliminar();
+	void ListarXdni();
+	void Editar();
+	void Eliminar();
 	void Listar(Alumno alumno);
-//	int buscarDNI(int dni);
-//	int GenerarId();
 
-//	void HacerCopiaDeSeguridad();
-//	void RestaurarCopiaDeSeguridad();
+
+
+	void HacerCopiaDeSeguridad();
+	void RestaurarCopiaDeSeguridad();
 
 
 };

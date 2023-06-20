@@ -16,9 +16,13 @@ private:
     bool agregar(Alumno registro);
     int getCantidad();
     Alumno leerReg(int nroRegistro);
-    bool leerTodos(Alumno registros[], int cantidad);
+//    bool leerTodos(Alumno registros[], int cantidad);
     bool modificarReg(Alumno registro, int nroRegistro);
     int buscarReg(int dni);
+     bool guardar(Alumno reg, int posicionAReemplazar);
+     void leer(Alumno *vec, int cantidadRegistrosALeer);
+     bool guardar(Alumno *vec, int cantidadRegistrosAEscribir);
+     void vaciar();
 
 
 };

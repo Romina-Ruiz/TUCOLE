@@ -473,12 +473,12 @@
 
 1687274367 c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\clases-archivos\persona.h
 
-1687268126 source:c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\clases-archivos\alumnoarchivo.cpp
+1687298882 source:c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\clases-archivos\alumnoarchivo.cpp
 	"AlumnoArchivo.h"
 	"Alumno.h"
 	<cstdio>
 
-1687268127 c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\clases-archivos\alumnoarchivo.h
+1687299135 c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\clases-archivos\alumnoarchivo.h
 	<cstdio>
 	<cstring>
 	"Alumno.h"
@@ -616,7 +616,7 @@
 	<cstring>
 	<iostream>
 
-1687292904 source:c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\menus\funciones_admin.cpp
+1687294136 source:c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\menus\funciones_admin.cpp
 	<iostream>
 	<iomanip>
 	<string>
@@ -669,13 +669,15 @@
 	"FUNCIONES_FRONT.h"
 	"Fecha.h"
 
-1687038385 source:c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\menus\menu_inicio.cpp
+1687297401 source:c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\menus\menu_inicio.cpp
 	<iostream>
 	<iomanip>
 	<string>
 	"rlutil.h"
 	"FUNCIONES_FRONT.h"
 	"MENUS.h"
+	"FUNCIONES_USER.h"
+	"AlumnoArchivo.h"
 
 1687036675 c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\clases-archivos\alumnomanager.h
 	"Alumno.h"
@@ -778,7 +780,7 @@
 	"../MENUS/rlutil.h"
 	"../MENUS/Fecha.h"
 
-1687291987 c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\manager\alumnomanager.h
+1687299132 c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\manager\alumnomanager.h
 	"Alumno.h"
 	"AlumnoArchivo.h"
 	"Persona.h"

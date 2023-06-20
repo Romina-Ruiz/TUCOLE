@@ -57,18 +57,32 @@ Alumno AlumnoArchivo::leerReg(int nroRegistro)
     return obj;
 }
 ///revisar
-bool AlumnoArchivo::leerTodos(Alumno registros[], int cantidad)
+//bool AlumnoArchivo::leerTodos(Alumno registros[], int cantidad)
+//{
+//    bool ok = false;
+//    FILE* pFile = fopen(_ruta, "rb");
+//   if (pFile == NULL){
+//        return 0;
+//       }
+//        fread(registros, sizeof(Alumno), cantidad, pFile);
+//        fclose(pFile);
+//        ok = true;
+//
+//    return ok;
+//}
+bool AlumnoArchivo::guardar(Alumno reg, int posicionAReemplazar)
 {
-    bool ok = false;
-    FILE* pFile = fopen(_ruta, "rb");
-   if (pFile == NULL){
-        return 0;
-       }
-        fread(registros, sizeof(Alumno), cantidad, pFile);
-        fclose(pFile);
-        ok = true;
+    FILE *p = fopen(_ruta, "rb+");
 
-    return ok;
+    if (p == NULL)
+    {
+        return false;
+    }
+
+    fseek(p, posicionAReemplazar * sizeof(Alumno), SEEK_SET);
+    bool pudoEscribir = fwrite(&reg, sizeof(Alumno), 1, p);
+    fclose(p);
+    return pudoEscribir;
 }
 
 bool AlumnoArchivo::modificarReg(Alumno registro, int nroRegistro)
@@ -102,4 +116,34 @@ int AlumnoArchivo::buscarReg(int dni){
     }
   }
   return nroRegistro;
+}
+void AlumnoArchivo::leer(Alumno *vec, int cantidadRegistrosALeer){
+	FILE *p = fopen(_ruta, "rb");
+	if (p == NULL)
+	{
+		return ;
+	}
+
+	fread(vec, sizeof(Alumno), cantidadRegistrosALeer, p);
+	fclose(p);
+}
+bool AlumnoArchivo::guardar(Alumno *vec, int cantidadRegistrosAEscribir){
+	FILE *p = fopen(_ruta, "ab");
+	if (p == NULL)
+	{
+		return false;
+	}
+
+	int cantidadRegistrosEscritos = fwrite(vec, sizeof(Alumno), cantidadRegistrosAEscribir, p);
+	fclose(p);
+	return cantidadRegistrosEscritos == cantidadRegistrosAEscribir;
+}
+
+void AlumnoArchivo::vaciar(){
+	FILE *p = fopen(_ruta, "wb");
+	if (p == NULL)
+	{
+		return ;
+	}
+	fclose(p);
 }
