@@ -14,6 +14,7 @@ using namespace std;
 #include"../CLASES-ARCHIVOS/Persona.h"
 #include"../MANAGER/AlumnoManager.h"
 #include"ProfesorManager.h"
+#include"CuotaManager.h"
 
 
 
@@ -189,11 +190,12 @@ void menuAdmin()
 void menuFacturacion()
 {
     system("cls");
-    Cuota obj;
+    CuotaManager obj;
     rectangulo (2, 2, 100, 26);
     rlutil::setColor(rlutil::YELLOW);
     mostrar_mensaje ("*****  FACTURACION  ***** ", 34, 4);
     obj.Cargar();
+    system("pause>nul");
     system("cls");
 
 }
@@ -462,8 +464,8 @@ void menuCargarProfesor()
                 system("cls");
 
                 ProfesorManager obj;
-                rectangulo (2, 2, 100, 26);
                 rlutil::setColor(rlutil::YELLOW);
+                rectangulo (2, 2, 100, 26);
                 mostrar_mensaje ("***** CARGAR PROFESOR ***** ", 34, 4);
 
                 obj.Cargar();
@@ -475,7 +477,7 @@ void menuCargarProfesor()
             break;
 
             case 1:     /// MODIFICAR DATOS
-                {
+            {
                 system("cls");
 
                 ProfesorManager obj;
@@ -489,9 +491,9 @@ void menuCargarProfesor()
                 system("cls");
             }
 
-                break;
+            break;
             case 2:     /// BUSCAR PROFESOR
-   {
+            {
                 system("cls");
 
                 ProfesorManager obj;
@@ -504,7 +506,7 @@ void menuCargarProfesor()
                 system("pause>nul");
                 system("cls");
             }
-                break;
+            break;
 
             case 3:     ///SALIR
             {
@@ -1099,7 +1101,7 @@ void menuRespaldos()
             case 0:     /// REALIZAR BACKUP
 
                 RealizarBackup();
-                   system("cls");
+                system("cls");
                 break;
 
             case 1:     /// RESTAURAR BACKUP
@@ -1124,9 +1126,10 @@ void menuRespaldos()
 }
 
 
-void RealizarBackup(){
+void RealizarBackup()
+{
 
-system("cls");
+    system("cls");
 
 
 
@@ -1144,19 +1147,21 @@ system("cls");
     rlutil::locate(68,9);
     cin>>op;
 
-    if (op==1){
+    if (op==1)
+    {
 
         alum.HacerCopiaDeSeguridad();
         profe.HacerCopiaDeSeguridad();
 
         rlutil::locate(30,15);
-         cout << "** LOS RESPALDOS SE REALIZARON CON EXITO **"<<endl;
-         system("pause>nul");
+        cout << "** LOS RESPALDOS SE REALIZARON CON EXITO **"<<endl;
+        system("pause>nul");
     }
-            else if (op==2){
+    else if (op==2)
+    {
 
-                system("cls");
+        system("cls");
 
-            }
+    }
 
 }

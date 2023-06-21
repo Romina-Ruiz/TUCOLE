@@ -2,7 +2,7 @@
 #include<cstring>
 #include"Cuota.h"
 #include "CuotaArchivo.h"
-#include"CuotaManager.h"
+
 
 
 CuotaArchivo::CuotaArchivo(const char *ruta){
@@ -59,6 +59,20 @@ Cuota obj;
     }
 }
 
+bool CuotaArchivo::modificarReg(Cuota registro, int nroRegistro)
+{
+    bool ok = false;
+    FILE* pFile = fopen(_ruta, "rb+");
+    if (pFile != NULL)
+    {
+        fseek(pFile, nroRegistro * sizeof(Cuota), SEEK_SET);
+        fwrite(&registro, sizeof(Cuota), 1, pFile);
+        fclose(pFile);
+        ok = true;
+    }
+    return ok;
+}
+
 bool CuotaArchivo::leerTodos(Cuota registros[], int cantidad)
 {
     bool ok = false;
@@ -73,19 +87,6 @@ bool CuotaArchivo::leerTodos(Cuota registros[], int cantidad)
 }
 
 
-bool CuotaArchivo::modificar(Cuota registro, int nroRegistro)
-{
-    bool ok = false;
-    FILE* pFile = fopen(_ruta, "rb+");
-    if (pFile != NULL)
-    {
-        fseek(pFile, nroRegistro * sizeof(Cuota), SEEK_SET);
-        fwrite(&registro, sizeof(Cuota), 1, pFile);
-        fclose(pFile);
-        ok = true;
-    }
-    return ok;
-}
 
 int CuotaArchivo::buscarReg(int dni){
 
@@ -105,3 +106,14 @@ int CuotaArchivo::buscarReg(int dni){
   return nroRegistro;
 }
 
+void CuotaArchivo::vaciar(){
+
+FILE *p = fopen(_ruta, "wb");
+	if (p == NULL)
+	{
+		return ;
+	}
+	fclose(p);
+
+
+}

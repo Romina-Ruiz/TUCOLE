@@ -16,9 +16,11 @@ public:
     bool agregar(Cuota registro);
     int getCantidad();
     Cuota leerReg(int nroRegistro);
+    bool modificarReg(Cuota registro, int nroRegistro);
     bool leerTodos(Cuota registros[], int cantidad);
-    bool modificar(Cuota registro, int nroRegistro);
     int buscarReg(int dni);
+    void vaciar();
+
 
 };
 
