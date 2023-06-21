@@ -6,29 +6,7 @@
 const char *RUTA_PROFESOR = "Profesor.dat";
 
 
-//bool ProfesorArchivo::eliminar(Profesor dto)
-//{
-//    Profesor aux;
-//    bool eliminar = false;
-//    FILE *p;
-//    p = fopen(RUTA_PROFESOR,"rb+");
-//    if (p!=NULL)
-//    {
-//        while(fread(&dto, sizeof (Profesor),1,p))
-//        {
-//            if(dto.getDni()==aux.getDni())
-//            {
-//                fseek(p,sizeof dto*(dto.getId()-1),SEEK_SET);
-//                fwrite(&dto, sizeof (Profesor),1,p);
-//                fclose (p);
-//                eliminar = true;
-//            }
-//        }
-//    }
-//    return eliminar;
-//}
-
-Profesor ProfesorArchivo::leer(int nroRegistro)
+Profesor ProfesorArchivo::leerReg(int nroRegistro)
 {
     Profesor registro;
     FILE* p = fopen(RUTA_PROFESOR, "rb");
@@ -40,18 +18,27 @@ Profesor ProfesorArchivo::leer(int nroRegistro)
     }
     return registro;
 }
+bool ProfesorArchivo::guardar(Profesor *vec, int cantidadRegistrosAEscribir){
+	FILE *p = fopen(RUTA_PROFESOR, "ab");
+	if (p == NULL)
+	{
+		return false;
+	}
 
-bool ProfesorArchivo::leerTodos(Profesor registros[], int cantidad)
-{
-    bool ok = false;
-    FILE* p = fopen(RUTA_PROFESOR, "rb");
-    if (p != NULL)
-    {
-        fread(registros, sizeof(Profesor), cantidad, p);
-        fclose(p);
-        ok = true;
-    }
-    return ok;
+	int cantidadRegistrosEscritos = fwrite(vec, sizeof(Profesor), cantidadRegistrosAEscribir, p);
+	fclose(p);
+	return cantidadRegistrosEscritos == cantidadRegistrosAEscribir;
+}
+
+void ProfesorArchivo::leer(Profesor *vec, int cantidadRegistrosALeer){
+	FILE *p = fopen(RUTA_PROFESOR, "rb");
+	if (p == NULL)
+	{
+		return ;
+	}
+
+	fread(vec, sizeof(Profesor), cantidadRegistrosALeer, p);
+	fclose(p);
 }
 
 bool ProfesorArchivo::agregar(Profesor registro)
@@ -92,14 +79,14 @@ int ProfesorArchivo::getCantidad(){
   }
   return cantidad;
 }
-/*
-int ProfesorArchivo::buscar(int dni){
+
+int ProfesorArchivo::buscarReg(int dni){
   int nroRegistro = -1;
   int cantidad = getCantidad();
   Profesor registro;
   for (int i = 0; i < cantidad; i++)
   {
-    registro = leer(i);
+    registro = leerReg(i);
     if (registro.getDni() == dni)
     {
       nroRegistro = i;
@@ -123,4 +110,12 @@ bool ProfesorArchivo::guardar(Profesor reg, int posicionAReemplazar)
     fclose(p);
     return pudoEscribir;
 }
-*/
+
+void ProfesorArchivo::vaciar(){
+	FILE *p = fopen(RUTA_PROFESOR, "wb");
+	if (p == NULL)
+	{
+		return ;
+	}
+	fclose(p);
+}

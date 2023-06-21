@@ -9,7 +9,7 @@ class AlumnoManager {
 private:
   char _ruta[30];
   AlumnoArchivo _archivo;
-  	AlumnoArchivo _archivoBkp = AlumnoArchivo("alumnos.bkp");
+ AlumnoArchivo _archivoBkp = AlumnoArchivo("alumnos.bkp");
 
 public:
     AlumnoManager (char* ruta);

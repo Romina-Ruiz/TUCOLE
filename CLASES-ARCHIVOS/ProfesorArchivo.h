@@ -10,13 +10,15 @@ class ProfesorArchivo
 
      public:
 
-    Profesor leer(int nroRegistro);
-    bool leerTodos(Profesor registros[], int cantidad);
+    Profesor leerReg(int nroRegistro);
+    void leer(Profesor *vec, int cantidadRegistrosALeer);
     bool agregar(Profesor registro);
     bool modificar(Profesor registro, int nroRegistro);
     int getCantidad();
-    int buscar(int dni);
+    int buscarReg(int dni);
     bool guardar(Profesor reg, int posicionAReemplazar);
+    bool guardar(Profesor *vec, int cantidadRegistrosAEscribir);
+    void vaciar();
 };
 
 #endif // PROFESORARCHIVO_H

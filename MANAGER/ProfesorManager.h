@@ -12,21 +12,24 @@ public:
 
     void Cargar();
     void ListarTodos();
-    void ListarXId();
+    void ListarXdni();
     void Editar();
     void Eliminar();
     void Listar(Profesor profe);
 //	void HacerCopiaDeSeguridad();
 //	void RestaurarCopiaDeSeguridad();
+	void ModificarDatos(Profesor Profesor, int posicion);
+	int generarLegajo();
+	int buscarDNI(int dni);
 
 private:
     char _ruta[30];
 
 
     ProfesorArchivo _archivo;
-//	AlumnoArchivo _archivoBkp = AlumnoArchivo("alumno.bkp");
-    bool ExisteId(int id);
-    int GenerarId();
+//	ProfesorArchivo _archivoBkp = ProfesorArchivo("profesor.bkp");
+
+
 };
 
 #endif // PROFESORMANAGER_H

@@ -127,6 +127,7 @@ void AlumnoArchivo::leer(Alumno *vec, int cantidadRegistrosALeer){
 	fread(vec, sizeof(Alumno), cantidadRegistrosALeer, p);
 	fclose(p);
 }
+
 bool AlumnoArchivo::guardar(Alumno *vec, int cantidadRegistrosAEscribir){
 	FILE *p = fopen(_ruta, "ab");
 	if (p == NULL)
