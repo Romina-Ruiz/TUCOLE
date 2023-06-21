@@ -1,0 +1,2 @@
+#include "ComunicadosManager.h"
+
