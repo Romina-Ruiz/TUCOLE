@@ -3,13 +3,21 @@
 #include "ProfesorArchivo.h"
 
 
-const char *RUTA_PROFESOR = "Profesor.dat";
+ProfesorArchivo::ProfesorArchivo(const char *ruta)
+{
+    strcpy(_ruta,ruta);
+}
 
+ProfesorArchivo::ProfesorArchivo()
+{
 
+    strcpy(_ruta,"Profesor.dat");
+
+}
 Profesor ProfesorArchivo::leerReg(int nroRegistro)
 {
     Profesor registro;
-    FILE* p = fopen(RUTA_PROFESOR, "rb");
+    FILE* p = fopen(_ruta, "rb");
     if (p != NULL)
     {
         fseek(p, nroRegistro * sizeof(Profesor), SEEK_SET);
@@ -19,7 +27,7 @@ Profesor ProfesorArchivo::leerReg(int nroRegistro)
     return registro;
 }
 bool ProfesorArchivo::guardar(Profesor *vec, int cantidadRegistrosAEscribir){
-	FILE *p = fopen(RUTA_PROFESOR, "ab");
+	FILE *p = fopen(_ruta, "ab");
 	if (p == NULL)
 	{
 		return false;
@@ -31,7 +39,7 @@ bool ProfesorArchivo::guardar(Profesor *vec, int cantidadRegistrosAEscribir){
 }
 
 void ProfesorArchivo::leer(Profesor *vec, int cantidadRegistrosALeer){
-	FILE *p = fopen(RUTA_PROFESOR, "rb");
+	FILE *p = fopen(_ruta, "rb");
 	if (p == NULL)
 	{
 		return ;
@@ -44,7 +52,7 @@ void ProfesorArchivo::leer(Profesor *vec, int cantidadRegistrosALeer){
 bool ProfesorArchivo::agregar(Profesor registro)
 {
     bool ok = false;
-    FILE* p = fopen(RUTA_PROFESOR, "ab");
+    FILE* p = fopen(_ruta, "ab");
     if (p != NULL)
     {
         fwrite(&registro, sizeof(Profesor), 1, p);
@@ -57,7 +65,7 @@ bool ProfesorArchivo::agregar(Profesor registro)
 bool ProfesorArchivo::modificar(Profesor registro, int nroRegistro)
 {
     bool ok = false;
-    FILE* p = fopen(RUTA_PROFESOR, "rb+");
+    FILE* p = fopen(_ruta, "rb+");
     if (p != NULL)
     {
         fseek(p, nroRegistro * sizeof(Profesor), SEEK_SET);
@@ -70,7 +78,7 @@ bool ProfesorArchivo::modificar(Profesor registro, int nroRegistro)
 
 int ProfesorArchivo::getCantidad(){
   int cantidad = 0;
-  FILE* p = fopen(RUTA_PROFESOR, "rb");
+  FILE* p = fopen(_ruta, "rb");
   if (p != NULL)
   {
     fseek(p, 0, SEEK_END);
@@ -98,7 +106,7 @@ int ProfesorArchivo::buscarReg(int dni){
 
 bool ProfesorArchivo::guardar(Profesor reg, int posicionAReemplazar)
 {
-    FILE *p = fopen(RUTA_PROFESOR,"rb+");
+    FILE *p = fopen(_ruta,"rb+");
 
     if (p == NULL)
     {
@@ -112,7 +120,7 @@ bool ProfesorArchivo::guardar(Profesor reg, int posicionAReemplazar)
 }
 
 void ProfesorArchivo::vaciar(){
-	FILE *p = fopen(RUTA_PROFESOR, "wb");
+	FILE *p = fopen(_ruta, "wb");
 	if (p == NULL)
 	{
 		return ;

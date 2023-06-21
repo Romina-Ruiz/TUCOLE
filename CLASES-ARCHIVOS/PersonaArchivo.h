@@ -5,7 +5,12 @@
 
 class PersonaArchivo
 {
+
+private:
+
+char _ruta[30];
 public:
+
     void leerAlumnos(Persona alumno[], int cantidad);
     void guardar(Persona alumno);
     int cantidadAlumnos();

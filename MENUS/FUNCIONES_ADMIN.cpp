@@ -1139,6 +1139,7 @@ system("cls");
     rlutil::locate(10,9);
     int op;
     AlumnoManager alum;
+    ProfesorManager profe;
     cout << "USTED DESEA RESPALDAR TODOS LOS ARCHIVOS? (1-SI / 2- NO): "<<endl;
     rlutil::locate(68,9);
     cin>>op;
@@ -1146,6 +1147,7 @@ system("cls");
     if (op==1){
 
         alum.HacerCopiaDeSeguridad();
+        profe.HacerCopiaDeSeguridad();
 
         rlutil::locate(30,15);
          cout << "** LOS RESPALDOS SE REALIZARON CON EXITO **"<<endl;

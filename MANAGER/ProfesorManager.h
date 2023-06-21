@@ -5,6 +5,11 @@
 
 class ProfesorManager
 {
+private:
+    char _ruta[30];
+
+    ProfesorArchivo _archivo;
+	ProfesorArchivo _archivoBkp = ProfesorArchivo("Profesor.bkp");
 
 public:
     ProfesorManager (char* ruta);
@@ -16,18 +21,12 @@ public:
     void Editar();
     void Eliminar();
     void Listar(Profesor profe);
-//	void HacerCopiaDeSeguridad();
-//	void RestaurarCopiaDeSeguridad();
+	void HacerCopiaDeSeguridad();
+	void RestaurarCopiaDeSeguridad();
 	void ModificarDatos(Profesor Profesor, int posicion);
 	int generarLegajo();
 	int buscarDNI(int dni);
 
-private:
-    char _ruta[30];
-
-
-    ProfesorArchivo _archivo;
-//	ProfesorArchivo _archivoBkp = ProfesorArchivo("profesor.bkp");
 
 
 };

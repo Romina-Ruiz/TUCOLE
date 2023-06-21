@@ -8,7 +8,12 @@
 class ProfesorArchivo
 {
 
-     public:
+private:
+    char _ruta[30];
+
+public:
+    ProfesorArchivo (const char *ruta);
+    ProfesorArchivo();
 
     Profesor leerReg(int nroRegistro);
     void leer(Profesor *vec, int cantidadRegistrosALeer);

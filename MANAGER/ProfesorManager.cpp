@@ -263,58 +263,58 @@ void ProfesorManager::Eliminar()
     }
 }
 
-//void ProfesorManager::HacerCopiaDeSeguridad()
-//{
-//
-//    int cantidadRegistros = _archivo.getCantidad();
-//    Profesor *vec = new Profesor[cantidadRegistros];
-//
-//    if (vec == nullptr)
-//    {
-//        cout << "Falla al realizar backup" << endl;
-//        return;
-//    }
-//
-//    _archivo.leer(vec, cantidadRegistros);
-//    _archivoBkp.vaciar();
-//    if (_archivoBkp.guardar(vec, cantidadRegistros))
-//    {
-//        cout << "Backup realizado correctamente" << endl;
-//    }
-//    else
-//    {
-//        cout << "Falla al realizar backup" << endl;
-//    }
-//
-//    delete []vec;
-//}
-//
-//void ProfesorManager::RestaurarCopiaDeSeguridad()
-//{
-//
-//
-//    int cantidadRegistros = _archivoBkp.getCantidad();
-//    Profesor *vec = new Profesor[cantidadRegistros];
-//
-//    if (vec == nullptr)
-//    {
-//        cout << "Falla al restaurar backup" << endl;
-//        return;
-//    }
-//
-//    _archivoBkp.leer(vec, cantidadRegistros);
-//    _archivo.vaciar();
-//    if (_archivo.guardar(vec, cantidadRegistros))
-//    {
-//        cout << "Backup restaurado correctamente" << endl;
-//    }
-//    else
-//    {
-//        cout << "Falla al restaurar backup" << endl;
-//    }
-//
-//    delete []vec;
-//}
+void ProfesorManager::HacerCopiaDeSeguridad()
+{
+
+    int cantidadRegistros = _archivo.getCantidad();
+    Profesor *vec = new Profesor[cantidadRegistros];
+
+    if (vec == nullptr)
+    {
+        cout << "Falla al realizar backup" << endl;
+        return;
+    }
+
+    _archivo.leer(vec, cantidadRegistros);
+    _archivoBkp.vaciar();
+    if (_archivoBkp.guardar(vec, cantidadRegistros))
+    {
+        cout << "Backup realizado correctamente" << endl;
+    }
+    else
+    {
+        cout << "Falla al realizar backup" << endl;
+    }
+
+    delete []vec;
+}
+
+void ProfesorManager::RestaurarCopiaDeSeguridad()
+{
+
+
+    int cantidadRegistros = _archivoBkp.getCantidad();
+    Profesor *vec = new Profesor[cantidadRegistros];
+
+    if (vec == nullptr)
+    {
+        cout << "Falla al restaurar backup" << endl;
+        return;
+    }
+
+    _archivoBkp.leer(vec, cantidadRegistros);
+    _archivo.vaciar();
+    if (_archivo.guardar(vec, cantidadRegistros))
+    {
+        cout << "Backup restaurado correctamente" << endl;
+    }
+    else
+    {
+        cout << "Falla al restaurar backup" << endl;
+    }
+
+    delete []vec;
+}
 
 void ProfesorManager::ModificarDatos(Profesor profesor, int posicion)
 {
