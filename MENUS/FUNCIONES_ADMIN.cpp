@@ -192,7 +192,7 @@ void menuFacturacion()
     rectangulo (2, 2, 100, 26);
     rlutil::setColor(rlutil::YELLOW);
     mostrar_mensaje ("*****  FACTURACION  ***** ", 34, 4);
- obj.Cargar();
+    obj.Cargar();
     system("cls");
 
 }
@@ -337,7 +337,7 @@ void menuCargarAlumnos()
 
             case 0:     ///CARGAR ALUMNO
 
-                {
+            {
                 system("cls");
 
                 AlumnoManager obj;
@@ -360,16 +360,14 @@ void menuCargarAlumnos()
                 rectangulo (2, 2, 100, 26);
                 rlutil::setColor(rlutil::YELLOW);
                 mostrar_mensaje ("***** MODIFICAR DE ALUMNO ***** ", 34, 4);
-
-              //LLAMAR A LA FUNCION MODIFICAR
-
+                obj.Editar();
                 system("pause>nul");
                 system("cls");
             }
 
 
-                break;
-                  case 2:     ///BUSCAR ALUMNO
+            break;
+            case 2:     ///BUSCAR ALUMNO
 
             {
                 system("cls");
@@ -378,13 +376,13 @@ void menuCargarAlumnos()
                 rectangulo (2, 2, 100, 26);
                 rlutil::setColor(rlutil::YELLOW);
                 mostrar_mensaje ("***** BUSCAR ALUMNO ***** ", 34, 4);
-                obj.ListarTodos();
+                obj.ListarXdni();
                 system("pause>nul");
                 system("cls");
             }
                 ///LLAMAR A LA FUNCION MODIFICAR
 
-                break;
+            break;
 
 
             case 3:     ///SALIR

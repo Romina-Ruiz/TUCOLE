@@ -12,7 +12,14 @@ using namespace std;
 
 void Alumno::setEstado(bool estado)
 {
-    _Estado = estado;
+
+    if(estado==1){
+        _Estado = true;
+            }
+            else{
+                _Estado = false;
+            }
+
 }
 
 void Alumno::setLegajo(int legajo)
@@ -29,10 +36,7 @@ Fecha Alumno::setIngreso(Fecha ingreso)
     _Ingreso= ingreso;
 }
 
-bool Alumno::getEstado()
-{
-    return _Estado;
-}
+
 int Alumno::getLegajo()
 {
     return _Legajo;
@@ -46,4 +50,7 @@ Fecha Alumno::getIngreso()
 {
     return _Ingreso;
 }
-
+bool Alumno::getEstado()
+{
+    return _Estado;
+}
