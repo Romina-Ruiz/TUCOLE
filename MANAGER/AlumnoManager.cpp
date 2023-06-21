@@ -200,6 +200,7 @@ void AlumnoManager::ListarXdni()
     }
     else
     {
+        rlutil::locate(20,10);
         cout << "** NO EXISTE UN ALUMNO CON ESE DNI **" << endl;
         system("pause>nul");
     }
@@ -238,8 +239,7 @@ void AlumnoManager::Editar()
             ModificarDatos(reg,posicion);
 
         }
-        //   reg.setEstado(nuevoEstado);
-        //  _archivo.guardar(reg, posicion);
+
     }
     else
     {

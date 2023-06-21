@@ -13,6 +13,7 @@ using namespace std;
 #include "../CLASES-ARCHIVOS/Alumno.h"
 #include"../CLASES-ARCHIVOS/Persona.h"
 #include"../MANAGER/AlumnoManager.h"
+#include"ProfesorManager.h"
 
 
 
@@ -400,15 +401,13 @@ void menuCargarAlumnos()
 
     system("pause");
 }
-/// EN LA PANTALLA DE CARGAR
-///PONER EN ACTIVO EN AUTOMATICO
-///CARTEL DE CONFIRMACION Y VOLVER AL MENU ANTERIOR
+
 
 void menuCargarProfesor()
 {
     system("cls");
 
-    const char *opciones[] = {"CARGAR PROFESOR","MODIFICAR DATOS","VOLVER AL MENU PRINCIPAL"};
+    const char *opciones[] = {"CARGAR PROFESOR","MODIFICAR DATOS","BUSCAR PROFESOR","VOLVER AL MENU PRINCIPAL"};
     int op=1, y=0;
 
     rlutil::hidecursor();
@@ -423,6 +422,7 @@ void menuCargarProfesor()
         showItem (opciones[0],30,10,y==0);
         showItem (opciones[1],30,11,y==1);
         showItem (opciones[2],30,12,y==2);
+        showItem (opciones[3],30,13,y==3);
 
 
         rlutil::locate(26,10+y);
@@ -446,9 +446,9 @@ void menuCargarProfesor()
             cout <<"   " <<endl;
             y++;
 
-            if (y>2)
+            if (y>3)
             {
-                y=2;
+                y=3;
             }
             break;
 
@@ -458,20 +458,55 @@ void menuCargarProfesor()
             {
 
             case 0:     ///CARGAR PROFESOR
+            {
+                system("cls");
 
+                ProfesorManager obj;
+                rectangulo (2, 2, 100, 26);
+                rlutil::setColor(rlutil::YELLOW);
+                mostrar_mensaje ("***** CARGAR PROFESOR ***** ", 34, 4);
 
-                ///LLAMAR A LA FUNCION CARGAR
+                obj.Cargar();
 
-                break;
+                system("pause>nul");
+                system("cls");
+            }
+
+            break;
 
             case 1:     /// MODIFICAR DATOS
+                {
+                system("cls");
 
+                ProfesorManager obj;
+                rectangulo (2, 2, 100, 26);
+                rlutil::setColor(rlutil::YELLOW);
+                mostrar_mensaje ("***** MODIFICAR PROFESOR ***** ", 34, 4);
 
-                ///LLAMAR A LA FUNCION MODIFICAR
+                obj.Editar();
+
+                system("pause>nul");
+                system("cls");
+            }
 
                 break;
+            case 2:     /// BUSCAR PROFESOR
+   {
+                system("cls");
 
-            case 2:     ///SALIR
+                ProfesorManager obj;
+                rectangulo (2, 2, 100, 26);
+                rlutil::setColor(rlutil::YELLOW);
+                mostrar_mensaje ("***** BUSCAR PROFESOR ***** ", 34, 4);
+
+                obj.ListarXdni();
+
+                system("pause>nul");
+                system("cls");
+            }
+                break;
+
+            case 3:     ///SALIR
             {
                 system("cls");
                 menuAdmin();
@@ -1061,13 +1096,14 @@ void menuRespaldos()
             switch(y)
             {
 
-            case 0:     ///
+            case 0:     /// REALIZAR BACKUP
 
-
+                RealizarBackup();
+                   system("cls");
                 break;
 
-            case 1:     ///
-
+            case 1:     /// RESTAURAR BACKUP
+                system("cls");
 
                 break;
 
@@ -1084,5 +1120,41 @@ void menuRespaldos()
     while(op!=0);
 
     system("pause");
+
+}
+
+
+void RealizarBackup(){
+
+system("cls");
+
+
+
+
+    rlutil::saveDefaultColor();
+    rectangulo (2, 2, 100, 26);
+    rlutil::setColor(rlutil::YELLOW);
+    mostrar_mensaje ("*** REALIZAR RESPALDOS ***", 40, 4);
+    mostrar_mensaje ("--------------------------------", 40, 5);
+    rlutil::locate(10,9);
+    int op;
+    AlumnoManager alum;
+    cout << "USTED DESEA RESPALDAR TODOS LOS ARCHIVOS? (1-SI / 2- NO): "<<endl;
+    rlutil::locate(68,9);
+    cin>>op;
+
+    if (op==1){
+
+        alum.HacerCopiaDeSeguridad();
+
+        rlutil::locate(30,15);
+         cout << "** LOS RESPALDOS SE REALIZARON CON EXITO **"<<endl;
+         system("pause>nul");
+    }
+            else if (op==2){
+
+                system("cls");
+
+            }
 
 }
