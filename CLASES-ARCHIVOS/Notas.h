@@ -7,35 +7,24 @@ class Notas
 
 private:
 
-/// CHEQUEAR DNI ALUMNO - ID PROSEDOR- ID MATERIA- TIPO DE NOTA (PRIMERA, SEGUNDA, RECUPERATORIO, FINAL)
-    char _nombreMateria[30];
-    int _id_materia;
-    int _anio_curso;
-    char _nombre_alumno[30];
-    int _id_alumno;
-    int _nota;
-    char _nombre_Profesor[30];
-    int _id_profesor;
+    int _DNIalumno;
+    int _idMateria;
+    int _tipoNota;
+    float _nota;
 
 
 public:
-    void setNombreMateria(char* nombremateria);
-    void setIdMateria(int idmateria);
-    void setAnioCurso(int aniocurso);
-    void setNombreAlumno(char * nombrealumno);
-    void setidAlumno(int idalumno);
-    void setNota(int nota);
-    void setNombreProfesor(char* nombreprofe);
-    void setidProfesor(int idprofe);
 
-    char *getNombreMateria();
+    void setDNIalumno(int dni);
+    void setIdMateria(int materia);
+    void setTipoNota(int tipo);
+    void setNota(float nota);
+
+    int getDNIalumno();
     int getIdMateria();
-    int getAnioCurso();
-    char *getNombreAlumno();
-    int getIdAlumno() ;
-    int getNota();
-    char *getNombreProfesor();
-    int getIdProfesor();
+    int getTipoNota();
+    float getNota();
+
 
 };
 

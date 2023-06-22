@@ -1,51 +1,44 @@
 #include <iostream>
 #include "NotasArchivo.h"
 #include "Notas.h"
+#include<cstring>
 using namespace std;
 
 
-const char *RUTA_NOTAS="Notas.dat";
-
-
-void NotasArchivo::leerNotas(Notas nota[], int cantidad)
+NotasArchivo::NotasArchivo(const char *ruta)
 {
-    FILE* p;
-    p= fopen(RUTA_NOTAS,"rb");
+    strcpy(_ruta,ruta);
+}
 
-    if(p==nullptr)
-    {
-        return;
-    }
+NotasArchivo::NotasArchivo()
+{
 
-    fread(nota, sizeof(Notas),cantidad,p);
-    fclose(p);
+    strcpy(_ruta,"Notas.dat");
+
 }
 
 
-void NotasArchivo::guardar(Notas nota)
+bool NotasArchivo::agregar (Notas dto)
 {
-    FILE* p;
-    p = fopen(RUTA_NOTAS,"ab");
+    bool agregar = false;
+    FILE *p;
+    p = fopen(_ruta,"ab");
 
-    if (p == nullptr)
+    if (p!=NULL)
     {
-        cout<<"Error al abrir el archivo" <<endl;
-        exit(1552);
+        fwrite(&dto, sizeof (Notas),1,p);
+        fclose (p);
+        agregar = true;
     }
-    else
-    {
-        fwrite(&nota, sizeof(Notas), 1, p);
-        fclose(p);
-    }
+    return agregar;
 }
 
-
-int NotasArchivo::cantidadNotas()
+int NotasArchivo::getCantidad()
 {
     FILE *p;
     int cantidad=0;
-    Notas nota;
-    p=fopen(RUTA_NOTAS,"rb");
+
+    p=fopen(_ruta,"rb");
 
     if (p==nullptr)
     {
@@ -59,70 +52,80 @@ int NotasArchivo::cantidadNotas()
     return cantidad;
 }
 
+Notas NotasArchivo::leerReg(int nroRegistro)
+ {
 
-bool NotasArchivo::agregar (Notas dto)
-{
-    bool agregar = false;
-    FILE *p;
-    p = fopen(RUTA_NOTAS,"ab");
-
-    if (p!=NULL)
+  Notas registro;
+    FILE* p = fopen(_ruta, "rb");
+    if (p != NULL)
     {
-        fwrite(&dto, sizeof (Notas),1,p);
-        fclose (p);
-        agregar = true;
-    }
-    return agregar;
-}
-
-int NotasArchivo::obtenerTamanio()
-{
-    int Resultado=0;
-    int CantBytes=0;
-    FILE *p;
-    p = fopen(RUTA_NOTAS,"rb");
-    if (p!=NULL)
-    {
-        fseek(p,0,SEEK_END);
-        CantBytes=ftell(p);
-        Resultado=CantBytes/sizeof (Notas);
+        fseek(p, nroRegistro * sizeof(Notas), SEEK_SET);
+        fread(&registro, sizeof(Notas), 1, p);
         fclose(p);
     }
-    return Resultado;
+    return registro;
+
 }
-
-
-int NotasArchivo::leerDeDisco(int pos)
+void NotasArchivo::leerTodos(Notas nota[], int cantidad)
 {
-    FILE *p;
-    int leyo=0;
-    p=fopen(RUTA_NOTAS, "rb");
-    if(p==NULL)return -1;
-    fseek(p, sizeof(NotasArchivo)*pos, 0);
-    leyo=fread(this, sizeof(NotasArchivo),1, p);
+    FILE* p;
+    p= fopen(_ruta,"rb");
+
+    if(p==nullptr)
+    {
+        return;
+    }
+
+    fread(nota, sizeof(Notas),cantidad,p);
     fclose(p);
-    return leyo;
 }
 
-//bool NotasArchivo::eliminar(Notas dto)
-//{
-//    Notas aux;
-//    bool eliminar = false;
-//    FILE *p;
-//    p = fopen(RUTA_NOTAS,"rb+");
-//    if (p!=NULL)
-//    {
-//        while(fread(&dto, sizeof (Persona),1,p))
-//        {
-//            if(dto.getDni()==aux.getDni())
-//            {
-//                fseek(p,sizeof dto*(-1),SEEK_CUR);
-//                fwrite(&dto, sizeof (Persona),1,p);
-//                fclose (p);
-//                eliminar = true;
-//            }
-//        }
-//    }
-//    return eliminar;
-//}
+bool NotasArchivo::modificar(Notas registro, int nroRegistro)
+{
+    bool ok = false;
+    FILE* p = fopen(_ruta, "rb+");
+    if (p != NULL)
+    {
+        fseek(p, nroRegistro * sizeof(Notas), SEEK_SET);
+        fwrite(&registro, sizeof(Notas), 1, p);
+        fclose(p);
+        ok = true;
+    }
+    return ok;
 
+}
+
+
+/// SOLO MUESTRA 1 REGISTRO  HACER UN FOR SI QUIERO MOSTRAR TODO EL REGISTRO DE NOTAS?
+
+int NotasArchivo::buscarReg(int dni)
+{
+    int nroRegistro = -1;
+   int cantidad =this->getCantidad();
+
+  Notas registro;
+
+  for (int i = 0; i < cantidad; i++)
+  {
+    registro =this->leerReg(i);
+
+    if (registro.getDNIalumno() == dni)
+    {
+      nroRegistro = i;
+      break;
+            }
+  }
+  return nroRegistro;
+
+}
+
+void NotasArchivo::vaciar()
+{
+    FILE *p = fopen(_ruta, "wb");
+	if (p == NULL)
+	{
+		return ;
+	}
+	fclose(p);
+
+}

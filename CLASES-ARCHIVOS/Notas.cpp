@@ -1,100 +1,49 @@
 #include <iostream>
 #include "Notas.h"
 #include <cstring>
-void Notas::setNombreMateria(char* nombremateria)
+
+
+void Notas::setDNIalumno(int dni)
 {
-
-    strcpy(_nombreMateria,nombremateria);
-
-
-}
-void Notas::setIdMateria(int idmateria )
-{
-
-    _id_materia = idmateria;
-
-}
-void Notas::setAnioCurso(int aniocurso)
-{
-
-    _anio_curso = aniocurso;
-
-}
-void Notas::setNombreAlumno(char * nombrealumno)
-{
-
-    strcpy(_nombre_alumno,nombrealumno);
-
-
-}
-void Notas::setidAlumno(int idalumno)
-{
-
-    _id_alumno = idalumno;
-
-}
-void Notas::setNota(int nota)
-{
-
-    _nota = nota;
-
-}
-void Notas::setNombreProfesor(char *nombreprofe)
-{
-
-    strcpy(_nombre_Profesor,nombreprofe);
-
-}
-void Notas::setidProfesor(int idprofe)
-{
-
-    _id_profesor = idprofe;
+    _DNIalumno=dni;
 
 }
 
-char* Notas::getNombreMateria()
+void Notas::setIdMateria(int materia)
+{
+    _idMateria = materia;
+
+}
+void Notas::setTipoNota(int tipo)
+{
+    _tipoNota = tipo;
+
+}
+void Notas::setNota(float nota)
+{
+    _nota=nota;
+
+}
+
+int Notas::getDNIalumno()
 {
 
-    return _nombreMateria;
+    return _DNIalumno;
 }
+
 int Notas::getIdMateria()
 {
 
-    return _id_materia;
+    return _idMateria;
 }
-int Notas::getAnioCurso()
+
+int Notas::getTipoNota()
 {
-
-    return _anio_curso;
-
+    return _tipoNota;
 }
-char * Notas::getNombreAlumno()
-{
 
-    return _nombre_alumno;
-
-}
-int Notas::getIdAlumno()
-{
-
-    return _id_alumno;
-}
-int Notas::getNota()
-{
+float Notas::getNota(){
 
     return _nota;
-}
-
-char *Notas::getNombreProfesor()
-{
-
-    return _nombre_Profesor;
 
 }
-int Notas::getIdProfesor()
-{
-
-    return _id_profesor;
-
-}
-

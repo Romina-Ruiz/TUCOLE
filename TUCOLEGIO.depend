@@ -321,20 +321,21 @@
 
 1686887199 c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\materia.h
 
-1687395880 source:c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\materiaarchivo.cpp
+1687401468 source:c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\materiaarchivo.cpp
 	<iostream>
 	"MateriaArchivo.h"
 	"Materia.h"
+	<cstring>
 
-1687395880 c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\materiaarchivo.h
+1687400741 c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\materiaarchivo.h
 	"Materia.h"
 
-1686793036 source:c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\notas.cpp
+1687402611 source:c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\notas.cpp
 	<iostream>
 	"Notas.h"
 	<cstring>
 
-1686887144 c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\notas.h
+1687402601 c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\notas.h
 
 1686790619 source:c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\notasarchivo.cpp
 	<iostream>
@@ -369,12 +370,12 @@
 	"Persona.h"
 	"../MENUS/Fecha.h"
 
-1687395880 source:c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\profesorarchivo.cpp
+1687401468 source:c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\profesorarchivo.cpp
 	<iostream>
 	"Profesor.h"
 	"ProfesorArchivo.h"
 
-1687395880 c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\profesorarchivo.h
+1687402936 c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\profesorarchivo.h
 	<cstdio>
 	"Profesor.h"
 	"ProfesorArchivo.h"
