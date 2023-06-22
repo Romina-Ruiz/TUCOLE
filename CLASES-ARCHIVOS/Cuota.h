@@ -27,7 +27,7 @@ public:
     float getMonto();
     Fecha getFechaDeFact();
     bool getDebe();
-    void Cargar();
+
 
 };
 

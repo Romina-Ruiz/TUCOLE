@@ -1,9 +1,8 @@
-#ifndef CUOTAMANAGER_H
-#define CUOTAMANAGER_H
-#include "Cuota.h"
-#include "CuotaArchivo.h"
+#ifndef PAGOMANAGER_H
+#define PAGOMANAGER_H
 
-class CuotaManager
+
+class PagoManager
 {
 private:
 
@@ -12,8 +11,8 @@ public:
 
 
     int buscarDNI(int dni);
-   void Cargar();
-    int generarFactura();
+    void Cargar();
+    int generarPago();
 //	void ListarTodos();
 //	void ListarXId();
 //	void Editar();
@@ -26,8 +25,6 @@ public:
 //	void RestaurarCopiaDeSeguridad();
 
 
-
-
 };
 
-#endif // CUOTAMANAGER_H
+#endif // PAGOMANAGER_H

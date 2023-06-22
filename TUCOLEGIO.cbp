@@ -60,9 +60,12 @@
 		<Unit filename="CLASES-ARCHIVOS/Notas.h" />
 		<Unit filename="CLASES-ARCHIVOS/NotasArchivo.cpp" />
 		<Unit filename="CLASES-ARCHIVOS/NotasArchivo.h" />
+		<Unit filename="CLASES-ARCHIVOS/Pago.cpp" />
+		<Unit filename="CLASES-ARCHIVOS/Pago.h" />
+		<Unit filename="CLASES-ARCHIVOS/PagoArchivo.cpp" />
+		<Unit filename="CLASES-ARCHIVOS/PagoArchivo.h" />
 		<Unit filename="CLASES-ARCHIVOS/Persona.cpp" />
 		<Unit filename="CLASES-ARCHIVOS/Persona.h" />
-		<Unit filename="CLASES-ARCHIVOS/PersonaArchivo.cpp" />
 		<Unit filename="CLASES-ARCHIVOS/PersonaArchivo.h" />
 		<Unit filename="CLASES-ARCHIVOS/Profesor.cpp" />
 		<Unit filename="CLASES-ARCHIVOS/Profesor.h" />
@@ -78,6 +81,8 @@
 		<Unit filename="MANAGER/FaltaManager.h" />
 		<Unit filename="MANAGER/MateriaManager.cpp" />
 		<Unit filename="MANAGER/MateriaManager.h" />
+		<Unit filename="MANAGER/PagoManager.cpp" />
+		<Unit filename="MANAGER/PagoManager.h" />
 		<Unit filename="MANAGER/ProfesorManager.cpp" />
 		<Unit filename="MANAGER/ProfesorManager.h" />
 		<Unit filename="MENUS/FUNCIONES_ADMIN.cpp" />
