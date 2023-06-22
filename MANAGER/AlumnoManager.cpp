@@ -100,7 +100,7 @@ void AlumnoManager::Cargar()
         if (_archivo.agregar(aux))
         {
             rlutil::locate(30,23);
-            cout << "** Alumno guardado correctamente **" << endl;
+            cout << "** Materia guardada correctamente **" << endl;
             system("pause>nul");
         }
         else

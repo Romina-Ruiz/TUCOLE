@@ -6,13 +6,16 @@ class MateriaArchivo
 {
    public:
     void leerMaterias(Materia materia[], int cantidad);
-//    void cargarMaterias(Materia materia);
+//  void cargarMaterias(Materia materia);
     void guardar(Materia materia);
-    int cantidadMaterias();
+    int getCantidad();
     bool agregar (Materia);
     bool eliminar(Materia dto);
     int obtenerTamanio();
     int leerDeDisco(int pos);
+    int buscarReg(int id);
+    Materia leerReg(int nroRegistro);
+
 
 
 

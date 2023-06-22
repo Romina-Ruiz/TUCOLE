@@ -3,128 +3,133 @@
 //#include "MateriaManager.h"
 //#include "Materia.h"
 //#include "MateriaArchivo.h"
+//#include "Alumno.h"
+//#include"../MENUS/rlutil.h"
 //
 //using namespace std;
 //
-//MateriaManager::MateriaManager(char *ruta){
+//MateriaManager::MateriaManager(char *ruta)
+//{
 //
 //    strcpy(_ruta,ruta);
 //}
-//MateriaManager::MateriaManager(){
+//MateriaManager::MateriaManager()
+//{
 //
 //    strcpy(_ruta,"MateriaManager.dat");
 //
-// }
+//}
 //
 //
-//void ProfesorManager::Cargar()
+//void MateriaManager::Cargar()
 //
 //{
-//    char nombre[30], apellido[30], email[30];
-//   int Legajo, telefono;
-//    int dni, dia, mes, anio;
+//    char _nombre[30];
+//    int id,idProfesor,anio_curso;
+//    char nombre_alumno[30];
+//    char nombre_profesor[30];
+//
+//    rlutil::locate(20,9);
+//    cout << "INGRESE NOMBRE: "<<endl;
+//    rlutil::locate(39,9);
+//    cin>>nombre;
+//
+//    id=this->GenerarId();
 //
 //    rlutil::locate(20,8);
-//    cout << "INGRESE DNI #: " <<endl;
+//    cout << "NUMERO DE ID #: " <<endl;
 //    rlutil::locate(35,8);
-//    cin>>dni;
+//    cin>>id;
 //
-//    int numerodeRegistro=buscarDNI(dni);
+//    rlutil::locate(20,10);
+//    cout << "INGRESE NOMBRE: "<<endl;
+//    rlutil::locate(41,10);
+//    cin >> nombre;
+//    rlutil::locate(20,11);
 //
-//    if(numerodeRegistro>0)
+//    idProfesor=this->GenerarId();
+//
+//    rlutil::locate(20,8);
+//    cout << "NUMERO DE ID #: " <<endl;
+//    rlutil::locate(35,8);
+//    cin>>idProfesor;
+//
+//    cout << "INGRESE ANIO EN CURSO: "<<endl;
+//    rlutil::locate(38,11);
+//    cin >> anio_curso;
+//    rlutil::locate(20,12);
+//    cout << "INGRESE NOMBRE DEL PROFESOR: "<<endl;
+//    rlutil::locate(41,12);
+//    cin >>nombre_profesor ;
+//    rlutil::locate(20,13);
+//    cout << "INGRESE NOMBRE DEL ALUMNO "<<endl;
+//    rlutil::locate(45,13);
+//    cin >> nombre_alumno;
+//    rlutil::locate(20,14);
+//
+//
+//    Materia aux;
+//    aux.setId(id);
+//    aux.setNombreMateria(nombre);
+//    aux.setAnioCurso(anio_curso);
+//    aux.setidProfesor(nombre_profesor);
+//    aux.setNombreAlumno(nombre_alumno);
+//
+//
+//    if (_archivo.agregar(aux))
 //    {
-//
-//        rlutil::locate(20,10);
-//        cout<<"EL DNI YA EXISTE !!";
+//        rlutil::locate(30,23);
+//        cout << "** MATERIA GUARDADA CORRECTAMENTE **" << endl;
 //        system("pause>nul");
+//        system("cls");
 //    }
 //    else
 //    {
-//
-//        rlutil::locate(20,9);
-//        cout << "INGRESE NOMBRE: "<<endl;
-//        rlutil::locate(39,9);
-//        cin>>nombre;
-//        rlutil::locate(20,10);
-//        cout << "INGRESE APELLIDO: "<<endl;
-//        rlutil::locate(41,10);
-//        cin >> apellido;
-//        rlutil::locate(20,11);
-//        cout << "INGRESE EMAIL: "<<endl;
-//        rlutil::locate(38,11);
-//        cin >> email;
-//        rlutil::locate(20,12);
-//        cout << "INGRESE TELEFONO: "<<endl;
-//        rlutil::locate(41,12);
-//        cin >> telefono;
-//        rlutil::locate(20,13);
-//        cout << "INGRESE DIA DE INGRESO: "<<endl;
-//        rlutil::locate(45,13);
-//        cin >> dia;
-//        rlutil::locate(20,14);
-//        cout << "INGRESE MES DE INGRESO: "<<endl;
-//        rlutil::locate(45,14);
-//        cin >> mes;
-//        rlutil::locate(20,15);
-//        cout << "INGRESE ANIO DE INGRESO: "<<endl;
-//        rlutil::locate(45,15);
-//        cin >> anio;
-//        Legajo=this->generarLegajo();
-//        rlutil::locate(20,16);
-//        cout << "LEGAJO: "<<  Legajo <<endl;
-//        rlutil::locate(20,16);
-//        cout << "ESTADO: "<< "Activo" <<endl;
-//
-//        Profesor aux;
-//        aux.setDNI(dni);
-//        aux.setNombre(nombre);
-//        aux.setApellido(apellido);
-//        aux.setEmail(email);
-//        aux.setTelefono(telefono);
-//        aux.setIngreso(Fecha(dia, mes, anio));
-//        aux.setLegajo(Legajo);
-//        aux.setEstado(1);
-//
-//
-//        if (_archivo.agregar(aux))
-//        {
-//            rlutil::locate(30,23);
-//            cout << "** PROFESOR GUARDADO CORRECTAMENTE **" << endl;
-//            system("pause>nul");
-//            system("cls");
-//        }
-//        else
-//        {
-//            rlutil::locate(30,25);
-//            cout << "** UPS! ALGO SALIO MAL:( **" << endl;
-//            system("pause>nul");
-//        }
+//        rlutil::locate(30,25);
+//        cout << "** UPS! ALGO SALIO MAL:( **" << endl;
+//        system("pause>nul");
 //    }
-//    system("pause");
-//
 //}
 //
-//int ProfesorManager::buscarDNI(int dni)
-//{
 //
-//    return _archivo.buscarReg(dni)>=0;
 //
-//}
 //
-//int ProfesorManager::generarLegajo()
-//{
+////int MateriaManager::buscarDNI(int dni)
+////{
+////
+////    Alumno obj;
+////    AlumnoArchivo _archivoalumno;
+////    int nroReg=-1;
+////    int cantRegArchivo=_archivoalumno.getCantidad();
+////
+////
+////    for (int i = 0; i < cantRegArchivo; i++)
+////    {
+////        obj=_archivoalumno.leerReg(i);
+////
+////        if (obj.getDni()== dni)
+////        {
+////            nroReg=i;
+////            break;
+////        }
+////    }
+////
+////    return nroReg;
+////}
+////int MateriaManager::generarLegajo()
+////{
+////
+////    return _archivo.getCantidad()+1;
+////}
 //
-//    return _archivo.getCantidad()+1;
-//}
-//
-//void ProfesorManager::ListarTodos()
+//void MateriaManager::ListarTodos()
 //{
 //
 //    int cantidadRegistros = _archivo.getCantidad();
 //
 //    for (int i = 0; i<cantidadRegistros; i++)
 //    {
-//        Profesor reg = _archivo.leerReg(i);
+//        Materia reg = _archivo.leerReg(i);
 //        if (reg.getEstado()==true)
 //        {
 //            Listar(reg);
@@ -132,84 +137,41 @@
 //        }
 //    }
 //}
-//void ProfesorManager::Listar(Profesor profesor)
+//void MateriaManager::Listar(Materia materia)
 //{
 //    rectangulo (2, 2, 100, 26);
 //    rlutil::setColor(rlutil::YELLOW);
 //
 //    rlutil::locate(20,9);
-//    cout<<"DNI:    " <<profesor.getDni()<<endl;
+//    cout<<"NOMBRE :         " <<materia.getNombreMateriagetDni()<<endl;
 //    rlutil::locate(20,10);
-//    cout<<"NOMBRE:    "<<profesor.getNombre()<<endl;
+//    cout<<"ID MATERIA :     " <<materia.getIdMateria()<<endl;
 //    rlutil::locate(20,11);
-//    cout<<"APELLIDO:    "<<profesor.getApellido()<<endl;
+//    cout<<"ID PROFESOR :    " <<materia.getIdProfesor()<<endl;
 //    rlutil::locate(20,12);
-//    cout<<"EMAIL:    " <<profesor.getEmail()<<endl;
+//    cout<<"ANIO CURSO :     " <<materia.getAnioCurso()<<endl;
 //    rlutil::locate(20,13);
-//    cout<<"TELEFONO:    "<<profesor.getTelefono()<<endl;
+//    cout<<"NOMBRE PROFESOR : " <<materia.getNombreProfesor()<<endl;
 //    rlutil::locate(20,14);
-//    cout <<"FECHA DE INGRESO:    " << profesor.getIngreso().toString()<< endl;
-//    rlutil::locate(20,15);
-//    cout <<"LEGAJO:    " << profesor.getLegajo() << endl;
-//
-//    if (profesor.getEstado()==true)
-//    {
-//        rlutil::locate(20,16);
-//        cout <<"ESTADO:    " << "Activo" << endl;
-//    }
-//    else if(profesor.getEstado()==false)
-//    {
-//        rlutil::locate(20,16);
-//        cout <<"ESTADO:    " << "Baja" << endl;
-//    }
-//    rlutil::locate(20,18);
-//    cout <<"--------------------------------------------------------------" << endl;
+//    cout <<"NOMBRE ALUMNO :  " << materia.getNombreAlumno()<< endl;
 //
 //
 //}
 //
 //
-//void ProfesorManager::ListarXdni()
+//void MateriaManager::Editar()
 //{
-//    int dni;
-//    rectangulo (2, 2, 100, 26);
-//    rlutil::setColor(rlutil::YELLOW);
+//    Materia reg;
+//    int id, posicion;
 //
 //    rlutil::locate(20,9);
-//    cout << "INGRESE DNI PROFESOR: ";
-//    cin >> dni;
-//    system("cls");
-//
-//    int posicion = _archivo.buscarReg(dni);
-//    if (posicion >= 0)
-//    {
-//        Profesor reg = _archivo.leerReg(posicion);
-//        Listar(reg);
-//    }
-//    else
-//    {
-//           rlutil::locate(20,10);
-//        cout << "** NO EXISTE UN PROFESOR CON ESE DNI **" << endl;
-//        system("pause>nul");
-//    }
-//}
-//
-//
-//
-//
-//void ProfesorManager::Editar()
-//{
-//    Profesor reg;
-//    int dni, posicion;
-//
-//    rlutil::locate(20,9);
-//    cout << "DNI A MODIFICAR: ";
-//    cin >> dni;
+//    cout << "ID A MODIFICAR: ";
+//    cin >> id;
 //    cout << endl;
 //
 //    system("cls");
-//    mostrar_mensaje ("***** MODIFICAR DE PROFESOR ***** ", 34, 4);
-//    posicion = _archivo.buscarReg(dni);
+//    mostrar_mensaje ("***** MODIFICAR DE MATERIA***** ", 34, 4);
+//    posicion = _archivo.buscarReg(id);
 //    if (posicion >= 0)
 //    {
 //        reg = _archivo.leerReg(posicion);
@@ -235,7 +197,7 @@
 //    }
 //}
 //
-//void ProfesorManager::Eliminar()
+//void MateriaManager::Eliminar()
 //{
 //
 //    Profesor reg;
@@ -260,7 +222,7 @@
 //    }
 //}
 //
-//void ProfesorManager::HacerCopiaDeSeguridad()
+//void MateriaManager::HacerCopiaDeSeguridad()
 //{
 //
 //    int cantidadRegistros = _archivo.getCantidad();
@@ -286,7 +248,7 @@
 //    delete []vec;
 //}
 //
-//void ProfesorManager::RestaurarCopiaDeSeguridad()
+//void MateriaManager::RestaurarCopiaDeSeguridad()
 //{
 //
 //
@@ -313,12 +275,12 @@
 //    delete []vec;
 //}
 //
-//void ProfesorManager::ModificarDatos(Profesor profesor, int posicion)
+//void MateriaManager::ModificarDatos(Materia materia, int posicion)
 //{
 //    system("cls");
-//    const char *opciones[] = {"DNI", "NOMBRE","APELLIDO", "EMAIL", "TELEFONO","MODIFICAR ESTADO", "VOLVER AL MENU PRINCIPAL"};
+//    const char *opciones[] = {"NOMBRE DE LA MATERIA", "NOMBRE DEL PROFESOR", "VOLVER AL MENU PRINCIPAL"};
 //
-//    mostrar_mensaje ("* MODIFICAR DATOS DEL PROFESOR *", 40, 4);
+//    mostrar_mensaje ("* MODIFICAR DATOS DE LA MATERIA *", 40, 4);
 //    mostrar_mensaje ("--------------------------------", 40, 5);
 //
 //    rlutil::saveDefaultColor();
@@ -378,15 +340,15 @@
 //            case 0:      /// SETEAR DNI
 //                system("cls");
 //                {
-//                    mostrar_mensaje ("* MODIFICAR DATOS DEL PROFESOR *", 40, 4);
+//                    mostrar_mensaje ("* MODIFICAR DATOS DE LA MATERIA *", 40, 4);
 //                    mostrar_mensaje ("--------------------------------", 40, 5);
-//                    int dni;
+//                    char nombreMateria[30];
 //                    rlutil::locate(20,9);
-//                    cout << "INGRESE EL NUEVO DNI: "<<endl;
+//                    cout << "INGRESE EL NUEVO NOMBRE DE LA MATERIA "<<endl;
 //                    rlutil::locate(39,9);
-//                    cin>>dni;
-//                    profesor.setDNI(dni);
-//                    if (_archivo.guardar(profesor, posicion))
+//                    cin>>nombreMateria;
+//                    materia.setNombreMateria(nombreMateria);
+//                    if (_archivo.guardar(materia, posicion))
 //                    {
 //
 //                        rlutil::locate(30,15);
@@ -406,13 +368,13 @@
 //
 //                {
 //
-//                    char nombre[30];
+//                    char nombreProfesor[30];
 //                    rlutil::locate(20,9);
 //                    cout << "INGRESE EL NUEVO NOMBRE: "<<endl;
 //                    rlutil::locate(47,9);
-//                    cin>>nombre;
-//                    profesor.setNombre(nombre);
-//                    if (_archivo.guardar(profesor, posicion))
+//                    cin>>nombreProfesor;
+//                    materia.getNombreProfesor(nombreProfesor);
+//                    if (_archivo.guardar(materia, posicion))
 //                    {
 //
 //                        rlutil::locate(30,15);
@@ -425,137 +387,15 @@
 //
 //                break;
 //
-//            case 2:       /// SETEAR APELLIDO
-//                system("cls");
-//                mostrar_mensaje ("* MODIFICAR DATOS DEL PROFESOR *", 40, 4);
-//                mostrar_mensaje ("--------------------------------", 40, 5);
 //
-//                {
-//                    char apellido[30];
-//                    rlutil::locate(20,9);
-//                    cout << "INGRESE EL NUEVO APELLIDO: "<<endl;
-//                    rlutil::locate(47,9);
-//                    cin>>apellido;
-//                    profesor.setApellido(apellido);
-//                    if (_archivo.guardar(profesor, posicion))
-//                    {
-//
-//                        rlutil::locate(30,15);
-//                        cout << "**  REGISTRO MODIFICADO  **"<<endl;
-//                    }
-//
-//                    system("pause>nul");
-//                    system("cls");
-//                }
-//
-//                break;
-//
-//            case 3:     /// SETEAR MAIL
-//                system("cls");
-//                mostrar_mensaje ("* MODIFICAR DATOS DEL PROFESOR *", 40, 4);
-//                mostrar_mensaje ("--------------------------------", 40, 5);
-//
-//                {
-//
-//                    char email[30];
-//                    rlutil::locate(20,9);
-//                    cout << "INGRESE EL NUEVO EMAIL: "<<endl;
-//                    rlutil::locate(45,9);
-//                    cin>>email;
-//                    profesor.setEmail(email);
-//                    if (_archivo.guardar(profesor, posicion))
-//                    {
-//
-//                        rlutil::locate(30,15);
-//                        cout << "**  REGISTRO MODIFICADO  ** "<<endl;
-//                        system("pause>nul");
-//                        system("cls");
-//                    }
-//
-//                }
-//
-//                break;
-//
-//            case 4:     /// SETEAR TELEFONO
-//                system("cls");
-//
-//                {
-//                    mostrar_mensaje ("* MODIFICAR DATOS DEL PROFESOR *", 40, 4);
-//                    mostrar_mensaje ("--------------------------------", 40, 5);
-//                    int tele;
-//                    rlutil::locate(20,9);
-//                    cout << "INGRESE EL NUEVO TELEFONO: "<<endl;
-//                    rlutil::locate(53,9);
-//                    cin>>tele;
-//                    profesor.setTelefono(tele);
-//                    if (_archivo.guardar(profesor, posicion))
-//                    {
-//
-//                        rlutil::locate(30,15);
-//                        cout << "**  REGISTRO MODIFICADO  **"<<endl;
-//                    }
-//
-//                    system("pause>nul");
-//                    system("cls");
-//                }
-//                break;
-//
-//            case 6:     /// SETEAR DAR DE BAJA
-//                system("cls");
-//
-//                {
-//                    mostrar_mensaje ("* MODIFICAR DATOS DEL PROFESOR *", 40, 4);
-//                    mostrar_mensaje ("--------------------------------", 40, 5);
-//                    int op;
-//                    rlutil::locate(20,9);
-//                    cout << "DESEA MODIFICAR ESTADO DEL ALUMNO (1-BAJA/2-ALTA): "<<endl;
-//                    rlutil::locate(72,9);
-//                    cin>>op;
-//                    if (op==1)
-//                    {
-//                        profesor.setEstado(false);
-//                        if (_archivo.guardar(profesor, posicion))
-//                        {
-//
-//                            rlutil::locate(30,15);
-//                            cout << "** REGISTRO MODIFICADO ** "<<endl;
-//                        }
-//                        else if(op==2)
-//                        {
-//
-//                            profesor.setEstado(true);
-//                            if (_archivo.guardar(profesor, posicion))
-//                            {
-//
-//                                rlutil::locate(30,15);
-//                                cout << "** REGISTRO MODIFICADO ** "<<endl;
-//                            }
-//                            system("pause>nul");
-//                            system("cls");
-//
-//                        }
-//                        break;
-//
-//                    case 7:     /// VOLVER AL MENU PRINCIPAL
-//                        system("cls");
-//                        {
-//                            system("pause>nul");
-//                            system("cls");
-//
-//                        }
-//
-//                        break;
-//                    }
-//                }
-//            }
-//        }
+//}
 //
 //    }
 //    while(op!=0);
 //    system("pause>nul");
 //
 //}
-
+//
 
 
 
