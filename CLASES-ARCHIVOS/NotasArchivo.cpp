@@ -119,6 +119,21 @@ int NotasArchivo::buscarReg(int dni)
 
 }
 
+bool NotasArchivo::guardarTodos(Notas *vec, int cantidadRegistrosAEscribir){
+
+	FILE *p = fopen(_ruta, "ab");
+	if (p == NULL)
+	{
+		return false;
+	}
+
+	int cantidadRegistrosEscritos = fwrite(vec, sizeof(Notas), cantidadRegistrosAEscribir, p);
+	fclose(p);
+	return cantidadRegistrosEscritos == cantidadRegistrosAEscribir;
+
+}
+
+
 void NotasArchivo::vaciar()
 {
     FILE *p = fopen(_ruta, "wb");

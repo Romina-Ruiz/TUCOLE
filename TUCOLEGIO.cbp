@@ -81,6 +81,8 @@
 		<Unit filename="MANAGER/FaltaManager.h" />
 		<Unit filename="MANAGER/MateriaManager.cpp" />
 		<Unit filename="MANAGER/MateriaManager.h" />
+		<Unit filename="MANAGER/NotaManager.cpp" />
+		<Unit filename="MANAGER/NotaManager.h" />
 		<Unit filename="MANAGER/PagoManager.cpp" />
 		<Unit filename="MANAGER/PagoManager.h" />
 		<Unit filename="MANAGER/ProfesorManager.cpp" />

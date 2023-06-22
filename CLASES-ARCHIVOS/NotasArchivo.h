@@ -17,6 +17,7 @@ public:
     Notas leerReg(int nroRegistro);
     void leerTodos(Notas nota[], int cantidad);
     bool modificar(Notas registro, int nroRegistro);
+    bool guardarTodos(Notas*vec, int cantidadRegistrosAEscribir);
     int buscarReg(int dni);
     void vaciar();
 

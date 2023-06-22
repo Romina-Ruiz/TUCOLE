@@ -337,13 +337,15 @@
 
 1687402601 c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\notas.h
 
-1686790619 source:c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\notasarchivo.cpp
+1687405769 source:c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\notasarchivo.cpp
 	<iostream>
 	"NotasArchivo.h"
 	"Notas.h"
+	<cstring>
 
-1687396609 c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\notasarchivo.h
+1687405747 c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\notasarchivo.h
 	"Notas.h"
+	"NotasArchivo.h"
 
 1687276375 source:c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\persona.cpp
 	"Persona.h"
@@ -905,4 +907,17 @@
 	"../MENUS/rlutil.h"
 
 1687394625 c:\users\romina\documents\github\tucolegio\tucole\manager\pagomanager.h
+
+1687405871 source:c:\users\romina\documents\github\tucolegio\tucole\manager\notamanager.cpp
+	<iostream>
+	<iomanip>
+	<string>
+	<cstring>
+	<cstdio>
+	"../MENUS/rlutil.h"
+	"NotaManager.h"
+
+1687405855 c:\users\romina\documents\github\tucolegio\tucole\manager\notamanager.h
+	"Notas.h"
+	"NotasArchivo.h"
 
