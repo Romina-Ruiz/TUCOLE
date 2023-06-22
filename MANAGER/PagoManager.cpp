@@ -7,8 +7,10 @@
 #include"Pago.h"
 #include"PagoArchivo.h"
 #include"../MENUS/rlutil.h"
+#include"../MENUS/FUNCIONES_FRONT.h"
 
 using namespace std;
+
 
 int PagoManager::buscarDNI(int dni)   /// ACA  TIENE QUE VALIDAR EL DNI EN EL ARCHIVO DE ALUMNOS
 {
@@ -112,4 +114,51 @@ int PagoManager::generarPago()
 {
     PagoArchivo _archivo;
     return _archivo.getCantidad()+1;
+}
+void ListarXdni(Pago pago){
+
+PagoArchivo _archivo;
+
+    int dni;
+    rectangulo (2, 2, 100, 26);
+    rlutil::setColor(rlutil::YELLOW);
+
+    rlutil::locate(20,9);
+    cout << "INGRESE DNI ALUMNO: ";
+    cin >> dni;
+    system("cls");
+
+    int posicion = _archivo.buscarReg(dni);
+    if (posicion >= 0)
+    {
+        Pago reg = _archivo.leerReg(posicion);
+        Listar(reg);
+    }
+    else
+    {
+        rlutil::locate(20,10);
+        cout << "** NO EXISTE UN PAGO CON ESE DNI **" << endl;
+        system("pause>nul");
+    }
+}
+
+
+void PagoManager::Listar(Pago pago)
+{
+int NumeroPago;
+    rectangulo (2, 2, 100, 26);
+    rlutil::setColor(rlutil::YELLOW);
+
+    rlutil::locate(20,9);
+    cout<<"DNI ALUMNO:    " <<pago.getDNIalumno()<<endl;
+    rlutil::locate(20,10);
+    NumeroPago=this->generarPago();
+    cout<<"NUMERO DE PAGO :    "<<NumeroPago<<endl;
+    rlutil::locate(20,11);
+    cout<<"MONTO :    "<<pago.getMonto()<<endl;
+    rlutil::locate(20,12);
+    cout<<"FECHA DE PAGO :    " <<pago.getFechaDePago().toString()<<endl;
+    rlutil::locate(20,13);
+    cout<<" ABONADO :    "<<true;
+
 }

@@ -15,6 +15,7 @@ using namespace std;
 #include"../MANAGER/AlumnoManager.h"
 #include"ProfesorManager.h"
 #include"CuotaManager.h"
+#include "PagoManager.h"
 
 
 
@@ -86,12 +87,25 @@ void menuPagos()
 
             case 0:     ///CARGAR PAGOS
 
+            {
+                system("cls");
+
+                PagoManager obj;
+                rectangulo (2, 2, 100, 26);
+                rlutil::setColor(rlutil::YELLOW);
+                mostrar_mensaje ("***** CARGA DE ALUMNO ***** ", 34, 4);
+                obj.Cargar();
+                system("pause>nul");
+                system("cls");
+            }
+
 
                 ///LLAMAR A LA FUNCION CARGAR
 
                 break;
 
             case 1:     /// MODIFICAR DATOS
+
 
 
                 ///LLAMAR A LA FUNCION MODIFICAR
