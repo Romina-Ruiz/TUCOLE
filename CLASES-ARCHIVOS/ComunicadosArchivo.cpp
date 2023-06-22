@@ -39,27 +39,7 @@ int ComunicadosArchivo::getCantidad(){
   }
   return cantidad;
 }
-//bool ComunicadosArchivo::eliminar(Comunicados dto)
-//{
-//   Comunicados aux;
-//    bool eliminar = false;
-//    FILE *p;
-//    p = fopen(_ruta,"rb+");
-//    if (p!=NULL)
-//    {
-//        while(fread(&dto, sizeof (Comunicados),1,p))
-//        {
-//            if(dto.getIdComunicado()==aux.getIdComunicado())
-//            {
-//                fseek(p,sizeof dto*(-1),SEEK_CUR);
-//                fwrite(&dto, sizeof (Comunicados),1,p);
-//                fclose (p);
-//                eliminar = true;
-//            }
-//        }
-//    }
-//    return eliminar;
-//}
+
 void ComunicadosArchivo::vaciar(){
 	FILE *p = fopen(_ruta, "wb");
 	if (p == NULL)

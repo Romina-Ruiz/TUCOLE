@@ -22,9 +22,9 @@ void Falta::setCantFaltasAnuales( int anuales)
     _cantFaltasAnuales = anuales;
 
 }
-void Falta::setCantFaltasPermitidas(int permitidas)
+void Falta::setFalta(int falta)
 {
-    _cantFaltasPermitidas = permitidas;
+    _Falta= falta;
 
 }
 int Falta::getDNIAlumno()
@@ -46,30 +46,9 @@ int Falta::getCantFaltasAnuales()
 
 }
 
-int Falta::getCantFaltasPermitidas()
+int Falta::getFalta()
 {
 
-    return _cantFaltasPermitidas;
-}
-
-void Falta::Cargar(int dni)
-{
-     rlutil::locate(20,8);
-    cout<<"DNI: "<<endl;
-    rlutil::locate(26,8);
-    _DNIalumno=dni;
-    rlutil::locate(20,9);
-    cout <<"FECHA DE LA FACTURA: "<<endl;
-    rlutil::locate(33,9);
-    // cin >> _fechaAusencia;
-    rlutil::locate(20,10);
-    cout <<"CANTIDAD DE FALTAS ANUALES "<<endl;
-    rlutil::locate(48,10);
-    cout <<_cantFaltasAnuales <<endl;
-    rlutil::locate(20,11);
-    cout <<"CANTIDAD DE FALTAS PERMITIDAS: "<<endl;
-    rlutil::locate(54,11);
-    cin >>_cantFaltasPermitidas;
-
+    return _Falta;
 }
 

@@ -119,5 +119,12 @@ int FaltaArchivo::buscarReg(int dni)
     return nroRegistro;
 
 }
-
+void FaltaArchivo::vaciar(){
+	FILE *p = fopen(_ruta, "wb");
+	if (p == NULL)
+	{
+		return ;
+	}
+	fclose(p);
+}
 

@@ -10,7 +10,6 @@ class NotasArchivo
     void guardar(Notas nota);
     int cantidadNotas();
     bool agregar (Notas dto);
-//    bool eliminar (Nota);
     int obtenerTamanio();
     int leerDeDisco(int pos);
 };

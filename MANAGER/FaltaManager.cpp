@@ -43,39 +43,72 @@ return nroReg;
 int FaltaManager::Cargar()
 {
 
-Falta obj;
+    int anuales=6, falta=1, op;
+    int dni, dia, mes, anio;
 
-int dni, nroReg;
-
- bool agrego = false;
-
-     rlutil::locate(20,8);
-    cout<<"DNI: ";
-    rlutil::  locate (26,8);
+    rlutil::locate(20,8);
+    cout << "INGRESE DNI ALUMNO: " <<endl;
+    rlutil::locate(41,8);
     cin>>dni;
 
-  nroReg = this->buscarDNI(dni);
+    int numerodeRegistro=buscarDNI(dni);
 
-    if (nroReg!=-1)
+    if(numerodeRegistro<0)
     {
-       rlutil::locate(28,9);
-        cout<<"EL DNI NO EXISTE!";
-        system("pause>null");
-        return -1;
-    }
- obj.Cargar(dni);
 
-	if (_archivo.agregar(obj)==true)
-	{
-	     rlutil::locate(28,20);
-		cout << "** Alumno guardado correctamente **" << endl;
+        rlutil::locate(20,10);
+        cout<<"EL DNI NO EXISTE !!";
         system("pause>nul");
-		}
-	else
-	{
-	    rlutil::locate(28,20);
-		cout << "** Ups! Algo salio mal :( **" << endl;
-		system("pause>nul");
-	}
+    }
+    else
+    {
 
-	}
+        rlutil::locate(20,10);
+        cout << "FALTAS ANUALES: "<<endl;
+        rlutil::locate(38,10);
+        cout << anuales <<endl;
+         cout << "INGRESE DIA DE LA FALTA: "<<endl;
+        rlutil::locate(42,14);
+        cin >> dia;
+        rlutil::locate(20,15);
+        cout << "INGRESE MES DE LA FALTA: "<<endl;
+        rlutil::locate(45,15);
+        cin >> mes;
+        rlutil::locate(20,16);
+        cout << "INGRESE ANIO DE LA FALTA: "<<endl;
+        rlutil::locate(45,16);
+        cin >> anio;
+
+        rlutil::locate(20,11);
+        cout << "CARGAR FALTA (1-SI/ 2-NO): "<<endl;
+        if (op==1){
+         rlutil::locate(48,11);
+         cout << falta <<endl;
+
+       Falta aux;
+        aux.setDNIAlumno(dni);
+        aux.setFechaAusencia(Fecha(dia, mes, anio));
+        aux.setCantFaltasAnuales(anuales);
+        aux.setFalta(falta);
+
+         if (_archivo.agregar(aux))
+        {
+            rlutil::locate(30,23);
+            cout << "** FALTA CORRECTAMENTE CARGADA **" << endl;
+            system("pause>nul");
+        }
+        else
+        {
+            rlutil::locate(30,25);
+            cout << "** UPS! ALGO SALIO MAL :( **" << endl;
+            system("pause>nul");
+        }
+
+        }
+
+
+
+    }
+    system("pause");
+
+}

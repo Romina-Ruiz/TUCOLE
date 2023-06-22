@@ -17,6 +17,7 @@ public:
     bool leerTodos(Falta falta[], int cantidad);
     bool modificar (Falta registro, int nroRegistro);
     int buscarReg(int dni);
+    void vaciar();
 
 };
 

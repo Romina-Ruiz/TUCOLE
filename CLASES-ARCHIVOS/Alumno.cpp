@@ -7,7 +7,6 @@
 
 using namespace std;
 
-//const char *RUTA_ALUMNO = "Alumno.dat";
 
 
 void Alumno::setEstado(bool estado)
@@ -24,7 +23,7 @@ void Alumno::setEstado(bool estado)
 
 void Alumno::setLegajo(int legajo)
 {
-       // _Legajo=this->GenerarId();
+       _Legajo=legajo;
 }
 
 void Alumno::setAnioCurso(int anio)

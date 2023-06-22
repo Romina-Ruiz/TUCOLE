@@ -72,6 +72,9 @@ void SalirSistemaUser()
 
 void menuAdmin()
 {
+
+    system("cls");
+
     const char *opciones[] = {"FACTURACION","PAGOS", "ALUMNOS", "PROFESORES","MATERIAS",
                               "NOTAS","AUSENCIAS", "COMUNICADOS","INFORMES","RESPALDOS","SALIR"
                              };

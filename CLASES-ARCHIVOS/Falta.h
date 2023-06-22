@@ -5,11 +5,11 @@
 class Falta
 {
 private:
-    /// UTILIZAR DNI ALUMNO
+
     int _DNIalumno;
     Fecha _fechaAusencia;
     int _cantFaltasAnuales;
-    int _cantFaltasPermitidas;
+    int _Falta;
 
 
 public:
@@ -17,14 +17,13 @@ public:
     void setDNIAlumno(int dni);
     void setFechaAusencia(Fecha fecha);
     void setCantFaltasAnuales( int anuales);
-    void setCantFaltasPermitidas(int permitidas);
+    void setFalta(int falta);
 
     int getDNIAlumno();
     Fecha getFechaAusencia();
     int getCantFaltasAnuales();
-    int getCantFaltasPermitidas();
+    int getFalta();
 
-    void Cargar(int dni);
 
     };
 

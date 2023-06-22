@@ -5,6 +5,7 @@
 class Comunicados
 {
 private:
+    ///char _comunicado[100];
     int _id_comunicado;
     int _DNIalumno;
     int _id_materia;
@@ -14,6 +15,7 @@ private:
 
 public:
     Comunicados();
+
     void setIdComunicado(int idcomunicado);
     void setDNIalumno(int dni);
     void setIdMateria(int id);

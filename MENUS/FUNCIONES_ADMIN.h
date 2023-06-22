@@ -6,7 +6,6 @@ void menuFacturacion();
 void menuPagos();
 void menuCargarAlumnos();
 void menuCargarProfesor();
-void menuCargarAdmin();
 void menuCargarMateria();
 void menuCargarNotas();
 void menuAusencias();

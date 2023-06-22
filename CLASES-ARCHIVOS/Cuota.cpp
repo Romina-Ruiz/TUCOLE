@@ -7,7 +7,7 @@ using namespace std;
 
 void Cuota::setDNIalumno(int dni){
 
-_DNIalumno=dni;    /// tal vez hay que validar que este el dni en el archivo de alumno?
+_DNIalumno=dni;
 }
 
 void Cuota::settipoDeCuota(int cuota){
@@ -18,7 +18,7 @@ void Cuota::settipoDeCuota(int cuota){
 
 void Cuota::setNroFact(int numero){
 
-_nroFact=numero;  ///aca se necesita funcion para que traiga el numero automatico
+_nroFact=numero;
  }
 
 void Cuota::setMonto(float monto)
