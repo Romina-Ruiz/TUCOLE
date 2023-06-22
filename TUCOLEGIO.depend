@@ -964,3 +964,14 @@
 	"Pago.h"
 	"PagoArchivo.h"
 
+1687467555 source:c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\manager\pagomanager.cpp
+	<iostream>
+	<iomanip>
+	<cstring>
+	<cstdio>
+	"PagoManager.h"
+	"Pago.h"
+	"PagoArchivo.h"
+	"../MENUS/rlutil.h"
+	"../MENUS/FUNCIONES_FRONT.h"
+

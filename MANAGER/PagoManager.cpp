@@ -115,7 +115,7 @@ int PagoManager::generarPago()
     PagoArchivo _archivo;
     return _archivo.getCantidad()+1;
 }
-void ListarXdni(Pago pago){
+void PagoManager::ListarXdni(Pago pago){
 
 PagoArchivo _archivo;
 
@@ -132,7 +132,7 @@ PagoArchivo _archivo;
     if (posicion >= 0)
     {
         Pago reg = _archivo.leerReg(posicion);
-        Listar(reg);
+//        Listar(reg);
     }
     else
     {
