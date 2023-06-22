@@ -5,7 +5,7 @@
 class Comunicados
 {
 private:
-    ///char _comunicado[100];
+    char _comunicado[100];
     int _id_comunicado;
     int _DNIalumno;
     int _id_materia;

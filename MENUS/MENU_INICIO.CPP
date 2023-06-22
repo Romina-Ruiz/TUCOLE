@@ -15,7 +15,8 @@ using namespace std;
 #include"../MANAGER/AlumnoManager.h"
 #include"ProfesorManager.h"
 #include"CuotaManager.h"
-#include"AlumnoArchivo.h"
+//#include"AlumnoArchivo.h"
+#include"AlumnoManager.h"
 
 void menuIncio()
 {
@@ -27,7 +28,7 @@ void menuIncio()
     mostrar_mensaje ("___________________________", 40, 6);
 
 
-    AlumnoArchivo Obj;
+    AlumnoManager Obj;
 
     int dni;
 
@@ -45,7 +46,7 @@ void menuIncio()
 
                 }
 
-    else if (Obj.buscarReg(dni)){
+    else if (Obj.validarIngreso(dni)){
 
         menuUser(dni);
 
@@ -58,7 +59,7 @@ void menuIncio()
     system("cls");
 
     }
-
+menuIncio();
 
 }
 void SalirSistemaUser()

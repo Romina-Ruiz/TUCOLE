@@ -24,6 +24,7 @@ public:
 	void Eliminar();
 	void Listar(Alumno alumno);
 	void ModificarDatos(Alumno alumno, int posicion);
+	bool validarIngreso(int dni);
 
 
 

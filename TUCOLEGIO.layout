@@ -2,49 +2,54 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Debug" />
-	<File name="CLASES-ARCHIVOS\Materia.cpp" open="0" top="0" tabpos="38" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="CLASES-ARCHIVOS\Notas.h" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="0" topLine="57" />
+			<Cursor1 position="140" topLine="3" />
 		</Cursor>
 	</File>
-	<File name="MENUS\MENU_INICIO.CPP" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="MANAGER\CuotaManager.cpp" open="1" top="0" tabpos="13" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1563" topLine="2" />
+			<Cursor1 position="502" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="MANAGER\CuotaManager.cpp" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="CLASES-ARCHIVOS\Cuota.cpp" open="0" top="0" tabpos="14" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="244" topLine="1" />
+			<Cursor1 position="294" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="MANAGER\ComunicadosManager.h" open="0" top="0" tabpos="28" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="MANAGER\ComunicadosManager.h" open="1" top="0" tabpos="15" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="446" topLine="4" />
+			<Cursor1 position="446" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="CLASES-ARCHIVOS\Notas.cpp" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="CLASES-ARCHIVOS\Alumno.cpp" open="0" top="0" tabpos="32" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="361" topLine="19" />
+			<Cursor1 position="416" topLine="37" />
 		</Cursor>
 	</File>
-	<File name="CLASES-ARCHIVOS\PersonaArchivo.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="CLASES-ARCHIVOS\ProfesorArchivo.h" open="0" top="0" tabpos="26" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="143" topLine="0" />
+			<Cursor1 position="328" topLine="11" />
 		</Cursor>
 	</File>
-	<File name="CLASES-ARCHIVOS\Comunicados.h" open="0" top="0" tabpos="16" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="MENUS\FUNCIONES_ADMIN.cpp" open="1" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="261" topLine="15" />
+			<Cursor1 position="4202" topLine="183" />
 		</Cursor>
 	</File>
-	<File name="MANAGER\CuotaManager.h" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="CLASES-ARCHIVOS\MateriaArchivo.cpp" open="0" top="0" tabpos="23" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="285" topLine="0" />
+			<Cursor1 position="2157" topLine="104" />
 		</Cursor>
 	</File>
-	<File name="MANAGER\AlumnoManager.cpp" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="CLASES-ARCHIVOS\ProfesorArchivo.cpp" open="0" top="0" tabpos="27" split="0" active="1" splitpos="0" zoom_1="2" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="6844" topLine="278" />
+			<Cursor1 position="242" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="CLASES-ARCHIVOS\Comunicados.h" open="1" top="0" tabpos="16" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="113" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="CLASES-ARCHIVOS\FaltaArchivo.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -52,24 +57,24 @@
 			<Cursor1 position="2113" topLine="112" />
 		</Cursor>
 	</File>
-	<File name="CLASES-ARCHIVOS\Comunicados.cpp" open="0" top="0" tabpos="17" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="445" topLine="44" />
-		</Cursor>
-	</File>
-	<File name="CLASES-ARCHIVOS\ComunicadosArchivo.cpp" open="0" top="0" tabpos="21" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="793" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="MANAGER\NotaManager.cpp" open="1" top="1" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="169" topLine="0" />
-		</Cursor>
-	</File>
 	<File name="MANAGER\MateriaManager.cpp" open="0" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="10436" topLine="382" />
+		</Cursor>
+	</File>
+	<File name="main.cpp" open="0" top="0" tabpos="19" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="CLASES-ARCHIVOS\FaltaArchivo.h" open="0" top="0" tabpos="25" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="224" topLine="4" />
+		</Cursor>
+	</File>
+	<File name="CLASES-ARCHIVOS\Falta.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="210" topLine="36" />
 		</Cursor>
 	</File>
 	<File name="MANAGER\ProfesorManager.h" open="0" top="0" tabpos="31" split="0" active="1" splitpos="0" zoom_1="3" zoom_2="0">
@@ -82,57 +87,22 @@
 			<Cursor1 position="194" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="CLASES-ARCHIVOS\Notas.h" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="MANAGER\NotaManager.h" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="140" topLine="10" />
+			<Cursor1 position="178" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="MENUS\FUNCIONES_FRONT.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="MENUS\MENU_INICIO.CPP" open="1" top="1" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="0" topLine="48" />
+			<Cursor1 position="1342" topLine="50" />
 		</Cursor>
 	</File>
-	<File name="CLASES-ARCHIVOS\MateriaArchivo.h" open="0" top="0" tabpos="18" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="CLASES-ARCHIVOS\Materia.h" open="0" top="0" tabpos="15" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="299" topLine="7" />
+			<Cursor1 position="106" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="CLASES-ARCHIVOS\MateriaArchivo.cpp" open="0" top="0" tabpos="23" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2157" topLine="104" />
-		</Cursor>
-	</File>
-	<File name="main.cpp" open="0" top="0" tabpos="19" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="0" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="CLASES-ARCHIVOS\Alumno.h" open="0" top="0" tabpos="24" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="0" topLine="10" />
-		</Cursor>
-	</File>
-	<File name="CLASES-ARCHIVOS\Falta.h" open="0" top="0" tabpos="36" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="274" topLine="12" />
-		</Cursor>
-	</File>
-	<File name="MENUS\MENUS.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="90" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="CLASES-ARCHIVOS\ProfesorArchivo.cpp" open="0" top="0" tabpos="27" split="0" active="1" splitpos="0" zoom_1="2" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="242" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="MANAGER\ProfesorManager.cpp" open="0" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="3" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1905" topLine="26" />
-		</Cursor>
-	</File>
-	<File name="MANAGER\ComunicadosManager.cpp" open="0" top="0" tabpos="29" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="MANAGER\ComunicadosManager.cpp" open="1" top="0" tabpos="14" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="3398" topLine="0" />
 		</Cursor>
@@ -142,24 +112,19 @@
 			<Cursor1 position="259" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="MENUS\FUNCIONES_ADMIN.cpp" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="CLASES-ARCHIVOS\Persona.h" open="0" top="0" tabpos="33" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="2389" topLine="108" />
+			<Cursor1 position="0" topLine="17" />
 		</Cursor>
 	</File>
-	<File name="MANAGER\AlumnoManager.h" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="MENUS\MENUS.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="183" topLine="12" />
+			<Cursor1 position="90" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="CLASES-ARCHIVOS\FaltaArchivo.h" open="0" top="0" tabpos="25" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="CLASES-ARCHIVOS\Comunicados.cpp" open="0" top="0" tabpos="17" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="224" topLine="4" />
-		</Cursor>
-	</File>
-	<File name="CLASES-ARCHIVOS\Alumno.cpp" open="0" top="0" tabpos="32" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="416" topLine="37" />
+			<Cursor1 position="445" topLine="44" />
 		</Cursor>
 	</File>
 	<File name="MANAGER\FaltaManager.h" open="0" top="0" tabpos="37" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -167,64 +132,39 @@
 			<Cursor1 position="0" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="CLASES-ARCHIVOS\ProfesorArchivo.h" open="0" top="0" tabpos="26" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="CLASES-ARCHIVOS\Notas.cpp" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="328" topLine="11" />
+			<Cursor1 position="361" topLine="19" />
 		</Cursor>
 	</File>
-	<File name="CLASES-ARCHIVOS\AlumnoArchivo.h" open="1" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="CLASES-ARCHIVOS\ComunicadosArchivo.cpp" open="0" top="0" tabpos="21" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="546" topLine="6" />
+			<Cursor1 position="793" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="CLASES-ARCHIVOS\Falta.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="MANAGER\AlumnoManager.h" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="210" topLine="36" />
+			<Cursor1 position="625" topLine="10" />
 		</Cursor>
 	</File>
-	<File name="MENUS\FUNCIONES_ADMIN.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="CLASES-ARCHIVOS\MateriaArchivo.h" open="0" top="0" tabpos="18" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="145" topLine="0" />
+			<Cursor1 position="299" topLine="7" />
 		</Cursor>
 	</File>
-	<File name="CLASES-ARCHIVOS\Persona.h" open="0" top="0" tabpos="33" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="CLASES-ARCHIVOS\Materia.cpp" open="0" top="0" tabpos="38" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="0" topLine="17" />
+			<Cursor1 position="0" topLine="57" />
 		</Cursor>
 	</File>
-	<File name="CLASES-ARCHIVOS\AlumnoArchivo.cpp" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="MANAGER\AlumnoManager.cpp" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="3" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="3004" topLine="125" />
-		</Cursor>
-	</File>
-	<File name="CLASES-ARCHIVOS\CuotaArchivo.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="448" topLine="5" />
-		</Cursor>
-	</File>
-	<File name="MANAGER\FaltaManager.cpp" open="0" top="0" tabpos="13" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2465" topLine="94" />
-		</Cursor>
-	</File>
-	<File name="CLASES-ARCHIVOS\Materia.h" open="0" top="0" tabpos="15" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="106" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="CLASES-ARCHIVOS\CuotaArchivo.cpp" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1762" topLine="0" />
+			<Cursor1 position="449" topLine="15" />
 		</Cursor>
 	</File>
 	<File name="CLASES-ARCHIVOS\NotasArchivo.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="360" topLine="7" />
-		</Cursor>
-	</File>
-	<File name="CLASES-ARCHIVOS\Cuota.cpp" open="0" top="0" tabpos="14" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="294" topLine="0" />
+			<Cursor1 position="360" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="MANAGER\MateriaManager.h" open="0" top="0" tabpos="30" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -232,17 +172,77 @@
 			<Cursor1 position="582" topLine="10" />
 		</Cursor>
 	</File>
-	<File name="MANAGER\NotaManager.h" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="178" topLine="3" />
-		</Cursor>
-	</File>
 	<File name="CLASES-ARCHIVOS\NotasArchivo.cpp" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="2335" topLine="125" />
+			<Cursor1 position="2335" topLine="118" />
 		</Cursor>
 	</File>
-	<Target name="Debug" top="MANAGER\NotaManager.cpp">
+	<File name="MANAGER\CuotaManager.h" open="1" top="0" tabpos="17" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="132" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="CLASES-ARCHIVOS\Falta.h" open="0" top="0" tabpos="36" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="274" topLine="12" />
+		</Cursor>
+	</File>
+	<File name="MENUS\FUNCIONES_ADMIN.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="145" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="CLASES-ARCHIVOS\CuotaArchivo.cpp" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1762" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="CLASES-ARCHIVOS\Alumno.h" open="0" top="0" tabpos="24" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="10" />
+		</Cursor>
+	</File>
+	<File name="MANAGER\FaltaManager.cpp" open="0" top="0" tabpos="13" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2465" topLine="94" />
+		</Cursor>
+	</File>
+	<File name="MENUS\FUNCIONES_FRONT.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="48" />
+		</Cursor>
+	</File>
+	<File name="CLASES-ARCHIVOS\CuotaArchivo.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="448" topLine="5" />
+		</Cursor>
+	</File>
+	<File name="CLASES-ARCHIVOS\PersonaArchivo.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="143" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="CLASES-ARCHIVOS\AlumnoArchivo.cpp" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2164" topLine="81" />
+		</Cursor>
+	</File>
+	<File name="MANAGER\NotaManager.cpp" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="169" topLine="57" />
+		</Cursor>
+	</File>
+	<File name="MANAGER\ProfesorManager.cpp" open="0" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="3" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1905" topLine="26" />
+		</Cursor>
+	</File>
+	<File name="CLASES-ARCHIVOS\AlumnoArchivo.h" open="1" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="546" topLine="1" />
+		</Cursor>
+	</File>
+	<Target name="Debug" top="MENUS\MENU_INICIO.CPP">
 		<File name="CLASES-ARCHIVOS\Notas.h" />
 		<File name="CLASES-ARCHIVOS\Notas.cpp" />
 		<File name="CLASES-ARCHIVOS\NotasArchivo.cpp" />
@@ -253,5 +253,12 @@
 		<File name="MANAGER\AlumnoManager.h" />
 		<File name="CLASES-ARCHIVOS\AlumnoArchivo.cpp" />
 		<File name="CLASES-ARCHIVOS\AlumnoArchivo.h" />
+		<File name="MENUS\MENU_INICIO.CPP" />
+		<File name="MENUS\FUNCIONES_ADMIN.cpp" />
+		<File name="MANAGER\CuotaManager.cpp" />
+		<File name="MANAGER\ComunicadosManager.cpp" />
+		<File name="MANAGER\ComunicadosManager.h" />
+		<File name="CLASES-ARCHIVOS\Comunicados.h" />
+		<File name="MANAGER\CuotaManager.h" />
 	</Target>
 </CodeBlocks_layout_file>

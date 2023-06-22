@@ -21,6 +21,22 @@ AlumnoManager::AlumnoManager()
 
 }
 
+bool AlumnoManager::validarIngreso(int dni)
+{
+
+    int numerodeRegistro=buscarDNI(dni);
+
+    if(numerodeRegistro>0)
+    {
+
+       return true;
+
+    }
+        return false;
+
+}
+
+
 
 void AlumnoManager::Cargar()
 
@@ -31,7 +47,7 @@ void AlumnoManager::Cargar()
     int dni, dia, mes, anio;
 
     rlutil::locate(20,8);
-    cout << "Ingrese DNI #: " <<endl;
+    cout << "INGRESE DNI #: " <<endl;
     rlutil::locate(35,8);
     cin>>dni;
 
@@ -48,42 +64,42 @@ void AlumnoManager::Cargar()
     {
 
         rlutil::locate(20,9);
-        cout << "Ingrese el nombre: "<<endl;
+        cout << "INGRESE EL NOMBRE: "<<endl;
         rlutil::locate(39,9);
         cin>>nombre;
         rlutil::locate(20,10);
-        cout << "Ingrese el apellido: "<<endl;
+        cout << "INGRESE EL APELLIDO: "<<endl;
         rlutil::locate(41,10);
         cin >> apellido;
         rlutil::locate(20,11);
-        cout << "Ingrese el email: "<<endl;
+        cout << "INGRESE EL MAIL: "<<endl;
         rlutil::locate(38,11);
         cin >> email;
         rlutil::locate(20,12);
-        cout << "Ingrese el telefono: "<<endl;
+        cout << "INGRESE EL TELEFONO: "<<endl;
         rlutil::locate(41,12);
         cin >> telefono;
         rlutil::locate(20,13);
-        cout<<"Anio en curso: "<<endl;
+        cout<<"ANIO EN CURSO: "<<endl;
         rlutil::locate(35,13);
         cin>>AnioCurso;
         rlutil::locate(20,14);
-        cout << "Ingrese día ingreso: "<<endl;
-        rlutil::locate(42,14);
+        cout << "INGRESE DIA DE INGRESO: "<<endl;
+        rlutil::locate(45,14);
         cin >> dia;
         rlutil::locate(20,15);
-        cout << "Ingrese mes de ingreso: "<<endl;
+        cout << "INGRESE MES DE INGRESO: "<<endl;
         rlutil::locate(45,15);
         cin >> mes;
         rlutil::locate(20,16);
-        cout << "Ingrese año de ingreso: "<<endl;
+        cout << "INGRESE ANIO DE INGRESO: "<<endl;
         rlutil::locate(45,16);
         cin >> anio;
         Legajo=this->generarLegajo();
         rlutil::locate(20,17);
-        cout << "Legajo: "<<  Legajo <<endl;
+        cout << "LEGAJO: "<<  Legajo <<endl;
         rlutil::locate(20,18);
-        cout << "Estado: "<< "Activo" <<endl;
+        cout << "ESTADO: "<< "Activo" <<endl;
 
         Alumno aux;
         aux.setDNI(dni);
@@ -100,18 +116,20 @@ void AlumnoManager::Cargar()
         if (_archivo.agregar(aux))
         {
             rlutil::locate(30,23);
-            cout << "** Materia guardada correctamente **" << endl;
+            cout << "** ALUMNO GUARDADO CORRECTAMENTE **" << endl;
             system("pause>nul");
+
         }
         else
         {
             rlutil::locate(30,25);
-            cout << "** Ups! Algo salio mal :( **" << endl;
+            cout << "** UPS! ALGO SALIO MAL :( **" << endl;
             system("pause>nul");
+
         }
     }
-    system("pause");
-
+    system("pause>nul");
+    system("cls");
 }
 
 int AlumnoManager::buscarDNI(int dni)
@@ -146,6 +164,7 @@ void AlumnoManager::Listar(Alumno alumno)
 {
     rectangulo (2, 2, 100, 26);
     rlutil::setColor(rlutil::YELLOW);
+    mostrar_mensaje ("*****    ALUMNO   ***** ", 34, 4);
 
     rlutil::locate(20,9);
     cout<<"DNI:    " <<alumno.getDni()<<endl;
@@ -175,7 +194,7 @@ void AlumnoManager::Listar(Alumno alumno)
         cout <<"ESTADO:    " << "Baja" << endl;
     }
     rlutil::locate(20,19);
-    cout <<"--------------------------------------------------------------" << endl;
+    cout <<"---------------------------------------------------" << endl;
 
 
 }
