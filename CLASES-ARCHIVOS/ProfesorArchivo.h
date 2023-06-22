@@ -24,6 +24,7 @@ public:
     bool guardar(Profesor reg, int posicionAReemplazar);
     bool guardar(Profesor *vec, int cantidadRegistrosAEscribir);
     void vaciar();
+
 };
 
 #endif // PROFESORARCHIVO_H

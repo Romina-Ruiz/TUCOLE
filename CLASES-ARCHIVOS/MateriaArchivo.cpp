@@ -40,7 +40,7 @@ void MateriaArchivo::guardar(Materia materia)
 }
 
 
-int MateriaArchivo::cantidadMaterias()
+int MateriaArchivo::getCantidad()
 {
     FILE *p;
     int cantidad=0;
@@ -108,4 +108,30 @@ bool MateriaArchivo::eliminar(Materia dto)
     }
     return eliminar;
 }
-
+int MateriaArchivo::buscarReg(int id){
+  int nroRegistro = -1;
+  int cantidad = getCantidad();
+  Materia registro;
+  for (int i = 0; i < cantidad; i++)
+  {
+    registro = leerReg(i);
+    if (registro.getIdMateria() == id)
+    {
+      nroRegistro = i;
+      break;
+    }
+  }
+  return nroRegistro;
+}
+Materia MateriaArchivo::leerReg(int nroRegistro)
+{
+    Materia registro;
+    FILE* p = fopen(RUTA_MATERIA, "rb");
+    if (p != NULL)
+    {
+        fseek(p, nroRegistro * sizeof(Materia), SEEK_SET);
+        fread(&registro, sizeof(Materia), 1, p);
+        fclose(p);
+    }
+    return registro;
+}

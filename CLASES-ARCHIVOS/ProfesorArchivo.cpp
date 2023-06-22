@@ -127,3 +127,4 @@ void ProfesorArchivo::vaciar(){
 	}
 	fclose(p);
 }
+
