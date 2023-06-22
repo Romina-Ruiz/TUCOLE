@@ -7,8 +7,8 @@
 #include "../MENUS/Fecha.h"
 #include"../MENUS/FUNCIONES_FRONT.h"
 
-
 using namespace std;
+
 AlumnoManager::AlumnoManager(char *ruta)
 {
 

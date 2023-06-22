@@ -4,17 +4,24 @@
 
 class MateriaArchivo
 {
-   public:
-    void leerMaterias(Materia materia[], int cantidad);
-//  void cargarMaterias(Materia materia);
-    void guardar(Materia materia);
+private:
+    char _ruta[30];
+
+public:
+    MateriaArchivo (const char *ruta);
+    MateriaArchivo ();
+
+
+public:
+
+    bool agregar (Materia registro);
     int getCantidad();
-    bool agregar (Materia);
-    bool eliminar(Materia dto);
-    int obtenerTamanio();
-    int leerDeDisco(int pos);
-    int buscarReg(int id);
     Materia leerReg(int nroRegistro);
+    void leerTodos(Materia materia[], int cantidad);
+    bool modificar(Materia registro, int nroRegistro);
+    int buscarReg(int id);
+    void vaciar();
+
 
 
 

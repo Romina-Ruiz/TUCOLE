@@ -258,7 +258,7 @@
 	"Alumno.h"
 	<cstdio>
 
-1687299486 c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\alumnoarchivo.h
+1687400741 c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\alumnoarchivo.h
 	<cstdio>
 	<cstring>
 	"Alumno.h"
@@ -716,7 +716,7 @@
 	"Profesor.h"
 	"ProfesorArchivo.h"
 
-1687395880 source:c:\users\romina\documents\github\tucolegio\tucole\manager\alumnomanager.cpp
+1687400480 source:c:\users\romina\documents\github\tucolegio\tucole\manager\alumnomanager.cpp
 	<iostream>
 	"AlumnoManager.h"
 	"Alumno.h"

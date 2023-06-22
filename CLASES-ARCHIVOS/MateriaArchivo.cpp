@@ -1,51 +1,43 @@
 #include <iostream>
 #include "MateriaArchivo.h"
 #include "Materia.h"
+#include<cstring>
+
 using namespace std;
 
 
-const char *RUTA_MATERIA="Materia.dat";
+MateriaArchivo::MateriaArchivo(const char *ruta){
 
-
-void leerMaterias(Materia materia[], int cantidad)
-{
-    FILE* p;
-    p= fopen(RUTA_MATERIA,"rb");
-
-    if(p==nullptr)
-    {
-        return;
-    }
-
-    fread(materia, sizeof(Materia),cantidad,p);
-    fclose(p);
+    strcpy(_ruta,ruta);
 }
 
+ MateriaArchivo::MateriaArchivo(){
 
-void MateriaArchivo::guardar(Materia materia)
+    strcpy(_ruta,"Materias.dat");
+
+ }
+
+bool MateriaArchivo::agregar (Materia registro)
 {
-    FILE* p;
-    p = fopen(RUTA_MATERIA,"ab");
+    bool agregar = false;
+    FILE *p;
+    p = fopen(_ruta,"ab");
 
-    if (p == nullptr)
+    if (p!=NULL)
     {
-        cout<<"Error al abrir el archivo" <<endl;
-        exit(1552);
+        fwrite(&registro, sizeof (Materia),1,p);
+        fclose (p);
+        agregar = true;
     }
-    else
-    {
-        fwrite(&materia, sizeof(Materia), 1, p);
-        fclose(p);
-    }
+    return agregar;
 }
 
-
-int MateriaArchivo::getCantidad()
+ int MateriaArchivo::getCantidad()
 {
     FILE *p;
     int cantidad=0;
-    Materia materia;
-    p=fopen(RUTA_MATERIA,"rb");
+
+    p=fopen(_ruta,"rb");
 
     if (p==nullptr)
     {
@@ -59,74 +51,10 @@ int MateriaArchivo::getCantidad()
     return cantidad;
 }
 
-
-bool MateriaArchivo::agregar (Materia dto)
-{
-    bool agregar = false;
-    FILE *p;
-    p = fopen(RUTA_MATERIA,"ab");
-
-    if (p!=NULL)
-    {
-        fwrite(&dto, sizeof (Materia),1,p);
-        fclose (p);
-        agregar = true;
-    }
-    return agregar;
-}
-
-int MateriaArchivo::leerDeDisco(int pos)
-{
-    FILE *p;
-    int leyo=0;
-    p=fopen(RUTA_MATERIA, "rb");
-    if(p==NULL)return -1;
-    fseek(p, sizeof(MateriaArchivo)*pos, 0);
-    leyo=fread(this, sizeof(MateriaArchivo),1, p);
-    fclose(p);
-    return leyo;
-}
-
-bool MateriaArchivo::eliminar(Materia dto)
-{
-    Materia aux;
-    bool eliminar = false;
-    FILE *p;
-    p = fopen(RUTA_MATERIA,"rb+");
-    if (p!=NULL)
-    {
-        while(fread(&dto, sizeof (Materia),1,p))
-        {
-            if(dto.getIdMateria()==aux.getIdMateria())
-            {
-                fseek(p,sizeof dto*(-1),SEEK_CUR);
-                fwrite(&dto, sizeof (Materia),1,p);
-                fclose (p);
-                eliminar = true;
-            }
-        }
-    }
-    return eliminar;
-}
-int MateriaArchivo::buscarReg(int id){
-  int nroRegistro = -1;
-  int cantidad = getCantidad();
-  Materia registro;
-  for (int i = 0; i < cantidad; i++)
-  {
-    registro = leerReg(i);
-    if (registro.getIdMateria() == id)
-    {
-      nroRegistro = i;
-      break;
-    }
-  }
-  return nroRegistro;
-}
-Materia MateriaArchivo::leerReg(int nroRegistro)
+ Materia MateriaArchivo::leerReg(int nroRegistro)
 {
     Materia registro;
-    FILE* p = fopen(RUTA_MATERIA, "rb");
+    FILE* p = fopen(_ruta, "rb");
     if (p != NULL)
     {
         fseek(p, nroRegistro * sizeof(Materia), SEEK_SET);
@@ -134,4 +62,61 @@ Materia MateriaArchivo::leerReg(int nroRegistro)
         fclose(p);
     }
     return registro;
+}
+
+
+void MateriaArchivo::leerTodos(Materia materia[], int cantidad)
+{
+    FILE* p;
+    p= fopen(_ruta,"rb");
+
+    if(p==nullptr)
+    {
+        return;
+    }
+
+    fread(materia, sizeof(Materia),cantidad,p);
+    fclose(p);
+}
+
+bool MateriaArchivo::modificar (Materia registro, int nroRegistro)
+{
+    bool ok = false;
+    FILE* p = fopen(_ruta, "rb+");
+    if (p != NULL)
+    {
+        fseek(p, nroRegistro * sizeof(Materia), SEEK_SET);
+        fwrite(&registro, sizeof(Materia), 1, p);
+        fclose(p);
+        ok = true;
+    }
+    return ok;
+}
+
+int MateriaArchivo::buscarReg(int id){
+  int nroRegistro = -1;
+  int cantidad =this->getCantidad();
+
+  Materia registro;
+
+  for (int i = 0; i < cantidad; i++)
+  {
+    registro =this->leerReg(i);
+
+    if (registro.getIdMateria() == id)
+    {
+      nroRegistro = i;
+      break;
+            }
+  }
+  return nroRegistro;
+}
+
+void MateriaArchivo::vaciar(){
+	FILE *p = fopen(_ruta, "wb");
+	if (p == NULL)
+	{
+		return ;
+	}
+	fclose(p);
 }

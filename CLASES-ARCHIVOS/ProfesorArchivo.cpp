@@ -79,6 +79,7 @@ bool ProfesorArchivo::modificar(Profesor registro, int nroRegistro)
 int ProfesorArchivo::getCantidad(){
   int cantidad = 0;
   FILE* p = fopen(_ruta, "rb");
+
   if (p != NULL)
   {
     fseek(p, 0, SEEK_END);
