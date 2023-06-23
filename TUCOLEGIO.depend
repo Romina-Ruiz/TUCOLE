@@ -454,7 +454,7 @@
 	"FUNCIONES_FRONT.h"
 	"Fecha.h"
 
-1687475177 source:c:\users\romina\documents\github\tucolegio\tucole\menus\menu_inicio.cpp
+1687475258 source:c:\users\romina\documents\github\tucolegio\tucole\menus\menu_inicio.cpp
 	<iostream>
 	<iomanip>
 	<string>
@@ -908,7 +908,7 @@
 1687392978 c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\pagoarchivo.h
 	"Pago.h"
 
-1687468638 source:c:\users\romina\documents\github\tucolegio\tucole\manager\pagomanager.cpp
+1687486889 source:c:\users\romina\documents\github\tucolegio\tucole\manager\pagomanager.cpp
 	<iostream>
 	<iomanip>
 	<cstring>
@@ -918,8 +918,9 @@
 	"PagoArchivo.h"
 	"../MENUS/rlutil.h"
 	"../MENUS/FUNCIONES_FRONT.h"
+	"AlumnoArchivo.h"
 
-1687468638 c:\users\romina\documents\github\tucolegio\tucole\manager\pagomanager.h
+1687486040 c:\users\romina\documents\github\tucolegio\tucole\manager\pagomanager.h
 	"Pago.h"
 	"PagoArchivo.h"
 

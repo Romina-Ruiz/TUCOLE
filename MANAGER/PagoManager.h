@@ -13,16 +13,17 @@ private:
 public:
 
 
-    int buscarDNI(int dni);
+    int buscarReg(int dni);
     void Cargar();
     int generarPago();
     void ListarXdni(Pago pago);
     void Listar(Pago pago);
+   int buscarDNI(int dni);
 
 //	void Editar();
 //	void Eliminar();
 //	void Listar(Alumno alumno);
-//	int buscarDNI(int dni);
+
 
 
 //	void HacerCopiaDeSeguridad();

@@ -8,11 +8,11 @@
 #include"PagoArchivo.h"
 #include"../MENUS/rlutil.h"
 #include"../MENUS/FUNCIONES_FRONT.h"
-
+#include"AlumnoArchivo.h"
 using namespace std;
 
 
-int PagoManager::buscarDNI(int dni)   /// ACA  TIENE QUE VALIDAR EL DNI EN EL ARCHIVO DE ALUMNOS
+int PagoManager::buscarReg(int dni)   /// ACA  TIENE QUE VALIDAR EL DNI EN EL ARCHIVO DE ALUMNOS
 {
 
     Pago obj;
@@ -34,6 +34,9 @@ int PagoManager::buscarDNI(int dni)   /// ACA  TIENE QUE VALIDAR EL DNI EN EL AR
 
     return nroReg;
 }
+
+
+
 
 void  PagoManager::Cargar()
 {
@@ -161,4 +164,27 @@ int NumeroPago;
     rlutil::locate(20,13);
     cout<<" ABONADO :    "<<true;
 
+}
+
+
+ int PagoManager::buscarDNI(int dni)
+{
+    Alumno obj;
+    AlumnoArchivo _archivoalumno;
+    int nroReg=-1;
+    int cantRegArchivo=_archivoalumno.getCantidad();
+
+
+    for (int i = 0; i < cantRegArchivo; i++)
+    {
+        obj=_archivoalumno.leerReg(i);
+
+        if (obj.getDni()== dni)
+        {
+            nroReg=i;
+            break;
+        }
+    }
+
+    return nroReg;
 }
