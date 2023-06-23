@@ -19,6 +19,7 @@ public:
     void ListarXdni(Pago pago);
     void Listar(Pago pago);
    int buscarDNI(int dni);
+   void ListarTodos();
 
 //	void Editar();
 //	void Eliminar();

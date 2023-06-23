@@ -111,7 +111,21 @@ void  PagoManager::Cargar()
     }
 
 }
+void PagoManager::ListarTodos()
+{
+    PagoArchivo _archivo;
+    int cantidadRegistros = _archivo.getCantidad();
 
+    for (int i = 0; i<cantidadRegistros; i++)
+    {
+        Pago reg = _archivo.leerReg(i);
+        if (reg.getAbonado()==true)
+        {
+            Listar(reg);
+            cout << endl;
+        }
+    }
+}
 
 int PagoManager::generarPago()
 {
@@ -135,7 +149,7 @@ PagoArchivo _archivo;
     if (posicion >= 0)
     {
         Pago reg = _archivo.leerReg(posicion);
-//        Listar(reg);
+        Listar(reg);
     }
     else
     {

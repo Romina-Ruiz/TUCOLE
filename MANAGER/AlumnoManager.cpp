@@ -196,6 +196,7 @@ void AlumnoManager::Listar(Alumno alumno)
     rlutil::locate(20,19);
     cout <<"---------------------------------------------------" << endl;
 
+system ("pause");
 
 }
 

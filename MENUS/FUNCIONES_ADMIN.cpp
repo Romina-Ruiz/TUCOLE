@@ -36,7 +36,7 @@ void menuPagos()
 {
     system("cls");
 
-    const char *opciones[] = {"CARGAR PAGO","MODIFICAR PAGO","VOLVER AL MENU PRINCIPAL"};
+    const char *opciones[] = {"CARGAR PAGO","MODIFICAR PAGO","LISTA DE PAGOS","VOLVER AL MENU PRINCIPAL"};
     int op=1, y=0;
 
     rlutil::hidecursor();
@@ -51,6 +51,7 @@ void menuPagos()
         showItem (opciones[0],30,10,y==0);
         showItem (opciones[1],30,11,y==1);
         showItem (opciones[2],30,12,y==2);
+        showItem (opciones[3],30,13,y==3);
 
 
         rlutil::locate(26,10+y);
@@ -133,7 +134,7 @@ void menuCargarAlumnos()
 {
     system("cls");
 
-    const char *opciones[] = {"CARGAR ALUMNO","MODIFICAR DATOS","BUSCAR ALUMNO", "VOLVER AL MENU PRINCIPAL"};
+    const char *opciones[] = {"CARGAR ALUMNO","MODIFICAR DATOS","BUSCAR ALUMNO","LISTADO DE ALUMNOS", "VOLVER AL MENU PRINCIPAL"};
     int op=1, y=0;
 
     rlutil::hidecursor();
@@ -149,6 +150,8 @@ void menuCargarAlumnos()
         showItem (opciones[1],30,11,y==1);
         showItem (opciones[2],30,12,y==2);
         showItem (opciones[3],30,13,y==3);
+        showItem (opciones[4],30,14,y==4);
+
 
 
         rlutil::locate(26,10+y);
@@ -231,9 +234,25 @@ void menuCargarAlumnos()
                 ///LLAMAR A LA FUNCION MODIFICAR
 
             break;
+            case 3:     ///LISTADO DE ALUMNOS
+
+            {
+                system("cls");
+
+                AlumnoManager obj;
+                rectangulo (2, 2, 100, 26);
+                rlutil::setColor(rlutil::YELLOW);
+                mostrar_mensaje ("***** LISTADO DE ALUMNO ***** ", 34, 4);
+                obj.ListarTodos();
+                system("pause>nul");
+                system("cls");
+            }
 
 
-            case 3:     ///SALIR
+            break;
+
+
+            case 4:     ///SALIR
 
             {
                 system("cls");
@@ -708,7 +727,7 @@ void menuInformes()
 {
     system("cls");
 
-    const char *opciones[] = {"PAGOS POR FECHA", "PAGOS POR ALUMNOS","AUSENCIAS POR FECHAS",
+    const char *opciones[] = {"INFORME DE PAGOS","PAGOS POR FECHA", "PAGOS POR ALUMNOS","AUSENCIAS POR FECHAS",
                               "AUSENCIAS POR ALUMNOS","NOTAS POR ALUMNOS","ALUMNOS POR MATERIA","VOLVER AL MENU PRINCIPAL"
                              };
     int op=1, y=0;
@@ -729,6 +748,7 @@ void menuInformes()
         showItem (opciones[4],30,14,y==4);
         showItem (opciones[5],30,15,y==5);
         showItem (opciones[6],30,16,y==6);
+        showItem (opciones[7],30,17,y==7);
 
         rlutil::locate(26,10+y);
         cout <<"==> " <<endl;
@@ -762,36 +782,55 @@ void menuInformes()
             switch(y)
             {
 
-            case 0:     ///
+            case 0:     ///LISTADO DE PAGOS
+{
 
+             system("cls");
+
+                PagoManager obj;
+                rlutil::setColor(rlutil::YELLOW);
+                rectangulo (2, 2, 100, 26);
+                mostrar_mensaje ("***** INFORME DE PAGOS ***** ", 34, 4);
+
+                obj.ListarTodos();
+
+                system("pause>nul");
+                system("cls");
+
+}
+
+                break;
+
+            case 1:
 
 
 
                 break;
 
-            case 1:     ///
+            case 2:
+
+
+                break;
+            case 3:
+
+
+                break;
+            case 4:
+
+
+                break;
+            case 5:
+
+
+                break;
+            case 6:
 
 
 
                 break;
 
-            case 2:     ///
+            case 7:
 
-
-                break;
-            case 3:     ///
-
-
-                break;
-            case 4:     ///
-
-
-                break;
-            case 5:     ///
-
-
-                break;
-            case 6:     ///
             {
                 system("cls");
                 menuAdmin();
