@@ -6,12 +6,11 @@
 class FaltaManager
 {
 private:
-     char _ruta[30];
+
     FaltaArchivo _archivo;
 
 public:
-    FaltaManager(const char *ruta);
-    FaltaManager();
+
 
     int buscarDNI(int dni);
     int Cargar();

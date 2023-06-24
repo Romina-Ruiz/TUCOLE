@@ -16,6 +16,8 @@ using namespace std;
 #include"ProfesorManager.h"
 #include"CuotaManager.h"
 #include "PagoManager.h"
+#include "MateriaManager.h"
+#include "FaltaManager.h"
 
 
 
@@ -456,6 +458,19 @@ void menuCargarMateria()
             {
 
             case 0:     ///CARGAR MATERIAS
+                 {
+                system("cls");
+
+                MateriaManager obj;
+                rlutil::setColor(rlutil::YELLOW);
+                rectangulo (2, 2, 100, 26);
+                mostrar_mensaje ("***** CARGAR MATERIAS ***** ", 34, 4);
+
+                obj.Cargar();
+
+                system("pause>nul");
+                system("cls");
+            }
 
 
                 ///LLAMAR A LA FUNCION CARGAR
@@ -540,6 +555,7 @@ void menuCargarNotas()
             case 0:     ///CARGAR NOTAS
 
 
+
                 ///LLAMAR A LA FUNCION CARGAR
 
                 break;
@@ -622,6 +638,19 @@ void menuAusencias()
             {
 
             case 0:     ///CARGAR AUSENCIAS
+                   {
+                system("cls");
+
+                FaltaManager obj;
+                rlutil::setColor(rlutil::YELLOW);
+                rectangulo (2, 2, 100, 26);
+                mostrar_mensaje ("***** CARGAR AUSENCIAS ***** ", 34, 4);
+
+                obj.Cargar();
+
+                system("pause>nul");
+                system("cls");
+            }
 
 
                 ///LLAMAR A LA FUNCION CARGAR
@@ -740,7 +769,7 @@ void menuInformes()
 {
     system("cls");
 
-    const char *opciones[] = {"LISTA DE PAGOS","PAGOS POR FECHA", "PAGOS POR ALUMNOS","AUSENCIAS POR FECHAS",
+    const char *opciones[] = {"LISTA DE PAGOS","LISTA DE MATERIAS","PAGOS POR FECHA", "PAGOS POR ALUMNOS","AUSENCIAS POR FECHAS",
                               "AUSENCIAS POR ALUMNOS","NOTAS POR ALUMNOS","ALUMNOS POR MATERIA","VOLVER AL MENU PRINCIPAL"
                              };
     int op=1, y=0;
@@ -761,6 +790,7 @@ void menuInformes()
         showItem (opciones[4],30,14,y==4);
         showItem (opciones[5],30,15,y==5);
         showItem (opciones[6],30,16,y==6);
+        showItem (opciones[7],30,17,y==7);
         showItem (opciones[7],30,17,y==7);
 
         rlutil::locate(26,10+y);
@@ -815,12 +845,28 @@ void menuInformes()
                 break;
 
             case 1:
+                 {
+
+             system("cls");
+
+                MateriaManager obj;
+                rlutil::setColor(rlutil::YELLOW);
+                rectangulo (2, 2, 100, 26);
+                mostrar_mensaje ("***** LISTA DE MATERIAS ***** ", 34, 4);
+
+                obj.ListarTodos();
+
+                system("pause>nul");
+                system("cls");
+
+}
 
 
 
                 break;
 
             case 2:
+
 
 
                 break;
@@ -856,8 +902,13 @@ void menuInformes()
 
 
                 break;
+                case 7:
 
-            case 7:
+
+
+                break;
+
+            case 8:
 
             {
                 system("cls");

@@ -10,38 +10,9 @@
 using namespace std;
 
 
-FaltaManager::FaltaManager(const char *ruta){
-
-    strcpy(_ruta,ruta);
-}
- FaltaManager::FaltaManager(){
-
-    strcpy(_ruta,"FaltaManager.dat");
-
- }
-
-int FaltaManager::buscarDNI(int dni) {
-AlumnoArchivo Archivo(_ruta);
-Alumno obj;
-
- int nroReg=-1;
- int cantRegArchivo=_archivo.getCantidad();
-
-
-  for (int i = 0; i < cantRegArchivo; i++)
-  {
-        obj=Archivo.leerReg(i);
-
-                if (obj.getDni()== dni){
-                       nroReg=i;
-                       break;
-                    }
-                }
-
-return nroReg;
-}
 int FaltaManager::Cargar()
 {
+    AlumnoArchivo alumno;
 
     int anuales=6, falta=1, op;
     int dni, dia, mes, anio;
@@ -51,7 +22,7 @@ int FaltaManager::Cargar()
     rlutil::locate(41,8);
     cin>>dni;
 
-    int numerodeRegistro=buscarDNI(dni);
+    int numerodeRegistro=alumno.buscarReg(dni);
 
     if(numerodeRegistro<0)
     {
@@ -68,7 +39,7 @@ int FaltaManager::Cargar()
         rlutil::locate(38,10);
         cout << anuales <<endl;
          cout << "INGRESE DIA DE LA FALTA: "<<endl;
-        rlutil::locate(42,14);
+        rlutil::locate(20,14);
         cin >> dia;
         rlutil::locate(20,15);
         cout << "INGRESE MES DE LA FALTA: "<<endl;
