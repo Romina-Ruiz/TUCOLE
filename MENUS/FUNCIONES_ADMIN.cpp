@@ -36,7 +36,7 @@ void menuPagos()
 {
     system("cls");
 
-    const char *opciones[] = {"CARGAR PAGO","MODIFICAR PAGO","LISTA DE PAGOS","VOLVER AL MENU PRINCIPAL"};
+    const char *opciones[] = {"CARGAR PAGO","MODIFICAR PAGO","VOLVER AL MENU PRINCIPAL"};
     int op=1, y=0;
 
     rlutil::hidecursor();
@@ -51,7 +51,7 @@ void menuPagos()
         showItem (opciones[0],30,10,y==0);
         showItem (opciones[1],30,11,y==1);
         showItem (opciones[2],30,12,y==2);
-        showItem (opciones[3],30,13,y==3);
+
 
 
         rlutil::locate(26,10+y);
@@ -106,6 +106,18 @@ void menuPagos()
                 break;
 
             case 1:     /// MODIFICAR DATOS
+                 {
+                system("cls");
+
+                PagoManager obj;
+                rectangulo (2, 2, 100, 26);
+                rlutil::setColor(rlutil::YELLOW);
+                mostrar_mensaje ("***** CARGA DE ALUMNO ***** ", 34, 4);
+                obj.Editar();
+
+                system("pause>nul");
+                system("cls");
+            }
 
 
 
@@ -727,7 +739,7 @@ void menuInformes()
 {
     system("cls");
 
-    const char *opciones[] = {"INFORME DE PAGOS","PAGOS POR FECHA", "PAGOS POR ALUMNOS","AUSENCIAS POR FECHAS",
+    const char *opciones[] = {"LISTA DE PAGOS","PAGOS POR FECHA", "PAGOS POR ALUMNOS","AUSENCIAS POR FECHAS",
                               "AUSENCIAS POR ALUMNOS","NOTAS POR ALUMNOS","ALUMNOS POR MATERIA","VOLVER AL MENU PRINCIPAL"
                              };
     int op=1, y=0;
@@ -790,7 +802,7 @@ void menuInformes()
                 PagoManager obj;
                 rlutil::setColor(rlutil::YELLOW);
                 rectangulo (2, 2, 100, 26);
-                mostrar_mensaje ("***** INFORME DE PAGOS ***** ", 34, 4);
+                mostrar_mensaje ("***** LISTA DE PAGOS ***** ", 34, 4);
 
                 obj.ListarTodos();
 
@@ -812,6 +824,21 @@ void menuInformes()
 
                 break;
             case 3:
+                {
+
+             system("cls");
+
+                PagoManager obj;
+                rlutil::setColor(rlutil::YELLOW);
+                rectangulo (2, 2, 100, 26);
+                mostrar_mensaje ("***** INFORME DE PAGOS ***** ", 34, 4);
+
+                obj.ListarXdni();
+
+                system("pause>nul");
+                system("cls");
+
+}
 
 
                 break;

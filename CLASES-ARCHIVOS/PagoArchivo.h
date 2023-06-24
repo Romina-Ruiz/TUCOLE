@@ -18,6 +18,7 @@ public:
     bool modificarReg(Pago registro, int nroRegistro);
     bool leerTodos(Pago registros[], int cantidad);
     int buscarReg(int dni);
+    bool guardar(Pago reg, int posicionAReemplazar);
     void vaciar();
 
 };

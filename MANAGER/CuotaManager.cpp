@@ -35,8 +35,8 @@ int CuotaManager::buscarDNI(int dni)   /// ACA  TIENE QUE VALIDAR EL DNI EN EL A
 
 void CuotaManager::Cargar()
 {
-   float importe;
-   int tipo, fact;
+    float importe;
+    int tipo, fact;
     int dni, dia, mes, anio;
 
     rlutil::locate(10,8);

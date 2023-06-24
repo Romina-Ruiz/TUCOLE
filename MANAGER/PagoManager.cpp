@@ -132,7 +132,7 @@ int PagoManager::generarPago()
     PagoArchivo _archivo;
     return _archivo.getCantidad()+1;
 }
-void PagoManager::ListarXdni(Pago pago){
+void PagoManager::ListarXdni(){
 
 PagoArchivo _archivo;
 
@@ -158,6 +158,7 @@ PagoArchivo _archivo;
         system("pause>nul");
     }
 }
+
 
 
 void PagoManager::Listar(Pago pago)
@@ -201,4 +202,233 @@ int NumeroPago;
     }
 
     return nroReg;
+}
+void PagoManager::Editar()
+{
+    Pago reg;
+    int dni, posicion;
+
+    rlutil::locate(20,9);
+    cout << "DNI A MODIFICAR: ";
+    cin >> dni;
+    cout << endl;
+
+    system("cls");
+    mostrar_mensaje ("***** MODIFICAR DE PAGOS ***** ", 34, 4);
+    posicion = _archivo.buscarReg(dni);
+    if (posicion >= 0)
+    {
+        reg = _archivo.leerReg(posicion);
+        Listar(reg);
+        cout << endl;
+
+        int nuevoEstado;
+        rlutil::locate(20,20);
+        cout << "DESEA MODIFICAR ALGUN DATO? (1-SI/2-NO): ";
+        rlutil::locate(64,20);
+        cin >> nuevoEstado;
+
+        if (nuevoEstado==1)
+        {
+            ModificarDatos(reg,posicion);
+
+        }
+
+    }
+    else
+    {
+        system("pause>nul");
+    }
+}
+void PagoManager::ModificarDatos(Pago pago, int posicion)
+{
+
+
+    system("cls");
+    const char *opciones[] = {"DNI", "MONTO","FECHA DE PAGO", "MODIFICAR ESTADO", "VOLVER AL MENU PRINCIPAL"};
+
+    mostrar_mensaje ("* MODIFICAR DATOS DEL PAGO *", 40, 4);
+    mostrar_mensaje ("--------------------------------", 40, 5);
+
+    rlutil::saveDefaultColor();
+    rectangulo (2, 2, 100, 26);
+    rlutil::setColor(rlutil::YELLOW);
+
+    int op=1, y=0;
+
+    rlutil::hidecursor();
+
+    do
+    {
+        rlutil::saveDefaultColor();
+        rlutil::setColor(rlutil::YELLOW);
+
+        showItem (opciones[0],30,10,y==0);
+        showItem (opciones[1],30,11,y==1);
+        showItem (opciones[2],30,12,y==2);
+        showItem (opciones[3],30,13,y==3);
+        showItem (opciones[4],30,14,y==4);
+
+
+        rlutil::locate(26,10+y);
+        cout <<"==> " <<endl;
+
+        switch(rlutil::getkey())
+        {
+        case 14: //UP
+            rlutil::locate(26,10+y);
+            cout <<"   " <<endl;
+            y--;
+
+            if (y<0)
+            {
+                y=0;
+            }
+            break;
+
+        case 15: //DOWN
+            rlutil::locate(26,10+y);
+            cout <<"   " <<endl;
+            y++;
+
+            if (y>7)
+            {
+                y=7;
+            }
+            break;
+
+        case 1:   /// OPCIONES AL INGRESAR ENTER (EL ENTER ES LA TECLA 1):
+
+            switch(y)
+            {
+            case 0:      /// SETEAR DNI
+                system("cls");
+                {
+                    mostrar_mensaje ("* MODIFICAR DATOS DEL PAGO*", 40, 4);
+                    mostrar_mensaje ("--------------------------------", 40, 5);
+                    int dni;
+                    rlutil::locate(20,9);
+                    cout << "INGRESE EL NUEVO DNI: "<<endl;
+                    rlutil::locate(39,9);
+                    cin>>dni;
+                    pago.setDNIalumno(dni);
+                    if (_archivo.guardar(pago, posicion))
+                    {
+
+                        rlutil::locate(30,15);
+                        cout << "** REGISTRO MODIFICADO **"<<endl;
+                    }
+
+                    system("pause>nul");
+                    system("cls");
+                }
+
+                break;
+
+            case 1:       /// SETEAR MONTO
+                system("cls");
+                mostrar_mensaje ("* MODIFICAR DATOS DEL ALUMNO *", 40, 4);
+                mostrar_mensaje ("--------------------------------", 40, 5);
+
+                {
+
+                    int monto;
+                    rlutil::locate(20,9);
+                    cout << "INGRESE EL NUEVO NOMBRE: "<<endl;
+                    rlutil::locate(47,9);
+                    cin>>monto;
+                    pago.setMonto(monto);
+                    if (_archivo.guardar(pago, posicion))
+                    {
+
+                        rlutil::locate(30,15);
+                        cout << "** REGISTRO MODIFICADO **"<<endl;
+                    }
+
+                    system("pause>nul");
+                    system("cls");
+                }
+
+                break;
+
+            case 2:       /// SETEAR FECHA
+                system("cls");
+                mostrar_mensaje ("* MODIFICAR DATOS DEL ALUMNO *", 40, 4);
+                mostrar_mensaje ("--------------------------------", 40, 5);
+
+                {
+                    int  dia,mes,anio;
+                    rlutil::locate(20,9);
+                    cout << "INGRESE BIEN LA FECHA : DIA"<<endl;
+                    cin>>dia;
+                    cout << "INGRESE BIEN LA FECHA : DIA"<<endl;
+                    cin>>mes;
+                    cout << "INGRESE BIEN LA FECHA : DIA"<<endl;
+                    cin>>anio;
+                    rlutil::locate(47,9);
+                    pago.setFechaDePago(Fecha(dia,mes,anio));
+                    if (_archivo.guardar(pago, posicion))
+                    {
+
+                        rlutil::locate(30,15);
+                        cout << "**  REGISTRO MODIFICADO  **"<<endl;
+                    }
+
+                    system("pause>nul");
+                    system("cls");
+                }
+
+                break;
+
+                    case 3:     /// SETEAR DAR DE BAJA
+                        system("cls");
+
+                        {
+                            mostrar_mensaje ("* MODIFICAR DATOS DEL ALUMNO *", 40, 4);
+                            mostrar_mensaje ("--------------------------------", 40, 5);
+                            int op;
+                            rlutil::locate(20,9);
+                            cout << "DESEA MODIFICAR ESTADO DEL ALUMNO (1-BAJA/2-ALTA): "<<endl;
+                            rlutil::locate(72,9);
+                            cin>>op;
+                            if (op==1)
+                            {
+                                pago.setAbonado(false);
+                                if (_archivo.guardar(pago, posicion))
+
+                                    rlutil::locate(30,15);
+                                cout << "** REGISTRO MODIFICADO ** "<<endl;
+                            }
+                            else if(op==2)
+                            {
+
+                                pago.setAbonado(true);
+                                if (_archivo.guardar(pago, posicion))
+
+                                    rlutil::locate(30,15);
+                                cout << "** REGISTRO MODIFICADO ** "<<endl;
+                            }
+                            system("pause>nul");
+                            system("cls");
+
+                        }
+                        break;
+
+                    case 4:     /// VOLVER AL MENU PRINCIPAL
+                        system("cls");
+                        {
+                            system("pause>nul");
+                            system("cls");
+
+                        }
+
+                        break;
+                    }
+                }
+
+    }
+
+
+    while(op!=0);
+    system("pause>nul");
 }

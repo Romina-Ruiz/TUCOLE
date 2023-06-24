@@ -16,12 +16,13 @@ public:
     int buscarReg(int dni);
     void Cargar();
     int generarPago();
-    void ListarXdni(Pago pago);
+    void ListarXdni();
     void Listar(Pago pago);
-   int buscarDNI(int dni);
-   void ListarTodos();
+    int buscarDNI(int dni);
+    void ListarTodos();
 
-//	void Editar();
+    void Editar();
+    void ModificarDatos(Pago pago, int posicion);
 //	void Eliminar();
 //	void Listar(Alumno alumno);
 

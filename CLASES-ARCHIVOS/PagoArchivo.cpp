@@ -102,6 +102,22 @@ int PagoArchivo::buscarReg(int dni){
   }
   return nroRegistro;
 }
+bool PagoArchivo::guardar(Pago reg, int posicionAReemplazar){
+
+{
+    FILE *p = fopen(_ruta, "rb+");
+
+    if (p == NULL)
+    {
+        return false;
+    }
+
+    fseek(p, posicionAReemplazar * sizeof(Pago), SEEK_SET);
+    bool pudoEscribir = fwrite(&reg, sizeof(Pago), 1, p);
+    fclose(p);
+    return pudoEscribir;
+}
+}
 
 void PagoArchivo::vaciar(){
 
