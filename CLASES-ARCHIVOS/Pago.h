@@ -9,7 +9,7 @@ class Pago
     int _nroPago;
     float _monto;
     Fecha _fechaDePago;
-    bool _abonado;         ///SE NECESITA???
+           ///SE NECESITA???
 
 public:
 
@@ -17,13 +17,13 @@ public:
     void setNroPago(int numero);
     void setMonto(float monto);
     void setFechaDePago(Fecha f);
-    void setAbonado(bool pagado);
+
 
     int getDNIalumno ();
     int getNroPago();
     float getMonto();
     Fecha getFechaDePago();
-    bool getAbonado();
+
 
 };
 

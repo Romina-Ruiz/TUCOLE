@@ -94,7 +94,7 @@ void menuPagos()
                 PagoManager obj;
                 rectangulo (2, 2, 100, 26);
                 rlutil::setColor(rlutil::YELLOW);
-                mostrar_mensaje ("***** CARGA DE ALUMNO ***** ", 34, 4);
+                mostrar_mensaje ("***** CARGA DE PAGOS ***** ", 34, 4);
                 obj.Cargar();
                 system("pause>nul");
                 system("cls");
@@ -112,8 +112,9 @@ void menuPagos()
                 PagoManager obj;
                 rectangulo (2, 2, 100, 26);
                 rlutil::setColor(rlutil::YELLOW);
-                mostrar_mensaje ("***** CARGA DE ALUMNO ***** ", 34, 4);
+                mostrar_mensaje ("***** MODIFICAR DATOS DEL PAGO ***** ", 34, 4);
                 obj.Editar();
+
 
                 system("pause>nul");
                 system("cls");

@@ -56,6 +56,8 @@ Alumno AlumnoArchivo::leerReg(int nroRegistro)
 
     return obj;
 }
+
+
 ///revisar
 //bool AlumnoArchivo::leerTodos(Alumno registros[], int cantidad)
 //{

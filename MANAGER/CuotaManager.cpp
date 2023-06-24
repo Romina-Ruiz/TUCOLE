@@ -67,6 +67,8 @@ void CuotaManager::Cargar()
         rlutil::locate(30,10);
         cout << fact <<endl;
         rlutil::locate(10,11);
+
+
         cout << "MONTO: "<<endl;
         rlutil::locate(20,11);
         cin >> importe;

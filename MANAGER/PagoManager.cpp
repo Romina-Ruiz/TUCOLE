@@ -37,10 +37,10 @@ int PagoManager::buscarReg(int dni)   /// ACA  TIENE QUE VALIDAR EL DNI EN EL AR
 
 
 
-
 void  PagoManager::Cargar()
 {
-   float importe;
+
+    float importe;
     int pag;
     int dni, dia, mes, anio;
 
@@ -84,15 +84,12 @@ void  PagoManager::Cargar()
         rlutil::locate(25,14);
         cin >> anio;
 
-
-
-        PagoArchivo _archivo;
         Pago aux;
         aux.setDNIalumno(dni);
         aux.setNroPago(pag);
         aux.setMonto(importe);
         aux.setFechaDePago(Fecha(dia, mes, anio));
-        aux.setAbonado(true);
+
 
         if (_archivo.agregar(aux))
         {
@@ -113,17 +110,18 @@ void  PagoManager::Cargar()
 }
 void PagoManager::ListarTodos()
 {
+
     PagoArchivo _archivo;
+
     int cantidadRegistros = _archivo.getCantidad();
 
     for (int i = 0; i<cantidadRegistros; i++)
     {
         Pago reg = _archivo.leerReg(i);
-        if (reg.getAbonado()==true)
-        {
+
             Listar(reg);
-            cout << endl;
-        }
+
+
     }
 }
 
@@ -164,20 +162,21 @@ PagoArchivo _archivo;
 void PagoManager::Listar(Pago pago)
 {
 int NumeroPago;
+
     rectangulo (2, 2, 100, 26);
     rlutil::setColor(rlutil::YELLOW);
+     mostrar_mensaje ("*****    PAGOS   ***** ", 34, 4);
 
     rlutil::locate(20,9);
     cout<<"DNI ALUMNO:    " <<pago.getDNIalumno()<<endl;
     rlutil::locate(20,10);
-    NumeroPago=this->generarPago();
-    cout<<"NUMERO DE PAGO :    "<<NumeroPago<<endl;
+    cout<<"NUMERO DE PAGO :    "<<pago.getNroPago()<<endl;
     rlutil::locate(20,11);
     cout<<"MONTO :    "<<pago.getMonto()<<endl;
     rlutil::locate(20,12);
     cout<<"FECHA DE PAGO :    " <<pago.getFechaDePago().toString()<<endl;
     rlutil::locate(20,13);
-    cout<<" ABONADO :    "<<true;
+    system ("pause");
 
 }
 
@@ -245,7 +244,7 @@ void PagoManager::ModificarDatos(Pago pago, int posicion)
 
 
     system("cls");
-    const char *opciones[] = {"DNI", "MONTO","FECHA DE PAGO", "MODIFICAR ESTADO", "VOLVER AL MENU PRINCIPAL"};
+    const char *opciones[] = {"DNI", "MONTO","FECHA DE PAGO", "VOLVER AL MENU PRINCIPAL"};
 
     mostrar_mensaje ("* MODIFICAR DATOS DEL PAGO *", 40, 4);
     mostrar_mensaje ("--------------------------------", 40, 5);
@@ -380,41 +379,9 @@ void PagoManager::ModificarDatos(Pago pago, int posicion)
 
                 break;
 
-                    case 3:     /// SETEAR DAR DE BAJA
-                        system("cls");
 
-                        {
-                            mostrar_mensaje ("* MODIFICAR DATOS DEL ALUMNO *", 40, 4);
-                            mostrar_mensaje ("--------------------------------", 40, 5);
-                            int op;
-                            rlutil::locate(20,9);
-                            cout << "DESEA MODIFICAR ESTADO DEL ALUMNO (1-BAJA/2-ALTA): "<<endl;
-                            rlutil::locate(72,9);
-                            cin>>op;
-                            if (op==1)
-                            {
-                                pago.setAbonado(false);
-                                if (_archivo.guardar(pago, posicion))
 
-                                    rlutil::locate(30,15);
-                                cout << "** REGISTRO MODIFICADO ** "<<endl;
-                            }
-                            else if(op==2)
-                            {
-
-                                pago.setAbonado(true);
-                                if (_archivo.guardar(pago, posicion))
-
-                                    rlutil::locate(30,15);
-                                cout << "** REGISTRO MODIFICADO ** "<<endl;
-                            }
-                            system("pause>nul");
-                            system("cls");
-
-                        }
-                        break;
-
-                    case 4:     /// VOLVER AL MENU PRINCIPAL
+                    case 3:     /// VOLVER AL MENU PRINCIPAL
                         system("cls");
                         {
                             system("pause>nul");

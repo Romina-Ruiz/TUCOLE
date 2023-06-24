@@ -26,11 +26,6 @@ void Pago::setFechaDePago(Fecha f)
     _fechaDePago = f;
 }
 
-void Pago::setAbonado(bool pagado){
-
-_abonado=true;
-
-}
 
 int Pago::getDNIalumno (){
 
@@ -52,8 +47,5 @@ Fecha Pago::getFechaDePago(){
     return _fechaDePago;
 }
 
-bool Pago::getAbonado(){
 
-    return _abonado;
-}
 

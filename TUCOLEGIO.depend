@@ -485,12 +485,12 @@
 
 1687274367 c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\clases-archivos\persona.h
 
-1687309256 source:c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\clases-archivos\alumnoarchivo.cpp
+1687628397 source:c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\clases-archivos\alumnoarchivo.cpp
 	"AlumnoArchivo.h"
 	"Alumno.h"
 	<cstdio>
 
-1687465061 c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\clases-archivos\alumnoarchivo.h
+1687626394 c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\clases-archivos\alumnoarchivo.h
 	<cstdio>
 	<cstring>
 	"Alumno.h"
@@ -630,7 +630,7 @@
 	<cstring>
 	<iostream>
 
-1687603479 source:c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\menus\funciones_admin.cpp
+1687629493 source:c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\menus\funciones_admin.cpp
 	<iostream>
 	<iomanip>
 	<string>
@@ -814,7 +814,7 @@
 	"Persona.h"
 	"../MENUS/FUNCIONES_ADMIN.h"
 
-1687465062 source:c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\manager\cuotamanager.cpp
+1687619399 source:c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\manager\cuotamanager.cpp
 	<iostream>
 	<iomanip>
 	<cstring>
@@ -937,14 +937,14 @@
 	"Notas.h"
 	"NotasArchivo.h"
 
-1687465061 source:c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\clases-archivos\pago.cpp
+1687627266 source:c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\clases-archivos\pago.cpp
 	"Pago.h"
 	"../MENUS/Fecha.h"
 
-1687465061 c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\clases-archivos\pago.h
+1687627241 c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\clases-archivos\pago.h
 	"../MENUS/Fecha.h"
 
-1687602597 source:c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\clases-archivos\pagoarchivo.cpp
+1687628506 source:c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\clases-archivos\pagoarchivo.cpp
 	<cstdio>
 	<cstring>
 	"PagoArchivo.h"
@@ -965,11 +965,11 @@
 	"Notas.h"
 	"NotasArchivo.h"
 
-1687602414 c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\manager\pagomanager.h
+1687624358 c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\manager\pagomanager.h
 	"Pago.h"
 	"PagoArchivo.h"
 
-1687602845 source:c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\manager\pagomanager.cpp
+1687629285 source:c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\manager\pagomanager.cpp
 	<iostream>
 	<iomanip>
 	<cstring>
