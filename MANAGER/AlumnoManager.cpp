@@ -164,7 +164,7 @@ void AlumnoManager::Listar(Alumno alumno)
 {
     rectangulo (2, 2, 100, 26);
     rlutil::setColor(rlutil::YELLOW);
-    mostrar_mensaje ("*****    ALUMNO   ***** ", 34, 4);
+    mostrar_mensaje ("*****      ALUMNO    ***** ", 34, 4);
 
     rlutil::locate(20,9);
     cout<<"DNI:    " <<alumno.getDni()<<endl;
@@ -196,8 +196,8 @@ void AlumnoManager::Listar(Alumno alumno)
     rlutil::locate(20,19);
     cout <<"---------------------------------------------------" << endl;
 
-system ("pause");
-
+                system("pause>nul");
+                system("cls");
 }
 
 

@@ -253,7 +253,7 @@
 
 1687276375 c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\persona.h
 
-1687312316 source:c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\alumnoarchivo.cpp
+1687630729 source:c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\alumnoarchivo.cpp
 	"AlumnoArchivo.h"
 	"Alumno.h"
 	<cstdio>
@@ -398,7 +398,7 @@
 	<cstring>
 	<iostream>
 
-1687468638 source:c:\users\romina\documents\github\tucolegio\tucole\menus\funciones_admin.cpp
+1687632711 source:c:\users\romina\documents\github\tucolegio\tucole\menus\funciones_admin.cpp
 	<iostream>
 	<iomanip>
 	<string>
@@ -731,7 +731,7 @@
 	"Profesor.h"
 	"ProfesorArchivo.h"
 
-1687475177 source:c:\users\romina\documents\github\tucolegio\tucole\manager\alumnomanager.cpp
+1687634067 source:c:\users\romina\documents\github\tucolegio\tucole\manager\alumnomanager.cpp
 	<iostream>
 	"AlumnoManager.h"
 	"Alumno.h"
@@ -747,7 +747,7 @@
 	"Persona.h"
 	"../MENUS/FUNCIONES_ADMIN.h"
 
-1687319896 source:c:\users\romina\documents\github\tucolegio\tucole\manager\profesormanager.cpp
+1687631839 source:c:\users\romina\documents\github\tucolegio\tucole\manager\profesormanager.cpp
 	<iostream>
 	"ProfesorManager.h"
 	"Profesor.h"
@@ -770,7 +770,7 @@
 	"Materia.h"
 	"MateriaArchivo.h"
 
-1687394724 source:c:\users\romina\documents\github\tucolegio\tucole\manager\cuotamanager.cpp
+1687633734 source:c:\users\romina\documents\github\tucolegio\tucole\manager\cuotamanager.cpp
 	<iostream>
 	<iomanip>
 	<cstring>
@@ -893,22 +893,22 @@
 
 1687390603 c:\users\romina\documents\github\tucolegio\tucole\manager\comunicadosmanager.h
 
-1687394236 source:c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\pago.cpp
+1687630729 source:c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\pago.cpp
 	"Pago.h"
 	"../MENUS/Fecha.h"
 
-1687394236 c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\pago.h
+1687630729 c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\pago.h
 	"../MENUS/Fecha.h"
 
-1687393049 source:c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\pagoarchivo.cpp
+1687630729 source:c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\pagoarchivo.cpp
 	<cstdio>
 	<cstring>
 	"PagoArchivo.h"
 
-1687392978 c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\pagoarchivo.h
+1687619160 c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\pagoarchivo.h
 	"Pago.h"
 
-1687486889 source:c:\users\romina\documents\github\tucolegio\tucole\manager\pagomanager.cpp
+1687632491 source:c:\users\romina\documents\github\tucolegio\tucole\manager\pagomanager.cpp
 	<iostream>
 	<iomanip>
 	<cstring>
@@ -920,7 +920,7 @@
 	"../MENUS/FUNCIONES_FRONT.h"
 	"AlumnoArchivo.h"
 
-1687486040 c:\users\romina\documents\github\tucolegio\tucole\manager\pagomanager.h
+1687619160 c:\users\romina\documents\github\tucolegio\tucole\manager\pagomanager.h
 	"Pago.h"
 	"PagoArchivo.h"
 

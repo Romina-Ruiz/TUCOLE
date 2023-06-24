@@ -121,6 +121,7 @@ void PagoManager::ListarTodos()
 
             Listar(reg);
 
+             system("pause>nul");
 
     }
 }
@@ -165,7 +166,7 @@ int NumeroPago;
 
     rectangulo (2, 2, 100, 26);
     rlutil::setColor(rlutil::YELLOW);
-     mostrar_mensaje ("*****    PAGOS   ***** ", 34, 4);
+     mostrar_mensaje ("*****   LISTA DE PAGOS   *****", 34, 4);
 
     rlutil::locate(20,9);
     cout<<"DNI ALUMNO:    " <<pago.getDNIalumno()<<endl;
@@ -176,7 +177,7 @@ int NumeroPago;
     rlutil::locate(20,12);
     cout<<"FECHA DE PAGO :    " <<pago.getFechaDePago().toString()<<endl;
     rlutil::locate(20,13);
-    system ("pause");
+
 
 }
 

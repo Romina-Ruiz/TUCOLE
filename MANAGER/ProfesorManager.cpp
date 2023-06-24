@@ -94,7 +94,7 @@ void ProfesorManager::Cargar()
             rlutil::locate(30,23);
             cout << "** PROFESOR GUARDADO CORRECTAMENTE **" << endl;
             system("pause>nul");
-            system("cls");
+           // system("cls");
         }
         else
         {
@@ -103,7 +103,6 @@ void ProfesorManager::Cargar()
             system("pause>nul");
         }
     }
-    system("pause");
 
 }
 

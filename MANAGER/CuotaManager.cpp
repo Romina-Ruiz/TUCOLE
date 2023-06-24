@@ -110,7 +110,7 @@ void CuotaManager::Cargar()
 
         }
     }
-    system("pause");
+
 }
 int CuotaManager::generarFactura()
 {

@@ -188,9 +188,9 @@ void menuCargarAlumnos()
             cout <<"   " <<endl;
             y++;
 
-            if (y>3)
+            if (y>4)
             {
-                y=3;
+                y=4;
             }
             break;
 
@@ -784,9 +784,9 @@ void menuInformes()
             cout <<"   " <<endl;
             y++;
 
-            if (y>6)
+            if (y>7)
             {
-                y=6;
+                y=7;
             }
             break;
 
@@ -803,7 +803,7 @@ void menuInformes()
                 PagoManager obj;
                 rlutil::setColor(rlutil::YELLOW);
                 rectangulo (2, 2, 100, 26);
-                mostrar_mensaje ("***** LISTA DE PAGOS ***** ", 34, 4);
+                mostrar_mensaje ("*****   LISTA DE PAGOS   ***** ", 34, 4);
 
                 obj.ListarTodos();
 
