@@ -42,8 +42,7 @@ void AlumnoManager::Cargar()
 
 {
     char nombre[30], apellido[30], email[30];
-    bool Estado;
-    int Legajo, telefono,AnioCurso;
+      int Legajo, telefono,AnioCurso;
     int dni, dia, mes, anio;
 
     rlutil::locate(20,8);

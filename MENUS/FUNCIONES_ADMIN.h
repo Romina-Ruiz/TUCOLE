@@ -7,6 +7,7 @@ void menuPagos();
 void menuCargarAlumnos();
 void menuCargarProfesor();
 void menuCargarMateria();
+void menuCargarcCursos();
 void menuCargarNotas();
 void menuAusencias();
 void menuComunicados();

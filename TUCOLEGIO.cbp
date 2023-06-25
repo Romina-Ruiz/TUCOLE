@@ -48,6 +48,10 @@
 		<Unit filename="CLASES-ARCHIVOS/Cuota.h" />
 		<Unit filename="CLASES-ARCHIVOS/CuotaArchivo.cpp" />
 		<Unit filename="CLASES-ARCHIVOS/CuotaArchivo.h" />
+		<Unit filename="CLASES-ARCHIVOS/Curso.cpp" />
+		<Unit filename="CLASES-ARCHIVOS/Curso.h" />
+		<Unit filename="CLASES-ARCHIVOS/CursoArchivo.cpp" />
+		<Unit filename="CLASES-ARCHIVOS/CursoArchivo.h" />
 		<Unit filename="CLASES-ARCHIVOS/Falta.cpp" />
 		<Unit filename="CLASES-ARCHIVOS/Falta.h" />
 		<Unit filename="CLASES-ARCHIVOS/FaltaArchivo.cpp" />
@@ -77,6 +81,8 @@
 		<Unit filename="MANAGER/ComunicadosManager.h" />
 		<Unit filename="MANAGER/CuotaManager.cpp" />
 		<Unit filename="MANAGER/CuotaManager.h" />
+		<Unit filename="MANAGER/CursoManager.cpp" />
+		<Unit filename="MANAGER/CursoManager.h" />
 		<Unit filename="MANAGER/FaltaManager.cpp" />
 		<Unit filename="MANAGER/FaltaManager.h" />
 		<Unit filename="MANAGER/MateriaManager.cpp" />

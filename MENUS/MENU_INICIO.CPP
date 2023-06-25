@@ -76,7 +76,7 @@ void menuAdmin()
 
     system("cls");
 
-    const char *opciones[] = {"FACTURACION","PAGOS", "ALUMNOS", "PROFESORES","MATERIAS",
+    const char *opciones[] = {"FACTURACION","PAGOS", "ALUMNOS", "PROFESORES","MATERIAS", "CURSOS",
                               "NOTAS","AUSENCIAS", "COMUNICADOS","INFORMES","RESPALDOS","SALIR"
                              };
 
@@ -105,6 +105,7 @@ void menuAdmin()
         showItem (opciones[8],30,18,y==8);
         showItem (opciones[9],30,19,y==9);
         showItem (opciones[10],30,20,y==10);
+        showItem (opciones[11],30,21,y==11);
 
 
         rlutil::locate(26,10+y);
@@ -128,9 +129,9 @@ void menuAdmin()
             cout <<"   " <<endl;
             y++;
 
-            if (y>10)
+            if (y>11)
             {
-                y=10;
+                y=11;
             }
             break;
 
@@ -179,7 +180,17 @@ void menuAdmin()
 
                 break;
 
-            case 5:     /// CARGAR  NOTAS
+                case 5:     /// CARGAR  CURSOS
+
+                system("cls");
+                menuCargarcCursos();
+                system("pause>nul");
+                system("cls");
+
+
+                break;
+
+            case 6:     /// CARGAR  NOTAS
 
                 system("cls");
                 menuCargarNotas();
@@ -189,7 +200,7 @@ void menuAdmin()
 
                 break;
 
-            case 6:     ///CARGAR  AUSENCIAS
+            case 7:     ///CARGAR  AUSENCIAS
 
                 system("cls");
                 menuAusencias();
@@ -197,7 +208,7 @@ void menuAdmin()
                 system("cls");
 
                 break;
-            case 7:     ///CARGAR COMUNICADO
+            case 8:     ///CARGAR COMUNICADO
 
                 system("cls");
                 menuComunicados();
@@ -206,7 +217,7 @@ void menuAdmin()
 
                 break;
 
-            case 8:     /// INFORMES
+            case 9:     /// INFORMES
 
                 system("cls");
                 menuInformes();
@@ -214,7 +225,7 @@ void menuAdmin()
                 system("cls");
 
                 break;
-            case 9:     /// RESPALDOS
+            case 10:     /// RESPALDOS
                 system("cls");
                 menuRespaldos();
                 system("pause>nul");
@@ -223,7 +234,7 @@ void menuAdmin()
 
                 break;
 
-            case 10:     /// SALIR
+            case 11:     /// SALIR
             {
                 system("cls");
                 SalirSistemaUser();

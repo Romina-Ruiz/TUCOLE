@@ -74,7 +74,7 @@ void CursoManager::Cargar()
 int CursoManager::generarId()
 {
 
-    return _archivo.getCantidad()+1;
+    return _archivo.getCantidad()+100;
 }
 
 void CursoManager::ListarTodos()

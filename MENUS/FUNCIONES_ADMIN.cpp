@@ -499,6 +499,111 @@ void menuCargarMateria()
     system("pause");
 
 }
+
+void menuCargarcCursos()
+{
+    system("cls");
+
+    const char *opciones[] = {"CARGAR CURSO","CARGAR ALUMNOS AL CURSO", "MODIFICAR DATOS","VOLVER AL MENU PRINCIPAL"};
+    int op=1, y=0;
+
+    rlutil::hidecursor();
+
+    do
+    {
+
+        rectangulo (2, 2, 100, 26);
+        rlutil::setColor(rlutil::YELLOW);
+        mostrar_mensaje ("***** CARGA DE CURSOS ***** ", 34, 4);
+
+        showItem (opciones[0],30,10,y==0);
+        showItem (opciones[1],30,11,y==1);
+        showItem (opciones[2],30,12,y==2);
+        showItem (opciones[3],30,13,y==3);
+
+
+        rlutil::locate(26,10+y);
+        cout <<"==> " <<endl;
+
+        switch(rlutil::getkey())
+        {
+        case 14: //UP
+            rlutil::locate(26,10+y);
+            cout <<"   " <<endl;
+            y--;
+
+            if (y<0)
+            {
+                y=0;
+            }
+            break;
+
+        case 15: //DOWN
+            rlutil::locate(26,10+y);
+            cout <<"   " <<endl;
+            y++;
+
+            if (y>3)
+            {
+                y=3;
+            }
+            break;
+
+        case 1:     /// OPCIONES AL INGRESAR ENTER (EL ENTER ES LA TECLA 1):
+
+            switch(y)
+            {
+
+            case 0:     ///CARGAR CURSOS
+                 {
+                system("cls");
+
+
+                rlutil::setColor(rlutil::YELLOW);
+                rectangulo (2, 2, 100, 26);
+                mostrar_mensaje ("***** CARGAR CURSOS ***** ", 34, 4);
+
+
+
+                system("pause>nul");
+                system("cls");
+            }
+
+                break;
+
+            case 1:     /// CARGAR ALUMNOS AL CURSO
+
+
+
+
+                break;
+
+            case 2:     ///MODIFICAR DATOS
+            {
+                system("cls");
+
+                system("cls");
+            }
+            break;
+                   case 3:     ///SALIR
+            {
+                system("cls");
+                menuAdmin();
+                system("cls");
+            }
+            break;
+            }
+        }
+    }
+    while(op!=0);
+
+    system("pause");
+
+}
+
+
+
+
 void menuCargarNotas()
 {
     system("cls");
