@@ -6,7 +6,7 @@
 #include"CuotaArchivo.h"
 #include"AlumnoArchivo.h"
 #include"Alumno.h"
-
+#include "../MENUS/FUNCIONES_FRONT.h"
 using namespace std;
 
 
@@ -116,4 +116,44 @@ int CuotaManager::generarFactura()
 {
     CuotaArchivo _archivo;
     return _archivo.getCantidad()+1;
+}
+void CuotaManager::ListarTodos()
+{
+
+    CuotaArchivo _archivo;
+
+    int cantidadRegistros = _archivo.getCantidad();
+
+    for (int i = 0; i<cantidadRegistros; i++)
+    {
+        Cuota reg = _archivo.leerReg(i);
+
+            Listar(reg);
+
+             system("pause>nul");
+
+    }
+}
+
+void CuotaManager::Listar(Cuota cuota)
+{
+    rectangulo (2, 2, 100, 26);
+    rlutil::setColor(rlutil::YELLOW);
+     mostrar_mensaje ("*****   LISTA DE CUOTA   *****", 34, 4);
+
+    rlutil::locate(20,9);
+    cout<<"DNI ALUMNO:    " <<cuota.getDNIalumno()<<endl;
+    rlutil::locate(20,10);
+    cout<<"TIPO DE CUOTA :    "<<cuota.gettipoDeCuota()<<endl;
+    rlutil::locate(20,11);
+    cout<<"NUMERO DE FACTURA :    "<<cuota.getNroFact()<<endl;
+    rlutil::locate(20,12);
+    cout<<"MONTO :    " <<cuota.getMonto()<<endl;
+    rlutil::locate(20,13);
+     cout<<"FECHA DE FACTURA :    " <<cuota.getFechaDeFact().toString()<<endl;
+    rlutil::locate(20,13);
+     cout<<" ESTADO :    " <<cuota.getDebe()<<endl;
+    rlutil::locate(20,13);
+
+
 }

@@ -8,6 +8,7 @@ using namespace std;
 #include "FUNCIONES_USER.h"
 #include "FUNCIONES_FRONT.h"
 #include "Fecha.h"
+#include "CursoManager.h"
 
 
 
@@ -156,6 +157,7 @@ void menuNotas(){
 
 
 
+
 }
 void menuMateriasActivas(){
     rlutil::saveDefaultColor();
@@ -164,7 +166,8 @@ void menuMateriasActivas(){
 
     mostrar_mensaje ("*****   MATERIAS EN CURSO  *****", 28, 4);
 
-
+    CursoManager obj;
+    obj.ListarXdni();
 
 }
 void menuEstadoAusencias(){

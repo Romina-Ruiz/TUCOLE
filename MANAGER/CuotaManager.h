@@ -14,11 +14,11 @@ public:
     int buscarDNI(int dni);
    void Cargar();
     int generarFactura();
-//	void ListarTodos();
+	void ListarTodos();
 //	void ListarXId();
 //	void Editar();
 //	void Eliminar();
-//	void Listar(Alumno alumno);
+	void Listar(Cuota cuota);
 //	int buscarDNI(int dni);
 
 

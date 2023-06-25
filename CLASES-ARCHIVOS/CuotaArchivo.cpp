@@ -47,7 +47,7 @@ Cuota obj;
     FILE* pFile = fopen(_ruta, "rb");
 
     if (pFile == NULL){
-            {
+
         return obj;
                 }
 
@@ -56,8 +56,8 @@ Cuota obj;
         fclose(pFile);
 
     return obj;
-    }
 }
+
 
 bool CuotaArchivo::modificarReg(Cuota registro, int nroRegistro)
 {

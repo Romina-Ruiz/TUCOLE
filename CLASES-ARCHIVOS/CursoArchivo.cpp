@@ -45,16 +45,15 @@ Curso obj;
     FILE* pFile = fopen(_ruta, "rb");
 
     if (pFile == NULL){
-            {
-        return obj;
-                }
 
+        return obj;
+    }
         fseek(pFile, nroRegistro * sizeof(Curso), SEEK_SET);
         fread(&obj, sizeof(Curso), 1, pFile);
         fclose(pFile);
 
-    return obj;
-    }
+ return obj;
+
 }
 
 bool CursoArchivo::modificarReg(Curso registro, int nroRegistro)

@@ -38,8 +38,10 @@ void CursoManager::Cargar()
         cout << idMateria <<endl;
         rlutil::locate(10,10);
         cout << "ID PROFESOR: "<<endl;
-        rlutil::locate(20,10);
-        cin >> idProfesor;
+        rlutil::locate(30,13);
+        idProfesor=generarId();
+         rlutil::locate(30,10);
+        cout << idProfesor;
         rlutil::locate(10,12);
         cout << "CURSO N#: "<<endl;
         rlutil::locate(25,12);
@@ -79,8 +81,10 @@ int CursoManager::generarId()
 
 void CursoManager::ListarTodos()
 {
+
     CursoArchivo _archivo;
     int cantidadRegistros = _archivo.getCantidad();
+
 
     for (int i = 0; i<cantidadRegistros; i++)
     {
@@ -92,7 +96,9 @@ void CursoManager::ListarTodos()
     }
 }
 void CursoManager::Listar(Curso curso)
+
 {
+    cout<<"holi";
     rectangulo (2, 2, 100, 26);
     rlutil::setColor(rlutil::YELLOW);
     mostrar_mensaje ("*****      CURSO    ***** ", 34, 4);
@@ -106,23 +112,26 @@ void CursoManager::Listar(Curso curso)
     cout<<"ID PROFESOR:    "<<curso.getIdProfesor()<<endl;
     rlutil::locate(20,12);
     cout<<"CURSO N#:    " <<curso.getCurso()<<endl;
+
     system("pause>nul");
     system("cls");
 }
 
 
-void CursoManager::ListarXcurso()
+void CursoManager::ListarXdni()
 {
-    int curso;
+cout<<"hrvygti"<<endl;
+
+    int dni;
     rectangulo (2, 2, 100, 26);
     rlutil::setColor(rlutil::YELLOW);
 
     rlutil::locate(20,9);
-    cout << "INGRESE EL NUMERO DE CURSO : ";
-    cin >> curso;
+    cout << "INGRESE EL NUMERO DE DNI : ";
+    cin >> dni;
     system("cls");
 
-    int posicion = _archivo.buscarReg(curso);
+    int posicion = _archivo.buscarReg(dni);
     if (posicion >= 0)
     {
         Curso reg = _archivo.leerReg(posicion);

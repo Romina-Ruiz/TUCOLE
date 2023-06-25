@@ -18,6 +18,8 @@ using namespace std;
 #include "PagoManager.h"
 #include "MateriaManager.h"
 #include "FaltaManager.h"
+#include "CursoManager.h"
+#include "CuotaManager.h"
 
 
 
@@ -558,12 +560,12 @@ void menuCargarcCursos()
                  {
                 system("cls");
 
-
+                CursoManager obj;
                 rlutil::setColor(rlutil::YELLOW);
                 rectangulo (2, 2, 100, 26);
                 mostrar_mensaje ("***** CARGAR CURSOS ***** ", 34, 4);
 
-
+                obj.Cargar();
 
                 system("pause>nul");
                 system("cls");
@@ -572,6 +574,19 @@ void menuCargarcCursos()
                 break;
 
             case 1:     /// CARGAR ALUMNOS AL CURSO
+                 {
+                system("cls");
+
+                CursoManager obj;
+                rlutil::setColor(rlutil::YELLOW);
+                rectangulo (2, 2, 100, 26);
+                mostrar_mensaje ("***** CARGAR CURSOS ***** ", 34, 4);
+
+                obj.ListarTodos();
+
+                system("pause>nul");
+                system("cls");
+            }
 
 
 
@@ -874,7 +889,7 @@ void menuInformes()
 {
     system("cls");
 
-    const char *opciones[] = {"LISTA DE PAGOS","LISTA DE MATERIAS","PAGOS POR FECHA", "PAGOS POR ALUMNOS","AUSENCIAS POR FECHAS",
+    const char *opciones[] = {"LISTA DE PAGOS","FACTURACION","LISTA DE MATERIAS","PAGOS POR FECHA", "PAGOS POR ALUMNOS","AUSENCIAS POR FECHAS",
                               "AUSENCIAS POR ALUMNOS","NOTAS POR ALUMNOS","ALUMNOS POR MATERIA","VOLVER AL MENU PRINCIPAL"
                              };
     int op=1, y=0;
@@ -896,7 +911,8 @@ void menuInformes()
         showItem (opciones[5],30,15,y==5);
         showItem (opciones[6],30,16,y==6);
         showItem (opciones[7],30,17,y==7);
-        showItem (opciones[7],30,17,y==7);
+        showItem (opciones[7],30,17,y==8);
+        showItem (opciones[7],30,17,y==9);
 
         rlutil::locate(26,10+y);
         cout <<"==> " <<endl;
@@ -954,7 +970,7 @@ void menuInformes()
 
              system("cls");
 
-                MateriaManager obj;
+                CuotaManager obj;
                 rlutil::setColor(rlutil::YELLOW);
                 rectangulo (2, 2, 100, 26);
                 mostrar_mensaje ("***** LISTA DE MATERIAS ***** ", 34, 4);
@@ -1030,8 +1046,12 @@ void menuInformes()
 
 
                 break;
+                case 8:
 
-            case 8:
+                    break;
+
+
+            case 9:
 
             {
                 system("cls");
