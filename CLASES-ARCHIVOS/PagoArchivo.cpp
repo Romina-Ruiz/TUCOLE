@@ -126,6 +126,16 @@ bool PagoArchivo::guardar(Pago reg, int posicionAReemplazar)
         return pudoEscribir;
     }
 }
+void PagoArchivo::leer(Pago *vec, int cantidadRegistrosALeer){
+	FILE *p = fopen(_ruta, "rb");
+	if (p == NULL)
+	{
+		return ;
+	}
+
+	fread(vec, sizeof(Pago), cantidadRegistrosALeer, p);
+	fclose(p);
+}
 
 void PagoArchivo::vaciar()
 {

@@ -19,6 +19,7 @@ public:
     bool leerTodos(Pago registros[], int cantidad);
     int buscarReg(int dni);
     bool guardar(Pago reg, int posicionAReemplazar);
+    void leer(Pago *vec, int cantidadRegistrosALeer);
     void vaciar();
 
 };

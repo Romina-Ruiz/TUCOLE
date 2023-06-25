@@ -95,7 +95,7 @@ void  PagoManager::Cargar()
         {
             rlutil::locate(30,20);
             cout << "** PAGO GUARDADO CORRECTAMENTE **" << endl;
-                  system("pause>nul");
+            system("pause>nul");
         }
         else
         {
@@ -119,21 +119,77 @@ void PagoManager::ListarTodos()
     {
         Pago reg = _archivo.leerReg(i);
 
-            Listar(reg);
+        Listar(reg);
 
-             system("pause>nul");
+        system("pause>nul");
 
     }
 }
+void PagoManager::ListarOrdenadosPorFecha()
+{
+
+    int cantidadRegistros = _archivo.getCantidad();
+    Pago *vec = new Pago[cantidadRegistros];
+
+    if (vec == nullptr)
+    {
+        cout << "Error al visualizar el listado";
+        return;
+    }
+
+    _archivo.leer(vec, cantidadRegistros);
+    Ordenar(vec, cantidadRegistros);
+
+    for(int i=0; i<cantidadRegistros; i++)
+    {
+        Listar(vec[i]);
+        cout << endl;
+    }
+
+    delete []vec;
+
+}
+void PagoManager::Ordenar(Pago *vec, int cantidadRegistros)
+{
+    int mayor = 0;
+
+    Pago aux;
+
+    for (int i = 0; i < cantidadRegistros-1; i++)
+    {
+        mayor = i;
+
+        for (int j = i + 1; j < cantidadRegistros; j++)
+        {
+
+
+            if (vec[j].getFechaDePago().getMes()<= vec[mayor].getFechaDePago().getMes()&&
+                    vec[j].getFechaDePago().getDia()<= vec[mayor].getFechaDePago().getDia() )
+            {
+                mayor = j;
+            }
+        }
+
+        if (i != mayor)
+        {
+            aux = vec[i];
+            vec[i] = vec[mayor];
+            vec[mayor] = aux;
+        }
+
+    }
+}
+
 
 int PagoManager::generarPago()
 {
     PagoArchivo _archivo;
     return _archivo.getCantidad()+1;
 }
-void PagoManager::ListarXdni(){
+void PagoManager::ListarXdni()
+{
 
-PagoArchivo _archivo;
+    PagoArchivo _archivo;
 
     int dni;
     rectangulo (2, 2, 100, 26);
@@ -162,11 +218,11 @@ PagoArchivo _archivo;
 
 void PagoManager::Listar(Pago pago)
 {
-int NumeroPago;
+
 
     rectangulo (2, 2, 100, 26);
     rlutil::setColor(rlutil::YELLOW);
-     mostrar_mensaje ("*****   LISTA DE PAGOS   *****", 34, 4);
+    mostrar_mensaje ("*****   LISTA DE PAGOS   *****", 34, 4);
 
     rlutil::locate(20,9);
     cout<<"DNI ALUMNO:    " <<pago.getDNIalumno()<<endl;
@@ -178,11 +234,13 @@ int NumeroPago;
     cout<<"FECHA DE PAGO :    " <<pago.getFechaDePago().toString()<<endl;
     rlutil::locate(20,13);
 
+    system("pause>nul");
+    system("cls");
 
 }
 
 
- int PagoManager::buscarDNI(int dni)
+int PagoManager::buscarDNI(int dni)
 {
     Alumno obj;
     AlumnoArchivo _archivoalumno;
@@ -382,17 +440,17 @@ void PagoManager::ModificarDatos(Pago pago, int posicion)
 
 
 
-                    case 3:     /// VOLVER AL MENU PRINCIPAL
-                        system("cls");
-                        {
-                            system("pause>nul");
-                            system("cls");
+            case 3:     /// VOLVER AL MENU PRINCIPAL
+                system("cls");
+                {
+                    system("pause>nul");
+                    system("cls");
 
-                        }
-
-                        break;
-                    }
                 }
+
+                break;
+            }
+        }
 
     }
 

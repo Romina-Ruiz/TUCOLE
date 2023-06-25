@@ -1001,7 +1001,7 @@ void menuInformes()
                 rectangulo (2, 2, 100, 26);
                 mostrar_mensaje ("***** INFORME DE PAGOS ***** ", 34, 4);
 
-                obj.ListarXdni();
+                obj.ListarOrdenadosPorFecha();
 
                 system("pause>nul");
                 system("cls");
