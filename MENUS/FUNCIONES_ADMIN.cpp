@@ -895,6 +895,24 @@ void menuInformes()
                 break;
             case 5:
 
+{
+
+
+             system("cls");
+
+                FaltaManager obj;
+                rlutil::setColor(rlutil::YELLOW);
+                rectangulo (2, 2, 100, 26);
+                mostrar_mensaje ("*****   AUSENCIAS POR ALUMNO   ***** ", 34, 4);
+
+                obj.ListarXdni();
+
+                system("pause>nul");
+                system("cls");
+
+}
+
+
 
                 break;
             case 6:

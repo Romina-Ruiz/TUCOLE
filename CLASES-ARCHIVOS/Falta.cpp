@@ -6,6 +6,8 @@
 
 using namespace std;
 
+
+
 void Falta::setDNIAlumno(int dni)
 {
     _DNIalumno = dni;
@@ -19,12 +21,13 @@ void Falta::setFechaAusencia(Fecha fecha)
 }
 void Falta::setCantFaltasAnuales( int anuales)
 {
-    _cantFaltasAnuales = anuales;
+    _cantFaltasAnuales= anuales;
 
 }
 void Falta::setFalta(int falta)
 {
-    _Falta= falta;
+
+    _Falta = falta;
 
 }
 int Falta::getDNIAlumno()

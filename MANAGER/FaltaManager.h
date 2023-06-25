@@ -13,9 +13,10 @@ public:
 
 
     int buscarDNI(int dni);
-    int Cargar();
-//	void ListarTodos();
-//	void ListarXId();
+    void Cargar();
+	void ListarTodos();
+	void Listar(Falta falta);
+	void ListarXdni();
 //	void Editar();
 //	void Eliminar();
 //	void Listar(Alumno alumno);
