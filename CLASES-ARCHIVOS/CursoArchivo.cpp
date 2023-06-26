@@ -85,7 +85,7 @@ bool CursoArchivo::leerTodos(Curso registros[], int cantidad)
 
 
 
-int CursoArchivo::buscarReg(int dni){
+int CursoArchivo::buscarReg(int curso){
 
   int nroRegistro = -1;
   int cantidad = this->getCantidad();
@@ -94,7 +94,7 @@ int CursoArchivo::buscarReg(int dni){
   for (int i = 0; i < cantidad; i++)
   {
     registro =this->leerReg(i);
-    if (registro.getDniAlumno() == dni)
+    if (registro.getCurso() == curso)
     {
       nroRegistro = i;
       break;

@@ -9,7 +9,9 @@ class Pago
     int _nroPago;
     float _monto;
     Fecha _fechaDePago;
+
            ///SE NECESITA???
+
 
 public:
 

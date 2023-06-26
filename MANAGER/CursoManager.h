@@ -17,7 +17,7 @@ public:
 	void Cargar();
     int generarId();
 	void ListarTodos();
-	void ListarXdni();
+	void ListarmateriaXcurso();
 
 //	void Editar();
 //	void Eliminar();

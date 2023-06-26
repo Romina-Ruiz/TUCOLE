@@ -24,7 +24,7 @@ void ProfesorManager::Cargar()
 
 {
     char nombre[30], apellido[30], email[30];
-   int Legajo, telefono;
+    int Legajo, telefono;
     int dni, dia, mes, anio;
 
     rlutil::locate(20,8);
@@ -94,7 +94,7 @@ void ProfesorManager::Cargar()
             rlutil::locate(30,23);
             cout << "** PROFESOR GUARDADO CORRECTAMENTE **" << endl;
             system("pause>nul");
-           // system("cls");
+            // system("cls");
         }
         else
         {
@@ -167,6 +167,8 @@ void ProfesorManager::Listar(Profesor profesor)
     rlutil::locate(20,18);
     cout <<"--------------------------------------------------------------" << endl;
 
+    system("pause>nul");
+    system("cls");
 
 }
 
@@ -190,7 +192,7 @@ void ProfesorManager::ListarXdni()
     }
     else
     {
-           rlutil::locate(20,10);
+        rlutil::locate(20,10);
         cout << "** NO EXISTE UN PROFESOR CON ESE DNI **" << endl;
         system("pause>nul");
     }

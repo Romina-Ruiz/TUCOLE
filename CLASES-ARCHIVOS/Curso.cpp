@@ -4,10 +4,10 @@ void Curso::setDniAlumno(int dni)
 
     _dniAlumno = dni;
 }
-void Curso::setIdMateria(int idmateria)
+void Curso::setNombreMateria(int nombre_materia)
 {
 
-_id_materia = idmateria;
+_nombre_materia = nombre_materia;
 }
 void Curso::setIdProfesor(int idprofesor)
 {
@@ -27,9 +27,9 @@ int Curso::getDniAlumno()
 return _dniAlumno;
 
 }
-int Curso::getIdMateria()
+int Curso::getnombreMateria()
 {
-return _id_materia;
+return _nombre_materia;
 
 }
 int Curso::getIdProfesor()

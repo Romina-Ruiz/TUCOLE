@@ -10,7 +10,7 @@ void CursoManager::Cargar()
 {
     AlumnoArchivo alumno;
 
-    int dniAlumno,idMateria,idProfesor,curso;
+    int dniAlumno,idProfesor,curso,nombreMateria;
 
 
     rlutil::locate(10,8);
@@ -32,24 +32,25 @@ void CursoManager::Cargar()
     {
 
         rlutil::locate(10,9);
-        cout << "ID MATERIA #: "<<endl;
-        idMateria=generarId();
+        cout << "NOMBRE MATERIA #: "<<endl;
         rlutil::locate(30,9);
-        cout << idMateria <<endl;
+        cin>>nombreMateria;
+
         rlutil::locate(10,10);
         cout << "ID PROFESOR: "<<endl;
         rlutil::locate(30,13);
         idProfesor=generarId();
          rlutil::locate(30,10);
         cout << idProfesor;
+
         rlutil::locate(10,12);
         cout << "CURSO N#: "<<endl;
-        rlutil::locate(25,12);
+        rlutil::locate(40,12);
         cin >> curso;
 
         Curso aux;
         aux.setDniAlumno(dniAlumno);
-        aux.setIdMateria(idMateria);
+        aux.setNombreMateria(nombreMateria);
         aux.setIdProfesor(idProfesor);
         aux.setCurso(curso);
 
@@ -67,7 +68,8 @@ void CursoManager::Cargar()
             system("pause>nul");
 
         }
-        system("pause");
+        system("pause>nul");
+    system("cls");
     }
 
 }
@@ -98,7 +100,6 @@ void CursoManager::ListarTodos()
 void CursoManager::Listar(Curso curso)
 
 {
-    cout<<"holi";
     rectangulo (2, 2, 100, 26);
     rlutil::setColor(rlutil::YELLOW);
     mostrar_mensaje ("*****      CURSO    ***** ", 34, 4);
@@ -107,7 +108,7 @@ void CursoManager::Listar(Curso curso)
     rlutil::locate(20,9);
     cout<<"DNI ALUMNO :    " <<curso.getDniAlumno()<<endl;
     rlutil::locate(20,10);
-    cout<<"ID MATERIA:    "<<curso.getIdMateria()<<endl;
+    cout<<"NOMBRE MATERIA:    "<<curso.getnombreMateria()<<endl;
     rlutil::locate(20,11);
     cout<<"ID PROFESOR:    "<<curso.getIdProfesor()<<endl;
     rlutil::locate(20,12);
@@ -118,20 +119,20 @@ void CursoManager::Listar(Curso curso)
 }
 
 
-void CursoManager::ListarXdni()
+void CursoManager::ListarmateriaXcurso()
 {
-cout<<"hrvygti"<<endl;
 
-    int dni;
+
+    int curso;
     rectangulo (2, 2, 100, 26);
     rlutil::setColor(rlutil::YELLOW);
 
     rlutil::locate(20,9);
-    cout << "INGRESE EL NUMERO DE DNI : ";
-    cin >> dni;
+    cout << "INGRESE EL NUMERO DE CURSO : ";
+    cin >> curso;
     system("cls");
 
-    int posicion = _archivo.buscarReg(dni);
+    int posicion = _archivo.buscarReg(curso);
     if (posicion >= 0)
     {
         Curso reg = _archivo.leerReg(posicion);

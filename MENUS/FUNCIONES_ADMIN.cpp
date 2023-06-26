@@ -20,6 +20,7 @@ using namespace std;
 #include "FaltaManager.h"
 #include "CursoManager.h"
 #include "CuotaManager.h"
+#include "NotaManager.h"
 
 
 
@@ -290,7 +291,7 @@ void menuCargarProfesor()
 {
     system("cls");
 
-    const char *opciones[] = {"CARGAR PROFESOR","MODIFICAR DATOS","BUSCAR PROFESOR","VOLVER AL MENU PRINCIPAL"};
+    const char *opciones[] = {"CARGAR PROFESOR","MODIFICAR DATOS","BUSCAR PROFESOR","LISTA DE PROFESORES","VOLVER AL MENU PRINCIPAL"};
     int op=1, y=0;
 
     rlutil::hidecursor();
@@ -306,6 +307,7 @@ void menuCargarProfesor()
         showItem (opciones[1],30,11,y==1);
         showItem (opciones[2],30,12,y==2);
         showItem (opciones[3],30,13,y==3);
+        showItem (opciones[4],30,14,y==4);
 
 
         rlutil::locate(26,10+y);
@@ -389,7 +391,24 @@ void menuCargarProfesor()
             }
             break;
 
-            case 3:     ///SALIR
+            case 3:
+                 {
+                system("cls");
+
+                ProfesorManager obj;
+                rectangulo (2, 2, 100, 26);
+                rlutil::setColor(rlutil::YELLOW);
+                mostrar_mensaje ("***** LISTA DE PROFESORES ***** ", 34, 4);
+
+                obj.ListarTodos();
+
+                system("pause>nul");
+                system("cls");
+            }
+
+            break;
+
+            case 4:     ///SALIR
             {
                 system("cls");
                 menuAdmin();
@@ -673,6 +692,19 @@ void menuCargarNotas()
             {
 
             case 0:     ///CARGAR NOTAS
+                 {
+                system("cls");
+
+                NotaManager obj;
+                rlutil::setColor(rlutil::YELLOW);
+                rectangulo (2, 2, 100, 26);
+                mostrar_mensaje ("***** CARGAR NOTAS ***** ", 34, 4);
+
+                obj.Cargar();
+
+                system("pause>nul");
+                system("cls");
+            }
 
 
 

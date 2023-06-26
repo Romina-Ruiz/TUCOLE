@@ -8,21 +8,21 @@ class Notas
 private:
 
     int _DNIalumno;
-    int _idMateria;
-    int _tipoNota;
+    char _nombre_materia[30];
+    int _Nro_examen; //1- PARCIAL 1/ 2- PARCIAL 2;
     float _nota;
 
 
 public:
 
     void setDNIalumno(int dni);
-    void setIdMateria(int materia);
-    void setTipoNota(int tipo);
+    void setNombreMateria( char* nombremateria);
+    void setNroExamen(int nro);
     void setNota(float nota);
 
     int getDNIalumno();
-    int getIdMateria();
-    int getTipoNota();
+    char* getNombreMateria();
+    int getNroExamen();
     float getNota();
 
 

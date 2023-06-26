@@ -17,7 +17,7 @@ public:
     Curso leerReg(int nroRegistro);
     bool modificarReg(Curso registro, int nroRegistro);
     bool leerTodos(Curso registros[], int cantidad);
-    int buscarReg(int dni);
+    int buscarReg(int curso);
     void vaciar();
 };
 

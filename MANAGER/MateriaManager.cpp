@@ -67,7 +67,30 @@ int MateriaManager::generarId()
 
 }
 
-
+//void MateriaManager::ListarXcurso()
+//{
+//    int curso;
+//    rectangulo (2, 2, 100, 26);
+//    rlutil::setColor(rlutil::YELLOW);
+//
+//    rlutil::locate(20,9);
+//    cout << "INGRESE CURSO ";
+//    cin >> curso;
+//    system("cls");
+//
+//    int posicion = _archivo.buscarReg(curso);
+//    if (posicion >= 0)
+//    {
+//        Materia reg = _archivo.leerReg(posicion);
+//        Listar(reg);
+//    }
+//    else
+//    {
+//        rlutil::locate(20,10);
+//        cout << "** NO EXISTE ESE NUMERO DE CURSO **" << endl;
+//        system("pause>nul");
+//    }
+//}
 
 
 //int MateriaManager::buscarDNI(int dni)

@@ -9,6 +9,8 @@ using namespace std;
 #include "FUNCIONES_FRONT.h"
 #include "Fecha.h"
 #include "CursoManager.h"
+#include "MateriaManager.h"
+#include "NotaManager.h"
 
 
 
@@ -86,18 +88,38 @@ void menuUser(int dni)
 
             case 1:     ///NOTAS
 
+                 {
+
                 system("cls");
+                NotaManager obj;
+                rlutil::setColor(rlutil::YELLOW);
+                rectangulo (2, 2, 100, 26);
+                mostrar_mensaje ("***** LISTADO DE NOTAS ***** ", 34, 4);
+
+                obj.ListarXdni();
 
                 system("pause>nul");
                 system("cls");
+
+}
+
                 break;
 
             case 2:     ///MATERIAS
-                system("cls");
+                            {
+
+             system("cls");
+                CursoManager obj;
+                rlutil::setColor(rlutil::YELLOW);
+                rectangulo (2, 2, 100, 26);
+                mostrar_mensaje ("***** LISTADO DE MATERIAS ***** ", 34, 4);
+
+                obj.ListarmateriaXcurso();
 
                 system("pause>nul");
                 system("cls");
-                break;
+
+}
 
             case 3:     ///ESTADO DE AUSENCIAS
                 system("cls");
@@ -166,8 +188,7 @@ void menuMateriasActivas(){
 
     mostrar_mensaje ("*****   MATERIAS EN CURSO  *****", 28, 4);
 
-    CursoManager obj;
-    obj.ListarXdni();
+
 
 }
 void menuEstadoAusencias(){

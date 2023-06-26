@@ -6,20 +6,10 @@
 #include"../MENUS/rlutil.h"
 using namespace std;
 #include "NotaManager.h"
+#include "../MENUS/FUNCIONES_FRONT.h"
+#include "AlumnoArchivo.h"
+#include "Alumno.h"
 
-
-NotaManager::NotaManager(char *ruta)
-{
-
-    strcpy(_ruta,ruta);
-}
-
-NotaManager::NotaManager()
-{
-
-    strcpy(_ruta,"NotasManager.dat");
-
-}
 
 
 int NotaManager::buscarDNI(int dni)
@@ -32,7 +22,10 @@ int NotaManager::buscarDNI(int dni)
 void NotaManager::Cargar()
 
 {
-    int dni, idMateria, Tipo;
+    AlumnoArchivo alumno;
+
+    int dni, NroExamen;
+    char nombreMateria[30];
     float nota;
 
     rlutil::locate(20,8);
@@ -40,7 +33,7 @@ void NotaManager::Cargar()
     rlutil::locate(35,8);
     cin>>dni;
 
-    int numerodeRegistro=buscarDNI(dni);
+    int numerodeRegistro=alumno.buscarReg(dni);
 
     if(numerodeRegistro<0)
     {
@@ -53,13 +46,13 @@ void NotaManager::Cargar()
     {
 
         rlutil::locate(20,9);
-        cout << "INGRESE ID MATERIA: "<<endl;
+        cout << "NOMBRE DE MATERIA: "<<endl;
         rlutil::locate(39,9);
-        cin>>idMateria;
+        cin>>nombreMateria;
         rlutil::locate(20,10);
-        cout << "TIPO DE NOTA: "<<endl;
+        cout << "Nro EXAMEN: "<<endl;
         rlutil::locate(35,10);
-        cin >> Tipo;
+        cin >> NroExamen;
         rlutil::locate(20,11);
         cout << "INGRESE NOTA: "<<endl;
         rlutil::locate(38,11);
@@ -67,8 +60,8 @@ void NotaManager::Cargar()
 
        Notas aux;
         aux.setDNIalumno(dni);
-        aux.setIdMateria(idMateria);
-        aux.setTipoNota(Tipo);
+        aux.setNombreMateria(nombreMateria);
+        aux.setNroExamen(NroExamen);
         aux.setNota(nota);
 
         if (_archivo.agregar(aux))
@@ -86,6 +79,69 @@ void NotaManager::Cargar()
     }
     system("pause");
 
+}
+void NotaManager::ListarTodos()
+{
+
+    NotasArchivo _archivo;
+
+    int cantidadRegistros = _archivo.getCantidad();
+
+    for (int i = 0; i<cantidadRegistros; i++)
+    {
+        Notas reg = _archivo.leerReg(i);
+
+            Listar(reg);
+
+             system("pause>nul");
+
+    }
+}
+
+void NotaManager::Listar(Notas nota)
+{
+
+    rectangulo (2, 2, 100, 26);
+    rlutil::setColor(rlutil::YELLOW);
+     mostrar_mensaje ("*****   LISTA DE NOTAS   *****", 34, 4);
+
+    rlutil::locate(20,9);
+    cout<<"DNI ALUMNO:    " <<nota.getDNIalumno()<<endl;
+    rlutil::locate(20,10);
+    cout<<"NOMBRE DE MATERIA :    "<<nota.getNombreMateria()<<endl;
+    rlutil::locate(20,11);
+    cout<<"NUMERO DE EXAMEN:    "<<nota.getNroExamen()<<endl;
+    rlutil::locate(20,12);
+    cout<<"NOTA  :    " <<nota.getNota()<<endl;
+    rlutil::locate(20,13);
+
+    system("pause>nul");
+    system("cls");
+
+}
+void NotaManager::ListarXdni()
+{
+    int dni;
+    rectangulo (2, 2, 100, 26);
+    rlutil::setColor(rlutil::YELLOW);
+
+    rlutil::locate(20,9);
+    cout << "INGRESE DNI ALUMNO: ";
+    cin >> dni;
+    system("cls");
+
+    int posicion = _archivo.buscarReg(dni);
+    if (posicion >= 0)
+    {
+        Notas reg = _archivo.leerReg(posicion);
+        Listar(reg);
+    }
+    else
+    {
+        rlutil::locate(20,10);
+        cout << "** NO EXISTEN NOTAS CON ESE DNI **" << endl;
+        system("pause>nul");
+    }
 }
 
 /*

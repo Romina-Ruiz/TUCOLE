@@ -19,7 +19,6 @@ public:
     Materia leerReg(int nroRegistro);
     void leerTodos(Materia materia[], int cantidad);
     bool modificar(Materia registro, int nroRegistro);
-    int buscarReg(int id);
     void vaciar();
 
 

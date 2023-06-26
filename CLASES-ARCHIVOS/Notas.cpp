@@ -8,15 +8,14 @@ void Notas::setDNIalumno(int dni)
     _DNIalumno=dni;
 
 }
-
-void Notas::setIdMateria(int materia)
+void Notas::setNombreMateria(char* nombremateria)
 {
-    _idMateria = materia;
 
+     strcpy(_nombre_materia,nombremateria);
 }
-void Notas::setTipoNota(int tipo)
+void Notas::setNroExamen(int nro)
 {
-    _tipoNota = tipo;
+  _Nro_examen = nro;
 
 }
 void Notas::setNota(float nota)
@@ -30,19 +29,19 @@ int Notas::getDNIalumno()
 
     return _DNIalumno;
 }
-
-int Notas::getIdMateria()
+char * Notas::getNombreMateria()
 {
+    return _nombre_materia;
 
-    return _idMateria;
 }
 
-int Notas::getTipoNota()
+int Notas::getNroExamen()
 {
-    return _tipoNota;
+    return _Nro_examen;
 }
 
-float Notas::getNota(){
+float Notas::getNota()
+{
 
     return _nota;
 

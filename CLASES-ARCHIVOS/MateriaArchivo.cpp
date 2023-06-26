@@ -51,17 +51,20 @@ bool MateriaArchivo::agregar (Materia registro)
     return cantidad;
 }
 
- Materia MateriaArchivo::leerReg(int nroRegistro)
+Materia MateriaArchivo::leerReg(int nroRegistro)
 {
-    Materia registro;
-    FILE* p = fopen(_ruta, "rb");
-    if (p != NULL)
-    {
-        fseek(p, nroRegistro * sizeof(Materia), SEEK_SET);
-        fread(&registro, sizeof(Materia), 1, p);
-        fclose(p);
-    }
-    return registro;
+  Materia obj;
+    FILE* pFile = fopen(_ruta, "rb");
+
+    if (pFile == NULL){
+        return obj;
+       }
+
+        fseek(pFile, nroRegistro * sizeof(Materia), SEEK_SET);
+        fread(&obj, sizeof(Materia), 1, pFile);
+        fclose(pFile);
+
+    return obj;
 }
 
 
@@ -93,24 +96,6 @@ bool MateriaArchivo::modificar (Materia registro, int nroRegistro)
     return ok;
 }
 
-int MateriaArchivo::buscarReg(int id){
-  int nroRegistro = -1;
-  int cantidad =this->getCantidad();
-
-  Materia registro;
-
-  for (int i = 0; i < cantidad; i++)
-  {
-    registro =this->leerReg(i);
-
-    if (registro.getIdMateria() == id)
-    {
-      nroRegistro = i;
-      break;
-            }
-  }
-  return nroRegistro;
-}
 
 void MateriaArchivo::vaciar(){
 	FILE *p = fopen(_ruta, "wb");
