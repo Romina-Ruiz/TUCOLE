@@ -109,12 +109,12 @@ void menuUser(int dni)
                             {
 
              system("cls");
-                CursoManager obj;
+                MateriaManager obj;
                 rlutil::setColor(rlutil::YELLOW);
                 rectangulo (2, 2, 100, 26);
                 mostrar_mensaje ("***** LISTADO DE MATERIAS ***** ", 34, 4);
 
-                obj.ListarmateriaXcurso();
+                obj.ListarXanioLectivo();
 
                 system("pause>nul");
                 system("cls");

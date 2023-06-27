@@ -21,8 +21,11 @@ void Materia::setNombreProfesor( char* nombreprofe)
 
     strcpy(_nombre_profesor,nombreprofe);
 }
+void Materia::setAnioLectivo(int aniolectivo){
 
+_anio_lectivo = aniolectivo;
 
+}
 
 char* Materia:: getNombreMateria()
 {
@@ -45,4 +48,8 @@ char* Materia::getNombreProfesor()
     return _nombre_profesor;
 }
 
+int Materia::getAnioLectivo(){
 
+return _anio_lectivo;
+
+}

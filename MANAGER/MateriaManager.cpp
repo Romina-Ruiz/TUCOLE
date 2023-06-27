@@ -16,8 +16,8 @@ void MateriaManager::Cargar()
 
 {
 
-    char nombre_materia[30], nombre_profesor[30];
-    int idMateria;
+    char nombre_materia[40], nombre_profesor[40];
+    int idMateria,anio_lectivo;
 
     rlutil::locate(20,9);
     cout << "INGRESE NOMBRE DE LA MATERIA: "<<endl;
@@ -33,14 +33,17 @@ void MateriaManager::Cargar()
     cout << "INGRESE NOMBRE DEL PROFESOR:"<<endl;
     rlutil::locate(50,13);
     cin >>nombre_profesor;
-    cin.ignore();
     rlutil::locate(20,16);
+    cout<<"ANIO LECTIVO :"<<endl;
+    rlutil::locate(35,16);
+    cin>>anio_lectivo;
 
 
     Materia aux;
     aux.setNombreMateria(nombre_materia);
     aux.setId(idMateria);
     aux.setNombreProfesor(nombre_profesor);
+    aux.setAnioLectivo(anio_lectivo);
 
     if (_archivo.agregar(aux))
     {
@@ -142,9 +145,46 @@ void MateriaManager::Listar(Materia materia)
     cout<<"ID MATERIA :     " <<materia.getIdMateria()<<endl;
     rlutil::locate(20,11);
     cout<<"NOMBRE PROFESOR : " <<materia.getNombreProfesor()<<endl;
+     rlutil::locate(20,12);
+     cout<<" ANIO LECTIVO : " <<materia.getAnioLectivo()<<endl;
 
     system("pause>nul");
     system("cls");
+}
+void MateriaManager::ListarXanioLectivo()
+{
+    int AnioLectivo;
+
+    rectangulo (2, 2, 100, 26);
+    rlutil::setColor(rlutil::YELLOW);
+
+    rlutil::locate(20,9);
+    cout<<"INGRESE EL ANIO LECTIVO :"<<endl;
+     rlutil::locate(30,10);
+    cin>>AnioLectivo;
+    system("cls");
+
+    Materia obj;
+    int cantReg=_archivo.getCantidad();
+
+    for (int x=0; x<cantReg; x++)
+    {
+        obj=_archivo.leerReg(x);
+
+        if (AnioLectivo==obj.getAnioLectivo())
+        {
+            rlutil::locate(20,9);
+            cout <<"MATERIA:  "<<obj.getNombreMateria()<<endl;
+            rlutil::locate(33,9);
+            cout <<"PROFESOR :  "<<obj.getNombreProfesor()<<endl;
+
+             system("pause>nul");
+            system("cls");
+        }
+
+    }
+                rlutil::locate(30,9);
+                cout <<"FIN DEL LISTADO "<<endl;
 }
 //
 //

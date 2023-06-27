@@ -16,7 +16,7 @@ public:
 //	void Editar();
 //	void Eliminar();
 	void Listar(Materia materia);
-//    void ListarXcurso();
+    void ListarXanioLectivo();
 
 
 //	int buscarDNI(int dni);

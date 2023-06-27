@@ -75,7 +75,7 @@ void ProfesorManager::Cargar()
         Legajo=this->generarLegajo();
         rlutil::locate(20,16);
         cout << "LEGAJO: "<<  Legajo <<endl;
-        rlutil::locate(20,16);
+        rlutil::locate(30,17);
         cout << "ESTADO: "<< "Activo" <<endl;
 
         Profesor aux;
@@ -169,6 +169,9 @@ void ProfesorManager::Listar(Profesor profesor)
 
     system("pause>nul");
     system("cls");
+
+                rlutil::locate(30,9);
+                cout <<"FIN DEL LISTADO "<<endl;
 
 }
 

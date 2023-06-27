@@ -17,7 +17,7 @@ public:
 	void Cargar();
     int generarId();
 	void ListarTodos();
-	void ListarmateriaXcurso();
+	void ListarAlumnosxCurso();
 
 //	void Editar();
 //	void Eliminar();

@@ -246,7 +246,7 @@ void menuCargarAlumnos()
 {
     system("cls");
 
-    const char *opciones[] = {"CARGAR ALUMNO","MODIFICAR DATOS","BUSCAR ALUMNO","LISTADO DE ALUMNOS", "VOLVER AL MENU PRINCIPAL"};
+    const char *opciones[] = {"CARGAR ALUMNO","MODIFICAR DATOS","BUSCAR ALUMNO", "ALUMNOS POR CURSO","LISTADO DE ALUMNOS", "VOLVER AL MENU PRINCIPAL"};
     int op=1, y=0;
 
     rlutil::hidecursor();
@@ -263,6 +263,7 @@ void menuCargarAlumnos()
         showItem (opciones[2],30,12,y==2);
         showItem (opciones[3],30,13,y==3);
         showItem (opciones[4],30,14,y==4);
+        showItem (opciones[5],30,15,y==5);
 
 
 
@@ -346,9 +347,25 @@ void menuCargarAlumnos()
                 ///LLAMAR A LA FUNCION MODIFICAR
 
             break;
-            case 3:     ///LISTADO DE ALUMNOS
+            case 3:     ///LISTADO DE ALUMNOS x curso
+                    {
+                system("cls");
 
-            {
+                CursoManager obj;
+                rectangulo (2, 2, 100, 26);
+                rlutil::setColor(rlutil::YELLOW);
+                mostrar_mensaje ("***** LISTADO DE ALUMNO ***** ", 34, 4);
+                obj.ListarAlumnosxCurso();
+                system("pause>nul");
+                system("cls");
+            }
+
+
+
+
+            break;
+            case 4:
+                  {
                 system("cls");
 
                 AlumnoManager obj;
@@ -360,11 +377,11 @@ void menuCargarAlumnos()
                 system("cls");
             }
 
+                break;
 
-            break;
 
 
-            case 4:     ///SALIR
+            case 5:     ///SALIR
 
             {
                 system("cls");
@@ -526,7 +543,7 @@ void menuCargarMateria()
     system("cls");
 
     const char *opciones[] = {"CARGAR MATERIA","MODIFICAR DATOS",
-                              "BUSCAR MATERIA", "LISTAR MATERIAS","VOLVER AL MENU PRINCIPAL"
+                              "BUSCAR MATERIA POR ANIO LECTIVO", "LISTAR MATERIAS","VOLVER AL MENU PRINCIPAL"
                              };
     int op=1, y=0;
 
@@ -602,18 +619,35 @@ void menuCargarMateria()
 
                 break;
             case 2:     /// BUSCAR
-            {
+           {
                 system("cls");
 
+                MateriaManager obj;
+                rlutil::setColor(rlutil::YELLOW);
+                rectangulo (2, 2, 100, 26);
+                mostrar_mensaje ("***** CARGAR MATERIAS ***** ", 34, 4);
+
+                obj.ListarXanioLectivo();
+
+                system("pause>nul");
                 system("cls");
             }
             break;
 
             case 3:     /// LISTAR
             {
+                 {
                 system("cls");
 
+                MateriaManager obj;
+                rlutil::setColor(rlutil::YELLOW);
+                rectangulo (2, 2, 100, 26);
+                mostrar_mensaje ("***** LISTA DE MATERIAS ***** ", 34, 4);
+
+                obj.ListarTodos();
+                system("pause>nul");
                 system("cls");
+            }
             }
             break;
 
@@ -931,6 +965,14 @@ void menuAusencias()
             {
                 system("cls");
 
+                FaltaManager obj;
+                rlutil::setColor(rlutil::YELLOW);
+                rectangulo (2, 2, 100, 26);
+                mostrar_mensaje ("***** LISTA DE AUSENCIAS ***** ", 34, 4);
+
+                obj.ListarXdni();
+
+                system("pause>nul");
                 system("cls");
             }
             break;

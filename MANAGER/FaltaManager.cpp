@@ -15,7 +15,7 @@ void FaltaManager::Cargar()
 {
     AlumnoArchivo alumno;
 
-    int anuales=6, falta=0, op;
+    int anuales=0, falta=0, op;
     int dni, dia, mes, anio;
 
     rlutil::locate(20,8);
@@ -39,8 +39,8 @@ void FaltaManager::Cargar()
         cout << "FALTAS ANUALES PERMITIDAD: "<<endl;
         rlutil::locate(90,10);
         cout << anuales <<endl;
-         rlutil::locate(20,11);
-         cout << "INGRESE DIA DE LA FALTA: "<<endl;
+        rlutil::locate(20,11);
+        cout << "INGRESE DIA DE LA FALTA: "<<endl;
         rlutil::locate(45,11);
         cin >> dia;
         rlutil::locate(20,12);
@@ -56,33 +56,34 @@ void FaltaManager::Cargar()
         cout << "CARGAR FALTA (1-SI/ 2-NO): "<<endl;
         rlutil::locate(47,15);
         cin>>op;
-        if (op==1){
-         rlutil::locate(55,17);
-         falta++;
-
-         cout<<falta<<endl;
-
-
-
-        Falta aux;
-        aux.setDNIAlumno(dni);
-        aux.setFechaAusencia(Fecha(dia, mes, anio));
-        aux.setCantFaltasAnuales(anuales);
-        aux.setFalta(falta);
-
-
-         if (_archivo.agregar(aux))
+        if (op==1)
         {
-            rlutil::locate(30,23);
-            cout << "** FALTA CORRECTAMENTE CARGADA **" << endl;
-            system("pause>nul");
-        }
-        else
-        {
-            rlutil::locate(30,25);
-            cout << "** UPS! ALGO SALIO MAL :( **" << endl;
-            system("pause>nul");
-        }
+            rlutil::locate(55,17);
+            falta++;
+
+            cout<<falta<<endl;
+
+
+
+            Falta aux;
+            aux.setDNIAlumno(dni);
+            aux.setFechaAusencia(Fecha(dia, mes, anio));
+            aux.setCantFaltasAnuales(anuales);
+            aux.setFalta(falta);
+
+
+            if (_archivo.agregar(aux))
+            {
+                rlutil::locate(30,23);
+                cout << "** FALTA CORRECTAMENTE CARGADA **" << endl;
+                system("pause>nul");
+            }
+            else
+            {
+                rlutil::locate(30,25);
+                cout << "** UPS! ALGO SALIO MAL :( **" << endl;
+                system("pause>nul");
+            }
 
         }
 
@@ -102,34 +103,59 @@ void FaltaManager::ListarTodos()
     {
         Falta reg = _archivo.leerReg(i);
 
-            Listar(reg);
-            cout << endl;
+        Listar(reg);
+        cout << endl;
 
     }
 }
 void FaltaManager::ListarXdni()
 {
-    int dni;
+
     rectangulo (2, 2, 100, 26);
     rlutil::setColor(rlutil::YELLOW);
 
-    rlutil::locate(20,9);
-    cout << "INGRESE DNI ALUMNO: ";
-    cin >> dni;
+    int dni;
+    rlutil::locate(10,8);
+    cout<<"DNI "<<endl;
+    rlutil::locate(15,9);
+    cin>>dni;
+
+    Falta obj;
+    int cantReg=_archivo.getCantidad();
+    int FaltasTotales=0;
+
+    for (int x=0; x<cantReg; x++)
+    {
+        obj=_archivo.leerReg(x);
+
+        if (dni==obj.getDNIAlumno())
+        {
+            rlutil::locate(8,10);
+            cout <<"FECHA DE LA AUSENCIA :  "<<obj.getFechaAusencia().toString()<<endl;
+            rlutil::locate(33,11);
+            FaltasTotales+=obj.getFalta();
+
+            system("pause>nul");
+            system("cls");
+        }
+
+    }
+    rlutil::locate(20,10);
+    cout<<"FALTAS TOTALES : " << FaltasTotales<<endl;
+    system("pause>nul");
     system("cls");
 
-    int posicion = _archivo.buscarReg(dni);
-    if (posicion >= 0)
+    if(FaltasTotales>=6)
     {
-        Falta reg = _archivo.leerReg(posicion);
-        Listar(reg);
+        rlutil::locate(10,10);
+        cout<<"ATENCION ! "<<endl;
+        rlutil::locate(10,12);
+        cout<<"TIENE EL MAXIMO DE FALTAS PERMITIDAS,POR FAVOR, COMUNIQUESE CON LAS AUTORIDADES DEL COLEGIO. "<<endl;
     }
-    else
-    {
-        rlutil::locate(20,10);
-        cout << "** NO EXISTE UN ALUMNO CON ESE DNI **" << endl;
-        system("pause>nul");
-    }
+    system("pause>nul");
+    system("cls");
+    rlutil::locate(45,17);
+    cout <<"****FIN DEL COMUNICADO ****"<<endl;
 }
 void FaltaManager::Listar(Falta falta)
 {
@@ -141,9 +167,9 @@ void FaltaManager::Listar(Falta falta)
     cout<<"DNI ALUMNO :         " <<falta.getDNIAlumno()<<endl;
     rlutil::locate(20,10);
     cout<<"FECHA DE AUSENCIA :     " <<falta.getFechaAusencia().toString()<<endl;
-     rlutil::locate(20,11);
+    rlutil::locate(20,11);
     cout<<" CANTIDAD DE FALTAS ANUALES : " <<falta.getCantFaltasAnuales()<<endl;
-     rlutil::locate(20,12);
+    rlutil::locate(20,12);
     cout<<" FALTA : " <<falta.getFalta()<<endl;
 
     system("pause>nul");

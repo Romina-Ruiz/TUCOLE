@@ -119,33 +119,38 @@ void CursoManager::Listar(Curso curso)
 }
 
 
-void CursoManager::ListarmateriaXcurso()
-{
+void CursoManager::ListarAlumnosxCurso(){
 
-
-    int curso;
     rectangulo (2, 2, 100, 26);
     rlutil::setColor(rlutil::YELLOW);
 
-    rlutil::locate(20,9);
-    cout << "INGRESE EL NUMERO DE CURSO : ";
-    cin >> curso;
-    system("cls");
+    int curso;
+    rlutil::locate(10,8);
+    cout<<"CURSO "<<endl;
+    rlutil::locate(15,9);
+    cin>>curso;
 
-    int posicion = _archivo.buscarReg(curso);
-    if (posicion >= 0)
+    Curso obj;
+    int cantReg=_archivo.getCantidad();
+
+    for (int x=0; x<cantReg; x++)
     {
-        Curso reg = _archivo.leerReg(posicion);
-        Listar(reg);
+        obj=_archivo.leerReg(x);
+
+        if (curso==obj.getCurso())
+        {
+            rlutil::locate(8,9);
+            cout <<"ALUMNOS DEL CURSO :  "<<obj.getDniAlumno()<<endl;
+            rlutil::locate(33,9);
+
+             system("pause>nul");
+            system("cls");
+        }
+
     }
-    else
-    {
-        rlutil::locate(20,10);
-        cout << "** NO EXISTE ESE NUMERO DE CURSO **" << endl;
-        system("pause>nul");
-    }
+                rlutil::locate(30,9);
+                cout <<"FIN DEL LISTADO "<<endl;
 }
-
 //
 //
 //

@@ -6,9 +6,10 @@ class Materia
 {
 private:
 /// AGREGAR HORARIO + DIA DE CURSADA
-    char _nombre[30];
+    char _nombre[40];
     int _id;
-    char _nombre_profesor[30];
+    char _nombre_profesor[40];
+    int _anio_lectivo; //1.2.3
 
 
 public:
@@ -16,11 +17,13 @@ public:
     void setNombreMateria( char* nombre);
     void setId(int id);
     void setNombreProfesor(char* nombreprofe);
+    void setAnioLectivo(int aniolectivo);
 
 
     char* getNombreMateria();
     int getIdMateria();
     char* getNombreProfesor();
+    int getAnioLectivo();
 
 
 
