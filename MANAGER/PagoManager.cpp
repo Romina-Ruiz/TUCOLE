@@ -95,7 +95,7 @@ void  PagoManager::Cargar()
         {
             rlutil::locate(30,20);
             cout << "** PAGO GUARDADO CORRECTAMENTE **" << endl;
-                  system("pause>nul");
+            system("pause>nul");
         }
         else
         {
@@ -119,68 +119,100 @@ void PagoManager::ListarTodos()
     {
         Pago reg = _archivo.leerReg(i);
 
-            Listar(reg);
+        Listar(reg);
 
-             system("pause>nul");
+        system("pause>nul");
 
     }
 }
-void PagoManager::ListarOrdenadosPorFecha(){
+void PagoManager::ListarOrdenadosPorFecha(int mes)
+{
 
-	int cantidadRegistros = _archivo.getCantidad();
-	Pago *vec = new Pago[cantidadRegistros];
+    int cantidadRegistros = _archivo.getCantidad();
+    Pago *vec = new Pago[cantidadRegistros];
 
-	if (vec == nullptr){
-		cout << "Error al visualizar el listado";
-		return;
-	}
+    if (vec == nullptr)
+    {
+        cout << "Error al visualizar el listado";
+        return;
+    }
 
-	_archivo.leer(vec, cantidadRegistros);
-	Ordenar(vec, cantidadRegistros);
+    for(int x=0; x<cantidadRegistros; x++)
+    {
+        vec[x]=_archivo.leerReg(x);
+    }
 
-	for(int i=0; i<cantidadRegistros; i++){
-		Listar(vec[i]);
-		cout << endl;
-	}
 
-	delete []vec;
+    for(int i=0; i<cantidadRegistros; i++)
+    {
+
+        if (vec[i].getFechaDePago().getMes()==mes)
+        {
+            rlutil::locate(20,10);
+            Listar(vec[i]);
+            cout << endl;
+            system("cls");
+
+        }
+
+                system("cls");
+                rlutil::locate(30,10);
+                cout <<" EN ESTE MES NO HAY REGISTROS" << endl;
+    }
+
+    delete []vec;
 
 }
-void PagoManager::Ordenar(Pago *vec, int cantidadRegistros) {
-	int mayor = 0;
+/*
+void PagoManager::Ordenar(Pago *vec, int cantidadRegistros, int mes)
+{
+    int mayor = 0;
 
-	Pago aux;
+    Pago aux;
 
-	for (int i = 0; i < cantidadRegistros-1; i++) {
-		mayor = i;
+    for (int j=0; j<cantidadRegistros; j++)
+    {
 
-		for (int j = i + 1; j < cantidadRegistros; j++) {
+        if(vec[j].getFechaDePago().getMes()==mes)
+        {
+
+            for (int i=0; i<cantidadRegistros; i++)
+            {
+                mayor = i;
+
+                for (int j = i + 1; j < cantidadRegistros; j++)
+                {
 
 
-			if (vec[j].getFechaDePago().getMes()<= vec[mayor].getFechaDePago().getMes()&&
-                vec[j].getFechaDePago().getDia()<= vec[mayor].getFechaDePago().getDia() ){
-				mayor = j;
-			}
-		}
+                    if (vec[j].getFechaDePago().getMes()<= vec[mayor].getFechaDePago().getMes()&&
+                            vec[j].getFechaDePago().getDia()<= vec[mayor].getFechaDePago().getDia() )
+                    {
+                        mayor = j;
+                    }
+                }
 
-		if (i != mayor) {
-			aux = vec[i];
-			vec[i] = vec[mayor];
-			vec[mayor] = aux;
-		}
+                if (i != mayor)
+                {
+                    aux = vec[i];
+                    vec[i] = vec[mayor];
+                    vec[mayor] = aux;
+                }
 
-	}
+            }
+        }
+    }
 }
-
+*/
 
 int PagoManager::generarPago()
 {
     PagoArchivo _archivo;
     return _archivo.getCantidad()+1;
 }
-void PagoManager::ListarXdni(){
+void PagoManager::ListarXdni()
+{
 
-PagoArchivo _archivo;
+    PagoArchivo _archivo;
 
     int dni;
     rectangulo (2, 2, 100, 26);
@@ -190,6 +222,8 @@ PagoArchivo _archivo;
     cout << "INGRESE DNI ALUMNO: ";
     cin >> dni;
     system("cls");
+
+
 
     int posicion = _archivo.buscarReg(dni);
     if (posicion >= 0)
@@ -213,7 +247,7 @@ void PagoManager::Listar(Pago pago)
 
     rectangulo (2, 2, 100, 26);
     rlutil::setColor(rlutil::YELLOW);
-     mostrar_mensaje ("*****   LISTA DE PAGOS   *****", 34, 4);
+    mostrar_mensaje ("*****   LISTA DE PAGOS   *****", 34, 4);
 
     rlutil::locate(20,9);
     cout<<"DNI ALUMNO:    " <<pago.getDNIalumno()<<endl;
@@ -231,7 +265,7 @@ void PagoManager::Listar(Pago pago)
 }
 
 
- int PagoManager::buscarDNI(int dni)
+int PagoManager::buscarDNI(int dni)
 {
     Alumno obj;
     AlumnoArchivo _archivoalumno;
@@ -431,17 +465,17 @@ void PagoManager::ModificarDatos(Pago pago, int posicion)
 
 
 
-                    case 3:     /// VOLVER AL MENU PRINCIPAL
-                        system("cls");
-                        {
-                            system("pause>nul");
-                            system("cls");
+            case 3:     /// VOLVER AL MENU PRINCIPAL
+                system("cls");
+                {
+                    system("pause>nul");
+                    system("cls");
 
-                        }
-
-                        break;
-                    }
                 }
+
+                break;
+            }
+        }
 
     }
 

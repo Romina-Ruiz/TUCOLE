@@ -8,7 +8,7 @@ private:
     int _dniAlumno;
     char _nombre_materia;
     int _id_profesor;
-    int _curso;
+    int _curso; ///1-PRIMER AÑO/ 2-
 
 public:
     void setDniAlumno(int dni);

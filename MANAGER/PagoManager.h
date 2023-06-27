@@ -20,8 +20,8 @@ public:
     void Listar(Pago pago);
     int buscarDNI(int dni);
     void ListarTodos();
-    void ListarOrdenadosPorFecha();
-    void Ordenar(Pago *vec, int cantidadRegistros);
+    void ListarOrdenadosPorFecha(int mes);
+    void Ordenar(Pago *vec, int cantidadRegistros, int mes);
 
     void Editar();
     void ModificarDatos(Pago pago, int posicion);

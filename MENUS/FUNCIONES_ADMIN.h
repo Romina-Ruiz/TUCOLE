@@ -7,13 +7,14 @@ void menuPagos();
 void menuCargarAlumnos();
 void menuCargarProfesor();
 void menuCargarMateria();
-void menuCargarcCursos();
+void menuCargarCursos();
 void menuCargarNotas();
 void menuAusencias();
 void menuComunicados();
 void menuInformes();
 void menuRespaldos();
 void RealizarBackup();
+void MenuInformePagos();
 
 
 

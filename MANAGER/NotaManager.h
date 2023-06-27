@@ -17,7 +17,7 @@ public:
     void Cargar();
     void ListarTodos();
     void Listar(Notas nota);
-    void ListarXdni();
+    void ListarXdni(int dni);
     void Editar();
 
     void HacerCopiaDeSeguridad();

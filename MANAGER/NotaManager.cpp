@@ -58,7 +58,7 @@ void NotaManager::Cargar()
         rlutil::locate(38,11);
         cin >> nota;
 
-       Notas aux;
+        Notas aux;
         aux.setDNIalumno(dni);
         aux.setNombreMateria(nombreMateria);
         aux.setNroExamen(NroExamen);
@@ -91,9 +91,9 @@ void NotaManager::ListarTodos()
     {
         Notas reg = _archivo.leerReg(i);
 
-            Listar(reg);
+        Listar(reg);
 
-             system("pause>nul");
+        system("pause>nul");
 
     }
 }
@@ -103,7 +103,7 @@ void NotaManager::Listar(Notas nota)
 
     rectangulo (2, 2, 100, 26);
     rlutil::setColor(rlutil::YELLOW);
-     mostrar_mensaje ("*****   LISTA DE NOTAS   *****", 34, 4);
+    mostrar_mensaje ("*****   LISTA DE NOTAS   *****", 34, 4);
 
     rlutil::locate(20,9);
     cout<<"DNI ALUMNO:    " <<nota.getDNIalumno()<<endl;
@@ -119,29 +119,34 @@ void NotaManager::Listar(Notas nota)
     system("cls");
 
 }
-void NotaManager::ListarXdni()
+void NotaManager::ListarXdni(int dni)
 {
-    int dni;
+
     rectangulo (2, 2, 100, 26);
     rlutil::setColor(rlutil::YELLOW);
 
-    rlutil::locate(20,9);
-    cout << "INGRESE DNI ALUMNO: ";
-    cin >> dni;
-    system("cls");
+    Notas obj;
+    int cantReg=_archivo.getCantidad();
 
-    int posicion = _archivo.buscarReg(dni);
-    if (posicion >= 0)
+    for (int x=0; x<cantReg; x++)
     {
-        Notas reg = _archivo.leerReg(posicion);
-        Listar(reg);
+        obj=_archivo.leerReg(x);
+
+        if (dni==obj.getDNIalumno())
+        {
+            rlutil::locate(8,9);
+            cout <<"MATERIA:  "<<obj.getNombreMateria()<<endl;
+            rlutil::locate(33,9);
+            cout <<"Nro. DE EXAMEN:   "<<obj.getNroExamen()<<endl;
+            rlutil::locate(60,9);
+            cout <<"NOTA:   "<<obj.getNota()<<endl;
+             system("pause>nul");
+            system("cls");
+        }
+
     }
-    else
-    {
-        rlutil::locate(20,10);
-        cout << "** NO EXISTEN NOTAS CON ESE DNI **" << endl;
-        system("pause>nul");
-    }
+                rlutil::locate(30,9);
+                cout <<"FIN DEL LISTADO "<<endl;
 }
 
 /*

@@ -183,7 +183,7 @@ void menuAdmin()
                 case 5:     /// CARGAR  CURSOS
 
                 system("cls");
-                menuCargarcCursos();
+                menuCargarCursos();
                 system("pause>nul");
                 system("cls");
 

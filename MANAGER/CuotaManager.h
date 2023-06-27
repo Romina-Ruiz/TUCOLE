@@ -15,6 +15,7 @@ public:
    void Cargar();
     int generarFactura();
 	void ListarTodos();
+	void ListarxDNI(int dni);
 //	void ListarXId();
 //	void Editar();
 //	void Eliminar();

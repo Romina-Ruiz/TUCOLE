@@ -96,7 +96,7 @@ void menuUser(int dni)
                 rectangulo (2, 2, 100, 26);
                 mostrar_mensaje ("***** LISTADO DE NOTAS ***** ", 34, 4);
 
-                obj.ListarXdni();
+                obj.ListarXdni(dni);
 
                 system("pause>nul");
                 system("cls");

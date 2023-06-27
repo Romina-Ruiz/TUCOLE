@@ -157,3 +157,43 @@ void CuotaManager::Listar(Cuota cuota)
 
 
 }
+void CuotaManager::ListarxDNI(int dni)
+{
+    CuotaArchivo _archivo;
+
+    int cantidadRegistros = _archivo.getCantidad();
+    Cuota *vec = new Cuota[cantidadRegistros];
+
+    if (vec == nullptr)
+    {
+        cout << "Error al visualizar el listado";
+        return;
+    }
+
+    for(int x=0; x<cantidadRegistros; x++)
+    {
+        vec[x]=_archivo.leerReg(x);
+    }
+
+
+    for(int i=0; i<cantidadRegistros; i++)
+    {
+
+        if (vec[i].getDNIalumno()==dni)
+        {
+             system("cls");
+            Listar(vec[i]);
+            cout << endl;
+            system("pause>nul");
+            system("cls");
+
+        }
+
+                system("cls");
+                rlutil::locate(30,10);
+                cout <<" EN ESTE MES NO HAY REGISTROS" << endl;
+    }
+
+    delete []vec;
+
+}
