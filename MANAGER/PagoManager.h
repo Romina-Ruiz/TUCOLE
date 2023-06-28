@@ -16,7 +16,7 @@ public:
     int buscarReg(int dni);
     void Cargar();
     int generarPago();
-    void ListarXdni();
+    //void ListarXdni();
     void Listar(Pago pago);
     int buscarDNI(int dni);
     void ListarTodos();
@@ -25,7 +25,7 @@ public:
     void MenuInformePagos();
     void Editar();
     void ModificarDatos(Pago pago, int posicion);
-
+    void ListarxDNI(int dni);
 
 
 

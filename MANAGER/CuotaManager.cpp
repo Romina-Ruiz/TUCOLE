@@ -67,8 +67,6 @@ void CuotaManager::Cargar()
         rlutil::locate(30,10);
         cout << fact <<endl;
         rlutil::locate(10,11);
-
-
         cout << "MONTO: "<<endl;
         rlutil::locate(20,11);
         cin >> importe;
@@ -91,6 +89,7 @@ void CuotaManager::Cargar()
         CuotaArchivo _archivo;
         Cuota aux;
         aux.setDNIalumno(dni);
+        aux.settipoDeCuota(tipo);
         aux.setNroFact(fact);
         aux.setMonto(importe);
         aux.setFechaDeFact(Fecha(dia, mes, anio));
@@ -151,9 +150,9 @@ void CuotaManager::Listar(Cuota cuota)
     cout<<"MONTO :    " <<cuota.getMonto()<<endl;
     rlutil::locate(20,13);
      cout<<"FECHA DE FACTURA :    " <<cuota.getFechaDeFact().toString()<<endl;
-    rlutil::locate(20,13);
-     cout<<" ESTADO :    " <<cuota.getDebe()<<endl;
-    rlutil::locate(20,13);
+    rlutil::locate(20,14);
+     cout<<"ESTADO :    " <<cuota.getDebe()<<endl;
+
 
 
 }
@@ -189,9 +188,8 @@ void CuotaManager::ListarxDNI(int dni)
 
         }
 
-                system("cls");
                 rlutil::locate(30,10);
-                cout <<" EN ESTE MES NO HAY REGISTROS" << endl;
+                cout <<" NO HAY MAS REGISTROS" << endl;
     }
 
     delete []vec;

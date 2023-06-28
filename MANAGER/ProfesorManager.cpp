@@ -5,6 +5,7 @@
 #include"../MENUS/rlutil.h"
 #include "../MENUS/Fecha.h"
 #include"../MENUS/FUNCIONES_FRONT.h"
+#include"../MENUS/FUNCIONES_ADMIN.h"
 using namespace std;
 
 
@@ -170,8 +171,6 @@ void ProfesorManager::Listar(Profesor profesor)
     system("pause>nul");
     system("cls");
 
-                rlutil::locate(30,9);
-                cout <<"FIN DEL LISTADO "<<endl;
 
 }
 
@@ -224,9 +223,9 @@ void ProfesorManager::Editar()
         cout << endl;
 
         int nuevoEstado;
-        rlutil::locate(20,20);
+        rlutil::locate(20,10);
         cout << "DESEA MODIFICAR ALGUN DATO? (1-SI/2-NO): ";
-        rlutil::locate(64,20);
+        rlutil::locate(64,10);
         cin >> nuevoEstado;
 
         if (nuevoEstado==1)
@@ -323,7 +322,8 @@ void ProfesorManager::RestaurarCopiaDeSeguridad()
 void ProfesorManager::ModificarDatos(Profesor profesor, int posicion)
 {
     system("cls");
-    const char *opciones[] = {"DNI", "NOMBRE","APELLIDO", "EMAIL", "TELEFONO","MODIFICAR ESTADO", "VOLVER AL MENU PRINCIPAL"};
+    const char *opciones[] = {"DNI", "NOMBRE","APELLIDO", "EMAIL", "TELEFONO",
+                                            "MODIFICAR ESTADO", "VOLVER AL MENU PRINCIPAL"};
 
     mostrar_mensaje ("* MODIFICAR DATOS DEL PROFESOR *", 40, 4);
     mostrar_mensaje ("--------------------------------", 40, 5);
@@ -372,9 +372,9 @@ void ProfesorManager::ModificarDatos(Profesor profesor, int posicion)
             cout <<"   " <<endl;
             y++;
 
-            if (y>7)
+            if (y>6)
             {
-                y=7;
+                y=6;
             }
             break;
 
@@ -507,15 +507,15 @@ void ProfesorManager::ModificarDatos(Profesor profesor, int posicion)
                 }
                 break;
 
-            case 6:     /// SETEAR DAR DE BAJA
-                system("cls");
+            case 5:     /// SETEAR ESTADO
 
                 {
+                    system("cls");
                     mostrar_mensaje ("* MODIFICAR DATOS DEL PROFESOR *", 40, 4);
                     mostrar_mensaje ("--------------------------------", 40, 5);
                     int op;
                     rlutil::locate(20,9);
-                    cout << "DESEA MODIFICAR ESTADO DEL ALUMNO (1-BAJA/2-ALTA): "<<endl;
+                    cout << "DESEA MODIFICAR ESTADO DEL PROFESOR (1-BAJA/2-ALTA): "<<endl;
                     rlutil::locate(72,9);
                     cin>>op;
                     if (op==1)
@@ -543,13 +543,8 @@ void ProfesorManager::ModificarDatos(Profesor profesor, int posicion)
                         }
                         break;
 
-                    case 7:     /// VOLVER AL MENU PRINCIPAL
-                        system("cls");
-                        {
-                            system("pause>nul");
-                            system("cls");
-
-                        }
+                    case 6:     /// VOLVER AL MENU PRINCIPAL
+                       menuCargarProfesor();
 
                         break;
                     }

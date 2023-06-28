@@ -136,7 +136,7 @@ void menuPagos()
 {
     system("cls");
 
-    const char *opciones[] = {"CARGAR PAGO","MODIFICAR PAGO","VOLVER AL MENU PRINCIPAL"};
+    const char *opciones[] = {"CARGAR PAGO","MODIFICAR PAGO","BUSCAR PAGO POR DNI","VOLVER AL MENU PRINCIPAL"};
     int op=1, y=0;
 
     rlutil::hidecursor();
@@ -151,8 +151,7 @@ void menuPagos()
         showItem (opciones[0],30,10,y==0);
         showItem (opciones[1],30,11,y==1);
         showItem (opciones[2],30,12,y==2);
-
-
+        showItem (opciones[3],30,13,y==3);
 
         rlutil::locate(26,10+y);
         cout <<"==> " <<endl;
@@ -175,9 +174,9 @@ void menuPagos()
             cout <<"   " <<endl;
             y++;
 
-            if (y>2)
+            if (y>3)
             {
-                y=2;
+                y=3;
             }
             break;
 
@@ -213,7 +212,7 @@ void menuPagos()
                 rlutil::setColor(rlutil::YELLOW);
                 mostrar_mensaje ("***** MODIFICAR DATOS DEL PAGO ***** ", 34, 4);
 
-                obj.Editar();
+                //obj.Editar();
 
                 system("pause>nul");
                 system("cls");
@@ -222,6 +221,25 @@ void menuPagos()
             break;
 
             case 2:     ///SALIR
+            {
+                system("cls");
+               PagoManager obj;
+                rectangulo (2, 2, 100, 26);
+                rlutil::setColor(rlutil::YELLOW);
+                mostrar_mensaje ("***** BUSCAR PAGO POR DNI ***** ", 34, 4);
+                int dni;
+                rlutil::locate(20,10);
+                cout <<"POR FAVOR INGRESE DNI:  " <<endl;
+                rlutil::locate(48,10);
+                cin>>dni;
+
+                obj.ListarxDNI(dni);
+
+                system("pause>nul");
+                 system("cls");
+            }
+            break;
+                 case 3:     ///SALIR
             {
                 system("cls");
                 menuAdmin();
@@ -497,6 +515,8 @@ void menuCargarProfesor()
                 mostrar_mensaje ("***** LISTA DE PROFESORES ***** ", 34, 4);
 
                 obj.ListarTodos();
+                 rlutil::locate(30,9);
+                cout <<"FIN DEL LISTADO "<<endl;
 
                 system("pause>nul");
                 system("cls");
@@ -1165,6 +1185,9 @@ void menuInformes()
                 PagoManager obj;
 
                 obj.MenuInformePagos();
+
+                rlutil::locate(30,15);
+                cout <<" NO HAY MAS REGISTROS" << endl;
 
                 system("pause>nul");
                 system("cls");

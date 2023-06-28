@@ -155,9 +155,7 @@ void PagoManager::ListarOrdenadosPorFecha(int mes)
 
         }
 
-                system("cls");
-                rlutil::locate(30,10);
-                cout <<" EN ESTE MES NO HAY REGISTROS" << endl;
+
     }
 
     delete []vec;
@@ -209,35 +207,35 @@ int PagoManager::generarPago()
     PagoArchivo _archivo;
     return _archivo.getCantidad()+1;
 }
-void PagoManager::ListarXdni()
-{
-
-    PagoArchivo _archivo;
-
-    int dni;
-    rectangulo (2, 2, 100, 26);
-    rlutil::setColor(rlutil::YELLOW);
-
-    rlutil::locate(20,9);
-    cout << "INGRESE DNI ALUMNO: ";
-    cin >> dni;
-    system("cls");
-
-
-
-    int posicion = _archivo.buscarReg(dni);
-    if (posicion >= 0)
-    {
-        Pago reg = _archivo.leerReg(posicion);
-        Listar(reg);
-    }
-    else
-    {
-        rlutil::locate(20,10);
-        cout << "** NO EXISTE UN PAGO CON ESE DNI **" << endl;
-        system("pause>nul");
-    }
-}
+//void PagoManager::ListarXdni()
+//{
+//
+//    PagoArchivo _archivo;
+//
+//    int dni;
+//    rectangulo (2, 2, 100, 26);
+//    rlutil::setColor(rlutil::YELLOW);
+//
+//    rlutil::locate(20,9);
+//    cout << "INGRESE DNI ALUMNO: ";
+//    cin >> dni;
+//    system("cls");
+//
+//
+//
+//    int posicion = _archivo.buscarReg(dni);
+//    if (posicion >= 0)
+//    {
+//        Pago reg = _archivo.leerReg(posicion);
+//        Listar(reg);
+//    }
+//    else
+//    {
+//        rlutil::locate(20,10);
+//        cout << "** NO EXISTE UN PAGO CON ESE DNI **" << endl;
+//        system("pause>nul");
+//    }
+//}
 
 
 
@@ -512,5 +510,41 @@ void    PagoManager::MenuInformePagos()
     }
 
 
+}
+void PagoManager::ListarxDNI(int dni)
+{
+    _archivo;
+
+    int cantidadRegistros = _archivo.getCantidad();
+    Pago *vec = new Pago[cantidadRegistros];
+
+    if (vec == nullptr)
+    {
+        cout << "Error al visualizar el listado";
+        return;
+    }
+
+    for(int x=0; x<cantidadRegistros; x++)
+    {
+        vec[x]=_archivo.leerReg(x);
+    }
+
+
+    for(int i=0; i<cantidadRegistros; i++)
+    {
+
+        if (vec[i].getDNIalumno()==dni)
+        {
+             system("cls");
+            Listar(vec[i]);
+            cout << endl;
+            system("pause>nul");
+            system("cls");
+
+        }
+
+    }
+
+    delete []vec;
 
 }
