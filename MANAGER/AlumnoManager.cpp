@@ -100,6 +100,8 @@ void AlumnoManager::Cargar()
         rlutil::locate(20,18);
         cout << "ESTADO: "<< "Activo" <<endl;
 
+
+
         Alumno aux;
         aux.setDNI(dni);
         aux.setNombre(nombre);

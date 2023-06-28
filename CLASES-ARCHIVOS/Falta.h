@@ -10,6 +10,7 @@ private:
     Fecha _fechaAusencia;
     int _cantFaltasAnuales;
     int _Falta;
+    bool _eliminada;
 
 
 public:
@@ -18,11 +19,13 @@ public:
     void setFechaAusencia(Fecha fecha);
     void setCantFaltasAnuales( int anuales);
     void setFalta(int falta);
+    void setEliminada(bool eliminada);
 
     int getDNIAlumno();
     Fecha getFechaAusencia();
     int getCantFaltasAnuales();
     int getFalta();
+    bool getEliminada();
 
 
     };

@@ -11,6 +11,7 @@ class Persona
     int _telefono;
     int _DNI;
 
+
 public:
 
     void setNombre(char *nombre);
@@ -19,8 +20,6 @@ public:
     void setTelefono(int telefono);
     void setDNI(int dni);
 
-    void cargar(int dni);
-    void Mostrar(int dni);
 
 
     char * getNombre();
@@ -28,6 +27,7 @@ public:
     char * getEmail();
     int getTelefono();
     int getDni();
+
 
 
 };

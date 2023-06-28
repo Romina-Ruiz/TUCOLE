@@ -9,17 +9,20 @@ private:
     int _Legajo;
     Fecha _Ingreso;
 
+
 public:
 
     void setEstado(bool estado);
     void setLegajo(int legajo);
     Fecha setIngreso(Fecha ingreso);
 
+
     bool getEstado();
     int getLegajo();
     Fecha getIngreso();
 
-   void cargar(int dni);
+
+
 
 };
 

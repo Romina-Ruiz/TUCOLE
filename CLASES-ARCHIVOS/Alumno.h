@@ -13,6 +13,7 @@ private:
     Fecha _Ingreso;
 
 
+
 public:
 
    void setEstado(bool estado);
@@ -21,10 +22,12 @@ public:
    Fecha setIngreso(Fecha ingreso);
 
 
+
     bool getEstado();
     int getLegajo();
     int getAnioCurso();
     Fecha getIngreso();
+
 
 
 

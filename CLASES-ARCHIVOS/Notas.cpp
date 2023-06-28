@@ -23,6 +23,10 @@ void Notas::setNota(float nota)
     _nota=nota;
 
 }
+void Notas::setEliminada(bool eliminada){
+
+_eliminada = eliminada;
+}
 
 int Notas::getDNIalumno()
 {
@@ -45,4 +49,8 @@ float Notas::getNota()
 
     return _nota;
 
+}
+bool Notas::getEliminada(){
+
+return _eliminada;
 }

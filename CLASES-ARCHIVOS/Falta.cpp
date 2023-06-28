@@ -30,6 +30,11 @@ void Falta::setFalta(int falta)
     _Falta = falta;
 
 }
+void Falta::setEliminada(bool eliminada){
+
+_eliminada = eliminada;
+
+}
 int Falta::getDNIAlumno()
 {
 
@@ -55,3 +60,7 @@ int Falta::getFalta()
     return _Falta;
 }
 
+bool Falta::getEliminada(){
+
+return _eliminada;
+}

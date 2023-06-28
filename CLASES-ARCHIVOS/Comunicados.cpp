@@ -32,6 +32,12 @@ void Comunicados::setFechaComunicado(Fecha fecha)
     _fechaComunicado= fecha;
 
 }
+
+void Comunicados::setEliminado(bool eliminado){
+
+    _eliminado = eliminado;
+}
+
 int Comunicados::getIdComunicado()
 {
 
@@ -59,4 +65,8 @@ Fecha Comunicados::getFechaComunicado()
 {
     return _fechaComunicado;
 
+}
+bool Comunicados::getEliminado(){
+
+return _eliminado;
 }

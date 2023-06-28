@@ -26,6 +26,10 @@ void Materia::setAnioLectivo(int aniolectivo){
 _anio_lectivo = aniolectivo;
 
 }
+void Materia::setEliminada(bool eliminada){
+
+_eliminada = eliminada;
+}
 
 char* Materia:: getNombreMateria()
 {
@@ -52,4 +56,8 @@ int Materia::getAnioLectivo(){
 
 return _anio_lectivo;
 
+}
+bool Materia::getEliminada(){
+
+return _eliminada;
 }

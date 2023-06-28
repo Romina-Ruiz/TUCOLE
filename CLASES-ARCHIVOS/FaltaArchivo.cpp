@@ -28,7 +28,23 @@ bool FaltaArchivo::agregar(Falta reg)
     }
     return ok;
 }
+bool FaltaArchivo::guardar(Falta reg, int posicionAReemplazar)
+{
 
+    {
+        FILE *p = fopen(_ruta, "rb+");
+
+        if (p == NULL)
+        {
+            return false;
+        }
+
+        fseek(p, posicionAReemplazar * sizeof(Falta), SEEK_SET);
+        bool pudoEscribir = fwrite(&reg, sizeof(Falta), 1, p);
+        fclose(p);
+        return pudoEscribir;
+    }
+}
 
 int FaltaArchivo::getCantidad()
 {

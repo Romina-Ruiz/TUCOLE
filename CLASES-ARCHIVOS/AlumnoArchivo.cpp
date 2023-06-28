@@ -58,20 +58,7 @@ Alumno AlumnoArchivo::leerReg(int nroRegistro)
 }
 
 
-///revisar
-//bool AlumnoArchivo::leerTodos(Alumno registros[], int cantidad)
-//{
-//    bool ok = false;
-//    FILE* pFile = fopen(_ruta, "rb");
-//   if (pFile == NULL){
-//        return 0;
-//       }
-//        fread(registros, sizeof(Alumno), cantidad, pFile);
-//        fclose(pFile);
-//        ok = true;
-//
-//    return ok;
-//}
+
 bool AlumnoArchivo::guardar(Alumno reg, int posicionAReemplazar)
 {
     FILE *p = fopen(_ruta, "rb+");

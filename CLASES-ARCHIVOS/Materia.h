@@ -10,6 +10,7 @@ private:
     int _id;
     char _nombre_profesor[40];
     int _anio_lectivo; //1.2.3
+    bool _eliminada;
 
 
 public:
@@ -18,12 +19,14 @@ public:
     void setId(int id);
     void setNombreProfesor(char* nombreprofe);
     void setAnioLectivo(int aniolectivo);
+    void setEliminada(bool eliminada);
 
 
     char* getNombreMateria();
     int getIdMateria();
     char* getNombreProfesor();
     int getAnioLectivo();
+    bool getEliminada();
 
 
 

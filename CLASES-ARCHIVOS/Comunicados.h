@@ -11,6 +11,7 @@ private:
     int _id_materia;
     int _anio_curso;
     Fecha _fechaComunicado;
+    bool _eliminado;
 
 
 public:
@@ -21,12 +22,14 @@ public:
     void setIdMateria(int id);
     void setAnioCurso(int curso);
     void setFechaComunicado(Fecha fecha);
+    void setEliminado(bool eliminado);
 
     int getIdComunicado();
     int getDni();
     int getIdMateria();
     int getAnioCurso();
     Fecha getFechaComunicado();
+    bool getEliminado();
 
 };
 

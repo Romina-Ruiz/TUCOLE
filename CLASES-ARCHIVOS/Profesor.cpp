@@ -33,14 +33,5 @@ Fecha Profesor::getIngreso()
     return _Ingreso;
 }
 
-void Profesor::cargar(int dni)
-{
-    _Estado=true;
-    Persona::cargar(dni);
-    cout <<"LEGAJO: "<<endl;
-    cin >>_Legajo;
-    cout <<"FECHA INGRESO: "<<endl;
-   // cin >>_Ingreso;
 
-}
 

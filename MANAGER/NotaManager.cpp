@@ -28,6 +28,7 @@ void NotaManager::Cargar()
     char nombreMateria[30];
     float nota;
 
+
     rlutil::locate(20,8);
     cout << "INGRESE DNI #: " <<endl;
     rlutil::locate(35,8);
@@ -57,12 +58,15 @@ void NotaManager::Cargar()
         cout << "INGRESE NOTA: "<<endl;
         rlutil::locate(38,11);
         cin >> nota;
+        rlutil::locate(20,12);
+
 
         Notas aux;
         aux.setDNIalumno(dni);
         aux.setNombreMateria(nombreMateria);
         aux.setNroExamen(NroExamen);
         aux.setNota(nota);
+        aux.setEliminada(0);
 
         if (_archivo.agregar(aux))
         {

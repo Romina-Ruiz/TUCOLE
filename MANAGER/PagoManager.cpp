@@ -84,11 +84,14 @@ void  PagoManager::Cargar()
         rlutil::locate(25,14);
         cin >> anio;
 
+
+
         Pago aux;
         aux.setDNIalumno(dni);
         aux.setNroPago(pag);
         aux.setMonto(importe);
         aux.setFechaDePago(Fecha(dia, mes, anio));
+        aux.setEliminado(0);
 
 
         if (_archivo.agregar(aux))
@@ -482,7 +485,7 @@ void PagoManager::ModificarDatos(Pago pago, int posicion)
     system("pause>nul");
 }
 
-void    PagoManager::MenuInformePagos()
+void PagoManager::MenuInformePagos()
 {
     PagoManager obj;
 
@@ -513,7 +516,7 @@ void    PagoManager::MenuInformePagos()
 }
 void PagoManager::ListarxDNI(int dni)
 {
-    _archivo;
+
 
     int cantidadRegistros = _archivo.getCantidad();
     Pago *vec = new Pago[cantidadRegistros];

@@ -18,10 +18,10 @@ private:
     Alumno leerReg(int nroRegistro);
     bool modificarReg(Alumno registro, int nroRegistro);
     int buscarReg(int dni);
-     bool guardar(Alumno reg, int posicionAReemplazar);
-     void leer(Alumno *vec, int cantidadRegistrosALeer);
-     bool guardar(Alumno *vec, int cantidadRegistrosAEscribir);
-     void vaciar();
+    bool guardar(Alumno reg, int posicionAReemplazar);
+    void leer(Alumno *vec, int cantidadRegistrosALeer);
+    bool guardar(Alumno *vec, int cantidadRegistrosAEscribir);
+    void vaciar();
 
 
 };

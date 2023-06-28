@@ -26,7 +26,10 @@ void Pago::setFechaDePago(Fecha f)
     _fechaDePago = f;
 }
 
+void Pago::setEliminado(bool eliminado){
 
+    _eliminado = eliminado;
+}
 int Pago::getDNIalumno (){
 
     return _DNIalumno;
@@ -47,5 +50,8 @@ Fecha Pago::getFechaDePago(){
     return _fechaDePago;
 }
 
+bool Pago::getEliminado(){
 
+    return _eliminado;
+}
 

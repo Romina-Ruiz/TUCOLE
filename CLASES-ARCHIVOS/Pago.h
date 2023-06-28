@@ -9,6 +9,8 @@ class Pago
     int _nroPago;
     float _monto;
     Fecha _fechaDePago;
+    bool _eliminado;
+
 
            ///SE NECESITA???
 
@@ -19,12 +21,14 @@ public:
     void setNroPago(int numero);
     void setMonto(float monto);
     void setFechaDePago(Fecha f);
+    void setEliminado(bool eliminado);
 
 
     int getDNIalumno ();
     int getNroPago();
     float getMonto();
     Fecha getFechaDePago();
+    bool getEliminado();
 
 
 };
