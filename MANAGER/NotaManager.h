@@ -19,6 +19,8 @@ public:
     void Listar(Notas nota);
     void ListarXdni(int dni);
     void Editar();
+    void ModificarDatos(int dni);
+    void BuscarNotas();
 
     void HacerCopiaDeSeguridad();
     void RestaurarCopiaDeSeguridad();

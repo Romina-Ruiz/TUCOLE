@@ -24,6 +24,7 @@ using namespace std;
 
 ///MENUS INTERNOS DE ADMIN
 
+///FACTURACION
 void menuFacturacion()
 {
     system("cls");
@@ -77,7 +78,7 @@ void menuFacturacion()
             switch(y)
             {
 
-            case 0:     ///CARGAR FACTURACION
+            case 0:     ///cargar facturacion
             {
                 system("cls");
                 rectangulo (2, 2, 100, 26);
@@ -92,7 +93,7 @@ void menuFacturacion()
             }
             break;
 
-            case 1:     /// BUSCAR POR DNI
+            case 1:     /// Buscar facturacion por dni
             {
                 system("cls");
 
@@ -130,7 +131,7 @@ void menuFacturacion()
     system("cls");
 
 }
-
+///PAGOS
 void menuPagos()
 {
     system("cls");
@@ -185,7 +186,7 @@ void menuPagos()
             switch(y)
             {
 
-            case 0:     ///CARGAR PAGOS
+            case 0:     ///Cargar pagos
 
             {
                 system("cls");
@@ -194,17 +195,16 @@ void menuPagos()
                 rectangulo (2, 2, 100, 26);
                 rlutil::setColor(rlutil::YELLOW);
                 mostrar_mensaje ("***** CARGA DE PAGOS ***** ", 34, 4);
+
                 obj.Cargar();
+
                 system("pause>nul");
                 system("cls");
             }
 
-
-                ///LLAMAR A LA FUNCION CARGAR
-
             break;
 
-            case 1:     /// MODIFICAR DATOS
+            case 1:     /// Modificar pagos
             {
                 system("cls");
 
@@ -212,16 +212,12 @@ void menuPagos()
                 rectangulo (2, 2, 100, 26);
                 rlutil::setColor(rlutil::YELLOW);
                 mostrar_mensaje ("***** MODIFICAR DATOS DEL PAGO ***** ", 34, 4);
-                obj.Editar();
 
+                obj.Editar();
 
                 system("pause>nul");
                 system("cls");
             }
-
-
-
-                ///LLAMAR A LA FUNCION MODIFICAR
 
             break;
 
@@ -241,12 +237,14 @@ void menuPagos()
 
 
 }
-
+///MENU ALUMNOS
 void menuCargarAlumnos()
 {
     system("cls");
 
-    const char *opciones[] = {"CARGAR ALUMNO","MODIFICAR DATOS","BUSCAR ALUMNO", "ALUMNOS POR CURSO","LISTADO DE ALUMNOS", "VOLVER AL MENU PRINCIPAL"};
+    const char *opciones[] = {"CARGAR ALUMNO","MODIFICAR DATOS","BUSCAR ALUMNO", "ALUMNOS POR CURSO",
+                              "VOLVER AL MENU PRINCIPAL"
+                             };
     int op=1, y=0;
 
     rlutil::hidecursor();
@@ -263,8 +261,6 @@ void menuCargarAlumnos()
         showItem (opciones[2],30,12,y==2);
         showItem (opciones[3],30,13,y==3);
         showItem (opciones[4],30,14,y==4);
-        showItem (opciones[5],30,15,y==5);
-
 
 
         rlutil::locate(26,10+y);
@@ -299,96 +295,82 @@ void menuCargarAlumnos()
             switch(y)
             {
 
-            case 0:     ///CARGAR ALUMNO
+            case 0:     ///Cargar alumnos
 
             {
                 system("cls");
-
                 AlumnoManager obj;
                 rectangulo (2, 2, 100, 26);
                 rlutil::setColor(rlutil::YELLOW);
                 mostrar_mensaje ("***** CARGA DE ALUMNO ***** ", 34, 4);
+
                 obj.Cargar();
+
                 system("pause>nul");
                 system("cls");
             }
 
             break;
 
-            case 1:     /// MODIFICAR DATOS
+            case 1:     /// Modificar alumnos
 
             {
                 system("cls");
-
                 AlumnoManager obj;
                 rectangulo (2, 2, 100, 26);
                 rlutil::setColor(rlutil::YELLOW);
                 mostrar_mensaje ("***** MODIFICAR DE ALUMNO ***** ", 34, 4);
+
                 obj.Editar();
+
                 system("pause>nul");
                 system("cls");
             }
 
 
             break;
-            case 2:     ///BUSCAR ALUMNO
+            case 2:     ///Buscar alumnos por dni
 
             {
                 system("cls");
-
                 AlumnoManager obj;
                 rectangulo (2, 2, 100, 26);
                 rlutil::setColor(rlutil::YELLOW);
                 mostrar_mensaje ("***** BUSCAR ALUMNO ***** ", 34, 4);
+
                 obj.ListarXdni();
+
                 system("pause>nul");
                 system("cls");
             }
-                ///LLAMAR A LA FUNCION MODIFICAR
+
 
             break;
-            case 3:     ///LISTADO DE ALUMNOS x curso
-                    {
+            case 3:     ///Listado de alumnos por  curso
+            {
                 system("cls");
 
                 CursoManager obj;
                 rectangulo (2, 2, 100, 26);
                 rlutil::setColor(rlutil::YELLOW);
                 mostrar_mensaje ("***** LISTADO DE ALUMNO ***** ", 34, 4);
+
                 obj.ListarAlumnosxCurso();
+
                 system("pause>nul");
                 system("cls");
             }
-
-
-
 
             break;
-            case 4:
-                  {
-                system("cls");
-
-                AlumnoManager obj;
-                rectangulo (2, 2, 100, 26);
-                rlutil::setColor(rlutil::YELLOW);
-                mostrar_mensaje ("***** LISTADO DE ALUMNO ***** ", 34, 4);
-                obj.ListarTodos();
-                system("pause>nul");
-                system("cls");
-            }
-
-                break;
-
-
-
-            case 5:     ///SALIR
-
+            case 4: ///SALIR
             {
                 system("cls");
                 menuAdmin();
                 system("cls");
             }
+
             break;
+
             }
         }
     }
@@ -397,6 +379,7 @@ void menuCargarAlumnos()
     system("pause");
 }
 
+///PROFESORES
 
 void menuCargarProfesor()
 {
@@ -455,7 +438,7 @@ void menuCargarProfesor()
             switch(y)
             {
 
-            case 0:     ///CARGAR PROFESOR
+            case 0:     ///Cargar profedores
             {
                 system("cls");
 
@@ -472,7 +455,7 @@ void menuCargarProfesor()
 
             break;
 
-            case 1:     /// MODIFICAR DATOS
+            case 1:     /// Modificar profesores
             {
                 system("cls");
 
@@ -488,7 +471,7 @@ void menuCargarProfesor()
             }
 
             break;
-            case 2:     /// BUSCAR PROFESOR
+            case 2:     /// Buscar profesores
             {
                 system("cls");
 
@@ -504,7 +487,7 @@ void menuCargarProfesor()
             }
             break;
 
-            case 3:
+            case 3:  /// lista de profesores
             {
                 system("cls");
 
@@ -537,7 +520,7 @@ void menuCargarProfesor()
 
 }
 
-
+///MATERIAS
 void menuCargarMateria()
 {
     system("cls");
@@ -595,7 +578,7 @@ void menuCargarMateria()
             switch(y)
             {
 
-            case 0:     ///CARGAR MATERIAS
+            case 0:     ///Cargar materias
             {
                 system("cls");
 
@@ -612,14 +595,14 @@ void menuCargarMateria()
 
             break;
 
-            case 1:     /// MODIFICAR DATOS
+            case 1:     /// Modificar materias
 
 
                 ///LLAMAR A LA FUNCION MODIFICAR
 
                 break;
-            case 2:     /// BUSCAR
-           {
+            case 2:     /// Buscar por año lectivo
+            {
                 system("cls");
 
                 MateriaManager obj;
@@ -634,20 +617,20 @@ void menuCargarMateria()
             }
             break;
 
-            case 3:     /// LISTAR
+            case 3:     /// Listado de todas las materias
             {
-                 {
-                system("cls");
+                {
+                    system("cls");
 
-                MateriaManager obj;
-                rlutil::setColor(rlutil::YELLOW);
-                rectangulo (2, 2, 100, 26);
-                mostrar_mensaje ("***** LISTA DE MATERIAS ***** ", 34, 4);
+                    MateriaManager obj;
+                    rlutil::setColor(rlutil::YELLOW);
+                    rectangulo (2, 2, 100, 26);
+                    mostrar_mensaje ("***** LISTA DE MATERIAS ***** ", 34, 4);
 
-                obj.ListarTodos();
-                system("pause>nul");
-                system("cls");
-            }
+                    obj.ListarTodos();
+                    system("pause>nul");
+                    system("cls");
+                }
             }
             break;
 
@@ -666,7 +649,7 @@ void menuCargarMateria()
     system("pause");
 
 }
-
+///CURSOS/AÑO ESCOLAR
 void menuCargarCursos()
 {
     system("cls");
@@ -721,7 +704,7 @@ void menuCargarCursos()
             switch(y)
             {
 
-            case 0:     ///CARGAR CURSOS
+            case 0:     ///Cargar cursos/año escolar
             {
                 system("cls");
 
@@ -738,7 +721,7 @@ void menuCargarCursos()
 
             break;
 
-            case 1:     /// CARGAR ALUMNOS AL CURSO
+            case 1:     ///  alumnos por año
             {
                 system("cls");
 
@@ -752,10 +735,6 @@ void menuCargarCursos()
                 system("pause>nul");
                 system("cls");
             }
-
-
-
-
             break;
 
             case 2:     ///MODIFICAR DATOS
@@ -782,13 +761,13 @@ void menuCargarCursos()
 }
 
 
-
+///NOTAS
 
 void menuCargarNotas()
 {
     system("cls");
 
-    const char *opciones[] = {"CARGAR NOTAS","MODIFICAR DATOS","VOLVER AL MENU PRINCIPAL"};
+    const char *opciones[] = {"CARGAR NOTAS","MODIFICAR NOTAS","BUSCAR NOTAS POR ALUMNO","VOLVER AL MENU PRINCIPAL"};
     int op=1, y=0;
 
     rlutil::hidecursor();
@@ -803,108 +782,7 @@ void menuCargarNotas()
         showItem (opciones[0],30,10,y==0);
         showItem (opciones[1],30,11,y==1);
         showItem (opciones[2],30,12,y==2);
-
-
-        rlutil::locate(26,10+y);
-        cout <<"==> " <<endl;
-
-        switch(rlutil::getkey())
-        {
-        case 14: //UP
-            rlutil::locate(26,10+y);
-            cout <<"   " <<endl;
-            y--;
-
-            if (y<0)
-            {
-                y=0;
-            }
-            break;
-
-        case 15: //DOWN
-            rlutil::locate(26,10+y);
-            cout <<"   " <<endl;
-            y++;
-
-            if (y>2)
-            {
-                y=2;
-            }
-            break;
-
-        case 1:     /// OPCIONES AL INGRESAR ENTER (EL ENTER ES LA TECLA 1):
-
-            switch(y)
-            {
-
-            case 0:     ///CARGAR NOTAS
-            {
-                system("cls");
-
-                NotaManager obj;
-                rlutil::setColor(rlutil::YELLOW);
-                rectangulo (2, 2, 100, 26);
-                mostrar_mensaje ("***** CARGAR NOTAS ***** ", 34, 4);
-
-                obj.Cargar();
-
-                system("pause>nul");
-                system("cls");
-            }
-
-
-
-                ///LLAMAR A LA FUNCION CARGAR
-
-            break;
-
-            case 1:     /// MODIFICAR DATOS
-
-
-                ///LLAMAR A LA FUNCION MODIFICAR
-
-                break;
-
-            case 2:     ///SALIR
-            {
-                system("cls");
-                menuAdmin();
-                system("cls");
-            }
-            break;
-            }
-        }
-    }
-    while(op!=0);
-
-    system("pause");
-
-}
-
-void menuAusencias()
-{
-
-    system("cls");
-
-    const char *opciones[] = {"CARGAR AUSENCIAS","MODIFICAR AUSENCIAS",
-                              "BUSCAR POR DNI", "VOLVER AL MENU PRINCIPAL"
-                             };
-    int op=1, y=0;
-
-    rlutil::hidecursor();
-
-    do
-    {
-
-        rectangulo (2, 2, 100, 26);
-        rlutil::setColor(rlutil::YELLOW);
-        mostrar_mensaje ("***** CARGA DE AUSENCIAS ***** ", 34, 4);
-
-        showItem (opciones[0],30,10,y==0);
-        showItem (opciones[1],30,11,y==1);
-        showItem (opciones[2],30,12,y==2);
         showItem (opciones[3],30,13,y==3);
-
 
         rlutil::locate(26,10+y);
         cout <<"==> " <<endl;
@@ -938,7 +816,125 @@ void menuAusencias()
             switch(y)
             {
 
-            case 0:     ///CARGAR AUSENCIAS
+            case 0:     ///Cargar notas
+            {
+                system("cls");
+
+                NotaManager obj;
+                rlutil::setColor(rlutil::YELLOW);
+                rectangulo (2, 2, 100, 26);
+                mostrar_mensaje ("***** CARGAR NOTAS ***** ", 34, 4);
+
+                obj.Cargar();
+
+                system("pause>nul");
+                system("cls");
+            }
+            break;
+
+            case 1:     /// MODIFICAR DATOS
+            {
+                system("cls");
+
+                NotaManager obj;
+                rlutil::setColor(rlutil::YELLOW);
+                rectangulo (2, 2, 100, 26);
+                mostrar_mensaje ("***** CARGAR NOTAS ***** ", 34, 4);
+
+                obj.Editar();
+
+                system("pause>nul");
+                system("cls");
+            }
+            break;
+
+            case 2:     ///BUSCAR NOTAS POR DNI
+            {
+            system("cls");
+                rlutil::setColor(rlutil::YELLOW);
+                rectangulo (2, 2, 100, 26);
+                mostrar_mensaje ("***** BUSCAR NOTAS POR DNI ***** ", 34, 4);
+                NotaManager obj;
+
+                obj.BuscarNotas();
+
+                system("pause>nul");
+                system("cls");
+            }
+            break;
+            case 3:     ///SALIR
+            {
+                system("cls");
+                menuAdmin();
+                system("cls");
+            }
+            break;
+            }
+        }
+    }
+    while(op!=0);
+
+    system("pause");
+
+}
+
+///AUSENCIAS
+void menuAusencias()
+{
+    system("cls");
+
+    const char *opciones[] = {"CARGAR AUSENCIAS","MODIFICAR AUSENCIAS",
+                              "BUSCAR POR DNI", "VOLVER AL MENU PRINCIPAL"
+                             };
+    int op=1, y=0;
+
+    rlutil::hidecursor();
+
+    do
+    {
+
+        rectangulo (2, 2, 100, 26);
+        rlutil::setColor(rlutil::YELLOW);
+        mostrar_mensaje ("***** CARGA DE AUSENCIAS ***** ", 34, 4);
+
+        showItem (opciones[0],30,10,y==0);
+        showItem (opciones[1],30,11,y==1);
+        showItem (opciones[2],30,12,y==2);
+        showItem (opciones[3],30,13,y==3);
+
+        rlutil::locate(26,10+y);
+        cout <<"==> " <<endl;
+
+        switch(rlutil::getkey())
+        {
+        case 14: //UP
+            rlutil::locate(26,10+y);
+            cout <<"   " <<endl;
+            y--;
+
+            if (y<0)
+            {
+                y=0;
+            }
+            break;
+
+        case 15: //DOWN
+            rlutil::locate(26,10+y);
+            cout <<"   " <<endl;
+            y++;
+
+            if (y>3)
+            {
+                y=3;
+            }
+            break;
+
+        case 1:     /// OPCIONES AL INGRESAR ENTER (EL ENTER ES LA TECLA 1):
+
+            switch(y)
+            {
+
+            case 0:     ///Cargar ausencias
             {
                 system("cls");
 
@@ -954,14 +950,14 @@ void menuAusencias()
             }
             break;
 
-            case 1:     /// MODIFICAR AUSENCIAS
+            case 1:     /// Modificar ausencias
 
 
                 ///LLAMAR A LA FUNCION MODIFICAR
 
                 break;
 
-            case 2:     ///BUSCAR AUSENCIA POR DNI
+            case 2:     ///Buscar ausencias por DNI
             {
                 system("cls");
 
@@ -990,11 +986,11 @@ void menuAusencias()
 
     system("pause");
 
-
 }
+///COMUNICADOS
+
 void menuComunicados()
 {
-
     system("cls");
 
     const char *opciones[] = {"CARGAR COMUNICADOS","MODIFICAR COMUNICADOS","VOLVER AL MENU PRINCIPAL"};
@@ -1046,14 +1042,14 @@ void menuComunicados()
             switch(y)
             {
 
-            case 0:     ///CARGAR DE COMUNICADOS
+            case 0:     ///Cargar comunicados
 
 
                 ///LLAMAR A LA FUNCION CARGAR
 
                 break;
 
-            case 1:     /// MODIFICAR COMUNICADO
+            case 1:     /// Modificar comunicados
 
 
                 ///LLAMAR A LA FUNCION MODIFICAR
@@ -1076,13 +1072,13 @@ void menuComunicados()
 
 }
 
-
+///INFORMES
 void menuInformes()
 {
     system("cls");
 
-    const char *opciones[] = {"INFORME POR CURSO","INFORME DE FACTURACION","INFORME DE PAGOS POR FECHA", "INFORME DE AUSENCIAS POR FECHAS",
-                              "xxxxxxxxx","VOLVER AL MENU PRINCIPAL"
+    const char *opciones[] = {"INFORME POR CURSO","INFORME DE FACTURACION","INFORME DE PAGOS POR FECHA",
+                              "INFORME DE AUSENCIAS POR FECHAS","INFORME DE ALUMNOS","VOLVER AL MENU PRINCIPAL"
                              };
 
     int op=1, y=0;
@@ -1091,7 +1087,6 @@ void menuInformes()
 
     do
     {
-
         rectangulo (2, 2, 100, 26);
         rlutil::setColor(rlutil::YELLOW);
         mostrar_mensaje ("***** INFORMES ***** ", 34, 4);
@@ -1136,14 +1131,12 @@ void menuInformes()
             switch(y)
             {
 
-            case 0:     ///INFORME POR CURSO
+            case 0:     ///Informes por curso
             {
-
                 system("cls");
                 rlutil::setColor(rlutil::YELLOW);
                 rectangulo (2, 2, 100, 26);
                 mostrar_mensaje ("***** INFORMES POR CURSO ***** ", 34, 4);
-
 
 
                 system("pause>nul");
@@ -1153,9 +1146,8 @@ void menuInformes()
 
             break;
 
-            case 1: ///INFORME DE FACTURACION
+            case 1: ///Informacion de facturacion
             {
-
                 system("cls");
                 rlutil::setColor(rlutil::YELLOW);
                 rectangulo (2, 2, 100, 26);
@@ -1164,32 +1156,26 @@ void menuInformes()
 
                 system("pause>nul");
                 system("cls");
-
             }
-
             break;
 
-            case 2: ///INFORME DE PAGOS POR FECHA
+            case 2: ///Informe de pagos por fecha
             {
                 system("cls");
+                PagoManager obj;
 
-                MenuInformePagos();
+                obj.MenuInformePagos();
 
                 system("pause>nul");
                 system("cls");
             }
             break;
-            case 3: ///INFORME DE AUSENCIAS POR FECHAS
+            case 3: ///Informe de ausencias por fechas
             {
-
                 system("cls");
-
-
                 rlutil::setColor(rlutil::YELLOW);
                 rectangulo (2, 2, 100, 26);
                 mostrar_mensaje ("***** INFORME DE AUSENCIAS ***** ", 34, 4);
-
-
 
                 system("pause>nul");
                 system("cls");
@@ -1197,9 +1183,18 @@ void menuInformes()
             }
             break;
             case 4:
+            {
+                system("cls");
+                rlutil::setColor(rlutil::YELLOW);
+                rectangulo (2, 2, 100, 26);
+                mostrar_mensaje ("***** INFORME DE ALUMNOS ***** ", 34, 4);
 
+                system("pause>nul");
+                system("cls");
 
-                break;
+            }
+
+            break;
             case 5:
             {
                 system("cls");
@@ -1217,6 +1212,7 @@ void menuInformes()
     system("pause");
 
 }
+///RESPALDOS
 void menuRespaldos()
 {
     system("cls");
@@ -1335,35 +1331,5 @@ void RealizarBackup()
         system("cls");
 
     }
-
-}
-void MenuInformePagos()
-{
-    PagoManager obj;
-
-    rlutil::setColor(rlutil::YELLOW);
-    rectangulo (2, 2, 100, 26);
-    mostrar_mensaje ("*****   INFORMES DE PAGOS   ***** ", 34, 4);
-
-    int mes;
-    rlutil::locate(15,10);
-    cout <<"POR FAVOR INGRESE EL MES A CONSULTAR: ";
-    rlutil::locate(55,10);
-    cin>>mes;
-    system("cls");
-    if (mes>=0&&mes<=12)
-    {
-
-        obj.ListarOrdenadosPorFecha(mes);
-
-    }
-    else
-    {
-
-        rlutil::locate(30,15);
-        cout <<"****  EL MES INGRESADO ES INCORRECTO  *** ";
-    }
-
-
 
 }

@@ -17,7 +17,9 @@ public:
 	void ListarTodos();
 	void Listar(Falta falta);
 	void ListarXdni();
-//	void Editar();
+    void Editar();
+    void ModificarDatos(Falta obj, int posicion);
+
 //	void Eliminar();
 //	void Listar(Alumno alumno);
 

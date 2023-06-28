@@ -127,27 +127,159 @@ void NotaManager::ListarXdni(int dni)
 
     Notas obj;
     int cantReg=_archivo.getCantidad();
-
+    int can=1;
     for (int x=0; x<cantReg; x++)
     {
         obj=_archivo.leerReg(x);
 
         if (dni==obj.getDNIalumno())
         {
-            rlutil::locate(8,9);
+            can++;
+            rlutil::locate(8,9+can);
             cout <<"MATERIA:  "<<obj.getNombreMateria()<<endl;
-            rlutil::locate(33,9);
+            rlutil::locate(33,9+can);
             cout <<"Nro. DE EXAMEN:   "<<obj.getNroExamen()<<endl;
-            rlutil::locate(60,9);
+            rlutil::locate(60,9+can);
             cout <<"NOTA:   "<<obj.getNota()<<endl;
-             system("pause>nul");
-            system("cls");
+            system("pause>nul");
+           // system("cls");
         }
 
     }
-                rlutil::locate(30,9);
-                cout <<"FIN DEL LISTADO "<<endl;
+    rlutil::locate(30,25);
+    cout <<"FIN DEL LISTADO "<<endl;
 }
+
+void NotaManager::Editar()
+{
+
+    Notas reg;
+    int dni, posicion;
+
+    rlutil::locate(20,9);
+    cout << "DNI A MODIFICAR: ";
+    cin >> dni;
+    cout << endl;
+
+    system("cls");
+    mostrar_mensaje ("***** MODIFICAR DE NOTAS***** ", 34, 4);
+    posicion = _archivo.buscarReg(dni);
+    if (posicion >= 0)
+    {
+        reg = _archivo.leerReg(posicion);
+
+        int nuevoEstado;
+        rlutil::locate(20,11);
+        cout << "DESEA MODIFICAR ALGUN DATO? (1-SI/2-NO): ";
+        rlutil::locate(64,11);
+        cin >> nuevoEstado;
+
+        if (nuevoEstado==1)
+        {
+            ModificarDatos(dni);
+
+        }
+
+    }
+    else
+    {
+        system("pause>nul");
+    }
+
+
+}
+
+void NotaManager::ModificarDatos(int dni)
+{
+    system("cls");
+
+    rlutil::saveDefaultColor();
+    rectangulo (2, 2, 100, 26);
+    rlutil::setColor(rlutil::YELLOW);
+
+    mostrar_mensaje ("* MODIFICAR NOTAS *", 40, 4);
+    mostrar_mensaje ("--------------------------------", 40, 5);
+
+    Notas aux;
+    NotasArchivo arNotas;
+
+    int tipo;
+    float nota;
+    char nombre[30];
+
+    rlutil::locate(10,9);
+    cout << "INGRESE EL NOMBRE DE LA MATERIA: "<<endl;
+    rlutil::locate(43,9);
+    cin>>nombre;
+
+    int canReg=arNotas.getCantidad();
+
+    for(int x=0; x<canReg; x++)
+    {
+
+        aux=arNotas.leerReg(x);
+
+        if(strcmp(nombre,aux.getNombreMateria())==0 &&dni==aux.getDNIalumno())
+        {
+            rlutil::locate(10,10);
+            cout << "INGRESE TIPO DE NOTA (1-PARCIAL 1/ 2-PARCIAL2): "<<endl;
+            rlutil::locate(60,10);
+            cin>>tipo;
+            if (tipo==1 || tipo==2)
+            {
+                rlutil::locate(10,11);
+                cout << "INGRESE LA NUEVA NOTA: "<<endl;
+                rlutil::locate(35,11);
+                cin>>nota;
+                aux.setNota(nota);
+
+                if(arNotas.modificar(aux,x))
+                {
+
+                    rlutil::locate(30,15);
+                    cout << "** REGISTRO MODIFICADO **"<<endl;
+                }
+            }
+        }
+
+    }
+    system("pause>nul");
+    system("cls");
+
+}
+void NotaManager::BuscarNotas()
+{
+    system("cls");
+    Notas obj;
+    NotasArchivo arNotas;
+    int dni;
+    int canReg= arNotas.getCantidad();
+    rlutil::setColor(rlutil::YELLOW);
+    rectangulo (2, 2, 100, 26);
+    mostrar_mensaje ("***** BUSCAR NOTAS POR DNI ***** ", 34, 4);
+    rlutil::locate(20,9);
+    cout << "DNI: ";
+    rlutil::locate(28,9);
+    cin >> dni;
+    cout << endl;
+
+    int can=1;
+    for (int x=0; x<canReg; x++)
+    {
+
+        obj=arNotas.leerReg(x);
+
+        if(dni==obj.getDNIalumno())
+        {
+            can++;
+            rlutil::locate(28,10+can);
+            this->ListarXdni(dni);
+
+        }
+    }
+}
+
+
 
 /*
 void NotaManager::HacerCopiaDeSeguridad()

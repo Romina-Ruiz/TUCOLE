@@ -483,3 +483,34 @@ void PagoManager::ModificarDatos(Pago pago, int posicion)
     while(op!=0);
     system("pause>nul");
 }
+
+void    PagoManager::MenuInformePagos()
+{
+    PagoManager obj;
+
+    rlutil::setColor(rlutil::YELLOW);
+    rectangulo (2, 2, 100, 26);
+    mostrar_mensaje ("*****   INFORMES DE PAGOS   ***** ", 34, 4);
+
+    int mes;
+    rlutil::locate(15,10);
+    cout <<"POR FAVOR INGRESE EL MES A CONSULTAR: ";
+    rlutil::locate(55,10);
+    cin>>mes;
+    system("cls");
+    if (mes>=0&&mes<=12)
+    {
+
+        obj.ListarOrdenadosPorFecha(mes);
+
+    }
+    else
+    {
+
+        rlutil::locate(30,15);
+        cout <<"****  EL MES INGRESADO ES INCORRECTO  *** ";
+    }
+
+
+
+}

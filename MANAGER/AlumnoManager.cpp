@@ -29,10 +29,10 @@ bool AlumnoManager::validarIngreso(int dni)
     if(numerodeRegistro>0)
     {
 
-       return true;
+        return true;
 
     }
-        return false;
+    return false;
 
 }
 
@@ -42,7 +42,7 @@ void AlumnoManager::Cargar()
 
 {
     char nombre[30], apellido[30], email[30];
-      int Legajo, telefono,AnioCurso;
+    int Legajo, telefono,AnioCurso;
     int dni, dia, mes, anio;
 
     rlutil::locate(20,8);
@@ -195,8 +195,8 @@ void AlumnoManager::Listar(Alumno alumno)
     rlutil::locate(20,19);
     cout <<"---------------------------------------------------" << endl;
 
-                system("pause>nul");
-                system("cls");
+    system("pause>nul");
+    system("cls");
 }
 
 
@@ -284,10 +284,12 @@ void AlumnoManager::Eliminar()
         reg.setEstado(false);
         _archivo.guardar(reg, posicion);
         cout << "Registro #" << dni << " eliminado correctamente" << endl;
+        system("pause>nul");
     }
     else
     {
         cout << "No existe el registro con DNI #" << dni << endl;
+        system("pause>nul");
     }
 }
 
@@ -308,10 +310,12 @@ void AlumnoManager::HacerCopiaDeSeguridad()
     if (_archivoBkp.guardar(vec, cantidadRegistros))
     {
         cout << "Backup realizado correctamente" << endl;
+        system("pause>nul");
     }
     else
     {
         cout << "Falla al realizar backup" << endl;
+        system("pause>nul");
     }
 
     delete []vec;
@@ -334,10 +338,12 @@ void AlumnoManager::RestaurarCopiaDeSeguridad()
     if (_archivo.guardar(vec, cantidadRegistros))
     {
         cout << "Backup restaurado correctamente" << endl;
+        system("pause>nul");
     }
     else
     {
         cout << "Falla al restaurar backup" << endl;
+        system("pause>nul");
     }
 
     delete []vec;
@@ -420,10 +426,10 @@ void AlumnoManager::ModificarDatos(Alumno alumno, int posicion)
 
                         rlutil::locate(30,15);
                         cout << "** REGISTRO MODIFICADO **"<<endl;
+                        system("pause>nul");
+                        system("cls");
                     }
 
-                    system("pause>nul");
-                    system("cls");
                 }
 
                 break;
@@ -446,10 +452,11 @@ void AlumnoManager::ModificarDatos(Alumno alumno, int posicion)
 
                         rlutil::locate(30,15);
                         cout << "** REGISTRO MODIFICADO **"<<endl;
+                        system("pause>nul");
+                        system("cls");
                     }
 
-                    system("pause>nul");
-                    system("cls");
+
                 }
 
                 break;
@@ -471,10 +478,11 @@ void AlumnoManager::ModificarDatos(Alumno alumno, int posicion)
 
                         rlutil::locate(30,15);
                         cout << "**  REGISTRO MODIFICADO  **"<<endl;
+                        system("pause>nul");
+                        system("cls");
                     }
 
-                    system("pause>nul");
-                    system("cls");
+
                 }
 
                 break;
@@ -577,9 +585,10 @@ void AlumnoManager::ModificarDatos(Alumno alumno, int posicion)
 
                                     rlutil::locate(30,15);
                                 cout << "** REGISTRO MODIFICADO ** "<<endl;
+                                system("pause>nul");
+                                system("cls");
+
                             }
-                            system("pause>nul");
-                            system("cls");
 
                         }
                         break;

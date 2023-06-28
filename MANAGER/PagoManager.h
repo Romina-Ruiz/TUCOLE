@@ -22,11 +22,10 @@ public:
     void ListarTodos();
     void ListarOrdenadosPorFecha(int mes);
     void Ordenar(Pago *vec, int cantidadRegistros, int mes);
-
+    void MenuInformePagos();
     void Editar();
     void ModificarDatos(Pago pago, int posicion);
-//	void Eliminar();
-//	void Listar(Alumno alumno);
+
 
 
 

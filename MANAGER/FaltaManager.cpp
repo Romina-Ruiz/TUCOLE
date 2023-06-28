@@ -116,34 +116,34 @@ void FaltaManager::ListarXdni()
 
     int dni;
     rlutil::locate(10,8);
-    cout<<"DNI "<<endl;
-    rlutil::locate(15,9);
+    cout<<"INGRESE EL DNI A CONSULTAR: "<<endl;
+    rlutil::locate(40,8);
     cin>>dni;
 
     Falta obj;
     int cantReg=_archivo.getCantidad();
     int FaltasTotales=0;
-
+    int can=1;
     for (int x=0; x<cantReg; x++)
     {
         obj=_archivo.leerReg(x);
 
+
         if (dni==obj.getDNIAlumno())
         {
-            rlutil::locate(8,10);
+            can++;
+            rlutil::locate(10,10+can);
             cout <<"FECHA DE LA AUSENCIA :  "<<obj.getFechaAusencia().toString()<<endl;
-            rlutil::locate(33,11);
+            rlutil::locate(35,10+can);
             FaltasTotales+=obj.getFalta();
-
             system("pause>nul");
-            system("cls");
+
         }
 
     }
-    rlutil::locate(20,10);
+    rlutil::locate(20,25);
     cout<<"FALTAS TOTALES : " << FaltasTotales<<endl;
     system("pause>nul");
-    system("cls");
 
     if(FaltasTotales>=6)
     {
@@ -174,4 +174,190 @@ void FaltaManager::Listar(Falta falta)
 
     system("pause>nul");
     system("cls");
+}
+
+void FaltaManager::Editar()
+{
+
+    Falta reg;
+    int dni, posicion;
+
+    rlutil::locate(20,9);
+    cout << "DNI A MODIFICAR: ";
+    cin >> dni;
+    cout << endl;
+
+    system("cls");
+    mostrar_mensaje ("***** MODIFICAR DE FALTA***** ", 34, 4);
+    posicion = _archivo.buscarReg(dni);
+    if (posicion >= 0)
+    {
+        reg = _archivo.leerReg(posicion);
+        Listar(reg);
+        cout << endl;
+
+        int nuevoEstado;
+        rlutil::locate(20,20);
+        cout << "DESEA MODIFICAR ALGUN DATO? (1-SI/2-NO): ";
+        rlutil::locate(64,20);
+        cin >> nuevoEstado;
+
+        if (nuevoEstado==1)
+        {
+            ModificarDatos(reg,posicion);
+
+        }
+
+    }
+    else
+    {
+        system("pause>nul");
+    }
+
+
+}
+
+void FaltaManager::ModificarDatos(Falta obj, int posicion)
+{
+   /* system("cls");
+    const char *opciones[] = {"FECHA DE AUSENCIA", "ELIMINAR UNA FALTA","CANTIDAD DE FALTAS ANUALES", "VOLVER AL MENU PRINCIPAL"};
+
+    mostrar_mensaje ("* MODIFICAR DATOS DE LA AUSENCIA *", 40, 4);
+    mostrar_mensaje ("--------------------------------", 40, 5);
+
+    rlutil::saveDefaultColor();
+    rectangulo (2, 2, 100, 26);
+    rlutil::setColor(rlutil::YELLOW);
+
+    int op=1, y=0;
+
+    rlutil::hidecursor();
+
+    do
+    {
+        rlutil::saveDefaultColor();
+        rlutil::setColor(rlutil::YELLOW);
+
+        showItem (opciones[0],30,10,y==0);
+        showItem (opciones[1],30,11,y==1);
+        showItem (opciones[2],30,12,y==2);
+        showItem (opciones[3],30,13,y==3);
+
+        rlutil::locate(26,10+y);
+        cout <<"==> " <<endl;
+
+        switch(rlutil::getkey())
+        {
+        case 14: //UP
+            rlutil::locate(26,10+y);
+            cout <<"   " <<endl;
+            y--;
+
+            if (y<0)
+            {
+                y=0;
+            }
+            break;
+
+        case 15: //DOWN
+            rlutil::locate(26,10+y);
+            cout <<"   " <<endl;
+            y++;
+
+            if (y>3)
+            {
+                y=3;
+            }
+            break;
+
+        case 1:   /// OPCIONES AL INGRESAR ENTER (EL ENTER ES LA TECLA 1):
+
+            switch(y)
+            {
+            case 0:      /// CAMBIO DE FECHA
+                system("cls");
+                {
+                    mostrar_mensaje ("* MODIFICAR FECHA DE AUSENCIA *", 40, 4);
+                    mostrar_mensaje ("--------------------------------", 40, 5);
+                    int dia,mes,anio;
+                    rlutil::locate(20,9);
+                    cout << "INGRESE EL NUEVO DIA: "<<endl;
+                    rlutil::locate(43,9);
+                    cin>>dia;
+                    cout << "INGRESE EL MES DIA: "<<endl;
+                    rlutil::locate(43,9);
+                    cin>>mes;
+                    cout << "INGRESE EL ANIO DIA: "<<endl;
+                    rlutil::locate(43,9);
+                    cin>>anio;
+
+                    obj.setFechaAusencia(dia,mes,anio);
+
+                    if (_archivo.guardar(obj, posicion))
+                    {
+
+                        rlutil::locate(30,15);
+                        cout << "** REGISTRO MODIFICADO **"<<endl;
+                    }
+
+                    system("pause>nul");
+                    system("cls");
+                }
+
+                break;
+
+            case 1:       /// DAR DE BAJA UNA AUSENCIA
+                system("cls");
+                mostrar_mensaje ("* ELIMINAR UNA AUSENCIA *", 40, 4);
+                mostrar_mensaje ("--------------------------------", 40, 5);
+
+                {
+
+                    Fecha obj;
+                    rlutil::locate(20,9);
+                    cout << "INGRESE LA FECHA A MODIFICAR: "<<endl;
+
+
+                    system("pause>nul");
+                    system("cls");
+                }
+
+                break;
+
+            case 2:       /// MODIFICAR LAS AUSENCIAS PERMITIDAS
+                system("cls");
+                mostrar_mensaje ("* MODIFICAR AUSENCIAS PERMITIDAS *", 40, 4);
+                mostrar_mensaje ("--------------------------------", 40, 5);
+
+                {
+
+
+
+                }
+
+                system("pause>nul");
+                system("cls");
+            }
+
+            break;
+
+        case 3:     /// SALIR
+
+        {
+
+
+                            system("pause>nul");
+                           system("cls");
+
+
+        }
+
+        break;
+
+        }
+    }
+    while(op!=0);
+
+    system("pause>nul");
+*/
 }
