@@ -303,11 +303,12 @@ void PagoManager::Editar()
     if (posicion >= 0)
     {
         reg = _archivo.leerReg(posicion);
+
         Listar(reg);
         cout << endl;
 
         int nuevoEstado;
-        rlutil::locate(20,20);
+        rlutil::locate(20,10);
         cout << "DESEA MODIFICAR ALGUN DATO? (1-SI/2-NO): ";
         rlutil::locate(64,20);
         cin >> nuevoEstado;
@@ -352,8 +353,6 @@ void PagoManager::ModificarDatos(Pago pago, int posicion)
         showItem (opciones[2],30,12,y==2);
         showItem (opciones[3],30,13,y==3);
         showItem (opciones[4],30,14,y==4);
-        showItem (opciones[5],30,15,y==5);
-
 
         rlutil::locate(26,10+y);
         cout <<"==> " <<endl;
@@ -376,9 +375,9 @@ void PagoManager::ModificarDatos(Pago pago, int posicion)
             cout <<"   " <<endl;
             y++;
 
-            if (y>7)
+            if (y>4)
             {
-                y=7;
+                y=4;
             }
             break;
 

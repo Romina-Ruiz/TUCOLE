@@ -398,7 +398,7 @@
 	<cstring>
 	<iostream>
 
-1687999878 source:c:\users\romina\documents\github\tucolegio\tucole\menus\funciones_admin.cpp
+1688004660 source:c:\users\romina\documents\github\tucolegio\tucole\menus\funciones_admin.cpp
 	<iostream>
 	<iomanip>
 	<string>
@@ -450,7 +450,7 @@
 	"Fecha.h"
 	<cstring>
 
-1687907396 source:c:\users\romina\documents\github\tucolegio\tucole\menus\funciones_user.cpp
+1688008274 source:c:\users\romina\documents\github\tucolegio\tucole\menus\funciones_user.cpp
 	<iostream>
 	<iomanip>
 	<string>
@@ -461,6 +461,7 @@
 	"CursoManager.h"
 	"MateriaManager.h"
 	"NotaManager.h"
+	"CuotaManager.h"
 
 1687843628 source:c:\users\romina\documents\github\tucolegio\tucole\menus\menu_inicio.cpp
 	<iostream>
@@ -757,7 +758,7 @@
 	"../MENUS/Fecha.h"
 	"../MENUS/FUNCIONES_FRONT.h"
 
-1687907396 c:\users\romina\documents\github\tucolegio\tucole\manager\alumnomanager.h
+1688001814 c:\users\romina\documents\github\tucolegio\tucole\manager\alumnomanager.h
 	"Alumno.h"
 	"AlumnoArchivo.h"
 	"Persona.h"
@@ -777,7 +778,7 @@
 	"Profesor.h"
 	"ProfesorArchivo.h"
 
-1687999878 c:\users\romina\documents\github\tucolegio\tucole\manager\cuotamanager.h
+1688005538 c:\users\romina\documents\github\tucolegio\tucole\manager\cuotamanager.h
 	"Cuota.h"
 	"CuotaArchivo.h"
 
@@ -795,7 +796,7 @@
 	"Materia.h"
 	"MateriaArchivo.h"
 
-1687999878 source:c:\users\romina\documents\github\tucolegio\tucole\manager\cuotamanager.cpp
+1688008365 source:c:\users\romina\documents\github\tucolegio\tucole\manager\cuotamanager.cpp
 	<iostream>
 	<iomanip>
 	<cstring>
@@ -805,6 +806,8 @@
 	"AlumnoArchivo.h"
 	"Alumno.h"
 	"../MENUS/FUNCIONES_FRONT.h"
+	"Pago.h"
+	"PagoArchivo.h"
 
 1687999878 source:c:\users\romina\documents\github\tucolegio\tucole\manager\faltamanager.cpp
 	<iostream>
@@ -946,7 +949,7 @@
 1687999878 c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\pagoarchivo.h
 	"Pago.h"
 
-1687999878 source:c:\users\romina\documents\github\tucolegio\tucole\manager\pagomanager.cpp
+1688003121 source:c:\users\romina\documents\github\tucolegio\tucole\manager\pagomanager.cpp
 	<iostream>
 	<iomanip>
 	<cstring>

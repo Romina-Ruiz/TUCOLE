@@ -11,6 +11,7 @@ using namespace std;
 #include "CursoManager.h"
 #include "MateriaManager.h"
 #include "NotaManager.h"
+#include"CuotaManager.h"
 
 
 
@@ -79,16 +80,24 @@ void menuUser(int dni)
             {
 
             case 0:     ///FACTURACION Y PAGOS
-
+            {
                 system("cls");
+
+                CuotaManager obj;
+
+                obj.MenuUserPagosyCuotas(dni);
 
                 system("pause>nul");
                 system("cls");
-                break;
+
+
+            }
+
+            break;
 
             case 1:     ///NOTAS
 
-                 {
+            {
 
                 system("cls");
                 NotaManager obj;
@@ -101,14 +110,14 @@ void menuUser(int dni)
                 system("pause>nul");
                 system("cls");
 
-}
+            }
 
-                break;
+            break;
 
             case 2:     ///MATERIAS
-                            {
+            {
 
-             system("cls");
+                system("cls");
                 MateriaManager obj;
                 rlutil::setColor(rlutil::YELLOW);
                 rectangulo (2, 2, 100, 26);
@@ -119,7 +128,7 @@ void menuUser(int dni)
                 system("pause>nul");
                 system("cls");
 
-}
+            }
 
             case 3:     ///ESTADO DE AUSENCIAS
                 system("cls");
@@ -156,7 +165,8 @@ void menuUser(int dni)
 
 }
 
-void menuFactyPagos(){
+void menuFactyPagos()
+{
 
     rlutil::saveDefaultColor();
     rectangulo (2, 2, 100, 20);
@@ -169,7 +179,8 @@ void menuFactyPagos(){
 
 }
 
-void menuNotas(){
+void menuNotas()
+{
 
     rlutil::saveDefaultColor();
     rectangulo (2, 2, 100, 20);
@@ -181,7 +192,8 @@ void menuNotas(){
 
 
 }
-void menuMateriasActivas(){
+void menuMateriasActivas()
+{
     rlutil::saveDefaultColor();
     rectangulo (2, 2, 100, 20);
     rlutil::setColor(rlutil::YELLOW);
@@ -191,7 +203,8 @@ void menuMateriasActivas(){
 
 
 }
-void menuEstadoAusencias(){
+void menuEstadoAusencias()
+{
     rlutil::saveDefaultColor();
     rectangulo (2, 2, 100, 20);
     rlutil::setColor(rlutil::YELLOW);
@@ -199,7 +212,8 @@ void menuEstadoAusencias(){
     mostrar_mensaje ("*****   ESTADO DE AUSENCIAS  *****", 28, 4);
 
 }
-void menuComunicadosEspeciales(){
+void menuComunicadosEspeciales()
+{
     rlutil::saveDefaultColor();
     rectangulo (2, 2, 100, 20);
     rlutil::setColor(rlutil::YELLOW);

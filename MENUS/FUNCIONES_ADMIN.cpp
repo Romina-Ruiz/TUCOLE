@@ -1173,6 +1173,9 @@ void menuInformes()
                 rectangulo (2, 2, 100, 26);
                 mostrar_mensaje ("***** INFORMES DE FACTURACION ***** ", 34, 4);
 
+                CuotaManager obj;
+
+               obj.MenuInformeCuotas();
 
                 system("pause>nul");
                 system("cls");
@@ -1235,6 +1238,8 @@ void menuInformes()
     system("pause");
 
 }
+
+
 ///RESPALDOS
 void menuRespaldos()
 {
