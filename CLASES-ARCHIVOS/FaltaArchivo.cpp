@@ -45,6 +45,28 @@ bool FaltaArchivo::guardar(Falta reg, int posicionAReemplazar)
         return pudoEscribir;
     }
 }
+void FaltaArchivo::leer(Falta *vec, int cantidadRegistrosALeer){
+	FILE *p = fopen(_ruta, "rb");
+	if (p == NULL)
+	{
+		return ;
+	}
+
+	fread(vec, sizeof(Falta), cantidadRegistrosALeer, p);
+	fclose(p);
+}
+
+bool FaltaArchivo::guardar(Falta *vec, int cantidadRegistrosAEscribir){
+	FILE *p = fopen(_ruta, "ab");
+	if (p == NULL)
+	{
+		return false;
+	}
+
+	int cantidadRegistrosEscritos = fwrite(vec, sizeof(Falta), cantidadRegistrosAEscribir, p);
+	fclose(p);
+	return cantidadRegistrosEscritos == cantidadRegistrosAEscribir;
+}
 
 int FaltaArchivo::getCantidad()
 {

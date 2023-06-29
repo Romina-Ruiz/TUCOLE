@@ -38,6 +38,8 @@ bool ProfesorArchivo::guardar(Profesor *vec, int cantidadRegistrosAEscribir){
 	return cantidadRegistrosEscritos == cantidadRegistrosAEscribir;
 }
 
+
+
 void ProfesorArchivo::leer(Profesor *vec, int cantidadRegistrosALeer){
 	FILE *p = fopen(_ruta, "rb");
 	if (p == NULL)

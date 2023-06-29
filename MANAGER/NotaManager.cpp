@@ -146,7 +146,7 @@ void NotaManager::ListarXdni(int dni)
             rlutil::locate(60,9+can);
             cout <<"NOTA:   "<<obj.getNota()<<endl;
             system("pause>nul");
-           // system("cls");
+            // system("cls");
         }
 
     }

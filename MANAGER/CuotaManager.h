@@ -3,28 +3,27 @@
 #include "Cuota.h"
 #include "CuotaArchivo.h"
 
+
 class CuotaManager
 {
-private:
 
 
 public:
 
 
     int buscarDNI(int dni);
-   void Cargar();
+    void Cargar();
     int generarFactura();
-	void ListarTodos();
-	void ListarxDNI(int dni);
-//	void ListarXId();
+    void ListarTodos();
+    void ListarxDNI(int dni);
 //	void Editar();
 //	void Eliminar();
-	void Listar(Cuota cuota);
+    void Listar(Cuota cuota);
 //	int buscarDNI(int dni);
 
 
-//	void HacerCopiaDeSeguridad();
-//	void RestaurarCopiaDeSeguridad();
+    void HacerCopiaDeSeguridad();
+    void RestaurarCopiaDeSeguridad();
 
 
 

@@ -8,6 +8,7 @@ class FaltaManager
 private:
 
     FaltaArchivo _archivo;
+    FaltaArchivo _archivoBkp = FaltaArchivo("faltas.bkp");
 
 public:
 
@@ -24,8 +25,8 @@ public:
 //	void Listar(Alumno alumno);
 
 
-//	void HacerCopiaDeSeguridad();
-//	void RestaurarCopiaDeSeguridad();
+	void HacerCopiaDeSeguridad();
+	void RestaurarCopiaDeSeguridad();
 
 };
 

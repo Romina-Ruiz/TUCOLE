@@ -19,8 +19,9 @@ public:
     bool modificarReg(Cuota registro, int nroRegistro);
     bool leerTodos(Cuota registros[], int cantidad);
     int buscarReg(int dni);
+    void leer(Cuota *vec, int cantidadRegistrosALeer);
+    bool guardar(Cuota *vec, int cantidadRegistrosAEscribir);
     void vaciar();
-
 
 };
 

@@ -109,23 +109,7 @@ int PagoArchivo::buscarReg(int dni)
     }
     return nroRegistro;
 }
-bool PagoArchivo::guardar(Pago reg, int posicionAReemplazar)
-{
 
-    {
-        FILE *p = fopen(_ruta, "rb+");
-
-        if (p == NULL)
-        {
-            return false;
-        }
-
-        fseek(p, posicionAReemplazar * sizeof(Pago), SEEK_SET);
-        bool pudoEscribir = fwrite(&reg, sizeof(Pago), 1, p);
-        fclose(p);
-        return pudoEscribir;
-    }
-}
 void PagoArchivo::leer(Pago *vec, int cantidadRegistrosALeer){
 	FILE *p = fopen(_ruta, "rb");
 	if (p == NULL)
@@ -135,6 +119,31 @@ void PagoArchivo::leer(Pago *vec, int cantidadRegistrosALeer){
 
 	fread(vec, sizeof(Pago), cantidadRegistrosALeer, p);
 	fclose(p);
+}
+bool PagoArchivo::guardar(Pago *vec, int cantidadRegistrosAEscribir){
+	FILE *p = fopen(_ruta, "ab");
+	if (p == NULL)
+	{
+		return false;
+	}
+
+	int cantidadRegistrosEscritos = fwrite(vec, sizeof(Pago), cantidadRegistrosAEscribir, p);
+	fclose(p);
+	return cantidadRegistrosEscritos == cantidadRegistrosAEscribir;
+}
+bool PagoArchivo::guardar(Pago reg, int posicionAReemplazar)
+{
+    FILE *p = fopen(_ruta, "rb+");
+
+    if (p == NULL)
+    {
+        return false;
+    }
+
+    fseek(p, posicionAReemplazar * sizeof(Pago), SEEK_SET);
+    bool pudoEscribir = fwrite(&reg, sizeof(Pago), 1, p);
+    fclose(p);
+    return pudoEscribir;
 }
 
 void PagoArchivo::vaciar()

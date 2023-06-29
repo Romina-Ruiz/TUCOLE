@@ -27,8 +27,8 @@ public:
 //
 //
 //
-//	void HacerCopiaDeSeguridad();
-//	void RestaurarCopiaDeSeguridad();
+	void HacerCopiaDeSeguridad();
+	void RestaurarCopiaDeSeguridad();
 
 };
 #endif // CURSOMANAGER_H

@@ -8,6 +8,8 @@ class MateriaManager
 private:
 
      MateriaArchivo _archivo;
+     MateriaArchivo _archivoBkp = MateriaArchivo("Materias.bkp");
+
 public:
 
 
@@ -22,8 +24,8 @@ public:
 //	int buscarDNI(int dni);
 	int generarId();
 
-//	void HacerCopiaDeSeguridad();
-//	void RestaurarCopiaDeSeguridad();
+	void HacerCopiaDeSeguridad();
+	void RestaurarCopiaDeSeguridad();
 
 };
 

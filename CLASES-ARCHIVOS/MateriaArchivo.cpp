@@ -96,7 +96,28 @@ bool MateriaArchivo::modificar (Materia registro, int nroRegistro)
     return ok;
 }
 
+void MateriaArchivo::leer(Materia *vec, int cantidadRegistrosALeer){
+	FILE *p = fopen(_ruta, "rb");
+	if (p == NULL)
+	{
+		return ;
+	}
 
+	fread(vec, sizeof(Materia), cantidadRegistrosALeer, p);
+	fclose(p);
+}
+
+bool MateriaArchivo::guardar(Materia *vec, int cantidadRegistrosAEscribir){
+	FILE *p = fopen(_ruta, "ab");
+	if (p == NULL)
+	{
+		return false;
+	}
+
+	int cantidadRegistrosEscritos = fwrite(vec, sizeof(Materia), cantidadRegistrosAEscribir, p);
+	fclose(p);
+	return cantidadRegistrosEscritos == cantidadRegistrosAEscribir;
+}
 void MateriaArchivo::vaciar(){
 	FILE *p = fopen(_ruta, "wb");
 	if (p == NULL)

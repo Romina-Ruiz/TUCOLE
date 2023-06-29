@@ -42,7 +42,7 @@ void AlumnoManager::Cargar()
 
 {
     char nombre[30], apellido[30], email[30];
-    int Legajo, telefono,AnioCurso;
+    int Legajo, telefono;
     int dni, dia, mes, anio;
 
     rlutil::locate(20,8);
@@ -79,10 +79,6 @@ void AlumnoManager::Cargar()
         rlutil::locate(41,12);
         cin >> telefono;
         rlutil::locate(20,13);
-        cout<<"ANIO EN CURSO: "<<endl;
-        rlutil::locate(35,13);
-        cin>>AnioCurso;
-        rlutil::locate(20,14);
         cout << "INGRESE DIA DE INGRESO: "<<endl;
         rlutil::locate(45,14);
         cin >> dia;
@@ -108,7 +104,6 @@ void AlumnoManager::Cargar()
         aux.setApellido(apellido);
         aux.setEmail(email);
         aux.setTelefono(telefono);
-        aux.setAnioCurso(AnioCurso);
         aux.setIngreso(Fecha(dia, mes, anio));
         aux.setLegajo(Legajo);
         aux.setEstado(1);
@@ -178,10 +173,8 @@ void AlumnoManager::Listar(Alumno alumno)
     rlutil::locate(20,13);
     cout<<"TELEFONO:    "<<alumno.getTelefono()<<endl;
     rlutil::locate(20,14);
-    cout <<"ANIO EN CURSO:    " << alumno.getAnioCurso() << endl;
-    rlutil::locate(20,15);
     cout <<"FECHA DE INGRESO:    " << alumno.getIngreso().toString()<< endl;
-    rlutil::locate(20,16);
+    rlutil::locate(20,15);
     cout <<"LEGAJO:    " << alumno.getLegajo() << endl;
 
     if (alumno.getEstado()==true)
@@ -354,7 +347,7 @@ void AlumnoManager::RestaurarCopiaDeSeguridad()
 void AlumnoManager::ModificarDatos(Alumno alumno, int posicion)
 {
     system("cls");
-    const char *opciones[] = {"DNI", "NOMBRE","APELLIDO", "EMAIL", "TELEFONO", "ANIO EN CURSO", "MODIFICAR ESTADO", "VOLVER AL MENU PRINCIPAL"};
+    const char *opciones[] = {"DNI", "NOMBRE","APELLIDO", "EMAIL", "TELEFONO", "MODIFICAR ESTADO", "VOLVER AL MENU PRINCIPAL"};
 
     mostrar_mensaje ("* MODIFICAR DATOS DEL ALUMNO *", 40, 4);
     mostrar_mensaje ("--------------------------------", 40, 5);
@@ -379,7 +372,7 @@ void AlumnoManager::ModificarDatos(Alumno alumno, int posicion)
         showItem (opciones[4],30,14,y==4);
         showItem (opciones[5],30,15,y==5);
         showItem (opciones[6],30,16,y==6);
-        showItem (opciones[7],30,17,y==7);
+
 
         rlutil::locate(26,10+y);
         cout <<"==> " <<endl;
@@ -537,30 +530,8 @@ void AlumnoManager::ModificarDatos(Alumno alumno, int posicion)
                     system("pause>nul");
                     system("cls");
                     break;
-                case 5:     /// SETEAR ANIO EN CURSO
-                    system("cls");
 
-                    mostrar_mensaje ("* MODIFICAR DATOS DEL ALUMNO *", 40, 4);
-                    mostrar_mensaje ("--------------------------------", 40, 5);
-                    {
-
-                        int anio;
-                        rlutil::locate(20,9);
-                        cout << "INGRESE EL NUEVO ANIO EN CURSO: "<<endl;
-                        rlutil::locate(53,9);
-                        cin>>anio;
-                        alumno.setAnioCurso(anio);
-                        if (_archivo.guardar(alumno, posicion))
-                        {
-
-                            rlutil::locate(30,15);
-                            cout << "**  REGISTRO MODIFICADO **"<<endl;
-                        }
-                        system("pause>nul");
-                        system("cls");
-
-                        break;
-                    case 6:     /// SETEAR DAR DE BAJA
+                    case 5:     /// SETEAR DAR DE BAJA
                         system("cls");
 
                         {
@@ -595,7 +566,7 @@ void AlumnoManager::ModificarDatos(Alumno alumno, int posicion)
                         }
                         break;
 
-                    case 7:     /// VOLVER AL MENU PRINCIPAL
+                    case 6:     /// VOLVER AL MENU PRINCIPAL
                         system("cls");
                         {
                             system("pause>nul");
@@ -609,7 +580,7 @@ void AlumnoManager::ModificarDatos(Alumno alumno, int posicion)
             }
         }
 
-    }
+
     while(op!=0);
     system("pause>nul");
 }

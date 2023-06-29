@@ -212,7 +212,7 @@ void menuPagos()
                 rlutil::setColor(rlutil::YELLOW);
                 mostrar_mensaje ("***** MODIFICAR DATOS DEL PAGO ***** ", 34, 4);
 
-                //obj.Editar();
+                obj.Editar();
 
                 system("pause>nul");
                 system("cls");

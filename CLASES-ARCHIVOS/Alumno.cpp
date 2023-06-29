@@ -26,10 +26,6 @@ void Alumno::setLegajo(int legajo)
        _Legajo=legajo;
 }
 
-void Alumno::setAnioCurso(int anio)
-{
-    _AnioCurso = anio;
-}
 Fecha Alumno::setIngreso(Fecha ingreso)
 {
     _Ingreso= ingreso;
@@ -41,10 +37,6 @@ int Alumno::getLegajo()
     return _Legajo;
 }
 
-int Alumno::getAnioCurso()
-{
-    return _AnioCurso;
-}
 Fecha Alumno::getIngreso()
 {
     return _Ingreso;

@@ -479,7 +479,7 @@
 	"CuotaManager.h"
 	"AlumnoManager.h"
 
-1687989487 source:c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\clases-archivos\alumno.cpp
+1687994521 source:c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\clases-archivos\alumno.cpp
 	<iostream>
 	"Alumno.h"
 	"../MENUS/Fecha.h"
@@ -487,7 +487,7 @@
 	"AlumnoArchivo.h"
 	"Persona.h"
 
-1687989271 c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\clases-archivos\alumno.h
+1687994700 c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\clases-archivos\alumno.h
 	"Persona.h"
 	"../MENUS/Fecha.h"
 
@@ -521,13 +521,13 @@
 	<cstring>
 	<iostream>
 
-1687711747 source:c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\clases-archivos\cuotaarchivo.cpp
+1687997616 source:c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\clases-archivos\cuotaarchivo.cpp
 	<cstdio>
 	<cstring>
 	"Cuota.h"
 	"CuotaArchivo.h"
 
-1687377092 c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\clases-archivos\cuotaarchivo.h
+1687997613 c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\clases-archivos\cuotaarchivo.h
 	"Cuota.h"
 	"CuotaManager.h"
 
@@ -541,12 +541,12 @@
 1687989733 c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\clases-archivos\falta.h
 	"../MENUS/Fecha.h"
 
-1687982414 source:c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\clases-archivos\faltaarchivo.cpp
+1687999070 source:c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\clases-archivos\faltaarchivo.cpp
 	<iostream>
 	"FaltaArchivo.h"
 	"Falta.h"
 
-1687982439 c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\clases-archivos\faltaarchivo.h
+1687999046 c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\clases-archivos\faltaarchivo.h
 	"Falta.h"
 
 1687028551 source:c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\clases-archivos\faltas.cpp
@@ -561,13 +561,13 @@
 
 1687987495 c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\clases-archivos\materia.h
 
-1687737888 source:c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\clases-archivos\materiaarchivo.cpp
+1687998689 source:c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\clases-archivos\materiaarchivo.cpp
 	<iostream>
 	"MateriaArchivo.h"
 	"Materia.h"
 	<cstring>
 
-1687737888 c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\clases-archivos\materiaarchivo.h
+1687998581 c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\clases-archivos\materiaarchivo.h
 	"Materia.h"
 
 1687988187 source:c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\clases-archivos\notas.cpp
@@ -612,7 +612,7 @@
 	"Persona.h"
 	"../MENUS/Fecha.h"
 
-1687465062 source:c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\clases-archivos\profesorarchivo.cpp
+1687998365 source:c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\clases-archivos\profesorarchivo.cpp
 	<iostream>
 	"Profesor.h"
 	"ProfesorArchivo.h"
@@ -638,7 +638,7 @@
 	<cstring>
 	<iostream>
 
-1687980180 source:c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\menus\funciones_admin.cpp
+1687993311 source:c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\menus\funciones_admin.cpp
 	<iostream>
 	<iomanip>
 	<string>
@@ -821,11 +821,11 @@
 	"Falta.h"
 	"FaltaArchivo.h"
 
-1687887780 c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\manager\cuotamanager.h
+1687997822 c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\manager\cuotamanager.h
 	"Cuota.h"
 	"CuotaArchivo.h"
 
-1687989487 source:c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\manager\alumnomanager.cpp
+1687995276 source:c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\manager\alumnomanager.cpp
 	<iostream>
 	"AlumnoManager.h"
 	"Alumno.h"
@@ -841,7 +841,7 @@
 	"Persona.h"
 	"../MENUS/FUNCIONES_ADMIN.h"
 
-1687980180 source:c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\manager\cuotamanager.cpp
+1687997775 source:c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\manager\cuotamanager.cpp
 	<iostream>
 	<iomanip>
 	<cstring>
@@ -852,7 +852,7 @@
 	"Alumno.h"
 	"../MENUS/FUNCIONES_FRONT.h"
 
-1687984144 source:c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\manager\faltamanager.cpp
+1687999026 source:c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\manager\faltamanager.cpp
 	<iostream>
 	"FaltaManager.h"
 	"Falta.h"
@@ -863,11 +863,11 @@
 	"AlumnoArchivo.h"
 	"../MENUS/FUNCIONES_FRONT.h"
 
-1687980180 c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\manager\faltamanager.h
+1687998792 c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\manager\faltamanager.h
 	"Falta.h"
 	"FaltaArchivo.h"
 
-1687892533 source:c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\manager\materiamanager.cpp
+1687998732 source:c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\manager\materiamanager.cpp
 	<iostream>
 	<cstring>
 	"MateriaManager.h"
@@ -877,11 +877,11 @@
 	"../MENUS/rlutil.h"
 	"../MENUS/FUNCIONES_FRONT.h"
 
-1687891234 c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\manager\materiamanager.h
+1687998484 c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\manager\materiamanager.h
 	"Materia.h"
 	"MateriaArchivo.h"
 
-1687980180 source:c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\manager\profesormanager.cpp
+1687997875 source:c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\manager\profesormanager.cpp
 	<iostream>
 	"ProfesorManager.h"
 	"Profesor.h"
@@ -891,7 +891,7 @@
 	"../MENUS/FUNCIONES_FRONT.h"
 	"../MENUS/FUNCIONES_ADMIN.h"
 
-1687377092 c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\manager\profesormanager.h
+1687998061 c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\manager\profesormanager.h
 	"Profesor.h"
 	"ProfesorArchivo.h"
 
@@ -985,15 +985,15 @@
 1687987344 c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\clases-archivos\pago.h
 	"../MENUS/Fecha.h"
 
-1687717588 source:c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\clases-archivos\pagoarchivo.cpp
+1687998347 source:c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\clases-archivos\pagoarchivo.cpp
 	<cstdio>
 	<cstring>
 	"PagoArchivo.h"
 
-1687717482 c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\clases-archivos\pagoarchivo.h
+1687998246 c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\clases-archivos\pagoarchivo.h
 	"Pago.h"
 
-1687989733 source:c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\manager\notamanager.cpp
+1687993099 source:c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\manager\notamanager.cpp
 	<iostream>
 	<iomanip>
 	<string>
@@ -1009,11 +1009,11 @@
 	"Notas.h"
 	"NotasArchivo.h"
 
-1687980180 c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\manager\pagomanager.h
+1687998691 c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\manager\pagomanager.h
 	"Pago.h"
 	"PagoArchivo.h"
 
-1687980827 source:c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\manager\pagomanager.cpp
+1687998059 source:c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\manager\pagomanager.cpp
 	<iostream>
 	<iomanip>
 	<cstring>
@@ -1035,7 +1035,7 @@
 	"CursoArchivo.h"
 	<cstring>
 
-1687722921 c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\clases-archivos\cursoarchivo.h
+1687999439 c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\clases-archivos\cursoarchivo.h
 	"Curso.h"
 
 1687831136 source:c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\curso.cpp
@@ -1061,13 +1061,13 @@
 	"Curso.h"
 	"CursoArchivo.h"
 
-1687898090 source:c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\manager\cursomanager.cpp
+1687996702 source:c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\manager\cursomanager.cpp
 	"CursoManager.h"
 	"../MENUS/rlutil.h"
 	"AlumnoArchivo.h"
 	"../MENUS/FUNCIONES_FRONT.h"
 
-1687897012 c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\manager\cursomanager.h
+1687999104 c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\manager\cursomanager.h
 	"Curso.h"
 	"CursoArchivo.h"
 

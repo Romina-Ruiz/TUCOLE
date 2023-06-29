@@ -19,6 +19,8 @@ public:
     Materia leerReg(int nroRegistro);
     void leerTodos(Materia materia[], int cantidad);
     bool modificar(Materia registro, int nroRegistro);
+    void leer(Materia *vec, int cantidadRegistrosALeer);
+    bool guardar(Materia *vec, int cantidadRegistrosAEscribir);
     void vaciar();
 
 

@@ -329,7 +329,7 @@ void PagoManager::ModificarDatos(Pago pago, int posicion)
 
 
     system("cls");
-    const char *opciones[] = {"DNI", "MONTO","FECHA DE PAGO", "VOLVER AL MENU PRINCIPAL"};
+    const char *opciones[] = {"DNI", "MONTO","FECHA DE PAGO","ELIMINAR PAGO", "VOLVER AL MENU PRINCIPAL"};
 
     mostrar_mensaje ("* MODIFICAR DATOS DEL PAGO *", 40, 4);
     mostrar_mensaje ("--------------------------------", 40, 5);
@@ -352,6 +352,7 @@ void PagoManager::ModificarDatos(Pago pago, int posicion)
         showItem (opciones[2],30,12,y==2);
         showItem (opciones[3],30,13,y==3);
         showItem (opciones[4],30,14,y==4);
+        showItem (opciones[5],30,15,y==5);
 
 
         rlutil::locate(26,10+y);
@@ -418,7 +419,7 @@ void PagoManager::ModificarDatos(Pago pago, int posicion)
 
                     int monto;
                     rlutil::locate(20,9);
-                    cout << "INGRESE EL NUEVO NOMBRE: "<<endl;
+                    cout << "INGRESE EL NUEVO MONTO: "<<endl;
                     rlutil::locate(47,9);
                     cin>>monto;
                     pago.setMonto(monto);
@@ -444,10 +445,14 @@ void PagoManager::ModificarDatos(Pago pago, int posicion)
                     int  dia,mes,anio;
                     rlutil::locate(20,9);
                     cout << "INGRESE BIEN LA FECHA : DIA"<<endl;
+                     rlutil::locate(20,10);
                     cin>>dia;
+                     rlutil::locate(20,11);
                     cout << "INGRESE BIEN LA FECHA : DIA"<<endl;
                     cin>>mes;
+                     rlutil::locate(20,12);
                     cout << "INGRESE BIEN LA FECHA : DIA"<<endl;
+                     rlutil::locate(20,9);
                     cin>>anio;
                     rlutil::locate(47,9);
                     pago.setFechaDePago(Fecha(dia,mes,anio));
@@ -466,7 +471,50 @@ void PagoManager::ModificarDatos(Pago pago, int posicion)
 
 
 
-            case 3:     /// VOLVER AL MENU PRINCIPAL
+            case 3:
+                system("cls");
+                mostrar_mensaje ("* ELIMINAR UN PAGO *", 40, 4);
+                mostrar_mensaje ("--------------------------------", 40, 5);
+
+                {
+
+
+                    Pago reg;
+                    int nroPago, posicion;
+                    rlutil::locate(30,15);
+                    cout << "Numero de pago a eliminar: ";
+                    rlutil::locate(30,15);
+                    cin >> nroPago;
+                    cout << endl;
+
+                    posicion = _archivo.buscarReg(nroPago);
+                    if (posicion >= 0)
+                    {
+                        reg = _archivo.leerReg(posicion);
+                        Listar(reg);
+                        cout << endl;
+                        reg.setEliminado(true);
+                        _archivo.guardar(reg, posicion);
+
+                        rlutil::locate(30,15);
+                        cout << "Numero de pago #" << nroPago << " eliminado correctamente" << endl;
+                    }
+                    else
+                    {       rlutil::locate(30,15);
+                        cout << "No existe el registro con el Numero de pago " << nroPago << endl;
+                    }
+
+
+                    system("pause>nul");
+                    system("cls");
+                }
+
+                break;
+
+            case 4:
+
+
+                /// VOLVER AL MENU PRINCIPAL
                 system("cls");
                 {
                     system("pause>nul");
@@ -538,7 +586,7 @@ void PagoManager::ListarxDNI(int dni)
 
         if (vec[i].getDNIalumno()==dni)
         {
-             system("cls");
+            system("cls");
             Listar(vec[i]);
             cout << endl;
             system("pause>nul");
@@ -550,4 +598,59 @@ void PagoManager::ListarxDNI(int dni)
 
     delete []vec;
 
+}
+void PagoManager::HacerCopiaDeSeguridad()
+{
+
+    int cantidadRegistros = _archivo.getCantidad();
+    Pago *vec = new Pago[cantidadRegistros];
+
+    if (vec == nullptr)
+    {
+        cout << "Falla al realizar backup" << endl;
+        return;
+    }
+
+    _archivo.leer(vec, cantidadRegistros);
+    _archivoBkp.vaciar();
+    if (_archivoBkp.guardar(vec, cantidadRegistros))
+    {
+        cout << "Backup realizado correctamente" << endl;
+        system("pause>nul");
+    }
+    else
+    {
+        cout << "Falla al realizar backup" << endl;
+        system("pause>nul");
+    }
+
+    delete []vec;
+}
+
+void PagoManager::RestaurarCopiaDeSeguridad()
+{
+
+    int cantidadRegistros = _archivoBkp.getCantidad();
+    Pago *vec = new Pago[cantidadRegistros];
+
+    if (vec == nullptr)
+    {
+        cout << "Falla al restaurar backup" << endl;
+        return;
+    }
+
+    _archivoBkp.leer(vec, cantidadRegistros);
+    _archivo.vaciar();
+    if (_archivo.guardar(vec, cantidadRegistros))
+    {
+        cout << "Backup restaurado correctamente" << endl;
+        system("pause>nul");
+    }
+    else
+    {
+        cout << "Falla al restaurar backup" << endl;
+        system("pause>nul");
+    }
+
+    delete []vec;
 }

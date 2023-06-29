@@ -390,3 +390,58 @@ void FaltaManager::ModificarDatos(Falta obj, int posicion)
 //    system("pause>nul");
 //
 }
+void FaltaManager::HacerCopiaDeSeguridad()
+{
+
+    int cantidadRegistros = _archivo.getCantidad();
+    Falta *vec = new Falta[cantidadRegistros];
+
+    if (vec == nullptr)
+    {
+        cout << "Falla al realizar backup" << endl;
+        return;
+    }
+
+    _archivo.leer(vec, cantidadRegistros);
+    _archivoBkp.vaciar();
+    if (_archivoBkp.guardar(vec, cantidadRegistros))
+    {
+        cout << "Backup realizado correctamente" << endl;
+        system("pause>nul");
+    }
+    else
+    {
+        cout << "Falla al realizar backup" << endl;
+        system("pause>nul");
+    }
+
+    delete []vec;
+}
+
+void FaltaManager::RestaurarCopiaDeSeguridad()
+{
+
+    int cantidadRegistros = _archivoBkp.getCantidad();
+    Falta *vec = new Falta[cantidadRegistros];
+
+    if (vec == nullptr)
+    {
+        cout << "Falla al restaurar backup" << endl;
+        return;
+    }
+
+    _archivoBkp.leer(vec, cantidadRegistros);
+    _archivo.vaciar();
+    if (_archivo.guardar(vec, cantidadRegistros))
+    {
+        cout << "Backup restaurado correctamente" << endl;
+        system("pause>nul");
+    }
+    else
+    {
+        cout << "Falla al restaurar backup" << endl;
+        system("pause>nul");
+    }
+
+    delete []vec;
+}

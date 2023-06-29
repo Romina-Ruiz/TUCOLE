@@ -8,6 +8,7 @@ class PagoManager
 private:
 
     PagoArchivo _archivo;
+    PagoArchivo _archivoBkp = PagoArchivo("Pagos.bkp");
 
 
 public:
@@ -16,7 +17,6 @@ public:
     int buscarReg(int dni);
     void Cargar();
     int generarPago();
-    //void ListarXdni();
     void Listar(Pago pago);
     int buscarDNI(int dni);
     void ListarTodos();
@@ -29,8 +29,8 @@ public:
 
 
 
-//	void HacerCopiaDeSeguridad();
-//	void RestaurarCopiaDeSeguridad();
+    void HacerCopiaDeSeguridad();
+    void RestaurarCopiaDeSeguridad();
 
 
 };

@@ -83,7 +83,28 @@ bool CursoArchivo::leerTodos(Curso registros[], int cantidad)
     return ok;
 }
 
+void CursoArchivo::leer(Curso *vec, int cantidadRegistrosALeer){
+	FILE *p = fopen(_ruta, "rb");
+	if (p == NULL)
+	{
+		return ;
+	}
 
+	fread(vec, sizeof(Curso), cantidadRegistrosALeer, p);
+	fclose(p);
+}
+
+bool CursoArchivo::guardar(Curso *vec, int cantidadRegistrosAEscribir){
+	FILE *p = fopen(_ruta, "ab");
+	if (p == NULL)
+	{
+		return false;
+	}
+
+	int cantidadRegistrosEscritos = fwrite(vec, sizeof(Curso), cantidadRegistrosAEscribir, p);
+	fclose(p);
+	return cantidadRegistrosEscritos == cantidadRegistrosAEscribir;
+}
 
 int CursoArchivo::buscarReg(int curso){
 

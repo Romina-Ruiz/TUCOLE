@@ -156,6 +156,63 @@ void CuotaManager::Listar(Cuota cuota)
 
 
 }
+void CuotaManager::HacerCopiaDeSeguridad()
+{
+    CuotaArchivo _archivoBkp = CuotaArchivo("cuota.bkp");
+     CuotaArchivo _archivo;
+    int cantidadRegistros = _archivo.getCantidad();
+    Cuota *vec = new Cuota[cantidadRegistros];
+
+    if (vec == nullptr)
+    {
+        cout << "Falla al realizar backup" << endl;
+        return;
+    }
+
+    _archivo.leer(vec, cantidadRegistros);
+    _archivoBkp.vaciar();
+    if (_archivoBkp.guardar(vec, cantidadRegistros))
+    {
+        cout << "Backup realizado correctamente" << endl;
+        system("pause>nul");
+    }
+    else
+    {
+        cout << "Falla al realizar backup" << endl;
+        system("pause>nul");
+    }
+
+    delete []vec;
+}
+
+void CuotaManager::RestaurarCopiaDeSeguridad()
+{
+    CuotaArchivo _archivoBkp = CuotaArchivo("cuota.bkp");
+     CuotaArchivo _archivo;
+    int cantidadRegistros = _archivoBkp.getCantidad();
+    Cuota *vec = new Cuota[cantidadRegistros];
+
+    if (vec == nullptr)
+    {
+        cout << "Falla al restaurar backup" << endl;
+        return;
+    }
+
+    _archivoBkp.leer(vec, cantidadRegistros);
+    _archivo.vaciar();
+    if (_archivo.guardar(vec, cantidadRegistros))
+    {
+        cout << "Backup restaurado correctamente" << endl;
+        system("pause>nul");
+    }
+    else
+    {
+        cout << "Falla al restaurar backup" << endl;
+        system("pause>nul");
+    }
+
+    delete []vec;
+}
 void CuotaManager::ListarxDNI(int dni)
 {
     CuotaArchivo _archivo;

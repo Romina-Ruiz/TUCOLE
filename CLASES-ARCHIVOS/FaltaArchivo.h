@@ -18,6 +18,8 @@ public:
     bool modificar (Falta registro, int nroRegistro);
     int buscarReg(int dni);
     bool guardar(Falta reg, int posicionAReemplazar);
+    void leer(Falta *vec, int cantidadRegistrosALeer);
+    bool guardar(Falta *vec, int cantidadRegistrosAEscribir);
     void vaciar();
 
 };

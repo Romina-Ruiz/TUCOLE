@@ -20,6 +20,7 @@ public:
     int buscarReg(int dni);
     bool guardar(Pago reg, int posicionAReemplazar);
     void leer(Pago *vec, int cantidadRegistrosALeer);
+    bool guardar(Pago *vec, int cantidadRegistrosAEscribir);
     void vaciar();
 
 };

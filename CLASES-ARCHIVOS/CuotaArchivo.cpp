@@ -105,6 +105,29 @@ int CuotaArchivo::buscarReg(int dni){
   }
   return nroRegistro;
 }
+void CuotaArchivo::leer(Cuota *vec, int cantidadRegistrosALeer){
+	FILE *p = fopen(_ruta, "rb");
+	if (p == NULL)
+	{
+		return ;
+	}
+
+	fread(vec, sizeof(Cuota), cantidadRegistrosALeer, p);
+	fclose(p);
+}
+
+bool CuotaArchivo::guardar(Cuota *vec, int cantidadRegistrosAEscribir){
+	FILE *p = fopen(_ruta, "ab");
+	if (p == NULL)
+	{
+		return false;
+	}
+
+	int cantidadRegistrosEscritos = fwrite(vec, sizeof(Cuota), cantidadRegistrosAEscribir, p);
+	fclose(p);
+	return cantidadRegistrosEscritos == cantidadRegistrosAEscribir;
+}
+
 
 void CuotaArchivo::vaciar(){
 
