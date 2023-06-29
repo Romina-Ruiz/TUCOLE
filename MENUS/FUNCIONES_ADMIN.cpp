@@ -1016,7 +1016,7 @@ void menuComunicados()
 {
     system("cls");
 
-    const char *opciones[] = {"CARGAR COMUNICADOS","MODIFICAR COMUNICADOS","VOLVER AL MENU PRINCIPAL"};
+    const char *opciones[] = {"CARGAR COMUNICADOS","MODIFICAR COMUNICADOS","COMUNICADOS ACTIVOS","VOLVER AL MENU PRINCIPAL"};
     int op=1, y=0;
 
     rlutil::hidecursor();
@@ -1031,6 +1031,7 @@ void menuComunicados()
         showItem (opciones[0],30,10,y==0);
         showItem (opciones[1],30,11,y==1);
         showItem (opciones[2],30,12,y==2);
+        showItem (opciones[3],30,13,y==3);
 
 
         rlutil::locate(26,10+y);
@@ -1054,9 +1055,9 @@ void menuComunicados()
             cout <<"   " <<endl;
             y++;
 
-            if (y>2)
+            if (y>3)
             {
-                y=2;
+                y=3;
             }
             break;
 
@@ -1067,22 +1068,40 @@ void menuComunicados()
 
             case 0:     ///Cargar comunicados
             {
-                ComunicadosManager au;
+                system("cls");
+                ComunicadosManager obj;
 
-                au.Cargar();
+                obj.Cargar();
 
+
+                system("cls");
             }
 
             break;
 
             case 1:     /// Modificar comunicados
+                system("cls");
+                {
+                    ComunicadosManager obj;
 
+                    obj.EliminarComunicado();
 
-                ///LLAMAR A LA FUNCION MODIFICAR
-
+                    system("pause>nul");
+                    system("cls");
+                }
                 break;
 
-            case 2:     ///SALIR
+            case 2:     ///comunicados activos
+            {
+                system("cls");
+                ComunicadosManager obj;
+                obj.ComunicadosActivos();
+
+                 system("pause>nul");
+                system("cls");
+            }
+            break;
+            case 3:     ///SALIR
             {
                 system("cls");
                 menuAdmin();

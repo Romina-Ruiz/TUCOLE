@@ -16,7 +16,12 @@ public:
     int generarID();
     void ComunicadoxDNI();
     void ComunicadoxCurso();
+    void EliminarComunicado();
+    void BuscarComunicado();
     void cargarCadena(char *pal, int tam);
+    void listarxDNI(Comunicados obj);
+    void ComunicadosActivos();
+
 
 
 };

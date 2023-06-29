@@ -37,6 +37,11 @@ void Comunicados::setEliminado(bool eliminado){
 
     _eliminado = eliminado;
 }
+void Comunicados::setComunicado(const char *comu){
+
+    strcpy(_comunicado,comu);
+
+}
 
 int Comunicados::getIdComunicado()
 {
@@ -69,4 +74,9 @@ Fecha Comunicados::getFechaComunicado()
 bool Comunicados::getEliminado(){
 
 return _eliminado;
+}
+
+const char Comunicados::getComunicado(){
+
+return* _comunicado;
 }

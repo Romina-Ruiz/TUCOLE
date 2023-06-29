@@ -73,6 +73,40 @@ Comunicados obj;
     return ok;
   }
 
+  int ComunicadosArchivo::buscarReg(int id){
+
+  int nroRegistro = -1;
+
+  int cantidad = this->getCantidad();
+  Comunicados registro;
+  for (int i = 0; i < cantidad; i++)
+  {
+    registro =this->leerReg(i);
+    if (registro.getIdComunicado() == id)
+    {
+      nroRegistro = i;
+      break;
+    }
+  }
+  return nroRegistro;
+
+  }
+  bool ComunicadosArchivo::guardar(Comunicados reg, int posicionAReemplazar){
+
+   FILE *p = fopen(_ruta, "rb+");
+
+    if (p == NULL)
+    {
+        return false;
+    }
+
+    fseek(p, posicionAReemplazar * sizeof(Comunicados), SEEK_SET);
+    bool pudoEscribir = fwrite(&reg, sizeof(Comunicados), 1, p);
+    fclose(p);
+    return pudoEscribir;
+
+  }
+
 void ComunicadosArchivo::vaciar(){
 	FILE *p = fopen(_ruta, "wb");
 	if (p == NULL)

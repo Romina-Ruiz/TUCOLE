@@ -16,7 +16,7 @@ private:
 
 public:
 
-
+    void setComunicado(const char *comu);
     void setIdComunicado(int idcomunicado);
     void setDNIalumno(int dni);
     void setIdMateria(int id);
@@ -24,6 +24,7 @@ public:
     void setFechaComunicado(Fecha fecha);
     void setEliminado(bool eliminado);
 
+    const char getComunicado();
     int getIdComunicado();
     int getDni();
     int getIdMateria();

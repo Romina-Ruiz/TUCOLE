@@ -17,7 +17,8 @@ public:
     bool agregar (Comunicados dto);
     Comunicados leerReg(int nroRegistro);
     bool modificarReg(Comunicados registro, int nroRegistro);
-
+    int buscarReg(int id);
+    bool guardar(Comunicados reg, int posicionAReemplazar);
 
 //    bool eliminar(Comunicados dto);
     void vaciar();
