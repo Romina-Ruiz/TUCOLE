@@ -239,7 +239,7 @@
 	<cstdio>
 	"Profesor.h"
 
-1687396305 source:c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\alumno.cpp
+1687999878 source:c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\alumno.cpp
 	<iostream>
 	"Alumno.h"
 	"../MENUS/Fecha.h"
@@ -247,18 +247,18 @@
 	"AlumnoArchivo.h"
 	"Persona.h"
 
-1687290213 c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\alumno.h
+1687999878 c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\alumno.h
 	"Persona.h"
 	"../MENUS/Fecha.h"
 
-1687276375 c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\persona.h
+1687999878 c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\persona.h
 
-1687630729 source:c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\alumnoarchivo.cpp
+1687999878 source:c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\alumnoarchivo.cpp
 	"AlumnoArchivo.h"
 	"Alumno.h"
 	<cstdio>
 
-1687400741 c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\alumnoarchivo.h
+1687999878 c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\alumnoarchivo.h
 	<cstdio>
 	<cstring>
 	"Alumno.h"
@@ -281,32 +281,32 @@
 	<cstring>
 	<iostream>
 
-1687736432 source:c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\cuotaarchivo.cpp
+1687999878 source:c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\cuotaarchivo.cpp
 	<cstdio>
 	<cstring>
 	"Cuota.h"
 	"CuotaArchivo.h"
 
-1687321629 c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\cuotaarchivo.h
+1687999878 c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\cuotaarchivo.h
 	"Cuota.h"
 	"CuotaManager.h"
 
-1687676402 source:c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\falta.cpp
+1687999878 source:c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\falta.cpp
 	<iostream>
 	"Falta.h"
 	<cstring>
 	"../MENUS/Fecha.h"
 	"../MENUS/rlutil.h"
 
-1687398560 c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\falta.h
+1687999878 c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\falta.h
 	"../MENUS/Fecha.h"
 
-1687397518 source:c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\faltaarchivo.cpp
+1687999878 source:c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\faltaarchivo.cpp
 	<iostream>
 	"FaltaArchivo.h"
 	"Falta.h"
 
-1687397518 c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\faltaarchivo.h
+1687999878 c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\faltaarchivo.h
 	"Falta.h"
 
 1686781906 source:c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\faltas.cpp
@@ -314,28 +314,28 @@
 
 1686781905 c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\faltas.h
 
-1687907396 source:c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\materia.cpp
+1687999878 source:c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\materia.cpp
 	<iostream>
 	"Materia.h"
 	<cstring>
 
-1687907396 c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\materia.h
+1687999878 c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\materia.h
 
-1687831136 source:c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\materiaarchivo.cpp
+1687999878 source:c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\materiaarchivo.cpp
 	<iostream>
 	"MateriaArchivo.h"
 	"Materia.h"
 	<cstring>
 
-1687831136 c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\materiaarchivo.h
+1687999878 c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\materiaarchivo.h
 	"Materia.h"
 
-1687831136 source:c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\notas.cpp
+1687999878 source:c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\notas.cpp
 	<iostream>
 	"Notas.h"
 	<cstring>
 
-1687831137 c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\notas.h
+1687999878 c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\notas.h
 
 1687405769 source:c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\notasarchivo.cpp
 	<iostream>
@@ -347,7 +347,7 @@
 	"Notas.h"
 	"NotasArchivo.h"
 
-1687276375 source:c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\persona.cpp
+1687999878 source:c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\persona.cpp
 	"Persona.h"
 	<iostream>
 	"cstring"
@@ -362,17 +362,17 @@
 1687320400 c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\personaarchivo.h
 	"Persona.h"
 
-1687146740 source:c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\profesor.cpp
+1687999878 source:c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\profesor.cpp
 	<iostream>
 	<cstring>
 	"Persona.h"
 	"Profesor.h"
 
-1687146394 c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\profesor.h
+1687999878 c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\profesor.h
 	"Persona.h"
 	"../MENUS/Fecha.h"
 
-1687401468 source:c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\profesorarchivo.cpp
+1687999878 source:c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\profesorarchivo.cpp
 	<iostream>
 	"Profesor.h"
 	"ProfesorArchivo.h"
@@ -398,7 +398,7 @@
 	<cstring>
 	<iostream>
 
-1687926805 source:c:\users\romina\documents\github\tucolegio\tucole\menus\funciones_admin.cpp
+1687999878 source:c:\users\romina\documents\github\tucolegio\tucole\menus\funciones_admin.cpp
 	<iostream>
 	<iomanip>
 	<string>
@@ -747,7 +747,7 @@
 	"Profesor.h"
 	"ProfesorArchivo.h"
 
-1687916297 source:c:\users\romina\documents\github\tucolegio\tucole\manager\alumnomanager.cpp
+1687999878 source:c:\users\romina\documents\github\tucolegio\tucole\manager\alumnomanager.cpp
 	<iostream>
 	"AlumnoManager.h"
 	"Alumno.h"
@@ -763,7 +763,7 @@
 	"Persona.h"
 	"../MENUS/FUNCIONES_ADMIN.h"
 
-1687926255 source:c:\users\romina\documents\github\tucolegio\tucole\manager\profesormanager.cpp
+1687999878 source:c:\users\romina\documents\github\tucolegio\tucole\manager\profesormanager.cpp
 	<iostream>
 	"ProfesorManager.h"
 	"Profesor.h"
@@ -773,15 +773,15 @@
 	"../MENUS/FUNCIONES_FRONT.h"
 	"../MENUS/FUNCIONES_ADMIN.h"
 
-1687320821 c:\users\romina\documents\github\tucolegio\tucole\manager\profesormanager.h
+1687999878 c:\users\romina\documents\github\tucolegio\tucole\manager\profesormanager.h
 	"Profesor.h"
 	"ProfesorArchivo.h"
 
-1687842167 c:\users\romina\documents\github\tucolegio\tucole\manager\cuotamanager.h
+1687999878 c:\users\romina\documents\github\tucolegio\tucole\manager\cuotamanager.h
 	"Cuota.h"
 	"CuotaArchivo.h"
 
-1687907396 source:c:\users\romina\documents\github\tucolegio\tucole\manager\materiamanager.cpp
+1687999878 source:c:\users\romina\documents\github\tucolegio\tucole\manager\materiamanager.cpp
 	<iostream>
 	<cstring>
 	"MateriaManager.h"
@@ -791,11 +791,11 @@
 	"../MENUS/rlutil.h"
 	"../MENUS/FUNCIONES_FRONT.h"
 
-1687907396 c:\users\romina\documents\github\tucolegio\tucole\manager\materiamanager.h
+1687999878 c:\users\romina\documents\github\tucolegio\tucole\manager\materiamanager.h
 	"Materia.h"
 	"MateriaArchivo.h"
 
-1687924061 source:c:\users\romina\documents\github\tucolegio\tucole\manager\cuotamanager.cpp
+1687999878 source:c:\users\romina\documents\github\tucolegio\tucole\manager\cuotamanager.cpp
 	<iostream>
 	<iomanip>
 	<cstring>
@@ -806,7 +806,7 @@
 	"Alumno.h"
 	"../MENUS/FUNCIONES_FRONT.h"
 
-1687916013 source:c:\users\romina\documents\github\tucolegio\tucole\manager\faltamanager.cpp
+1687999878 source:c:\users\romina\documents\github\tucolegio\tucole\manager\faltamanager.cpp
 	<iostream>
 	"FaltaManager.h"
 	"Falta.h"
@@ -817,7 +817,7 @@
 	"AlumnoArchivo.h"
 	"../MENUS/FUNCIONES_FRONT.h"
 
-1687914829 c:\users\romina\documents\github\tucolegio\tucole\manager\faltamanager.h
+1687999878 c:\users\romina\documents\github\tucolegio\tucole\manager\faltamanager.h
 	"Falta.h"
 	"FaltaArchivo.h"
 
@@ -913,10 +913,10 @@
 
 1687386767 c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\manager\comunicadosmanager.h
 
-1687390603 source:c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\comunicados.cpp
+1687999878 source:c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\comunicados.cpp
 	"Comunicados.h"
 
-1687470094 c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\comunicados.h
+1687999878 c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\comunicados.h
 	"../MENUS/Fecha.h"
 
 1687396305 source:c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\comunicadosarchivo.cpp
@@ -931,22 +931,22 @@
 
 1687390603 c:\users\romina\documents\github\tucolegio\tucole\manager\comunicadosmanager.h
 
-1687630729 source:c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\pago.cpp
+1687999878 source:c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\pago.cpp
 	"Pago.h"
 	"../MENUS/Fecha.h"
 
-1687831137 c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\pago.h
+1687999878 c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\pago.h
 	"../MENUS/Fecha.h"
 
-1687736432 source:c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\pagoarchivo.cpp
+1687999878 source:c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\pagoarchivo.cpp
 	<cstdio>
 	<cstring>
 	"PagoArchivo.h"
 
-1687736432 c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\pagoarchivo.h
+1687999878 c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\pagoarchivo.h
 	"Pago.h"
 
-1687926771 source:c:\users\romina\documents\github\tucolegio\tucole\manager\pagomanager.cpp
+1687999878 source:c:\users\romina\documents\github\tucolegio\tucole\manager\pagomanager.cpp
 	<iostream>
 	<iomanip>
 	<cstring>
@@ -958,11 +958,11 @@
 	"../MENUS/FUNCIONES_FRONT.h"
 	"AlumnoArchivo.h"
 
-1687924911 c:\users\romina\documents\github\tucolegio\tucole\manager\pagomanager.h
+1687999878 c:\users\romina\documents\github\tucolegio\tucole\manager\pagomanager.h
 	"Pago.h"
 	"PagoArchivo.h"
 
-1687923051 source:c:\users\romina\documents\github\tucolegio\tucole\manager\notamanager.cpp
+1687999878 source:c:\users\romina\documents\github\tucolegio\tucole\manager\notamanager.cpp
 	<iostream>
 	<iomanip>
 	<string>
@@ -1043,21 +1043,21 @@
 
 1687833129 c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\curso.h
 
-1687831136 source:c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\cursoarchivo.cpp
+1687999878 source:c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\cursoarchivo.cpp
 	<iostream>
 	"CursoArchivo.h"
 	<cstring>
 
-1687831136 c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\cursoarchivo.h
+1687999878 c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\cursoarchivo.h
 	"Curso.h"
 
-1687907396 source:c:\users\romina\documents\github\tucolegio\tucole\manager\cursomanager.cpp
+1687999878 source:c:\users\romina\documents\github\tucolegio\tucole\manager\cursomanager.cpp
 	"CursoManager.h"
 	"../MENUS/rlutil.h"
 	"AlumnoArchivo.h"
 	"../MENUS/FUNCIONES_FRONT.h"
 
-1687907396 c:\users\romina\documents\github\tucolegio\tucole\manager\cursomanager.h
+1687999878 c:\users\romina\documents\github\tucolegio\tucole\manager\cursomanager.h
 	"Curso.h"
 	"CursoArchivo.h"
 
