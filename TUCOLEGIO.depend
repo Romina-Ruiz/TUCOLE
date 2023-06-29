@@ -442,7 +442,7 @@
 
 1687910994 c:\users\romina\documents\github\tucolegio\tucole\menus\funciones_admin.h
 
-1687036561 source:c:\users\romina\documents\github\tucolegio\tucole\menus\funciones_front.cpp
+1688067357 source:c:\users\romina\documents\github\tucolegio\tucole\menus\funciones_front.cpp
 	<iostream>
 	<iomanip>
 	<string>
@@ -950,7 +950,7 @@
 1688058102 c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\comunicadosarchivo.h
 	"Comunicados.h"
 
-1688058172 source:c:\users\romina\documents\github\tucolegio\tucole\manager\comunicadosmanager.cpp
+1688075899 source:c:\users\romina\documents\github\tucolegio\tucole\manager\comunicadosmanager.cpp
 	"ComunicadosManager.h"
 	"Comunicados.h"
 	"ComunicadosArchivo.h"

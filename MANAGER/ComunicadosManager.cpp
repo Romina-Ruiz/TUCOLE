@@ -34,7 +34,8 @@ void ComunicadosManager::Cargar()
     system("cls");
 
     const char *opciones[] = {"COMUNICADOS POR ALUMNO", "COMUNICADOS POR CURSO",
-                              "VOLVER AL MENU PRINCIPAL"};
+                              "VOLVER AL MENU PRINCIPAL"
+                             };
 
     int op=1, y=0;
 
@@ -122,7 +123,7 @@ void ComunicadosManager::Cargar()
 
             break;
 
-             case 2:     /// SALIR
+            case 2:     /// SALIR
                 system("cls");
                 menuAdmin();
                 system("pause>nul");
@@ -147,17 +148,17 @@ void ComunicadosManager::listarxDNI(Comunicados obj)
     rlutil::setColor(rlutil::YELLOW);
     mostrar_mensaje ("*****      COMUNICADO  ***** ", 34, 4);
 
-         rlutil::locate(20,10);
-        cout<<"ID COMUNICADO:    "<<obj.getIdComunicado()<<endl;
+    rlutil::locate(20,10);
+    cout<<"ID COMUNICADO:    "<<obj.getIdComunicado()<<endl;
 
-        rlutil::locate(20,12);
-        cout<<"COMUNICADO:    " <<endl;
-        rlutil::locate(35,13);
-        cout<<obj.getComunicado()<<endl;
+    rlutil::locate(20,12);
+    cout<<"COMUNICADO:    " <<endl;
+    rlutil::locate(35,13);
+    cout<<obj.getComunicado()<<endl;
 
-           system("pause>nul");
-            system("cls");
-    }
+    system("pause>nul");
+    system("cls");
+}
 
 
 void  ComunicadosManager::ComunicadoxDNI()
@@ -202,7 +203,7 @@ void  ComunicadosManager::ComunicadoxDNI()
     aux.setAnioCurso(0);
     aux.setIdComunicado(id);
     aux.setFechaComunicado(Fecha(dia, mes, anio));
-    aux.setIdComunicado(*comunicado);
+    aux.setComunicado(comunicado);
     aux.setEliminado(true);
 
     if (_archivo.agregar(aux))
@@ -261,7 +262,7 @@ void  ComunicadosManager::ComunicadoxCurso()
     aux.setAnioCurso(CURSO);
     aux.setIdComunicado(id);
     aux.setFechaComunicado(Fecha(dia, mes, anio));
-    aux.setIdComunicado(*comunicado);
+    aux.setComunicado(comunicado);
     aux.setEliminado(true);
 
     if (_archivo.agregar(aux))
@@ -293,19 +294,19 @@ void ComunicadosManager::EliminarComunicado()
     {
         reg = _archivo.leerReg(posicion);
 
-       // int res;
-       // rlutil::locate(10,18);
-       // cout << "DESEA DAR DE BAJA EL COMUNICADO (1-SI/2-NO): ";
-       // rlutil::locate(55,10);
-       // cin >> res;
-       // cout << endl;
+        // int res;
+        // rlutil::locate(10,18);
+        // cout << "DESEA DAR DE BAJA EL COMUNICADO (1-SI/2-NO): ";
+        // rlutil::locate(55,10);
+        // cin >> res;
+        // cout << endl;
 //
-       // if (res==1)
-       // {
-            reg.setEliminado(false);
-            _archivo.guardar(reg, posicion);
-          cout << "Comunicado #" << comunicado<< " eliminado correctamente" << endl;
-          system("pause>nul");
+        // if (res==1)
+        // {
+        reg.setEliminado(false);
+        _archivo.guardar(reg, posicion);
+        cout << "Comunicado #" << comunicado<< " eliminado correctamente" << endl;
+        system("pause>nul");
 
         //}
     }
@@ -319,19 +320,27 @@ void ComunicadosManager::EliminarComunicado()
 }
 
 
-void ComunicadosManager::ComunicadosActivos(){
+void ComunicadosManager::ComunicadosActivos()
+{
 
 
     int cantidadRegistros = _archivo.getCantidad();
 
     for (int i = 0; i<cantidadRegistros; i++)
     {
-       Comunicados reg = _archivo.leerReg(i);
+        Comunicados reg = _archivo.leerReg(i);
         if (reg.getEliminado()==true)
         {
-         this->listarxDNI(reg);
-          system("pause>nul");
-            cout << endl;
+
+            rlutil::locate(10,9);
+            cout<<"COMUNICADO N#:  "<<reg.getIdComunicado()<< endl;
+            rlutil::locate(10,10);
+            cout<<"FECHA:  "<<reg.getFechaComunicado().toString()<< endl;
+            rlutil::locate(10,11);
+            cout << reg.getComunicado()<< endl;
+
+            system("pause>nul");
+            system("cls");
         }
     }
 }
