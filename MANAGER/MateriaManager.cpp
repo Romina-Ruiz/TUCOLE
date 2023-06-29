@@ -6,6 +6,8 @@
 #include "Alumno.h"
 #include"../MENUS/rlutil.h"
 #include "../MENUS/FUNCIONES_FRONT.h"
+#include"Curso.h"
+#include"CursoArchivo.h"
 
 using namespace std;
 
@@ -129,8 +131,8 @@ void MateriaManager::ListarTodos()
     {
         Materia reg = _archivo.leerReg(i);
 
-            Listar(reg);
-            cout << endl;
+        Listar(reg);
+        cout << endl;
 
     }
 }
@@ -145,12 +147,14 @@ void MateriaManager::Listar(Materia materia)
     cout<<"ID MATERIA :     " <<materia.getIdMateria()<<endl;
     rlutil::locate(20,11);
     cout<<"NOMBRE PROFESOR : " <<materia.getNombreProfesor()<<endl;
-     rlutil::locate(20,12);
-     cout<<" ANIO LECTIVO : " <<materia.getAnioLectivo()<<endl;
+    rlutil::locate(20,12);
+    cout<<" ANIO LECTIVO : " <<materia.getAnioLectivo()<<endl;
 
     system("pause>nul");
     system("cls");
 }
+
+
 void MateriaManager::ListarXanioLectivo()
 {
     int AnioLectivo;
@@ -160,7 +164,7 @@ void MateriaManager::ListarXanioLectivo()
 
     rlutil::locate(20,9);
     cout<<"INGRESE EL ANIO LECTIVO :"<<endl;
-     rlutil::locate(30,10);
+    rlutil::locate(30,10);
     cin>>AnioLectivo;
     system("cls");
 
@@ -178,13 +182,55 @@ void MateriaManager::ListarXanioLectivo()
             rlutil::locate(33,9);
             cout <<"PROFESOR :  "<<obj.getNombreProfesor()<<endl;
 
-             system("pause>nul");
+            system("pause>nul");
             system("cls");
         }
 
     }
-                rlutil::locate(30,9);
-                cout <<"FIN DEL LISTADO "<<endl;
+    rlutil::locate(30,9);
+    cout <<"FIN DEL LISTADO "<<endl;
+}
+
+void MateriaManager::MenuUserMaterias(int dni)
+{
+
+    Materia objMateria;
+    MateriaArchivo ArMateria;
+    Curso objCurso;
+    CursoArchivo ArCurso;
+
+    int cantReg=ArMateria.getCantidad();
+    int cantRegCurso=ArCurso.getCantidad();
+    int anio=0;
+
+    for (int i=0; i<cantRegCurso; i++)
+    {
+
+        objCurso=ArCurso.leerReg(i);
+
+        if(objCurso.getDniAlumno()==dni)
+        {
+
+            anio=objCurso.getCurso();
+        }
+
+        int d=0;
+        for(int x=0; x<cantReg; x++)
+        {
+
+            objMateria=ArMateria.leerReg(x);
+
+            if (objMateria.getAnioLectivo()==anio)
+            {
+
+                d++;
+                rlutil::locate(20,9+d);
+                cout <<"MATERIA: " <<objMateria.getNombreMateria();
+
+            }
+        }
+    }
+
 }
 //
 //

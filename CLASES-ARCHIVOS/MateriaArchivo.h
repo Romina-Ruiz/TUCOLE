@@ -22,7 +22,7 @@ public:
     void leer(Materia *vec, int cantidadRegistrosALeer);
     bool guardar(Materia *vec, int cantidadRegistrosAEscribir);
     void vaciar();
-
+    int buscarReg(int anio);
 
 
 

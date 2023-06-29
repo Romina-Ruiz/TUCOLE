@@ -118,12 +118,15 @@ void menuUser(int dni)
             {
 
                 system("cls");
-                MateriaManager obj;
+
+
                 rlutil::setColor(rlutil::YELLOW);
                 rectangulo (2, 2, 100, 26);
                 mostrar_mensaje ("***** LISTADO DE MATERIAS ***** ", 34, 4);
 
-                obj.ListarXanioLectivo();
+                MateriaManager obj;
+
+                obj.MenuUserMaterias(dni);
 
                 system("pause>nul");
                 system("cls");

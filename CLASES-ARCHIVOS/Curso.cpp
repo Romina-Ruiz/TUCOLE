@@ -7,10 +7,10 @@ void Curso::setDniAlumno(int dni)
 
     _dniAlumno = dni;
 }
-void Curso::setNombreMateria(char *nombre_materia)
+void Curso::setidMateria(int idMateria)
 {
 
-strcpy(_nombre_materia,nombre_materia);
+_idmateria=idMateria;
 }
 void Curso::setIdProfesor(int idprofesor)
 {
@@ -23,6 +23,11 @@ void Curso::setCurso(int curso)
 
 _curso = curso;
 }
+void Curso::setEstado(bool e){
+
+_estado=e;
+
+}
 
 int Curso::getDniAlumno()
 {
@@ -30,9 +35,9 @@ int Curso::getDniAlumno()
 return _dniAlumno;
 
 }
-char* Curso::getnombreMateria()
+int  Curso::getIdMateria()
 {
-return _nombre_materia;
+return _idmateria;
 
 }
 int Curso::getIdProfesor()
@@ -47,3 +52,8 @@ return _curso;
 
 }
 
+bool Curso::getEstado(){
+
+return _estado;
+
+}

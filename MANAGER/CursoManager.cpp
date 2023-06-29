@@ -12,7 +12,7 @@ void CursoManager::Cargar()
     AlumnoArchivo alumno;
 
     int dniAlumno,idProfesor,curso;
-    char nombreMateria[30];
+    int idmateria;
 
 
     rlutil::locate(10,8);
@@ -39,9 +39,9 @@ void CursoManager::Cargar()
 
 
         rlutil::locate(20,10);
-        cout << "NOMBRE MATERIA #: "<<endl;
+        cout << "ID MATERIA #: "<<endl;
         rlutil::locate(37,10);
-        cin>>nombreMateria;
+        cin>>idmateria;
 
         rlutil::locate(20,11);
         idProfesor=this->generarId();
@@ -52,9 +52,10 @@ void CursoManager::Cargar()
 
         Curso aux;
         aux.setDniAlumno(dniAlumno);
-        aux.setNombreMateria(nombreMateria);
+        aux.setidMateria(idmateria);
         aux.setIdProfesor(idProfesor);
         aux.setCurso(curso);
+        aux.setEstado(true);
 
 
         if (_archivo.agregar(aux))
@@ -110,7 +111,7 @@ void CursoManager::Listar(Curso curso)
     rlutil::locate(20,9);
     cout<<"DNI ALUMNO :    " <<curso.getDniAlumno()<<endl;
     rlutil::locate(20,10);
-    cout<<"NOMBRE MATERIA:    "<<curso.getnombreMateria()<<endl;
+    cout<<"NOMBRE MATERIA:    "<<curso.getIdMateria()<<endl;
     rlutil::locate(20,11);
     cout<<"ID PROFESOR:    "<<curso.getIdProfesor()<<endl;
     rlutil::locate(20,12);
@@ -141,7 +142,7 @@ void CursoManager::ListarMateriasxCurso()
         if (curso==obj.getCurso())
         {
             rlutil::locate(8,9);
-            cout <<"MATERIA:  "<<obj.getnombreMateria()<<endl;
+            cout <<"MATERIA:  "<<obj.getIdMateria()<<endl;
             rlutil::locate(33,9);
 
             system("pause>nul");

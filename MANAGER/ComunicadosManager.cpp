@@ -166,10 +166,7 @@ void  ComunicadosManager::ComunicadoxDNI()
     char comunicado[100];
     int DNI;
     int dia,mes,anio;
-<<<<<<< Updated upstream
 
-=======
->>>>>>> Stashed changes
 
     rlutil::locate(20,9);
     cout << "INGRESE EL DNI DEL ALUMNO: "<<endl;

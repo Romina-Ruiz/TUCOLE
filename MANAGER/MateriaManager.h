@@ -7,25 +7,23 @@ class MateriaManager
 {
 private:
 
-     MateriaArchivo _archivo;
-     MateriaArchivo _archivoBkp = MateriaArchivo("Materias.bkp");
+    MateriaArchivo _archivo;
+    MateriaArchivo _archivoBkp = MateriaArchivo("Materias.bkp");
 
 public:
 
 
-	void Cargar();
-	void ListarTodos();
+    void Cargar();
+    void ListarTodos();
 //	void Editar();
 //	void Eliminar();
-	void Listar(Materia materia);
+    void Listar(Materia materia);
     void ListarXanioLectivo();
+    void MenuUserMaterias(int dni);
+    int generarId();
 
-
-//	int buscarDNI(int dni);
-	int generarId();
-
-	void HacerCopiaDeSeguridad();
-	void RestaurarCopiaDeSeguridad();
+    void HacerCopiaDeSeguridad();
+    void RestaurarCopiaDeSeguridad();
 
 };
 

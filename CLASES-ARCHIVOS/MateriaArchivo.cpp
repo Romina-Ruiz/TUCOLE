@@ -126,3 +126,21 @@ void MateriaArchivo::vaciar(){
 	}
 	fclose(p);
 }
+
+int MateriaArchivo::buscarReg(int anio){
+
+  int nroRegistro = -1;
+  int cantidad = this->getCantidad();
+
+ Materia registro;
+  for (int i = 0; i < cantidad; i++)
+  {
+    registro =this->leerReg(i);
+    if (registro.getAnioLectivo() == anio)
+    {
+      nroRegistro = i;
+      break;
+    }
+  }
+  return nroRegistro;
+}
