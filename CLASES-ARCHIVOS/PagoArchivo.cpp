@@ -110,6 +110,25 @@ int PagoArchivo::buscarReg(int dni)
     return nroRegistro;
 }
 
+
+int PagoArchivo::buscarRegistro(int NroPago)
+{
+
+    int nroRegistro = -1;
+    int cantidad = this->getCantidad();
+
+    Pago registro;
+    for (int i = 0; i < cantidad; i++)
+    {
+        registro =this->leerReg(i);
+        if (registro.getNroPago() == NroPago)
+        {
+            nroRegistro = i;
+            break;
+        }
+    }
+    return nroRegistro;
+}
 void PagoArchivo::leer(Pago *vec, int cantidadRegistrosALeer){
 	FILE *p = fopen(_ruta, "rb");
 	if (p == NULL)

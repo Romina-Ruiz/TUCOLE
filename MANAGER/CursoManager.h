@@ -18,11 +18,12 @@ public:
     int generarId();
 	void ListarTodos();
 	void ListarAlumnosxCurso();
+	void ListarMateriasxCurso();
 
-//	void Editar();
+	void Editar();
 //	void Eliminar();
 	void Listar(Curso curso);
-//	void ModificarDatos(Curso curso, int posicion);
+	void ModificarDatos(Curso curso, int posicion);
 //	bool validarIngreso(int dni);
 //
 //

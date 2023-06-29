@@ -6,18 +6,18 @@ class Curso
 {
 private:
     int _dniAlumno;
-    char _nombre_materia;
+    char _nombre_materia[30];
     int _id_profesor;
     int _curso; ///1-PRIMER AÑO/ 2-
 
 public:
     void setDniAlumno(int dni);
-    void setNombreMateria(int nombremateria);
+   void setNombreMateria(char * nombremateria);
     void setIdProfesor(int idprofesor);
     void setCurso(int curso);
 
     int getDniAlumno();
-    int getnombreMateria();
+    char * getnombreMateria();
     int getIdProfesor();
     int getCurso();
 

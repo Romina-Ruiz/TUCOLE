@@ -20,6 +20,7 @@ public:
 	void ListarXdni();
     void Editar();
     void ModificarDatos(Falta obj, int posicion);
+    void AusenciasXfecha();
 
 //	void Eliminar();
 //	void Listar(Alumno alumno);

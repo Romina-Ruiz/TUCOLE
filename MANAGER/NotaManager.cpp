@@ -206,6 +206,11 @@ void NotaManager::ModificarDatos(int dni)
 
     Notas aux;
     NotasArchivo arNotas;
+ int _DNIalumno;
+    char _nombre_materia[30];
+    int _Nro_examen; //1- PARCIAL 1/ 2- PARCIAL 2;
+    float _nota;
+    bool _eliminada;
 
     int tipo;
     float nota;

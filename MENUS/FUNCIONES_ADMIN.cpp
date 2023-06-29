@@ -136,7 +136,7 @@ void menuPagos()
 {
     system("cls");
 
-    const char *opciones[] = {"CARGAR PAGO","MODIFICAR PAGO","BUSCAR PAGO POR DNI","VOLVER AL MENU PRINCIPAL"};
+    const char *opciones[] = {"CARGAR PAGO","ELIMINAR PAGO","BUSCAR PAGO POR DNI","VOLVER AL MENU PRINCIPAL"};
     int op=1, y=0;
 
     rlutil::hidecursor();
@@ -203,20 +203,22 @@ void menuPagos()
 
             break;
 
-            case 1:     /// Modificar pagos
+            case 1:     /// eliminar pagos
+
             {
                 system("cls");
 
                 PagoManager obj;
                 rectangulo (2, 2, 100, 26);
                 rlutil::setColor(rlutil::YELLOW);
-                mostrar_mensaje ("***** MODIFICAR DATOS DEL PAGO ***** ", 34, 4);
+                mostrar_mensaje ("***** CARGA DE PAGOS ***** ", 34, 4);
 
-                obj.Editar();
+                obj.EliminarPago();
 
                 system("pause>nul");
                 system("cls");
             }
+
 
             break;
 
@@ -674,7 +676,7 @@ void menuCargarCursos()
 {
     system("cls");
 
-    const char *opciones[] = {"CARGAR CURSO","CARGAR ALUMNOS AL CURSO", "MODIFICAR DATOS","VOLVER AL MENU PRINCIPAL"};
+    const char *opciones[] = {"CARGAR CURSO","LISTAR MATERIAS POR ANIO LECTIVO", "MODIFICAR DATOS","VOLVER AL MENU PRINCIPAL"};
     int op=1, y=0;
 
     rlutil::hidecursor();
@@ -748,9 +750,9 @@ void menuCargarCursos()
                 CursoManager obj;
                 rlutil::setColor(rlutil::YELLOW);
                 rectangulo (2, 2, 100, 26);
-                mostrar_mensaje ("***** CARGAR CURSOS ***** ", 34, 4);
+                mostrar_mensaje ("***** LISTA: ALUMNOS POR CURSO ***** ", 34, 4);
 
-                obj.ListarTodos();
+                obj.ListarMateriasxCurso();
 
                 system("pause>nul");
                 system("cls");
@@ -1199,10 +1201,11 @@ void menuInformes()
             case 3: ///Informe de ausencias por fechas
             {
                 system("cls");
+                FaltaManager obj;
                 rlutil::setColor(rlutil::YELLOW);
                 rectangulo (2, 2, 100, 26);
                 mostrar_mensaje ("***** INFORME DE AUSENCIAS ***** ", 34, 4);
-
+                obj.AusenciasXfecha();
                 system("pause>nul");
                 system("cls");
 

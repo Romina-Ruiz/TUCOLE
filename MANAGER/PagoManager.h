@@ -26,6 +26,9 @@ public:
     void Editar();
     void ModificarDatos(Pago pago, int posicion);
     void ListarxDNI(int dni);
+    void EliminarPago();
+
+
 
 
 

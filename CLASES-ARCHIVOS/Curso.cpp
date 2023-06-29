@@ -1,13 +1,16 @@
+#include <iostream>
+#include <cstring>
 #include "Curso.h"
+
 void Curso::setDniAlumno(int dni)
 {
 
     _dniAlumno = dni;
 }
-void Curso::setNombreMateria(int nombre_materia)
+void Curso::setNombreMateria(char *nombre_materia)
 {
 
-_nombre_materia = nombre_materia;
+strcpy(_nombre_materia,nombre_materia);
 }
 void Curso::setIdProfesor(int idprofesor)
 {
@@ -27,7 +30,7 @@ int Curso::getDniAlumno()
 return _dniAlumno;
 
 }
-int Curso::getnombreMateria()
+char* Curso::getnombreMateria()
 {
 return _nombre_materia;
 

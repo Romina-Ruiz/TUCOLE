@@ -21,6 +21,7 @@ public:
     bool guardar(Pago reg, int posicionAReemplazar);
     void leer(Pago *vec, int cantidadRegistrosALeer);
     bool guardar(Pago *vec, int cantidadRegistrosAEscribir);
+    int buscarRegistro(int NroPago);
     void vaciar();
 
 };

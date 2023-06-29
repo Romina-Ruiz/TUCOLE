@@ -91,7 +91,7 @@ void  PagoManager::Cargar()
         aux.setNroPago(pag);
         aux.setMonto(importe);
         aux.setFechaDePago(Fecha(dia, mes, anio));
-        aux.setEliminado(0);
+        aux.setEliminado(false);
 
 
         if (_archivo.agregar(aux))
@@ -250,6 +250,8 @@ void PagoManager::Listar(Pago pago)
     rlutil::setColor(rlutil::YELLOW);
     mostrar_mensaje ("*****   LISTA DE PAGOS   *****", 34, 4);
 
+    if(pago.getEliminado()==false){
+
     rlutil::locate(20,9);
     cout<<"DNI ALUMNO:    " <<pago.getDNIalumno()<<endl;
     rlutil::locate(20,10);
@@ -260,11 +262,13 @@ void PagoManager::Listar(Pago pago)
     cout<<"FECHA DE PAGO :    " <<pago.getFechaDePago().toString()<<endl;
     rlutil::locate(20,13);
 
+
+
     system("pause>nul");
     system("cls");
 
 }
-
+}
 
 int PagoManager::buscarDNI(int dni)
 {
@@ -287,250 +291,72 @@ int PagoManager::buscarDNI(int dni)
 
     return nroReg;
 }
-void PagoManager::Editar()
+//void PagoManager::Editar()
+//{
+//    Pago reg;
+//    int dni, posicion;
+//
+//    rlutil::locate(20,9);
+//    cout << "DNI A MODIFICAR: ";
+//    cin >> dni;
+//    cout << endl;
+//
+//    system("cls");
+//    mostrar_mensaje ("***** MODIFICAR DE PAGOS ***** ", 34, 4);
+//    posicion = _archivo.buscarReg(dni);
+//    if (posicion >= 0)
+//    {
+//        reg = _archivo.leerReg(posicion);
+//
+//        Listar(reg);
+//        cout << endl;
+//
+//        int nuevoEstado;
+//        rlutil::locate(20,10);
+//        cout << "DESEA MODIFICAR ALGUN DATO? (1-SI/2-NO): ";
+//        rlutil::locate(64,20);
+//        cin >> nuevoEstado;
+//
+//        if (nuevoEstado==1)
+//        {
+//            ModificarDatos(reg,posicion);
+//
+//        }
+//
+//    }
+//    else
+//    {
+//        system("pause>nul");
+//    }
+//}
+
+void PagoManager::EliminarPago()
 {
-    Pago reg;
-    int dni, posicion;
 
-    rlutil::locate(20,9);
-    cout << "DNI A MODIFICAR: ";
-    cin >> dni;
-    cout << endl;
+	Pago reg;
+	int NroPago, posicion;
+	cout << "Nro de pago a eliminar : ";
+	cin >> NroPago;
+	cout << endl;
 
-    system("cls");
-    mostrar_mensaje ("***** MODIFICAR DE PAGOS ***** ", 34, 4);
-    posicion = _archivo.buscarReg(dni);
-    if (posicion >= 0)
-    {
-        reg = _archivo.leerReg(posicion);
-
-        Listar(reg);
-        cout << endl;
-
-        int nuevoEstado;
-        rlutil::locate(20,10);
-        cout << "DESEA MODIFICAR ALGUN DATO? (1-SI/2-NO): ";
-        rlutil::locate(64,20);
-        cin >> nuevoEstado;
-
-        if (nuevoEstado==1)
-        {
-            ModificarDatos(reg,posicion);
-
-        }
-
-    }
-    else
-    {
-        system("pause>nul");
-    }
+	posicion = _archivo.buscarRegistro(NroPago);
+	if (posicion >= 0)
+	{
+		reg = _archivo.leerReg(posicion);
+		Listar(reg);
+		cout << endl;
+		reg.setEliminado(true);
+		_archivo.guardar(reg, posicion);
+		cout << "Registro #" << NroPago << " eliminado correctamente" << endl;
+	}
+	else
+	{
+		cout << "No existe el Numero de pago #" << NroPago << endl;
+	}
 }
-void PagoManager::ModificarDatos(Pago pago, int posicion)
-{
-
-
-    system("cls");
-    const char *opciones[] = {"DNI", "MONTO","FECHA DE PAGO","ELIMINAR PAGO", "VOLVER AL MENU PRINCIPAL"};
-
-    mostrar_mensaje ("* MODIFICAR DATOS DEL PAGO *", 40, 4);
-    mostrar_mensaje ("--------------------------------", 40, 5);
-
-    rlutil::saveDefaultColor();
-    rectangulo (2, 2, 100, 26);
-    rlutil::setColor(rlutil::YELLOW);
-
-    int op=1, y=0;
-
-    rlutil::hidecursor();
-
-    do
-    {
-        rlutil::saveDefaultColor();
-        rlutil::setColor(rlutil::YELLOW);
-
-        showItem (opciones[0],30,10,y==0);
-        showItem (opciones[1],30,11,y==1);
-        showItem (opciones[2],30,12,y==2);
-        showItem (opciones[3],30,13,y==3);
-        showItem (opciones[4],30,14,y==4);
-
-        rlutil::locate(26,10+y);
-        cout <<"==> " <<endl;
-
-        switch(rlutil::getkey())
-        {
-        case 14: //UP
-            rlutil::locate(26,10+y);
-            cout <<"   " <<endl;
-            y--;
-
-            if (y<0)
-            {
-                y=0;
-            }
-            break;
-
-        case 15: //DOWN
-            rlutil::locate(26,10+y);
-            cout <<"   " <<endl;
-            y++;
-
-            if (y>4)
-            {
-                y=4;
-            }
-            break;
-
-        case 1:   /// OPCIONES AL INGRESAR ENTER (EL ENTER ES LA TECLA 1):
-
-            switch(y)
-            {
-            case 0:      /// SETEAR DNI
-                system("cls");
-                {
-                    mostrar_mensaje ("* MODIFICAR DATOS DEL PAGO*", 40, 4);
-                    mostrar_mensaje ("--------------------------------", 40, 5);
-                    int dni;
-                    rlutil::locate(20,9);
-                    cout << "INGRESE EL NUEVO DNI: "<<endl;
-                    rlutil::locate(39,9);
-                    cin>>dni;
-                    pago.setDNIalumno(dni);
-                    if (_archivo.guardar(pago, posicion))
-                    {
-
-                        rlutil::locate(30,15);
-                        cout << "** REGISTRO MODIFICADO **"<<endl;
-                    }
-
-                    system("pause>nul");
-                    system("cls");
-                }
-
-                break;
-
-            case 1:       /// SETEAR MONTO
-                system("cls");
-                mostrar_mensaje ("* MODIFICAR DATOS DEL ALUMNO *", 40, 4);
-                mostrar_mensaje ("--------------------------------", 40, 5);
-
-                {
-
-                    int monto;
-                    rlutil::locate(20,9);
-                    cout << "INGRESE EL NUEVO MONTO: "<<endl;
-                    rlutil::locate(47,9);
-                    cin>>monto;
-                    pago.setMonto(monto);
-                    if (_archivo.guardar(pago, posicion))
-                    {
-
-                        rlutil::locate(30,15);
-                        cout << "** REGISTRO MODIFICADO **"<<endl;
-                    }
-
-                    system("pause>nul");
-                    system("cls");
-                }
-
-                break;
-
-            case 2:       /// SETEAR FECHA
-                system("cls");
-                mostrar_mensaje ("* MODIFICAR DATOS DEL ALUMNO *", 40, 4);
-                mostrar_mensaje ("--------------------------------", 40, 5);
-
-                {
-                    int  dia,mes,anio;
-                    rlutil::locate(20,9);
-                    cout << "INGRESE BIEN LA FECHA : DIA"<<endl;
-                     rlutil::locate(20,10);
-                    cin>>dia;
-                     rlutil::locate(20,11);
-                    cout << "INGRESE BIEN LA FECHA : DIA"<<endl;
-                    cin>>mes;
-                     rlutil::locate(20,12);
-                    cout << "INGRESE BIEN LA FECHA : DIA"<<endl;
-                     rlutil::locate(20,9);
-                    cin>>anio;
-                    rlutil::locate(47,9);
-                    pago.setFechaDePago(Fecha(dia,mes,anio));
-                    if (_archivo.guardar(pago, posicion))
-                    {
-
-                        rlutil::locate(30,15);
-                        cout << "**  REGISTRO MODIFICADO  **"<<endl;
-                    }
-
-                    system("pause>nul");
-                    system("cls");
-                }
-
-                break;
 
 
 
-            case 3:
-                system("cls");
-                mostrar_mensaje ("* ELIMINAR UN PAGO *", 40, 4);
-                mostrar_mensaje ("--------------------------------", 40, 5);
-
-                {
-
-
-                    Pago reg;
-                    int nroPago, posicion;
-                    rlutil::locate(30,15);
-                    cout << "Numero de pago a eliminar: ";
-                    rlutil::locate(30,15);
-                    cin >> nroPago;
-                    cout << endl;
-
-                    posicion = _archivo.buscarReg(nroPago);
-                    if (posicion >= 0)
-                    {
-                        reg = _archivo.leerReg(posicion);
-                        Listar(reg);
-                        cout << endl;
-                        reg.setEliminado(true);
-                        _archivo.guardar(reg, posicion);
-
-                        rlutil::locate(30,15);
-                        cout << "Numero de pago #" << nroPago << " eliminado correctamente" << endl;
-                    }
-                    else
-                    {       rlutil::locate(30,15);
-                        cout << "No existe el registro con el Numero de pago " << nroPago << endl;
-                    }
-
-
-                    system("pause>nul");
-                    system("cls");
-                }
-
-                break;
-
-            case 4:
-
-
-                /// VOLVER AL MENU PRINCIPAL
-                system("cls");
-                {
-                    system("pause>nul");
-                    system("cls");
-
-                }
-
-                break;
-            }
-        }
-
-    }
-
-
-    while(op!=0);
-    system("pause>nul");
-}
 
 void PagoManager::MenuInformePagos()
 {

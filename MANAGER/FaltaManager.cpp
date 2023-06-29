@@ -175,47 +175,47 @@ void FaltaManager::Listar(Falta falta)
     system("pause>nul");
     system("cls");
 }
-
-void FaltaManager::Editar()
-{
-
-    Falta reg;
-    int dni, posicion;
-
-    rlutil::locate(20,9);
-    cout << "DNI A MODIFICAR: ";
-    cin >> dni;
-    cout << endl;
-
-    system("cls");
-    mostrar_mensaje ("***** MODIFICAR DE FALTA***** ", 34, 4);
-    posicion = _archivo.buscarReg(dni);
-    if (posicion >= 0)
-    {
-        reg = _archivo.leerReg(posicion);
-        Listar(reg);
-        cout << endl;
-
-        int nuevoEstado;
-        rlutil::locate(20,20);
-        cout << "DESEA MODIFICAR ALGUN DATO? (1-SI/2-NO): ";
-        rlutil::locate(64,20);
-        cin >> nuevoEstado;
-
-        if (nuevoEstado==1)
-        {
-            ModificarDatos(reg,posicion);
-
-        }
-
-    }
-    else
-    {
-        system("pause>nul");
-    }
-
-
-}
+//
+//void FaltaManager::Editar()
+//{
+//
+//    Falta reg;
+//    int dni, posicion;
+//
+//    rlutil::locate(20,9);
+//    cout << "DNI A MODIFICAR: ";
+//    cin >> dni;
+//    cout << endl;
+//
+//    system("cls");
+//    mostrar_mensaje ("***** MODIFICAR DE FALTA***** ", 34, 4);
+//    posicion = _archivo.buscarReg(dni);
+//    if (posicion >= 0)
+//    {
+//        reg = _archivo.leerReg(posicion);
+//        Listar(reg);
+//        cout << endl;
+//
+//        int nuevoEstado;
+//        rlutil::locate(20,20);
+//        cout << "DESEA MODIFICAR ALGUN DATO? (1-SI/2-NO): ";
+//        rlutil::locate(64,20);
+//        cin >> nuevoEstado;
+//
+//        if (nuevoEstado==1)
+//        {
+//            ModificarDatos(reg,posicion);
+//
+//        }
+//
+//    }
+//    else
+//    {
+//        system("pause>nul");
+//    }
+//
+//
+//}
 //void FaltaManager::BuscarFalta(int dia,mes,anio){
 //
 //    FaltaArchivo falta;
@@ -233,8 +233,8 @@ void FaltaManager::Editar()
 //
 //}
 //
-void FaltaManager::ModificarDatos(Falta obj, int posicion)
-{
+//void FaltaManager::ModificarDatos(Falta obj, int posicion)
+//{
 //    system("cls");
 //    const char *opciones[] = {"FECHA DE AUSENCIA", "ELIMINAR UNA FALTA","CANTIDAD DE FALTAS ANUALES", "VOLVER AL MENU PRINCIPAL"};
 //
@@ -389,7 +389,59 @@ void FaltaManager::ModificarDatos(Falta obj, int posicion)
 //
 //    system("pause>nul");
 //
+//
+
+void FaltaManager::AusenciasXfecha(){
+
+    rectangulo (2, 2, 100, 26);
+    rlutil::setColor(rlutil::YELLOW);
+
+    int dia,mes,anio;
+    rlutil::locate(10,8);
+    cout<<"Ingrese DIA: "<<endl;
+     rlutil::locate(10,9);
+    cin>>dia;
+     rlutil::locate(10,10);
+    cout<<"Ingrese MES :" <<endl;
+     rlutil::locate(10,11);
+    cin>>mes;
+     rlutil::locate(10,12);
+    cout<<"Ingrese ANIO :"<<endl;
+     rlutil::locate(10,13);
+    cin>>anio;
+
+
+    Falta obj;
+    int cantReg=_archivo.getCantidad();
+
+    for (int x=0; x<cantReg; x++)
+    {
+        obj=_archivo.leerReg(x);
+
+        if (obj.getFechaAusencia().getDia()==dia&&
+            obj.getFechaAusencia().getMes()==mes&&
+            obj.getFechaAusencia().getAnio()==anio)
+        {
+            rlutil::locate(8,9);
+            cout<<"FECHA AUSENCIA: "<<obj.getFechaAusencia().toString()<<endl;
+            cout <<" DNI "<<obj.getDNIAlumno()<<endl;
+            cout<<obj.getFalta()<<"FALTA ."<<endl;
+
+            rlutil::locate(33,9);
+
+             system("pause>nul");
+            system("cls");
+        }
+
+    }
+                rlutil::locate(30,9);
+                cout <<"FIN DEL LISTADO "<<endl;
 }
+
+
+
+
+
 void FaltaManager::HacerCopiaDeSeguridad()
 {
 
