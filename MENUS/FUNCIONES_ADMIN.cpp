@@ -263,7 +263,7 @@ void menuCargarAlumnos()
 {
     system("cls");
 
-    const char *opciones[] = {"CARGAR ALUMNO","MODIFICAR DATOS","BUSCAR ALUMNO", "ALUMNOS POR CURSO",
+    const char *opciones[] = {"CARGAR ALUMNO","MODIFICAR DATOS","BUSCAR ALUMNO", "LISTA DE ALUMNOS",
                               "VOLVER AL MENU PRINCIPAL"
                              };
     int op=1, y=0;
@@ -376,7 +376,7 @@ void menuCargarAlumnos()
                 rlutil::setColor(rlutil::YELLOW);
                 mostrar_mensaje ("***** LISTADO DE ALUMNO ***** ", 34, 4);
 
-                obj.ListarAlumnosxCurso();
+                obj.ListarTodos();
 
                 system("pause>nul");
                 system("cls");
@@ -1160,11 +1160,12 @@ void menuInformes()
             case 0:     ///Informes por curso
             {
                 system("cls");
+                CursoManager obj;
                 rlutil::setColor(rlutil::YELLOW);
                 rectangulo (2, 2, 100, 26);
                 mostrar_mensaje ("***** INFORMES POR CURSO ***** ", 34, 4);
 
-
+                obj.ListarAlumnosxCurso();
                 system("pause>nul");
                 system("cls");
 

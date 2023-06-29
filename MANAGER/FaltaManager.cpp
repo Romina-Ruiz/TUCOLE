@@ -15,7 +15,7 @@ void FaltaManager::Cargar()
 {
     AlumnoArchivo alumno;
 
-    int anuales=0, falta=0, op;
+    int anuales=6, falta=0, op;
     int dni, dia, mes, anio;
 
     rlutil::locate(20,8);
@@ -396,19 +396,14 @@ void FaltaManager::AusenciasXfecha(){
     rectangulo (2, 2, 100, 26);
     rlutil::setColor(rlutil::YELLOW);
 
-    int dia,mes,anio;
+    int mes;
     rlutil::locate(10,8);
-    cout<<"Ingrese DIA: "<<endl;
-     rlutil::locate(10,9);
-    cin>>dia;
+
      rlutil::locate(10,10);
     cout<<"Ingrese MES :" <<endl;
      rlutil::locate(10,11);
     cin>>mes;
-     rlutil::locate(10,12);
-    cout<<"Ingrese ANIO :"<<endl;
-     rlutil::locate(10,13);
-    cin>>anio;
+
 
 
     Falta obj;
@@ -418,13 +413,16 @@ void FaltaManager::AusenciasXfecha(){
     {
         obj=_archivo.leerReg(x);
 
-        if (obj.getFechaAusencia().getDia()==dia&&
-            obj.getFechaAusencia().getMes()==mes&&
-            obj.getFechaAusencia().getAnio()==anio)
+        if (obj.getFechaAusencia().getMes()==mes)
         {
+            if(obj.getFechaAusencia().getDia()<obj.getFechaAusencia().getDia()){
+
+            system("cls");
             rlutil::locate(8,9);
             cout<<"FECHA AUSENCIA: "<<obj.getFechaAusencia().toString()<<endl;
+            rlutil::locate(20,10);
             cout <<" DNI "<<obj.getDNIAlumno()<<endl;
+            rlutil::locate(22,11);
             cout<<obj.getFalta()<<"FALTA ."<<endl;
 
             rlutil::locate(33,9);
@@ -434,12 +432,64 @@ void FaltaManager::AusenciasXfecha(){
         }
 
     }
-                rlutil::locate(30,9);
+  }              rlutil::locate(30,9);
                 cout <<"FIN DEL LISTADO "<<endl;
 }
 
+void FaltaManager::Ordenar(Falta *vec, int cantidadRegistros)
+{
+    int mayor = 0;
+
+    Falta aux;
+
+            for (int i=0; i<cantidadRegistros; i++)
+            {
+                mayor = i;
+
+                for (int j = i + 1; j < cantidadRegistros; j++)
+                {
 
 
+                   if (vec[j].getFechaAusencia().getAnio() < vec[mayor].getFechaAusencia().getAnio()&&
+                       vec[j].getFechaAusencia().getMes() < vec[mayor].getFechaAusencia().getMes()&&
+                       vec[j].getFechaAusencia().getDia() < vec[mayor].getFechaAusencia().getDia()) {
+				mayor = j;
+			}
+                }
+
+                if (i != mayor)
+                {
+                    aux = vec[i];
+                    vec[i] = vec[mayor];
+                    vec[mayor] = aux;
+                }
+
+            }
+        }
+
+
+
+void FaltaManager::ListarOrdenadosPorFecha(){
+
+	int cantidadRegistros =_archivo.getCantidad();
+	Falta *vec = new Falta[cantidadRegistros];
+
+	if (vec == nullptr){
+		cout << "Error al visualizar el listado";
+		return;
+	}
+
+	_archivo.leer(vec, cantidadRegistros);
+	Ordenar(vec, cantidadRegistros);
+
+	for(int i=0; i<cantidadRegistros; i++){
+		Listar(vec[i]);
+		cout << endl;
+	}
+
+	delete []vec;
+
+}
 
 
 void FaltaManager::HacerCopiaDeSeguridad()

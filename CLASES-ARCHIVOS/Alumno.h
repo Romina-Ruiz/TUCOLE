@@ -20,7 +20,6 @@ public:
 
     bool getEstado();
     int getLegajo();
-    int getAnioCurso();
     Fecha getIngreso();
 
 

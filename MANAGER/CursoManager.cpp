@@ -2,6 +2,7 @@
 #include "../MENUS/rlutil.h"
 #include "AlumnoArchivo.h"
 #include "../MENUS/FUNCIONES_FRONT.h"
+#include "AlumnoManager.h"
 using namespace std;
 
 
@@ -70,7 +71,7 @@ void CursoManager::Cargar()
 
         }
         system("pause>nul");
-    system("cls");
+        system("cls");
     }
 
 }
@@ -118,7 +119,8 @@ void CursoManager::Listar(Curso curso)
     system("pause>nul");
     system("cls");
 }
-void CursoManager::ListarMateriasxCurso(){
+void CursoManager::ListarMateriasxCurso()
+{
 
     rectangulo (2, 2, 100, 26);
     rlutil::setColor(rlutil::YELLOW);
@@ -142,17 +144,18 @@ void CursoManager::ListarMateriasxCurso(){
             cout <<"MATERIA:  "<<obj.getnombreMateria()<<endl;
             rlutil::locate(33,9);
 
-             system("pause>nul");
+            system("pause>nul");
             system("cls");
         }
 
     }
-                rlutil::locate(30,9);
-                cout <<"FIN DEL LISTADO "<<endl;
+    rlutil::locate(30,9);
+    cout <<"FIN DEL LISTADO "<<endl;
 }
 
 
-void CursoManager::ListarAlumnosxCurso(){
+void CursoManager::ListarAlumnosxCurso()
+{
 
     rectangulo (2, 2, 100, 26);
     rlutil::setColor(rlutil::YELLOW);
@@ -163,29 +166,43 @@ void CursoManager::ListarAlumnosxCurso(){
     rlutil::locate(15,9);
     cin>>curso;
 
+    Alumno alumno;
+    AlumnoArchivo reg;
+    AlumnoManager alumanager;
     Curso obj;
     int cantReg=_archivo.getCantidad();
+    int cantAlu=reg.getCantidad();
 
-    for (int x=0; x<cantReg; x++)
+    for (int i=0; i<cantAlu; i++)
     {
-        obj=_archivo.leerReg(x);
+        alumno=reg.leerReg(i);
 
-        if (curso==obj.getCurso())
-        {
-            rlutil::locate(8,9);
-            cout <<"ALUMNO: DNI  "<<obj.getDniAlumno()<<endl;
-            rlutil::locate(33,9);
+        bool encontro=false;
 
-             system("pause>nul");
-            system("cls");
+            for (int j=0; j<cantReg; j++)
+            {
+
+                obj=_archivo.leerReg(j);
+
+                if(encontro==false&&obj.getCurso()==curso&&alumno.getDni()==obj.getDniAlumno()){
+
+
+                encontro=true;
+                alumanager.Listar(alumno);
+
+
+
+                system("pause>nul");
+                system("cls");
+            }
+
         }
 
     }
-                rlutil::locate(30,9);
-                cout <<"FIN DEL LISTADO "<<endl;
+    rlutil::locate(30,9);
+    cout <<"FIN DEL LISTADO "<<endl;
+
 }
-
-
 //void AlumnoManager::Editar()
 //{
 //    Alumno reg;
@@ -489,54 +506,54 @@ void CursoManager::ListarAlumnosxCurso(){
 //    while(op!=0);
 //    system("pause>nul");
 //}
-void CursoManager::HacerCopiaDeSeguridad()
-{
-
-    int cantidadRegistros = _archivo.getCantidad();
-    Curso *vec = new Curso[cantidadRegistros];
-
-    if (vec == nullptr)
+    void CursoManager::HacerCopiaDeSeguridad()
     {
-        cout << "Falla al realizar backup" << endl;
-        return;
+
+        int cantidadRegistros = _archivo.getCantidad();
+        Curso *vec = new Curso[cantidadRegistros];
+
+        if (vec == nullptr)
+        {
+            cout << "Falla al realizar backup" << endl;
+            return;
+        }
+
+        _archivo.leer(vec, cantidadRegistros);
+        _archivoBkp.vaciar();
+        if (_archivoBkp.guardar(vec, cantidadRegistros))
+        {
+            cout << "Backup realizado correctamente" << endl;
+        }
+        else
+        {
+            cout << "Falla al realizar backup" << endl;
+        }
+
+        delete []vec;
     }
 
-    _archivo.leer(vec, cantidadRegistros);
-    _archivoBkp.vaciar();
-    if (_archivoBkp.guardar(vec, cantidadRegistros))
+    void CursoManager::RestaurarCopiaDeSeguridad()
     {
-        cout << "Backup realizado correctamente" << endl;
+
+        int cantidadRegistros = _archivoBkp.getCantidad();
+        Curso *vec = new Curso[cantidadRegistros];
+
+        if (vec == nullptr)
+        {
+            cout << "Falla al restaurar backup" << endl;
+            return;
+        }
+
+        _archivoBkp.leer(vec, cantidadRegistros);
+        _archivo.vaciar();
+        if (_archivo.guardar(vec, cantidadRegistros))
+        {
+            cout << "Backup restaurado correctamente" << endl;
+        }
+        else
+        {
+            cout << "Falla al restaurar backup" << endl;
+        }
+
+        delete []vec;
     }
-    else
-    {
-        cout << "Falla al realizar backup" << endl;
-    }
-
-    delete []vec;
-}
-
-void CursoManager::RestaurarCopiaDeSeguridad()
-{
-
-    int cantidadRegistros = _archivoBkp.getCantidad();
-    Curso *vec = new Curso[cantidadRegistros];
-
-    if (vec == nullptr)
-    {
-        cout << "Falla al restaurar backup" << endl;
-        return;
-    }
-
-    _archivoBkp.leer(vec, cantidadRegistros);
-    _archivo.vaciar();
-    if (_archivo.guardar(vec, cantidadRegistros))
-    {
-        cout << "Backup restaurado correctamente" << endl;
-    }
-    else
-    {
-        cout << "Falla al restaurar backup" << endl;
-    }
-
-    delete []vec;
-}

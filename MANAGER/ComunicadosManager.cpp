@@ -184,7 +184,7 @@ void  ComunicadosManager::ComunicadoxDNI()
     char comunicado[100];
     int DNI;
     int dia,mes,anio;
-    bool activo;
+
 
     rlutil::locate(20,9);
     cout << "INGRESE EL DNI DEL ALUMNO: "<<endl;

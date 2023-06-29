@@ -21,6 +21,8 @@ public:
     void Editar();
     void ModificarDatos(Falta obj, int posicion);
     void AusenciasXfecha();
+    void ListarOrdenadosPorFecha();
+    void Ordenar(Falta *vec, int cantidadRegistros);
 
 //	void Eliminar();
 //	void Listar(Alumno alumno);

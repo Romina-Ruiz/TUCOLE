@@ -330,6 +330,7 @@ int PagoManager::buscarDNI(int dni)
 //    }
 //}
 
+
 void PagoManager::EliminarPago()
 {
 
