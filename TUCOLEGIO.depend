@@ -398,7 +398,7 @@
 	<cstring>
 	<iostream>
 
-1688004660 source:c:\users\romina\documents\github\tucolegio\tucole\menus\funciones_admin.cpp
+1688020186 source:c:\users\romina\documents\github\tucolegio\tucole\menus\funciones_admin.cpp
 	<iostream>
 	<iomanip>
 	<string>
@@ -419,6 +419,7 @@
 	"CursoManager.h"
 	"CuotaManager.h"
 	"NotaManager.h"
+	"ComunicadosManager.h"
 
 1675136100 c:\users\romina\documents\github\tucolegio\tucole\menus\rlutil.h
 	<iostream>
@@ -919,20 +920,32 @@
 1687999878 source:c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\comunicados.cpp
 	"Comunicados.h"
 
-1687999878 c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\comunicados.h
+1688019523 c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\comunicados.h
 	"../MENUS/Fecha.h"
 
-1687396305 source:c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\comunicadosarchivo.cpp
+1688014115 source:c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\comunicadosarchivo.cpp
 	<iostream>
 	"ComunicadosArchivo.h"
 	<cstring>
-
-1687390603 c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\comunicadosarchivo.h
 	"Comunicados.h"
 
-1687395880 source:c:\users\romina\documents\github\tucolegio\tucole\manager\comunicadosmanager.cpp
+1688013281 c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\comunicadosarchivo.h
+	"Comunicados.h"
 
-1687390603 c:\users\romina\documents\github\tucolegio\tucole\manager\comunicadosmanager.h
+1688020376 source:c:\users\romina\documents\github\tucolegio\tucole\manager\comunicadosmanager.cpp
+	"ComunicadosManager.h"
+	"Comunicados.h"
+	"ComunicadosArchivo.h"
+	"../MENUS/rlutil.h"
+	"../MENUS/FUNCIONES_ADMIN.h"
+	"../MENUS/FUNCIONES_FRONT.h"
+	"../MENUS/FUNCIONES_USER.h"
+	"../MENUS/Fecha.h"
+	"../MENUS/MENUS.h"
+
+1688017578 c:\users\romina\documents\github\tucolegio\tucole\manager\comunicadosmanager.h
+	"Comunicados.h"
+	"ComunicadosArchivo.h"
 
 1687999878 source:c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\pago.cpp
 	"Pago.h"
