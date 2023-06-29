@@ -15,6 +15,10 @@ public:
 
     int getCantidad();
     bool agregar (Comunicados dto);
+    Comunicados leerReg(int nroRegistro);
+    bool modificarReg(Comunicados registro, int nroRegistro);
+
+
 //    bool eliminar(Comunicados dto);
     void vaciar();
 

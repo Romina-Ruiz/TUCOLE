@@ -11,11 +11,11 @@ private:
     int _id_materia;
     int _anio_curso;
     Fecha _fechaComunicado;
-    bool _eliminado;
+    bool _eliminado; //true activo false eliminado
 
 
 public:
-    Comunicados();
+
 
     void setIdComunicado(int idcomunicado);
     void setDNIalumno(int dni);

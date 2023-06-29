@@ -1,23 +1,24 @@
-//#ifndef COMUNICADOSMANAGER_H
-//#define COMUNICADOSMANAGER_H
-//
-//
-//class ComunicadosManager
-//{
-//private:
-//    char _ruta[30];
-//
-//    ComunicadosArchivo _archivo;
-//    char _avisos[200]= {};
-//    int _cantidad;
-//
-//public:
-//    ComunicadosManager (char* ruta);
-//    ComunicadosManager();
-//
-//    void Cargar();
-//    void MostrarPorCurso();
-//    void MostrarPorDNI();
-//};
-//
-//#endif // COMUNICADOSMANAGER_H
+#ifndef COMUNICADOSMANAGER_H
+#define COMUNICADOSMANAGER_H
+#include"Comunicados.h"
+#include"ComunicadosArchivo.h"
+
+class ComunicadosManager
+{
+private:
+
+    ComunicadosArchivo _archivo;
+
+
+public:
+
+    void Cargar();
+    int generarID();
+    void ComunicadoxDNI();
+    void ComunicadoxCurso();
+    void cargarCadena(char *pal, int tam);
+
+
+};
+
+#endif // COMUNICADOSMANAGER_H

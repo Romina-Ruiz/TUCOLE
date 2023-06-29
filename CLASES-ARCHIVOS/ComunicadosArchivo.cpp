@@ -1,7 +1,7 @@
 #include <iostream>
 #include "ComunicadosArchivo.h"
 #include <cstring>
-
+#include"Comunicados.h"
 
 ComunicadosArchivo::ComunicadosArchivo(const char *ruta)
 {
@@ -39,6 +39,39 @@ int ComunicadosArchivo::getCantidad(){
   }
   return cantidad;
 }
+
+Comunicados ComunicadosArchivo::leerReg(int nroRegistro)
+{
+Comunicados obj;
+    FILE* pFile = fopen(_ruta, "rb");
+
+    if (pFile == NULL){
+        return obj;
+       }
+
+        fseek(pFile, nroRegistro * sizeof(Comunicados), SEEK_SET);
+        fread(&obj, sizeof(Comunicados), 1, pFile);
+        fclose(pFile);
+
+    return obj;
+
+}
+
+ bool ComunicadosArchivo::modificarReg(Comunicados registro, int nroRegistro){
+
+ bool ok = false;
+    FILE* pFile = fopen(_ruta, "rb+");
+
+   if (pFile == NULL){
+        return false;
+       }
+        fseek(pFile, nroRegistro * sizeof(Comunicados), SEEK_SET);
+        fwrite(&registro, sizeof(Comunicados), 1, pFile);
+        fclose(pFile);
+        ok = true;
+
+    return ok;
+  }
 
 void ComunicadosArchivo::vaciar(){
 	FILE *p = fopen(_ruta, "wb");

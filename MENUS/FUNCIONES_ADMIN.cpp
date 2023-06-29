@@ -21,6 +21,7 @@ using namespace std;
 #include "CursoManager.h"
 #include "CuotaManager.h"
 #include "NotaManager.h"
+#include"ComunicadosManager.h"
 
 ///MENUS INTERNOS DE ADMIN
 
@@ -225,7 +226,7 @@ void menuPagos()
             case 2:     ///SALIR
             {
                 system("cls");
-               PagoManager obj;
+                PagoManager obj;
                 rectangulo (2, 2, 100, 26);
                 rlutil::setColor(rlutil::YELLOW);
                 mostrar_mensaje ("***** BUSCAR PAGO POR DNI ***** ", 34, 4);
@@ -238,10 +239,10 @@ void menuPagos()
                 obj.ListarxDNI(dni);
 
                 system("pause>nul");
-                 system("cls");
+                system("cls");
             }
             break;
-                 case 3:     ///SALIR
+            case 3:     ///SALIR
             {
                 system("cls");
                 menuAdmin();
@@ -517,7 +518,7 @@ void menuCargarProfesor()
                 mostrar_mensaje ("***** LISTA DE PROFESORES ***** ", 34, 4);
 
                 obj.ListarTodos();
-                 rlutil::locate(30,9);
+                rlutil::locate(30,9);
                 cout <<"FIN DEL LISTADO "<<endl;
 
                 system("pause>nul");
@@ -872,7 +873,7 @@ void menuCargarNotas()
 
             case 2:     ///BUSCAR NOTAS POR DNI
             {
-            system("cls");
+                system("cls");
                 rlutil::setColor(rlutil::YELLOW);
                 rectangulo (2, 2, 100, 26);
                 mostrar_mensaje ("***** BUSCAR NOTAS POR DNI ***** ", 34, 4);
@@ -1065,11 +1066,14 @@ void menuComunicados()
             {
 
             case 0:     ///Cargar comunicados
+            {
+                ComunicadosManager au;
 
+                au.Cargar();
 
-                ///LLAMAR A LA FUNCION CARGAR
+            }
 
-                break;
+            break;
 
             case 1:     /// Modificar comunicados
 
@@ -1177,7 +1181,7 @@ void menuInformes()
 
                 CuotaManager obj;
 
-               obj.MenuInformeCuotas();
+                obj.MenuInformeCuotas();
 
                 system("pause>nul");
                 system("cls");
