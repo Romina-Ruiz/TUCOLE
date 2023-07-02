@@ -84,3 +84,11 @@ void  cargarCadena(char *pal, int tam)
     pal[i]='\0';
     fflush(stdin);
 }
+
+void mostrarVector(const char *v, int tam){
+    int i;
+    for(i=0;i<tam;i++){
+        cout<<v[i]<<endl;
+    }
+}
+

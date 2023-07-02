@@ -15,9 +15,9 @@ void CursoManager::Cargar()
     int idmateria;
 
 
-    rlutil::locate(10,8);
+    rlutil::locate(20,8);
     cout << "INGRESE DNI #: " <<endl;
-    rlutil::locate(25,8);
+    rlutil::locate(38,8);
     cin>>dniAlumno;
 
     int numerodeRegistro=alumno.buscarReg(dniAlumno);
@@ -36,7 +36,6 @@ void CursoManager::Cargar()
         cout << "CURSO N#: "<<endl;
         rlutil::locate(30,9);
         cin>> curso;
-
 
         rlutil::locate(20,10);
         cout << "ID MATERIA #: "<<endl;

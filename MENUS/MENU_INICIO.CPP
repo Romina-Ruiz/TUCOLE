@@ -15,7 +15,6 @@ using namespace std;
 #include"../MANAGER/AlumnoManager.h"
 #include"ProfesorManager.h"
 #include"CuotaManager.h"
-//#include"AlumnoArchivo.h"
 #include"AlumnoManager.h"
 
 void menuIncio()
@@ -68,7 +67,7 @@ void SalirSistemaUser()
 
     rlutil::setColor(rlutil::YELLOW);
     mostrar_mensaje ("*****   MUCHAS GRACIAS POR USAR NUESTRO SISTEMA *****", 28, 10);
-    mostrar_mensaje ("By ARIADNA & ROMINA", 68, 20);
+    mostrar_mensaje ("By ARIANA & ROMINA", 68, 20);
 }
 
 void menuAdmin()

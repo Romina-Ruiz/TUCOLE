@@ -1079,7 +1079,7 @@ void menuComunicados()
 
             break;
 
-            case 1:     /// Modificar comunicados
+            case 1:     /// Eliminar comunicados
                 system("cls");
                 {
                     ComunicadosManager obj;

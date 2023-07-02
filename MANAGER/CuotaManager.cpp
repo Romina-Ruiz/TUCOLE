@@ -140,7 +140,7 @@ void CuotaManager::Listar(Cuota cuota)
 {
     rectangulo (2, 2, 100, 26);
     rlutil::setColor(rlutil::YELLOW);
-    mostrar_mensaje ("*****   LISTA DE CUOTA   *****", 34, 4);
+    mostrar_mensaje ("*****   FACTURAS EMITIDAS   *****", 34, 4);
 
     rlutil::locate(20,9);
     cout<<"DNI ALUMNO:    " <<cuota.getDNIalumno()<<endl;

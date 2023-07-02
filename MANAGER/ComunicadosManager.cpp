@@ -331,12 +331,16 @@ void ComunicadosManager::ComunicadosActivos()
         Comunicados reg = _archivo.leerReg(i);
         if (reg.getEliminado()==true)
         {
+            rlutil::setColor(rlutil::YELLOW);
+            rectangulo (2, 2, 100, 26);
+            mostrar_mensaje ("***** COMUNICADOS ACTIVOS ***** ", 34, 4);
 
             rlutil::locate(10,9);
             cout<<"COMUNICADO N#:  "<<reg.getIdComunicado()<< endl;
             rlutil::locate(10,10);
             cout<<"FECHA:  "<<reg.getFechaComunicado().toString()<< endl;
             rlutil::locate(10,11);
+            //mostrarVector(reg.getComunicado(),100);
             cout << reg.getComunicado()<< endl;
 
             system("pause>nul");

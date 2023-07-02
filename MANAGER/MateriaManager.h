@@ -21,6 +21,7 @@ public:
     void ListarXanioLectivo();
     void MenuUserMaterias(int dni);
     int generarId();
+    void cargarCadena(char *pal, int tam);
 
     void HacerCopiaDeSeguridad();
     void RestaurarCopiaDeSeguridad();

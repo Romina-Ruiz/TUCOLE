@@ -12,40 +12,71 @@
 using namespace std;
 
 
-
+void  MateriaManager::cargarCadena(char *pal, int tam)
+{
+    int i;
+    fflush(stdin);
+    for(i=0; i<tam; i++)
+    {
+        pal[i]=cin.get();
+        if(pal[i]=='\n') break;
+    }
+    pal[i]='\0';
+    fflush(stdin);
+}
 
 void MateriaManager::Cargar()
 
 {
 
-    char nombre_materia[40], nombre_profesor[40];
-    int idMateria,anio_lectivo;
+    char nombre_materia[40]={}, dia1[10]={},dia2[10]={},horario1[10]={},horario2[10]={};
+    int idMateria,anio_lectivo,idProfe;
+    bool estado;
 
-    rlutil::locate(20,9);
-    cout << "INGRESE NOMBRE DE LA MATERIA: "<<endl;
-    rlutil::locate(50,9);
-    cin>>nombre_materia;
-    rlutil::locate(20,10);
-    cout << "ID DE MATERIA #: " <<endl;
-    rlutil::locate(30,10);
-    idMateria=this->generarId();
-    rlutil::locate(20,12);
-    cout<<idMateria<<endl;
-    rlutil::locate(20,13);
-    cout << "INGRESE NOMBRE DEL PROFESOR:"<<endl;
-    rlutil::locate(50,13);
-    cin >>nombre_profesor;
-    rlutil::locate(20,16);
-    cout<<"ANIO LECTIVO :"<<endl;
-    rlutil::locate(35,16);
+     rlutil::locate(15,9);
+    cout<<"ANIO LECTIVO: "<<endl;
+    rlutil::locate(31,9);
     cin>>anio_lectivo;
-
+    rlutil::locate(15,10);
+    cout << "INGRESE NOMBRE DE LA MATERIA: "<<endl;
+    rlutil::locate(48,10);
+    this->cargarCadena(nombre_materia,39);
+    rlutil::locate(15,11);
+    cout << "ID DE MATERIA #: " <<endl;
+    idMateria=this->generarId();
+    rlutil::locate(35,11);
+    cout<<idMateria<<endl;
+    rlutil::locate(15,12);
+    cout << "INGRESE ID DEL PROFESOR: "<<endl;
+    rlutil::locate(50,12);
+    cin >>idProfe;
+    rlutil::locate(15,13);
+    cout << "INGRESE DIA 1 DE LA MATERIA: "<<endl;
+    rlutil::locate(50,13);
+    this->cargarCadena(dia1,10);
+    rlutil::locate(15,14);
+    cout << "INGRESE HORARIO 1 DE LA MATERIA: "<<endl;
+    rlutil::locate(50,14);
+    this->cargarCadena(horario1,10);
+    rlutil::locate(15,15);
+    cout << "INGRESE DIA 2 DE LA MATERIA: "<<endl;
+    rlutil::locate(50,15);
+    this->cargarCadena(dia2,10);
+    rlutil::locate(15,16);
+    cout << "INGRESE HORARIO 2 DE LA MATERIA: "<<endl;
+    rlutil::locate(50,16);
+    this->cargarCadena(horario2,10);
 
     Materia aux;
+    aux.setAnioLectivo(anio_lectivo);
     aux.setNombreMateria(nombre_materia);
     aux.setId(idMateria);
-    aux.setNombreProfesor(nombre_profesor);
-    aux.setAnioLectivo(anio_lectivo);
+    aux.setidProfesor(idProfe);
+    aux.setDia1(dia1);
+    aux.setHorario1(horario1);
+    aux.setDia2(dia2);
+    aux.setHorario2(horario2);
+    aux.setEliminada(false);
 
     if (_archivo.agregar(aux))
     {
@@ -142,13 +173,21 @@ void MateriaManager::Listar(Materia materia)
     rlutil::setColor(rlutil::YELLOW);
 
     rlutil::locate(20,9);
-    cout<<"NOMBRE :         " <<materia.getNombreMateria()<<endl;
+    cout<<"ANIO LECTIVO: " <<materia.getAnioLectivo()<<endl;
     rlutil::locate(20,10);
-    cout<<"ID MATERIA :     " <<materia.getIdMateria()<<endl;
+    cout<<"NOMBRE:     " <<materia.getNombreMateria()<<endl;
     rlutil::locate(20,11);
-    cout<<"NOMBRE PROFESOR : " <<materia.getNombreProfesor()<<endl;
+    cout<<"ID MATERIA :   " <<materia.getIdMateria()<<endl;
     rlutil::locate(20,12);
-    cout<<" ANIO LECTIVO : " <<materia.getAnioLectivo()<<endl;
+    cout<<"NOMBRE PROFESOR : " <<materia.getidProfesor()<<endl;
+    rlutil::locate(20,13);
+    cout<<"DIA 1 : " <<materia.getDia1()<<endl;
+   rlutil::locate(20,14);
+    cout<<"HORARIO 1 : " <<materia.getHorario1()<<endl;
+    rlutil::locate(20,15);
+    cout<<"DIA 2 : " <<materia.getDia2()<<endl;
+    rlutil::locate(20,16);
+    cout<<"HORARIO 2 : " <<materia.getHorario2()<<endl;
 
     system("pause>nul");
     system("cls");
@@ -180,7 +219,7 @@ void MateriaManager::ListarXanioLectivo()
             rlutil::locate(20,9);
             cout <<"MATERIA:  "<<obj.getNombreMateria()<<endl;
             rlutil::locate(33,9);
-            cout <<"PROFESOR :  "<<obj.getNombreProfesor()<<endl;
+            cout <<"PROFESOR :  "<<obj.getidProfesor()<<endl;
 
             system("pause>nul");
             system("cls");

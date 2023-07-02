@@ -80,20 +80,20 @@ void AlumnoManager::Cargar()
         cin >> telefono;
         rlutil::locate(20,13);
         cout << "INGRESE DIA DE INGRESO: "<<endl;
-        rlutil::locate(45,14);
+        rlutil::locate(45,13);
         cin >> dia;
-        rlutil::locate(20,15);
+        rlutil::locate(20,14);
         cout << "INGRESE MES DE INGRESO: "<<endl;
-        rlutil::locate(45,15);
+        rlutil::locate(45,14);
         cin >> mes;
-        rlutil::locate(20,16);
+        rlutil::locate(20,15);
         cout << "INGRESE ANIO DE INGRESO: "<<endl;
-        rlutil::locate(45,16);
+        rlutil::locate(45,15);
         cin >> anio;
         Legajo=this->generarLegajo();
-        rlutil::locate(20,17);
+        rlutil::locate(20,16);
         cout << "LEGAJO: "<<  Legajo <<endl;
-        rlutil::locate(20,18);
+        rlutil::locate(20,16);
         cout << "ESTADO: "<< "Activo" <<endl;
 
 
