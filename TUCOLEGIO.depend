@@ -398,7 +398,7 @@
 	<cstring>
 	<iostream>
 
-1688256649 source:c:\users\romina\documents\github\tucolegio\tucole\menus\funciones_admin.cpp
+1688275399 source:c:\users\romina\documents\github\tucolegio\tucole\menus\funciones_admin.cpp
 	<iostream>
 	<iomanip>
 	<string>
@@ -785,7 +785,7 @@
 	"Cuota.h"
 	"CuotaArchivo.h"
 
-1688270034 source:c:\users\romina\documents\github\tucolegio\tucole\manager\materiamanager.cpp
+1688275308 source:c:\users\romina\documents\github\tucolegio\tucole\manager\materiamanager.cpp
 	<iostream>
 	<cstring>
 	"MateriaManager.h"
@@ -797,7 +797,7 @@
 	"Curso.h"
 	"CursoArchivo.h"
 
-1688267260 c:\users\romina\documents\github\tucolegio\tucole\manager\materiamanager.h
+1688273299 c:\users\romina\documents\github\tucolegio\tucole\manager\materiamanager.h
 	"Materia.h"
 	"MateriaArchivo.h"
 
@@ -1074,12 +1074,12 @@
 1687999439 c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\clases-archivos\cursoarchivo.h
 	"Curso.h"
 
-1688066137 source:c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\curso.cpp
+1688271377 source:c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\curso.cpp
 	<iostream>
 	<cstring>
 	"Curso.h"
 
-1688066124 c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\curso.h
+1688271377 c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\curso.h
 
 1687999878 source:c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\cursoarchivo.cpp
 	<iostream>
@@ -1089,14 +1089,17 @@
 1687999878 c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\cursoarchivo.h
 	"Curso.h"
 
-1688066352 source:c:\users\romina\documents\github\tucolegio\tucole\manager\cursomanager.cpp
+1688274942 source:c:\users\romina\documents\github\tucolegio\tucole\manager\cursomanager.cpp
 	"CursoManager.h"
 	"../MENUS/rlutil.h"
 	"AlumnoArchivo.h"
 	"../MENUS/FUNCIONES_FRONT.h"
 	"AlumnoManager.h"
+	"Materia.h"
+	"MateriaArchivo.h"
+	"MateriaManager.h"
 
-1688021320 c:\users\romina\documents\github\tucolegio\tucole\manager\cursomanager.h
+1688273684 c:\users\romina\documents\github\tucolegio\tucole\manager\cursomanager.h
 	"Curso.h"
 	"CursoArchivo.h"
 

@@ -18,7 +18,7 @@ public:
     int generarId();
 	void ListarTodos();
 	void ListarAlumnosxCurso();
-	void ListarMateriasxCurso();
+	void ListarMateriasxCurso(int anio);
 
 	void Editar();
 //	void Eliminar();

@@ -3,16 +3,18 @@
 #include "AlumnoArchivo.h"
 #include "../MENUS/FUNCIONES_FRONT.h"
 #include "AlumnoManager.h"
+#include"Materia.h"
+#include"MateriaArchivo.h"
+#include"MateriaManager.h"
+
 using namespace std;
-
-
 
 void CursoManager::Cargar()
 {
     AlumnoArchivo alumno;
 
-    int dniAlumno,idProfesor,curso;
-    int idmateria;
+    int dniAlumno,curso;
+    int idcurso;
 
 
     rlutil::locate(20,8);
@@ -38,22 +40,16 @@ void CursoManager::Cargar()
         cin>> curso;
 
         rlutil::locate(20,10);
-        cout << "ID MATERIA #: "<<endl;
+        cout << "ID CURSO #: "<<endl;
+        idcurso=this->generarId();
         rlutil::locate(37,10);
-        cin>>idmateria;
-
-        rlutil::locate(20,11);
-        idProfesor=this->generarId();
-        rlutil::locate(40,11);
-        cout << "ID DE PROFESOR: "<<idProfesor;
-
+        cout <<idcurso;
 
 
         Curso aux;
         aux.setDniAlumno(dniAlumno);
-        aux.setidMateria(idmateria);
-        aux.setIdProfesor(idProfesor);
-        aux.setCurso(curso);
+        aux.setidCurso(idcurso);
+         aux.setCurso(curso);
         aux.setEstado(true);
 
 
@@ -109,47 +105,42 @@ void CursoManager::Listar(Curso curso)
 
     rlutil::locate(20,9);
     cout<<"DNI ALUMNO :    " <<curso.getDniAlumno()<<endl;
+    rlutil::locate(20,12);
+    cout<<"ANIO N#:    " <<curso.getCurso()<<endl;
     rlutil::locate(20,10);
-    cout<<"NOMBRE MATERIA:    "<<curso.getIdMateria()<<endl;
+    cout<<"ID CURSO:    "<<curso.getIdCurso()<<endl;
     rlutil::locate(20,11);
     cout<<"ID PROFESOR:    "<<curso.getIdProfesor()<<endl;
-    rlutil::locate(20,12);
-    cout<<"CURSO N#:    " <<curso.getCurso()<<endl;
+
 
     system("pause>nul");
     system("cls");
 }
-void CursoManager::ListarMateriasxCurso()
+void CursoManager::ListarMateriasxCurso(int anio)
 {
 
     rectangulo (2, 2, 100, 26);
     rlutil::setColor(rlutil::YELLOW);
 
-    int curso;
-    rlutil::locate(10,8);
-    cout<<"CURSO N#"<<endl;
-    rlutil::locate(15,9);
-    cin>>curso;
+    Materia aux;
+    MateriaArchivo Armate;
+    MateriaManager Manager;
+    int canRegmate=Armate.getCantidad();
 
-    Curso obj;
-    int cantReg=_archivo.getCantidad();
 
-    for (int x=0; x<cantReg; x++)
-    {
-        obj=_archivo.leerReg(x);
-
-        if (curso==obj.getCurso())
+        for (int j=0; j<canRegmate; j++)
         {
-            rlutil::locate(8,9);
-            cout <<"MATERIA:  "<<obj.getIdMateria()<<endl;
-            rlutil::locate(33,9);
+             aux=Armate.leerReg(j);
 
-            system("pause>nul");
-            system("cls");
+            if (anio==aux.getAnioLectivo()&&aux.getEliminada()==false)
+            {
+                    Manager.ListarXanioLectivo(anio);
+
+            }
+
         }
 
-    }
-    rlutil::locate(30,9);
+    rlutil::locate(30,20);
     cout <<"FIN DEL LISTADO "<<endl;
 }
 
@@ -179,12 +170,13 @@ void CursoManager::ListarAlumnosxCurso()
 
         bool encontro=false;
 
-            for (int j=0; j<cantReg; j++)
+        for (int j=0; j<cantReg; j++)
+        {
+
+            obj=_archivo.leerReg(j);
+
+            if(encontro==false&&obj.getCurso()==curso&&alumno.getDni()==obj.getDniAlumno())
             {
-
-                obj=_archivo.leerReg(j);
-
-                if(encontro==false&&obj.getCurso()==curso&&alumno.getDni()==obj.getDniAlumno()){
 
 
                 encontro=true;
@@ -506,54 +498,54 @@ void CursoManager::ListarAlumnosxCurso()
 //    while(op!=0);
 //    system("pause>nul");
 //}
-    void CursoManager::HacerCopiaDeSeguridad()
+void CursoManager::HacerCopiaDeSeguridad()
+{
+
+    int cantidadRegistros = _archivo.getCantidad();
+    Curso *vec = new Curso[cantidadRegistros];
+
+    if (vec == nullptr)
     {
-
-        int cantidadRegistros = _archivo.getCantidad();
-        Curso *vec = new Curso[cantidadRegistros];
-
-        if (vec == nullptr)
-        {
-            cout << "Falla al realizar backup" << endl;
-            return;
-        }
-
-        _archivo.leer(vec, cantidadRegistros);
-        _archivoBkp.vaciar();
-        if (_archivoBkp.guardar(vec, cantidadRegistros))
-        {
-            cout << "Backup realizado correctamente" << endl;
-        }
-        else
-        {
-            cout << "Falla al realizar backup" << endl;
-        }
-
-        delete []vec;
+        cout << "Falla al realizar backup" << endl;
+        return;
     }
 
-    void CursoManager::RestaurarCopiaDeSeguridad()
+    _archivo.leer(vec, cantidadRegistros);
+    _archivoBkp.vaciar();
+    if (_archivoBkp.guardar(vec, cantidadRegistros))
     {
-
-        int cantidadRegistros = _archivoBkp.getCantidad();
-        Curso *vec = new Curso[cantidadRegistros];
-
-        if (vec == nullptr)
-        {
-            cout << "Falla al restaurar backup" << endl;
-            return;
-        }
-
-        _archivoBkp.leer(vec, cantidadRegistros);
-        _archivo.vaciar();
-        if (_archivo.guardar(vec, cantidadRegistros))
-        {
-            cout << "Backup restaurado correctamente" << endl;
-        }
-        else
-        {
-            cout << "Falla al restaurar backup" << endl;
-        }
-
-        delete []vec;
+        cout << "Backup realizado correctamente" << endl;
     }
+    else
+    {
+        cout << "Falla al realizar backup" << endl;
+    }
+
+    delete []vec;
+}
+
+void CursoManager::RestaurarCopiaDeSeguridad()
+{
+
+    int cantidadRegistros = _archivoBkp.getCantidad();
+    Curso *vec = new Curso[cantidadRegistros];
+
+    if (vec == nullptr)
+    {
+        cout << "Falla al restaurar backup" << endl;
+        return;
+    }
+
+    _archivoBkp.leer(vec, cantidadRegistros);
+    _archivo.vaciar();
+    if (_archivo.guardar(vec, cantidadRegistros))
+    {
+        cout << "Backup restaurado correctamente" << endl;
+    }
+    else
+    {
+        cout << "Falla al restaurar backup" << endl;
+    }
+
+    delete []vec;
+}

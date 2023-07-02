@@ -29,11 +29,11 @@ void MateriaManager::Cargar()
 
 {
 
-    char nombre_materia[40]={}, dia1[10]={},dia2[10]={},horario1[10]={},horario2[10]={};
+    char nombre_materia[40]= {}, dia1[10]= {},dia2[10]= {},horario1[10]= {},horario2[10]= {};
     int idMateria,anio_lectivo,idProfe;
-    bool estado;
 
-     rlutil::locate(15,9);
+
+    rlutil::locate(15,9);
     cout<<"ANIO LECTIVO: "<<endl;
     rlutil::locate(31,9);
     cin>>anio_lectivo;
@@ -182,7 +182,7 @@ void MateriaManager::Listar(Materia materia)
     cout<<"NOMBRE PROFESOR : " <<materia.getidProfesor()<<endl;
     rlutil::locate(20,13);
     cout<<"DIA 1 : " <<materia.getDia1()<<endl;
-   rlutil::locate(20,14);
+    rlutil::locate(20,14);
     cout<<"HORARIO 1 : " <<materia.getHorario1()<<endl;
     rlutil::locate(20,15);
     cout<<"DIA 2 : " <<materia.getDia2()<<endl;
@@ -194,41 +194,32 @@ void MateriaManager::Listar(Materia materia)
 }
 
 
-void MateriaManager::ListarXanioLectivo()
+void MateriaManager::ListarXanioLectivo(int anio)
 {
-    int AnioLectivo;
+
 
     rectangulo (2, 2, 100, 26);
     rlutil::setColor(rlutil::YELLOW);
 
-    rlutil::locate(20,9);
-    cout<<"INGRESE EL ANIO LECTIVO :"<<endl;
-    rlutil::locate(30,10);
-    cin>>AnioLectivo;
-    system("cls");
-
     Materia obj;
     int cantReg=_archivo.getCantidad();
 
+    int d=1;
     for (int x=0; x<cantReg; x++)
     {
         obj=_archivo.leerReg(x);
 
-        if (AnioLectivo==obj.getAnioLectivo())
+        if (anio==obj.getAnioLectivo()&&obj.getEliminada()==false)
         {
-            rlutil::locate(20,9);
-            cout <<"MATERIA:  "<<obj.getNombreMateria()<<endl;
-            rlutil::locate(33,9);
-            cout <<"PROFESOR :  "<<obj.getidProfesor()<<endl;
+            d++;
+            rlutil::locate(20,11+d);
+            cout <<"MATERIA:  "<<obj.getNombreMateria()<< "     " <<"PROFESOR :  "<<obj.getidProfesor()<<endl;
 
-            system("pause>nul");
-            system("cls");
         }
 
     }
-    rlutil::locate(30,9);
-    cout <<"FIN DEL LISTADO "<<endl;
-}
+    system("pause>nul");
+ }
 
 void MateriaManager::MenuUserMaterias(int dni)
 {

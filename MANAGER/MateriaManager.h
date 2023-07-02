@@ -18,7 +18,7 @@ public:
 //	void Editar();
 //	void Eliminar();
     void Listar(Materia materia);
-    void ListarXanioLectivo();
+    void ListarXanioLectivo(int anio);
     void MenuUserMaterias(int dni);
     int generarId();
     void cargarCadena(char *pal, int tam);

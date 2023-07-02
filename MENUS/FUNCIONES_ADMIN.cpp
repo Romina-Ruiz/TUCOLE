@@ -632,8 +632,13 @@ void menuCargarMateria()
                 rlutil::setColor(rlutil::YELLOW);
                 rectangulo (2, 2, 100, 26);
                 mostrar_mensaje ("***** CARGAR MATERIAS ***** ", 34, 4);
+                int AnioLectivo;
+                rlutil::locate(20,9);
+                cout<<"INGRESE EL ANIO LECTIVO :"<<endl;
+                rlutil::locate(30,10);
+                cin>>AnioLectivo;
 
-                obj.ListarXanioLectivo();
+                obj.ListarXanioLectivo(AnioLectivo);
 
                 system("pause>nul");
                 system("cls");
@@ -751,9 +756,14 @@ void menuCargarCursos()
                 CursoManager obj;
                 rlutil::setColor(rlutil::YELLOW);
                 rectangulo (2, 2, 100, 26);
-                mostrar_mensaje ("***** LISTA: ALUMNOS POR CURSO ***** ", 34, 4);
+                mostrar_mensaje ("***** INFORMACION SOBRE CURSO/ANIO  ***** ", 34, 4);
+                int anio;
+                rlutil::locate(10,9);
+                cout<<"INGRESE EL ANIO LECTIVO :"<<endl;
+                rlutil::locate(38,9);
+                cin>>anio;
 
-                obj.ListarMateriasxCurso();
+                obj.ListarMateriasxCurso(anio);
 
                 system("pause>nul");
                 system("cls");
@@ -1097,7 +1107,7 @@ void menuComunicados()
                 ComunicadosManager obj;
                 obj.ComunicadosActivos();
 
-                 system("pause>nul");
+                system("pause>nul");
                 system("cls");
             }
             break;
