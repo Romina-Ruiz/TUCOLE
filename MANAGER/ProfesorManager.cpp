@@ -127,6 +127,8 @@ void ProfesorManager::Listar(Profesor profesor)
 {
     rectangulo (2, 2, 100, 26);
     rlutil::setColor(rlutil::YELLOW);
+    00mostrar_mensaje ("***** LISTA DE PROFESORES ***** ", 34, 4);
+
 
     rlutil::locate(20,9);
     cout<<"DNI:    " <<profesor.getDni()<<endl;

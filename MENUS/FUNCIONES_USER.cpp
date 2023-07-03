@@ -120,9 +120,7 @@ void menuUser(int dni)
                 system("cls");
 
 
-                rlutil::setColor(rlutil::YELLOW);
-                rectangulo (2, 2, 100, 26);
-                mostrar_mensaje ("***** LISTADO DE MATERIAS ***** ", 34, 4);
+
 
                 MateriaManager obj;
 

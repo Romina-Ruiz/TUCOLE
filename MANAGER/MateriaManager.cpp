@@ -29,13 +29,13 @@ void MateriaManager::Cargar()
 
 {
 
-    char nombre_materia[40]= {}, dia1[10]= {},dia2[10]= {},horario1[10]= {},horario2[10]= {};
+    char nombre_materia[40]= {}, dia1[10]= {},dia2[10]= {},horario1[15]= {},horario2[15]= {};
     int idMateria,anio_lectivo,idProfe;
 
 
     rlutil::locate(15,9);
     cout<<"ANIO LECTIVO: "<<endl;
-    rlutil::locate(31,9);
+    rlutil::locate(35,9);
     cin>>anio_lectivo;
     rlutil::locate(15,10);
     cout << "INGRESE NOMBRE DE LA MATERIA: "<<endl;
@@ -54,18 +54,19 @@ void MateriaManager::Cargar()
     cout << "INGRESE DIA 1 DE LA MATERIA: "<<endl;
     rlutil::locate(50,13);
     this->cargarCadena(dia1,10);
-    rlutil::locate(15,14);
+   rlutil::locate(15,14);
     cout << "INGRESE HORARIO 1 DE LA MATERIA: "<<endl;
     rlutil::locate(50,14);
-    this->cargarCadena(horario1,10);
+    this->cargarCadena(horario1,15);
     rlutil::locate(15,15);
     cout << "INGRESE DIA 2 DE LA MATERIA: "<<endl;
     rlutil::locate(50,15);
-    this->cargarCadena(dia2,10);
-    rlutil::locate(15,16);
+   this->cargarCadena(dia2,10);
+   rlutil::locate(15,16);
     cout << "INGRESE HORARIO 2 DE LA MATERIA: "<<endl;
     rlutil::locate(50,16);
-    this->cargarCadena(horario2,10);
+   this->cargarCadena(horario2,15);
+
 
     Materia aux;
     aux.setAnioLectivo(anio_lectivo);
@@ -172,22 +173,23 @@ void MateriaManager::Listar(Materia materia)
     rectangulo (2, 2, 100, 26);
     rlutil::setColor(rlutil::YELLOW);
 
+    mostrar_mensaje ("***** LISTA DE MATERIAS ***** ", 34, 4);
     rlutil::locate(20,9);
     cout<<"ANIO LECTIVO: " <<materia.getAnioLectivo()<<endl;
     rlutil::locate(20,10);
     cout<<"NOMBRE:     " <<materia.getNombreMateria()<<endl;
     rlutil::locate(20,11);
-    cout<<"ID MATERIA :   " <<materia.getIdMateria()<<endl;
+    cout<<"ID MATERIA:   " <<materia.getIdMateria()<<endl;
     rlutil::locate(20,12);
-    cout<<"NOMBRE PROFESOR : " <<materia.getidProfesor()<<endl;
+    cout<<"NOMBRE PROFESOR: " <<materia.getidProfesor()<<endl;
     rlutil::locate(20,13);
-    cout<<"DIA 1 : " <<materia.getDia1()<<endl;
+    cout<<"DIA 1: " <<materia.getDia1()<<endl;
     rlutil::locate(20,14);
-    cout<<"HORARIO 1 : " <<materia.getHorario1()<<endl;
+    cout<<"HORARIO 1: " <<materia.getHorario1()<<endl;
     rlutil::locate(20,15);
-    cout<<"DIA 2 : " <<materia.getDia2()<<endl;
+    cout<<"DIA 2: " <<materia.getDia2()<<endl;
     rlutil::locate(20,16);
-    cout<<"HORARIO 2 : " <<materia.getHorario2()<<endl;
+    cout<<"HORARIO 2: " <<materia.getHorario2()<<endl;
 
     system("pause>nul");
     system("cls");
@@ -219,7 +221,7 @@ void MateriaManager::ListarXanioLectivo(int anio)
 
     }
     system("pause>nul");
- }
+}
 
 void MateriaManager::MenuUserMaterias(int dni)
 {
@@ -243,23 +245,38 @@ void MateriaManager::MenuUserMaterias(int dni)
 
             anio=objCurso.getCurso();
         }
+    }
 
-        int d=0;
-        for(int x=0; x<cantReg; x++)
+    int d=0;
+    for(int x=0; x<cantReg; x++)
+    {
+
+        objMateria=ArMateria.leerReg(x);
+
+        rlutil::locate(43,6);
+        cout <<"MATERIA: ";
+
+        if (objMateria.getAnioLectivo()==anio)
         {
+            rlutil::setColor(rlutil::YELLOW);
+            rectangulo (2, 2, 100, 26);
+            mostrar_mensaje ("***** ESTAS SON TUS MATERIAS ***** ", 34, 4);
 
-            objMateria=ArMateria.leerReg(x);
+            d++;
+            rlutil::locate(55,6);
+            cout <<d <<"  /5";
+            rlutil::locate(10,9);
+            cout <<"MATERIA: " <<objMateria.getNombreMateria();
+            rlutil::locate(10,11);
+            cout <<"DIA 1: " <<objMateria.getDia1() <<"          "<<"HORARIO: " <<objMateria.getHorario1()<<endl;
+            rlutil::locate(10,12);
+            cout <<"DIA 2: " <<objMateria.getDia2() <<"          "<<"HORARIO: " <<objMateria.getHorario2()<<endl;
+            system("pause>nul");
+            system("cls");
 
-            if (objMateria.getAnioLectivo()==anio)
-            {
-
-                d++;
-                rlutil::locate(20,9+d);
-                cout <<"MATERIA: " <<objMateria.getNombreMateria();
-
-            }
         }
     }
+
 
 }
 //

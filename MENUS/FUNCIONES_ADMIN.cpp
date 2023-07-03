@@ -634,8 +634,8 @@ void menuCargarMateria()
                 mostrar_mensaje ("***** CARGAR MATERIAS ***** ", 34, 4);
                 int AnioLectivo;
                 rlutil::locate(20,9);
-                cout<<"INGRESE EL ANIO LECTIVO :"<<endl;
-                rlutil::locate(30,10);
+                cout<<"INGRESE EL ANIO LECTIVO:"<<endl;
+                rlutil::locate(48,9);
                 cin>>AnioLectivo;
 
                 obj.ListarXanioLectivo(AnioLectivo);
