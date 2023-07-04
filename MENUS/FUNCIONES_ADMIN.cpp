@@ -984,6 +984,19 @@ void menuAusencias()
             break;
 
             case 1:     /// Modificar ausencias
+                   {
+                system("cls");
+
+                FaltaManager obj;
+                rlutil::setColor(rlutil::YELLOW);
+                rectangulo (2, 2, 100, 26);
+                mostrar_mensaje ("***** CARGAR AUSENCIAS ***** ", 34, 4);
+
+                obj.Editar();
+
+                system("pause>nul");
+                system("cls");
+            }
 
 
                 ///LLAMAR A LA FUNCION MODIFICAR
