@@ -23,6 +23,7 @@ public:
     void AusenciasXfecha();
     void ListarOrdenadosPorFecha();
     void Ordenar(Falta *vec, int cantidadRegistros);
+    int BuscarFalta(int dia,int mes,int anio);
 
 //	void Eliminar();
 //	void Listar(Alumno alumno);
