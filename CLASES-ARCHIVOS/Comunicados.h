@@ -13,7 +13,7 @@ private:
     Fecha _fechaComunicado;
     bool _eliminado; //true activo false eliminado
 
-
+//
 public:
 
     void setComunicado(const char *comu);
