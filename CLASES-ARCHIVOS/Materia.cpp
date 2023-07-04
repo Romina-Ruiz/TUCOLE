@@ -1,7 +1,7 @@
 #include <iostream>
 #include "Materia.h"
 #include <cstring>
-
+#include"../MENUS/FUNCIONES_FRONT.h"
 
 
 void Materia::setAnioLectivo(int aniolectivo){
@@ -91,7 +91,7 @@ int Materia::getidProfesor()
 char* Materia::getDia1()
 {
 
-    return _dia1;
+   return _dia1;
 }
 
 char* Materia::getDia2()

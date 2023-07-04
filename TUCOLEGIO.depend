@@ -314,10 +314,11 @@
 
 1686781905 c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\faltas.h
 
-1688265660 source:c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\materia.cpp
+1688439492 source:c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\materia.cpp
 	<iostream>
 	"Materia.h"
 	<cstring>
+	"../MENUS/FUNCIONES_FRONT.h"
 
 1688266396 c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\materia.h
 
@@ -785,7 +786,7 @@
 	"Cuota.h"
 	"CuotaArchivo.h"
 
-1688353932 source:c:\users\romina\documents\github\tucolegio\tucole\manager\materiamanager.cpp
+1688437994 source:c:\users\romina\documents\github\tucolegio\tucole\manager\materiamanager.cpp
 	<iostream>
 	<cstring>
 	"MateriaManager.h"
