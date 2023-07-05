@@ -18,9 +18,11 @@ public:
     void ComunicadoxCurso();
     void EliminarComunicado();
     void BuscarComunicado();
-    void cargarCadena(char *pal, int tam);
+
     void listarxDNI(Comunicados obj);
     void ComunicadosActivos();
+    void ListarTodos();
+    void Listar(Comunicados comunicado);
 
 
 

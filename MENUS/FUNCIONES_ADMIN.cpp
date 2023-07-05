@@ -23,6 +23,7 @@ using namespace std;
 #include "NotaManager.h"
 #include"ComunicadosManager.h"
 
+
 ///MENUS INTERNOS DE ADMIN
 
 ///FACTURACION
@@ -621,6 +622,7 @@ void menuCargarMateria()
             case 1:     /// Modificar materias
 
 
+
                 ///LLAMAR A LA FUNCION MODIFICAR
 
                 break;
@@ -1103,15 +1105,15 @@ void menuComunicados()
             break;
 
             case 1:     /// Eliminar comunicados
-                system("cls");
-                {
-                    ComunicadosManager obj;
-
-                    obj.EliminarComunicado();
-
-                    system("pause>nul");
-                    system("cls");
-                }
+//                system("cls");
+//                {
+//                    ComunicadosManager obj;
+//
+//                    obj.EliminarComunicado();
+//
+//                    system("pause>nul");
+//                    system("cls");
+//                }
                 break;
 
             case 2:     ///comunicados activos

@@ -25,7 +25,7 @@ void NotaManager::Cargar()
     AlumnoArchivo alumno;
 
     int dni, NroExamen;
-    char nombreMateria[30];
+   string nombreMateria;
     float nota;
 
 
@@ -49,7 +49,8 @@ void NotaManager::Cargar()
         rlutil::locate(20,9);
         cout << "NOMBRE DE MATERIA: "<<endl;
         rlutil::locate(39,9);
-        cin>>nombreMateria;
+        cin.ignore();
+        getline(cin,nombreMateria);
         rlutil::locate(20,10);
         cout << "Nro EXAMEN: "<<endl;
         rlutil::locate(35,10);
@@ -210,7 +211,7 @@ void NotaManager::ModificarDatos(int dni)
 
     int tipo;
     float nota;
-    char nombre[30];
+    string nombre;
 
     rlutil::locate(10,9);
     cout << "INGRESE EL NOMBRE DE LA MATERIA: "<<endl;
@@ -224,7 +225,7 @@ void NotaManager::ModificarDatos(int dni)
 
         aux=arNotas.leerReg(x);
 
-        if(strcmp(nombre,aux.getNombreMateria())==0 &&dni==aux.getDNIalumno())
+        if(nombre==aux.getNombreMateria()&&dni==aux.getDNIalumno())
         {
             rlutil::locate(10,10);
             cout << "INGRESE TIPO DE NOTA (1-PARCIAL 1/ 2-PARCIAL2): "<<endl;

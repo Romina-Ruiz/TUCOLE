@@ -1,5 +1,6 @@
 #ifndef PERSONA_H
 #define PERSONA_H
+#include <string>
 
 
 class Persona
@@ -14,17 +15,17 @@ class Persona
 
 public:
 
-    void setNombre(char *nombre);
-    void setApellido(char *apellido);
-    void setEmail(char *email);
+    void setNombre(std::string nombre);
+    void setApellido(std::string apellido);
+    void setEmail(std::string email);
     void setTelefono(int telefono);
     void setDNI(int dni);
 
 
 
-    char * getNombre();
-    char * getApellido();
-    char * getEmail();
+    std::string getNombre();
+    std::string getApellido();
+    std::string getEmail();
     int getTelefono();
     int getDni();
 

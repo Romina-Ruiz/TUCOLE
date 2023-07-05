@@ -1,3 +1,6 @@
+#include <iostream>
+#include <string>
+#include <cstring>
 #include "Comunicados.h"
 
 void Comunicados::setIdComunicado(int idcomunicado)
@@ -33,13 +36,15 @@ void Comunicados::setFechaComunicado(Fecha fecha)
 
 }
 
-void Comunicados::setEliminado(bool eliminado){
+void Comunicados::setEliminado(bool eliminado)
+{
 
     _eliminado = eliminado;
 }
-void Comunicados::setComunicado(const char *comu){
+void Comunicados::setComunicado(std::string comunicado)
+{
 
-    strcpy(_comunicado,comu);
+    strcpy(_comunicado,comunicado.c_str());
 
 }
 
@@ -71,12 +76,15 @@ Fecha Comunicados::getFechaComunicado()
     return _fechaComunicado;
 
 }
-bool Comunicados::getEliminado(){
+bool Comunicados::getEliminado()
+{
 
-return _eliminado;
+    return _eliminado;
 }
 
-const char Comunicados::getComunicado(){
-
-return* _comunicado;
+std::string Comunicados::getComunicado()
+{
+    std::string comunicado;
+    comunicado=_comunicado;
+    return comunicado;
 }

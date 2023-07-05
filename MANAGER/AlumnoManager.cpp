@@ -41,7 +41,7 @@ bool AlumnoManager::validarIngreso(int dni)
 void AlumnoManager::Cargar()
 
 {
-    char nombre[30], apellido[30], email[30];
+    string nombre, apellido, email;
     int Legajo, telefono;
     int dni, dia, mes, anio;
 
@@ -65,15 +65,18 @@ void AlumnoManager::Cargar()
         rlutil::locate(20,9);
         cout << "INGRESE EL NOMBRE: "<<endl;
         rlutil::locate(39,9);
-        cin>>nombre;
+         cin.ignore();
+         getline(cin,nombre);
         rlutil::locate(20,10);
         cout << "INGRESE EL APELLIDO: "<<endl;
         rlutil::locate(41,10);
-        cin >> apellido;
+         cin.ignore();
+         getline(cin,apellido);
         rlutil::locate(20,11);
         cout << "INGRESE EL MAIL: "<<endl;
         rlutil::locate(38,11);
-        cin >> email;
+         cin.ignore();
+        getline(cin,email);
         rlutil::locate(20,12);
         cout << "INGRESE EL TELEFONO: "<<endl;
         rlutil::locate(41,12);

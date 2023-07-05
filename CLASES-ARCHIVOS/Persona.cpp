@@ -1,24 +1,25 @@
 #include "Persona.h"
 #include <iostream>
-#include "cstring"
+#include <string>
+#include <cstring>
 #include"../MENUS/rlutil.h"
 #include"../MENUS/FUNCIONES_FRONT.h"
 using namespace std;
 
 
-void Persona::setNombre(char *nombre)
+void Persona::setNombre(std::string nombre)
 {
-    strcpy(_nombre,nombre);
+    strcpy(_nombre,nombre.c_str());
 }
 
-void Persona::setApellido(char *apellido)
+void Persona::setApellido( std::string apellido)
 {
-    strcpy(_apellido,apellido);
+    strcpy(_apellido,apellido.c_str());
 }
 
-void Persona::setEmail(char *email)
+void Persona::setEmail( std::string email)
 {
-    strcpy(_email,email);
+    strcpy(_email,email.c_str());
 }
 
 void Persona::setTelefono(int telefono)
@@ -31,19 +32,25 @@ void Persona::setDNI (int dni)
     _DNI=dni;
 }
 
-char * Persona::getNombre()
+ std::string  Persona::getNombre()
 {
-    return _nombre;
+     std::string nombre;
+     nombre=_nombre;
+    return nombre;
 }
 
-char * Persona::getApellido()
+ std::string  Persona::getApellido()
 {
-    return _apellido;
+     std::string apellido;
+     apellido=_apellido;
+    return apellido;
 }
 
-char * Persona::getEmail()
+ std::string  Persona::getEmail()
 {
-    return _email;
+     std::string  email;
+     email=_email;
+    return email;
 }
 
 int Persona::getTelefono()

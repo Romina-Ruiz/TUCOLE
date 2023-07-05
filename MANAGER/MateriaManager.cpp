@@ -12,24 +12,11 @@
 using namespace std;
 
 
-void  MateriaManager::cargarCadena(char *pal, int tam)
-{
-    int i;
-    fflush(stdin);
-    for(i=0; i<tam; i++)
-    {
-        pal[i]=cin.get();
-        if(pal[i]=='\n') break;
-    }
-    pal[i]='\0';
-    fflush(stdin);
-}
-
 void MateriaManager::Cargar()
 
 {
 
-    char nombre_materia[40]= {}, dia1[10]= {},dia2[10]= {},horario1[15]= {},horario2[15]= {};
+    string nombre_materia, dia1,dia2,horario1,horario2;
     int idMateria,anio_lectivo,idProfe;
 
 
@@ -40,7 +27,8 @@ void MateriaManager::Cargar()
     rlutil::locate(15,10);
     cout << "INGRESE NOMBRE DE LA MATERIA: "<<endl;
     rlutil::locate(48,10);
-    this->cargarCadena(nombre_materia,39);
+    cin.ignore();
+    getline(cin,nombre_materia);
     rlutil::locate(15,11);
     cout << "ID DE MATERIA #: " <<endl;
     idMateria=this->generarId();
@@ -53,19 +41,23 @@ void MateriaManager::Cargar()
     rlutil::locate(15,13);
     cout << "INGRESE DIA 1 DE LA MATERIA: "<<endl;
     rlutil::locate(50,13);
-    this->cargarCadena(dia1,10);
+    cin.ignore();
+    getline(cin,dia1);
    rlutil::locate(15,14);
     cout << "INGRESE HORARIO 1 DE LA MATERIA: "<<endl;
     rlutil::locate(50,14);
-    this->cargarCadena(horario1,15);
+     cin.ignore();
+    getline(cin,horario1);
     rlutil::locate(15,15);
     cout << "INGRESE DIA 2 DE LA MATERIA: "<<endl;
     rlutil::locate(50,15);
-   this->cargarCadena(dia2,10);
+    cin.ignore();
+    getline(cin,dia2);
    rlutil::locate(15,16);
     cout << "INGRESE HORARIO 2 DE LA MATERIA: "<<endl;
     rlutil::locate(50,16);
-   this->cargarCadena(horario2,15);
+    cin.ignore();
+    getline(cin,horario2);
 
 
     Materia aux;

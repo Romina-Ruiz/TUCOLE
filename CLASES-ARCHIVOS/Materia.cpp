@@ -1,6 +1,7 @@
 #include <iostream>
-#include "Materia.h"
+#include <string>
 #include <cstring>
+#include "Materia.h"
 #include"../MENUS/FUNCIONES_FRONT.h"
 
 
@@ -10,10 +11,10 @@ _anio_lectivo = aniolectivo;
 
 }
 
-void Materia::setNombreMateria(char* nombre)
+void Materia::setNombreMateria(std::string  nombre)
 {
 
-    strcpy(_nombre,nombre);
+    strcpy(_nombre,nombre.c_str());
 
 }
 
@@ -31,28 +32,28 @@ void Materia::setidProfesor(int idprofe)
 
 }
 
-void Materia::setDia1(char* d1)
+void Materia::setDia1( std::string  d1)
 {
 
-    strcpy(_dia1,d1);
+    strcpy(_dia1,d1.c_str());
 
 }
-void Materia::setHorario1(char* h1)
+void Materia::setHorario1( std::string  h1)
 {
 
-    strcpy(_horario1,h1);
+    strcpy(_horario1,h1.c_str());
 
 }
-void Materia::setDia2(char* d2)
+void Materia::setDia2( std::string  d2)
 {
 
-    strcpy(_dia2,d2);
+    strcpy(_dia2,d2.c_str());
 
 }
-void Materia::setHorario2(char* h2)
+void Materia::setHorario2( std::string  h2)
 {
 
-    strcpy(_horario2,h2);
+    strcpy(_horario2,h2.c_str());
 
 }
 
@@ -68,10 +69,11 @@ return _anio_lectivo;
 
 }
 
-char* Materia:: getNombreMateria()
+ std::string  Materia:: getNombreMateria()
 {
-
-    return _nombre;
+ std::string nombre;
+ nombre=_nombre;
+    return nombre;
 }
 
 int Materia::getIdMateria()
@@ -88,27 +90,33 @@ int Materia::getidProfesor()
 
 }
 
-char* Materia::getDia1()
+ std::string  Materia::getDia1()
 {
-
-   return _dia1;
+ std::string  dia1;
+ dia1=_dia1;
+   return dia1;
 }
 
-char* Materia::getDia2()
+ std::string  Materia::getDia2()
 {
+     std::string dia2;
+     dia2=_dia2;
 
-    return _dia2;
+    return dia2;
 }
 
-char* Materia::getHorario1()
+ std::string  Materia::getHorario1()
 {
-
-    return _horario1;
+ std::string horario1;
+ horario1=_horario1;
+    return horario1;
 }
 
-char* Materia::getHorario2()
+ std::string  Materia::getHorario2()
 {
-    return _horario2;
+    std::string horario2;
+    horario2=_horario2;
+    return horario2;
 }
 
 bool Materia::getEliminada(){

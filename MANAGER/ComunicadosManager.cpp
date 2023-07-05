@@ -10,18 +10,7 @@
 
 using namespace std;
 
-void  ComunicadosManager::cargarCadena(char *pal, int tam)
-{
-    int i;
-    fflush(stdin);
-    for(i=0; i<tam; i++)
-    {
-        pal[i]=cin.get();
-        if(pal[i]=='\n') break;
-    }
-    pal[i]='\0';
-    fflush(stdin);
-}
+
 int ComunicadosManager::generarID()
 {
     ComunicadosArchivo _archivo;
@@ -164,7 +153,8 @@ void ComunicadosManager::listarxDNI(Comunicados obj)
 void  ComunicadosManager::ComunicadoxDNI()
 {
 
-    char comunicado[100];
+
+    string comunicado;
     int DNI;
     int dia,mes,anio;
 
@@ -196,7 +186,8 @@ void  ComunicadosManager::ComunicadoxDNI()
     rlutil::locate(20,17);
     cout<<"INGRESE EL COMUNICADO :"<<endl;
     rlutil::locate(45,17);
-    this->cargarCadena(comunicado,99);
+    cin.ignore();
+    getline(cin,comunicado);
 
     Comunicados aux;
     aux.setDNIalumno(DNI);
@@ -211,19 +202,21 @@ void  ComunicadosManager::ComunicadoxDNI()
         rlutil::locate(30,23);
         cout << "** Comunicado guardado correctamente **" << endl;
         system("pause>nul");
+
     }
     else
     {
         rlutil::locate(30,25);
         cout << "** Ups! Algo salio mal :( **" << endl;
         system("pause>nul");
+
     }
 }
 
-void  ComunicadosManager::ComunicadoxCurso()
+void ComunicadosManager::ComunicadoxCurso()
 {
 
-    char comunicado[100];
+    string comunicado;
     int CURSO;
     int dia,mes,anio;
 
@@ -255,7 +248,8 @@ void  ComunicadosManager::ComunicadoxCurso()
     rlutil::locate(20,17);
     cout<<"INGRESE EL COMUNICADO :"<<endl;
     rlutil::locate(45,17);
-    this->cargarCadena(comunicado,99);
+    cin.ignore();
+    getline(cin,comunicado);
 
     Comunicados aux;
     aux.setDNIalumno(0);
@@ -270,6 +264,7 @@ void  ComunicadosManager::ComunicadoxCurso()
         rlutil::locate(30,23);
         cout << "** Comunicado guardado correctamente **" << endl;
         system("pause>nul");
+
     }
     else
     {
@@ -294,21 +289,21 @@ void ComunicadosManager::EliminarComunicado()
     {
         reg = _archivo.leerReg(posicion);
 
-        // int res;
-        // rlutil::locate(10,18);
-        // cout << "DESEA DAR DE BAJA EL COMUNICADO (1-SI/2-NO): ";
-        // rlutil::locate(55,10);
-        // cin >> res;
-        // cout << endl;
-//
-        // if (res==1)
-        // {
+         int res;
+         rlutil::locate(10,18);
+         cout << "DESEA DAR DE BAJA EL COMUNICADO (1-SI/2-NO): ";
+         rlutil::locate(55,10);
+         cin >> res;
+         cout << endl;
+
+         if (res==1)
+         {
         reg.setEliminado(false);
         _archivo.guardar(reg, posicion);
         cout << "Comunicado #" << comunicado<< " eliminado correctamente" << endl;
         system("pause>nul");
 
-        //}
+        }
     }
     else
     {
@@ -340,7 +335,6 @@ void ComunicadosManager::ComunicadosActivos()
             rlutil::locate(10,10);
             cout<<"FECHA:  "<<reg.getFechaComunicado().toString()<< endl;
             rlutil::locate(10,11);
-            //mostrarVector(reg.getComunicado(),100);
             cout << reg.getComunicado()<< endl;
 
             system("pause>nul");

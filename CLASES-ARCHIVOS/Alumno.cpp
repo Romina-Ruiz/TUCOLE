@@ -1,9 +1,12 @@
 #include <iostream>
+#include <string>
+#include <cstring>
 #include "Alumno.h"
 #include"../MENUS/Fecha.h"
 #include"../MENUS/rlutil.h"
 #include"AlumnoArchivo.h"
 #include "Persona.h"
+
 
 using namespace std;
 

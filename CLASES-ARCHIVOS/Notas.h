@@ -1,5 +1,6 @@
 #ifndef NOTAS_H
 #define NOTAS_H
+#include <string>
 
 
 class Notas
@@ -17,13 +18,13 @@ private:
 public:
 
     void setDNIalumno(int dni);
-    void setNombreMateria( char* nombremateria);
+    void setNombreMateria( std::string nombre_materia);
     void setNroExamen(int nro);
     void setNota(float nota);
     void setEliminada(bool eliminada);
 
     int getDNIalumno();
-    char* getNombreMateria();
+    std::string getNombreMateria();
     int getNroExamen();
     float getNota();
     bool getEliminada();

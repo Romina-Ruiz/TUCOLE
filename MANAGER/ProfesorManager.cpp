@@ -12,7 +12,7 @@ using namespace std;
 void ProfesorManager::Cargar()
 
 {
-    char nombre[30], apellido[30], email[30];
+    string nombre, apellido, email;
     int Legajo, telefono;
     int dni, dia, mes, anio;
 
@@ -36,15 +36,16 @@ void ProfesorManager::Cargar()
         rlutil::locate(20,9);
         cout << "INGRESE NOMBRE: "<<endl;
         rlutil::locate(39,9);
-        cin>>nombre;
+        cin.ignore();
+        getline(cin,nombre);
         rlutil::locate(20,10);
         cout << "INGRESE APELLIDO: "<<endl;
         rlutil::locate(41,10);
-        cin >> apellido;
+        getline(cin,apellido);
         rlutil::locate(20,11);
         cout << "INGRESE EMAIL: "<<endl;
         rlutil::locate(38,11);
-        cin >> email;
+        getline(cin,email);
         rlutil::locate(20,12);
         cout << "INGRESE TELEFONO: "<<endl;
         rlutil::locate(41,12);
@@ -127,7 +128,7 @@ void ProfesorManager::Listar(Profesor profesor)
 {
     rectangulo (2, 2, 100, 26);
     rlutil::setColor(rlutil::YELLOW);
-    00mostrar_mensaje ("***** LISTA DE PROFESORES ***** ", 34, 4);
+    mostrar_mensaje ("***** LISTA DE PROFESORES ***** ", 34, 4);
 
 
     rlutil::locate(20,9);
