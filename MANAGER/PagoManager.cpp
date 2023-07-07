@@ -54,7 +54,9 @@ void  PagoManager::Cargar()
     if(numerodeRegistro<0)
     {
 
-        rlutil::locate(20,10);
+        rlutil::setColor(rlutil::YELLOW);
+        rectangulo (2, 2, 100, 26);
+        rlutil::locate(30,10);
         cout<<"EL DNI NO EXISTE !!";
         system("pause>nul");
         system("cls");
@@ -99,6 +101,7 @@ void  PagoManager::Cargar()
             rlutil::locate(30,20);
             cout << "** PAGO GUARDADO CORRECTAMENTE **" << endl;
             system("pause>nul");
+
         }
         else
         {
@@ -107,7 +110,7 @@ void  PagoManager::Cargar()
             system("pause>nul");
 
         }
-        system("pause");
+
     }
 
 }
@@ -248,9 +251,7 @@ void PagoManager::Listar(Pago pago)
 
     rectangulo (2, 2, 100, 26);
     rlutil::setColor(rlutil::YELLOW);
-    mostrar_mensaje ("*****   LISTA DE PAGOS   *****", 34, 4);
-
-    if(pago.getEliminado()==false){
+    mostrar_mensaje ("***** PAGO/S ***** ", 34, 4);
 
     rlutil::locate(20,9);
     cout<<"DNI ALUMNO:    " <<pago.getDNIalumno()<<endl;
@@ -262,12 +263,8 @@ void PagoManager::Listar(Pago pago)
     cout<<"FECHA DE PAGO :    " <<pago.getFechaDePago().toString()<<endl;
     rlutil::locate(20,13);
 
-
-
     system("pause>nul");
-    system("cls");
 
-}
 }
 
 int PagoManager::buscarDNI(int dni)
@@ -333,30 +330,48 @@ int PagoManager::buscarDNI(int dni)
 
 void PagoManager::EliminarPago()
 {
+    mostrar_mensaje ("*****  ELIMINANDO PAGO  *****", 34, 4);
+    Pago reg;
+    int NroPago, posicion;
+    rlutil::locate(20,7);
+    cout << "Nro DE PAGO A ELIMINAR: ";
+    rlutil::locate(48,7);
+    cin >> NroPago;
 
-	Pago reg;
-	int NroPago, posicion;
-	cout << "Nro de pago a eliminar : ";
-	cin >> NroPago;
-	cout << endl;
+    posicion = _archivo.buscarRegistro(NroPago);
+    if (posicion >= 0)
+    {
+        reg = _archivo.leerReg(posicion);
 
-	posicion = _archivo.buscarRegistro(NroPago);
-	if (posicion >= 0)
-	{
-		reg = _archivo.leerReg(posicion);
-		Listar(reg);
-		cout << endl;
-		reg.setEliminado(true);
-		_archivo.guardar(reg, posicion);
-		cout << "Registro #" << NroPago << " eliminado correctamente" << endl;
-	}
-	else
-	{
-		cout << "No existe el Numero de pago #" << NroPago << endl;
-	}
+        Listar(reg);
+        system("pause>nul");
+        rlutil::locate(20,18);
+        cout << "DESEA ELIMINAR EL PAGO? (1-SI/2-NO): ";
+        rlutil::locate(60,18);
+        int nuevoEstado;
+        cin >> nuevoEstado;
+
+        if (nuevoEstado==1)
+        {
+
+            reg.setEliminado(true);
+            _archivo.guardar(reg, posicion);
+            rlutil::locate(30,25);
+            cout << "PAGO #" << NroPago << " ELIMINADO CORRECTAMENTE" << endl;
+            system("pause>nul");
+        }
+
+    }
+
+    system("cls");
+    rectangulo (2, 2, 100, 26);
+    rlutil::setColor(rlutil::YELLOW);
+    rlutil::locate(30,15);
+    cout << "NO EXISTE PAGO NUMERO#: " << NroPago << endl;
+    system("pause>nul");
+
+
 }
-
-
 
 
 void PagoManager::MenuInformePagos()
@@ -410,17 +425,16 @@ void PagoManager::ListarxDNI(int dni)
     for(int i=0; i<cantidadRegistros; i++)
     {
 
-        if (vec[i].getDNIalumno()==dni)
+        if (vec[i].getDNIalumno()==dni&&vec[i].getEliminado()==false)
         {
             system("cls");
             Listar(vec[i]);
-            cout << endl;
-            system("pause>nul");
             system("cls");
-
         }
 
     }
+    rectangulo (2, 2, 100, 26);
+    mostrar_mensaje ("***** FIN DEL LISTADO ***** ", 32, 12);
 
     delete []vec;
 

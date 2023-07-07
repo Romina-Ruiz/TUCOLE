@@ -213,7 +213,7 @@ void menuPagos()
                 PagoManager obj;
                 rectangulo (2, 2, 100, 26);
                 rlutil::setColor(rlutil::YELLOW);
-                mostrar_mensaje ("***** CARGA DE PAGOS ***** ", 34, 4);
+                mostrar_mensaje ("***** ELIMINAR PAGO ***** ", 34, 4);
 
                 obj.EliminarPago();
 
@@ -519,8 +519,9 @@ void menuCargarProfesor()
                 mostrar_mensaje ("***** LISTA DE PROFESORES ***** ", 34, 4);
 
                 obj.ListarTodos();
-                rlutil::locate(30,9);
-                cout <<"FIN DEL LISTADO "<<endl;
+
+                rectangulo (2, 2, 100, 26);
+                mostrar_mensaje ("***** FIN DEL LISTADO ***** ", 34, 12);
 
                 system("pause>nul");
                 system("cls");
@@ -986,7 +987,7 @@ void menuAusencias()
             break;
 
             case 1:     /// Modificar ausencias
-                   {
+            {
                 system("cls");
 
                 FaltaManager obj;
@@ -1003,7 +1004,7 @@ void menuAusencias()
 
                 ///LLAMAR A LA FUNCION MODIFICAR
 
-                break;
+            break;
 
             case 2:     ///Buscar ausencias por DNI
             {

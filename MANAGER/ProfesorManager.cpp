@@ -84,7 +84,7 @@ void ProfesorManager::Cargar()
             rlutil::locate(30,23);
             cout << "** PROFESOR GUARDADO CORRECTAMENTE **" << endl;
             system("pause>nul");
-            // system("cls");
+
         }
         else
         {
@@ -113,14 +113,19 @@ void ProfesorManager::ListarTodos()
 {
 
     int cantidadRegistros = _archivo.getCantidad();
+    int cont=0;
 
     for (int i = 0; i<cantidadRegistros; i++)
     {
         Profesor reg = _archivo.leerReg(i);
         if (reg.getEstado()==true)
         {
+            rlutil::locate(48,6);
+            cout << i+1 <<" / "<<cantidadRegistros<<endl;
+            cont++;
             Listar(reg);
-            cout << endl;
+            system("cls");
+
         }
     }
 }
@@ -160,7 +165,6 @@ void ProfesorManager::Listar(Profesor profesor)
     cout <<"--------------------------------------------------------------" << endl;
 
     system("pause>nul");
-    system("cls");
 
 
 }
@@ -185,7 +189,8 @@ void ProfesorManager::ListarXdni()
     }
     else
     {
-        rlutil::locate(20,10);
+        rectangulo (2, 2, 100, 26);
+        rlutil::locate(22,12);
         cout << "** NO EXISTE UN PROFESOR CON ESE DNI **" << endl;
         system("pause>nul");
     }
@@ -201,8 +206,8 @@ void ProfesorManager::Editar()
 
     rlutil::locate(20,9);
     cout << "DNI A MODIFICAR: ";
+    rlutil::locate(40,9);
     cin >> dni;
-    cout << endl;
 
     system("cls");
     mostrar_mensaje ("***** MODIFICAR DE PROFESOR ***** ", 34, 4);
@@ -211,7 +216,6 @@ void ProfesorManager::Editar()
     {
         reg = _archivo.leerReg(posicion);
         Listar(reg);
-        cout << endl;
 
         int nuevoEstado;
         rlutil::locate(20,10);
@@ -228,6 +232,9 @@ void ProfesorManager::Editar()
     }
     else
     {
+        rectangulo (2, 2, 100, 26);
+        mostrar_mensaje ("** NO EXISTE UN PROFESOR CON ESE DNI ** ", 30, 12);
+
         system("pause>nul");
     }
 }
@@ -314,7 +321,8 @@ void ProfesorManager::ModificarDatos(Profesor profesor, int posicion)
 {
     system("cls");
     const char *opciones[] = {"DNI", "NOMBRE","APELLIDO", "EMAIL", "TELEFONO",
-                                            "MODIFICAR ESTADO", "VOLVER AL MENU PRINCIPAL"};
+                              "MODIFICAR ESTADO", "VOLVER AL MENU PRINCIPAL"
+                             };
 
     mostrar_mensaje ("* MODIFICAR DATOS DEL PROFESOR *", 40, 4);
     mostrar_mensaje ("--------------------------------", 40, 5);
@@ -500,42 +508,42 @@ void ProfesorManager::ModificarDatos(Profesor profesor, int posicion)
 
             case 5:     /// SETEAR ESTADO
 
+            {
+                system("cls");
+                mostrar_mensaje ("* MODIFICAR DATOS DEL PROFESOR *", 40, 4);
+                mostrar_mensaje ("--------------------------------", 40, 5);
+                int op;
+                rlutil::locate(20,9);
+                cout << "DESEA MODIFICAR ESTADO DEL PROFESOR (1-BAJA/2-ALTA): "<<endl;
+                rlutil::locate(72,9);
+                cin>>op;
+                if (op==1)
                 {
-                    system("cls");
-                    mostrar_mensaje ("* MODIFICAR DATOS DEL PROFESOR *", 40, 4);
-                    mostrar_mensaje ("--------------------------------", 40, 5);
-                    int op;
-                    rlutil::locate(20,9);
-                    cout << "DESEA MODIFICAR ESTADO DEL PROFESOR (1-BAJA/2-ALTA): "<<endl;
-                    rlutil::locate(72,9);
-                    cin>>op;
-                    if (op==1)
+                    profesor.setEstado(false);
+                    if (_archivo.guardar(profesor, posicion))
                     {
-                        profesor.setEstado(false);
+
+                        rlutil::locate(30,15);
+                        cout << "** REGISTRO MODIFICADO ** "<<endl;
+                    }
+                    else if(op==2)
+                    {
+
+                        profesor.setEstado(true);
                         if (_archivo.guardar(profesor, posicion))
                         {
 
                             rlutil::locate(30,15);
                             cout << "** REGISTRO MODIFICADO ** "<<endl;
                         }
-                        else if(op==2)
-                        {
+                        system("pause>nul");
+                        system("cls");
 
-                            profesor.setEstado(true);
-                            if (_archivo.guardar(profesor, posicion))
-                            {
-
-                                rlutil::locate(30,15);
-                                cout << "** REGISTRO MODIFICADO ** "<<endl;
-                            }
-                            system("pause>nul");
-                            system("cls");
-
-                        }
-                        break;
+                    }
+                    break;
 
                     case 6:     /// VOLVER AL MENU PRINCIPAL
-                       menuCargarProfesor();
+                        menuCargarProfesor();
 
                         break;
                     }

@@ -194,7 +194,7 @@ void AlumnoManager::Listar(Alumno alumno)
     cout <<"---------------------------------------------------" << endl;
 
     system("pause>nul");
-    system("cls");
+
 }
 
 
@@ -206,6 +206,7 @@ void AlumnoManager::ListarXdni()
 
     rlutil::locate(20,9);
     cout << "INGRESE DNI ALUMNO: ";
+     rlutil::locate(43,9);
     cin >> dni;
     system("cls");
 

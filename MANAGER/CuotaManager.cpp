@@ -50,11 +50,13 @@ void CuotaManager::Cargar()
 
     if(numerodeRegistro<0)
     {
-
-        rlutil::locate(20,10);
+        system("cls");
+        rectangulo (2, 2, 100, 26);
+        rlutil::setColor(rlutil::YELLOW);
+        rlutil::locate(40,10);
         cout<<"EL DNI NO EXISTE !!";
         system("pause>nul");
-        system("cls");
+
     }
     else
     {
@@ -382,6 +384,22 @@ void CuotaManager::ListarxDNI(int dni)
         return;
     }
 
+    int numerodeRegistro=buscarDNI(dni);
+
+    if(numerodeRegistro<0)
+    {
+        system("cls");
+        rectangulo (2, 2, 100, 26);
+        rlutil::setColor(rlutil::YELLOW);
+        rlutil::locate(40,10);
+        cout<<"EL DNI NO EXISTE !!";
+        system("pause>nul");
+
+    }
+    else
+    {
+
+
     for(int x=0; x<cantidadRegistros; x++)
     {
         vec[x]=_archivo.leerReg(x);
@@ -404,7 +422,7 @@ void CuotaManager::ListarxDNI(int dni)
         rlutil::locate(30,10);
         cout <<" NO HAY MAS REGISTROS" << endl;
     }
-
+    }
     delete []vec;
 
 }

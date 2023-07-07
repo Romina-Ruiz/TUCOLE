@@ -110,7 +110,7 @@ void CursoManager::Listar(Curso curso)
     rlutil::locate(20,10);
     cout<<"ID CURSO:    "<<curso.getIdCurso()<<endl;
     rlutil::locate(20,11);
-    cout<<"ID PROFESOR:    "<<curso.getIdProfesor()<<endl;
+    //cout<<"ID PROFESOR:    "<<curso.getIdProfesor()<<endl;
 
 
     system("pause>nul");
