@@ -1417,6 +1417,7 @@ void RealizarBackup()
         nota.HacerCopiaDeSeguridad();
         pago.HacerCopiaDeSeguridad();
         cuota.HacerCopiaDeSeguridad();
+        comunicado.HacerCopiaDeSeguridad();
 
 
         rlutil::locate(30,15);
@@ -1472,6 +1473,7 @@ void RestaurarBackup()
         nota.RestaurarCopiaDeSeguridad();
         pago.RestaurarCopiaDeSeguridad();
         cuota.RestaurarCopiaDeSeguridad();
+        comunicado.RestaurarCopiaDeSeguridad();
 
 
         rlutil::locate(30,15);
