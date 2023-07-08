@@ -14,6 +14,7 @@ void menuComunicados();
 void menuInformes();
 void menuRespaldos();
 void RealizarBackup();
+void RestaurarBackup();
 
 
 

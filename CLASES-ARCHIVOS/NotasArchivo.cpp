@@ -66,19 +66,7 @@ Notas NotasArchivo::leerReg(int nroRegistro)
     return registro;
 
 }
-void NotasArchivo::leerTodos(Notas nota[], int cantidad)
-{
-    FILE* p;
-    p= fopen(_ruta,"rb");
 
-    if(p==nullptr)
-    {
-        return;
-    }
-
-    fread(nota, sizeof(Notas),cantidad,p);
-    fclose(p);
-}
 
 bool NotasArchivo::modificar(Notas registro, int nroRegistro)
 {
@@ -119,8 +107,18 @@ int NotasArchivo::buscarReg(int dni)
 
 }
 
-bool NotasArchivo::guardarTodos(Notas *vec, int cantidadRegistrosAEscribir){
+void NotasArchivo::leer(Notas *vec, int cantidadRegistrosALeer){
+	FILE *p = fopen(_ruta, "rb");
+	if (p == NULL)
+	{
+		return ;
+	}
 
+	fread(vec, sizeof(Notas), cantidadRegistrosALeer, p);
+	fclose(p);
+}
+
+bool NotasArchivo::guardar(Notas *vec, int cantidadRegistrosAEscribir){
 	FILE *p = fopen(_ruta, "ab");
 	if (p == NULL)
 	{
@@ -130,8 +128,9 @@ bool NotasArchivo::guardarTodos(Notas *vec, int cantidadRegistrosAEscribir){
 	int cantidadRegistrosEscritos = fwrite(vec, sizeof(Notas), cantidadRegistrosAEscribir, p);
 	fclose(p);
 	return cantidadRegistrosEscritos == cantidadRegistrosAEscribir;
-
 }
+
+
 
 
 void NotasArchivo::vaciar()

@@ -73,7 +73,7 @@ Comunicados obj;
     return ok;
   }
 
-  int ComunicadosArchivo::buscarReg(int id){
+int ComunicadosArchivo::buscarReg(int id){
 
   int nroRegistro = -1;
 
@@ -91,7 +91,7 @@ Comunicados obj;
   return nroRegistro;
 
   }
-  bool ComunicadosArchivo::guardar(Comunicados reg, int posicionAReemplazar){
+bool ComunicadosArchivo::guardar(Comunicados reg, int posicionAReemplazar){
 
    FILE *p = fopen(_ruta, "rb+");
 
@@ -106,6 +106,29 @@ Comunicados obj;
     return pudoEscribir;
 
   }
+void ComunicadosArchivo::leer(Comunicados *vec, int cantidadRegistrosALeer){
+	FILE *p = fopen(_ruta, "rb");
+	if (p == NULL)
+	{
+		return ;
+	}
+
+	fread(vec, sizeof(Comunicados), cantidadRegistrosALeer, p);
+	fclose(p);
+}
+
+bool ComunicadosArchivo::guardar(Comunicados *vec, int cantidadRegistrosAEscribir){
+	FILE *p = fopen(_ruta, "ab");
+	if (p == NULL)
+	{
+		return false;
+	}
+
+	int cantidadRegistrosEscritos = fwrite(vec, sizeof(Comunicados), cantidadRegistrosAEscribir, p);
+	fclose(p);
+	return cantidadRegistrosEscritos == cantidadRegistrosAEscribir;
+}
+
 
 void ComunicadosArchivo::vaciar(){
 	FILE *p = fopen(_ruta, "wb");

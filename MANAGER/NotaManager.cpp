@@ -285,58 +285,63 @@ void NotaManager::BuscarNotas()
     }
 }
 
-
-
-/*
 void NotaManager::HacerCopiaDeSeguridad()
 {
-
+    NotasArchivo _archivoBkp = NotasArchivo("comunicados.bkp");
+    NotasArchivo _archivo;
     int cantidadRegistros = _archivo.getCantidad();
+    Notas *vec = new Notas [cantidadRegistros];
+
+    if (vec == nullptr)
+    {
+        cout << "Falla al realizar backup" << endl;
+        return;
+    }
+
+    _archivo.leer(vec, cantidadRegistros);
+    _archivoBkp.vaciar();
+    if (_archivoBkp.guardar(vec, cantidadRegistros))
+    {
+        cout << "Backup realizado correctamente" << endl;
+        system("pause>nul");
+    }
+    else
+    {
+        cout << "Falla al realizar backup" << endl;
+        system("pause>nul");
+    }
+
+    delete []vec;
+}
+
+void NotaManager::RestaurarCopiaDeSeguridad()
+{
+    NotasArchivo _archivoBkp = NotasArchivo ("notas.bkp");
+    NotasArchivo _archivo;
+    int cantidadRegistros = _archivoBkp.getCantidad();
     Notas *vec = new Notas[cantidadRegistros];
 
     if (vec == nullptr)
     {
-        cout << "Falla al realizar backup" << endl;
-        return;
-    }
-
-    _archivo.leerTodos(vec, cantidadRegistros);
-    _archivoBkp.vaciar();
-  //  if (_archivoBkp(vec, cantidadRegistros))
-    {
-        cout << "Backup realizado correctamente" << endl;
-    }
-    else
-    {
-        cout << "Falla al realizar backup" << endl;
-    }
-
-    delete []vec;
-}
-
-void AlumnoManager::RestaurarCopiaDeSeguridad()
-{
-
-    int cantidadRegistros = _archivoBkp.getCantidad();
-    Alumno *vec = new Alumno[cantidadRegistros];
-
-    if (vec == nullptr)
-    {
         cout << "Falla al restaurar backup" << endl;
         return;
     }
 
-    _archivoBkp.(vec, cantidadRegistros);
+    _archivoBkp.leer(vec, cantidadRegistros);
     _archivo.vaciar();
     if (_archivo.guardar(vec, cantidadRegistros))
     {
         cout << "Backup restaurado correctamente" << endl;
+        system("pause>nul");
     }
     else
     {
         cout << "Falla al restaurar backup" << endl;
+        system("pause>nul");
     }
 
     delete []vec;
 }
-*/
+
+
+

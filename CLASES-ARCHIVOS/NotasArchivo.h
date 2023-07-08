@@ -15,11 +15,13 @@ public:
     bool agregar(Notas dto);
     int getCantidad();
     Notas leerReg(int nroRegistro);
-    void leerTodos(Notas nota[], int cantidad);
     bool modificar(Notas registro, int nroRegistro);
-    bool guardarTodos(Notas*vec, int cantidadRegistrosAEscribir);
+    bool guardar(Notas *vec, int cantidadRegistrosAEscribir);
+    void leer(Notas *vec, int cantidadRegistrosALeer);
     int buscarReg(int dni);
     void vaciar();
+
+
 
 };
 

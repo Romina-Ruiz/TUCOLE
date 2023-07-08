@@ -1354,7 +1354,9 @@ void menuRespaldos()
                 break;
 
             case 1:     /// RESTAURAR BACKUP
+                RestaurarBackup();
                 system("cls");
+
 
                 break;
 
@@ -1390,8 +1392,16 @@ void RealizarBackup()
     mostrar_mensaje ("--------------------------------", 40, 5);
     rlutil::locate(10,9);
     int op;
-    AlumnoManager alum;
-    ProfesorManager profe;
+    AlumnoManager alumno;
+    ProfesorManager profesor;
+    MateriaManager materia;
+    CursoManager curso;
+    NotaManager nota;
+    ComunicadosManager comunicado;
+    CuotaManager cuota;
+    FaltaManager falta;
+    PagoManager pago;
+
     cout << "USTED DESEA RESPALDAR TODOS LOS ARCHIVOS? (1-SI / 2- NO): "<<endl;
     rlutil::locate(68,9);
     cin>>op;
@@ -1399,11 +1409,73 @@ void RealizarBackup()
     if (op==1)
     {
 
-        alum.HacerCopiaDeSeguridad();
-        profe.HacerCopiaDeSeguridad();
+        alumno.HacerCopiaDeSeguridad();
+        profesor.HacerCopiaDeSeguridad();
+        materia.HacerCopiaDeSeguridad();
+        curso.HacerCopiaDeSeguridad();
+        falta.HacerCopiaDeSeguridad();
+        nota.HacerCopiaDeSeguridad();
+        pago.HacerCopiaDeSeguridad();
+        cuota.HacerCopiaDeSeguridad();
+
 
         rlutil::locate(30,15);
         cout << "** LOS RESPALDOS SE REALIZARON CON EXITO **"<<endl;
+        system("pause>nul");
+    }
+    else if (op==2)
+    {
+
+        system("cls");
+
+    }
+
+}
+
+void RestaurarBackup()
+{
+
+    system("cls");
+
+
+
+
+    rlutil::saveDefaultColor();
+    rectangulo (2, 2, 100, 26);
+    rlutil::setColor(rlutil::YELLOW);
+    mostrar_mensaje ("*** RESTAURAR RESPALDOS ***", 40, 4);
+    mostrar_mensaje ("--------------------------------", 40, 5);
+    rlutil::locate(10,9);
+    int op;
+    AlumnoManager alumno;
+    ProfesorManager profesor;
+    MateriaManager materia;
+    CursoManager curso;
+    NotaManager nota;
+    ComunicadosManager comunicado;
+    CuotaManager cuota;
+    FaltaManager falta;
+    PagoManager pago;
+
+    cout << "USTED DESEA RESTAURAR TODOS LOS ARCHIVOS? (1-SI / 2- NO): "<<endl;
+    rlutil::locate(68,9);
+    cin>>op;
+
+    if (op==1)
+    {
+
+        alumno.RestaurarCopiaDeSeguridad();
+        profesor.RestaurarCopiaDeSeguridad();
+        materia.RestaurarCopiaDeSeguridad();
+        curso.RestaurarCopiaDeSeguridad();
+        falta.RestaurarCopiaDeSeguridad();
+        nota.RestaurarCopiaDeSeguridad();
+        pago.RestaurarCopiaDeSeguridad();
+        cuota.RestaurarCopiaDeSeguridad();
+
+
+        rlutil::locate(30,15);
+        cout << "** LAS RESTAURACIONES SE REALIZARON CON EXITO **"<<endl;
         system("pause>nul");
     }
     else if (op==2)
