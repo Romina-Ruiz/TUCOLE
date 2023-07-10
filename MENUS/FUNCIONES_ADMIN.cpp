@@ -551,7 +551,7 @@ void menuCargarMateria()
     system("cls");
 
     const char *opciones[] = {"CARGAR MATERIA","MODIFICAR DATOS",
-                              "BUSCAR MATERIA POR ANIO LECTIVO", "LISTAR MATERIAS","VOLVER AL MENU PRINCIPAL"
+                              "BUSCAR POR ID", "LISTAR MATERIAS","VOLVER AL MENU PRINCIPAL"
                              };
     int op=1, y=0;
 
@@ -562,7 +562,7 @@ void menuCargarMateria()
 
         rectangulo (2, 2, 100, 26);
         rlutil::setColor(rlutil::YELLOW);
-        mostrar_mensaje ("***** CARGA DE MATERIAS ***** ", 34, 4);
+        mostrar_mensaje ("*****  MATERIAS  ***** ", 34, 4);
 
         showItem (opciones[0],30,10,y==0);
         showItem (opciones[1],30,11,y==1);
@@ -610,7 +610,7 @@ void menuCargarMateria()
                 MateriaManager obj;
                 rlutil::setColor(rlutil::YELLOW);
                 rectangulo (2, 2, 100, 26);
-                mostrar_mensaje ("***** CARGAR MATERIAS ***** ", 34, 4);
+                mostrar_mensaje ("***** CARGAR MATERIA ***** ", 34, 4);
 
                 obj.Cargar();
 
@@ -621,27 +621,36 @@ void menuCargarMateria()
             break;
 
             case 1:     /// Modificar materias
-
-
-
-                ///LLAMAR A LA FUNCION MODIFICAR
-
-                break;
-            case 2:     /// Buscar por año lectivo
             {
                 system("cls");
 
                 MateriaManager obj;
                 rlutil::setColor(rlutil::YELLOW);
                 rectangulo (2, 2, 100, 26);
-                mostrar_mensaje ("***** CARGAR MATERIAS ***** ", 34, 4);
-                int AnioLectivo;
-                rlutil::locate(20,9);
-                cout<<"INGRESE EL ANIO LECTIVO:"<<endl;
-                rlutil::locate(48,9);
-                cin>>AnioLectivo;
+                mostrar_mensaje ("***** MODIFICAR MATERIA ***** ", 34, 4);
 
-                obj.ListarXanioLectivo(AnioLectivo);
+                obj.ModificarMateria();
+
+                system("pause>nul");
+                system("cls");
+            }
+
+            break;
+            case 2:     /// Buscar por id
+            {
+                system("cls");
+
+                MateriaManager obj;
+                rlutil::setColor(rlutil::YELLOW);
+                rectangulo (2, 2, 100, 26);
+                mostrar_mensaje ("***** BUSCAR MATERIA ***** ", 34, 4);
+                int id;
+                rlutil::locate(20,9);
+                cout<<"INGRESE EL ID DE LA MATERIA:"<<endl;
+                rlutil::locate(50,9);
+                cin>>id;
+
+                obj.BuscarxID(id);
 
                 system("pause>nul");
                 system("cls");
@@ -659,6 +668,7 @@ void menuCargarMateria()
                     mostrar_mensaje ("***** LISTA DE MATERIAS ***** ", 34, 4);
 
                     obj.ListarTodos();
+
                     system("pause>nul");
                     system("cls");
                 }
@@ -685,7 +695,8 @@ void menuCargarCursos()
 {
     system("cls");
 
-    const char *opciones[] = {"CARGAR CURSO","LISTAR MATERIAS POR ANIO LECTIVO", "MODIFICAR DATOS","VOLVER AL MENU PRINCIPAL"};
+    const char *opciones[] = {"CARGAR CURSO", "MODIFICAR CURSOS","LISTAR MATERIAS POR ANIO LECTIVO",
+                                                    "LISTAR ALUMNOS POR ANIO LECTIVO", "VOLVER AL MENU PRINCIPAL"};
     int op=1, y=0;
 
     rlutil::hidecursor();
@@ -695,12 +706,13 @@ void menuCargarCursos()
 
         rectangulo (2, 2, 100, 26);
         rlutil::setColor(rlutil::YELLOW);
-        mostrar_mensaje ("***** CARGA DE CURSOS ***** ", 34, 4);
+        mostrar_mensaje ("*****   CURSOS   ***** ", 34, 4);
 
         showItem (opciones[0],30,10,y==0);
         showItem (opciones[1],30,11,y==1);
         showItem (opciones[2],30,12,y==2);
         showItem (opciones[3],30,13,y==3);
+        showItem (opciones[4],30,14,y==4);
 
 
         rlutil::locate(26,10+y);
@@ -724,9 +736,9 @@ void menuCargarCursos()
             cout <<"   " <<endl;
             y++;
 
-            if (y>3)
+            if (y>4)
             {
-                y=3;
+                y=4;
             }
             break;
 
@@ -752,18 +764,31 @@ void menuCargarCursos()
 
             break;
 
-            case 1:     ///  alumnos por año
+            case 1:     ///  MODIFICAR CURSOS
             {
                 system("cls");
+                CursoManager obj;
+                rlutil::setColor(rlutil::YELLOW);
+                rectangulo (2, 2, 100, 26);
+                mostrar_mensaje ("***** MODIFICAR CURSOS ***** ", 34, 4);
 
+                obj.Editar();
+
+                system("cls");
+            }
+            break;
+
+            case 2:     ///LISTAR CURSO
+            {
+                system("cls");
                 CursoManager obj;
                 rlutil::setColor(rlutil::YELLOW);
                 rectangulo (2, 2, 100, 26);
                 mostrar_mensaje ("***** INFORMACION SOBRE CURSO/ANIO  ***** ", 34, 4);
                 int anio;
                 rlutil::locate(10,9);
-                cout<<"INGRESE EL ANIO LECTIVO :"<<endl;
-                rlutil::locate(38,9);
+                cout<<"INGRESE EL ANIO LECTIVO A CONSULTAR :"<<endl;
+                rlutil::locate(55,9);
                 cin>>anio;
 
                 obj.ListarMateriasxCurso(anio);
@@ -772,15 +797,25 @@ void menuCargarCursos()
                 system("cls");
             }
             break;
-
-            case 2:     ///MODIFICAR DATOS
+            case 3:     ///LISTAR ALUMNOS POR CURSO
             {
                 system("cls");
+                CursoManager obj;
+                rlutil::setColor(rlutil::YELLOW);
+                rectangulo (2, 2, 100, 26);
+                mostrar_mensaje ("***** LISTA DE ALUMNOS POR CURSO/ANIO  ***** ", 34, 4);
+                int anio;
+                rlutil::locate(10,9);
+                cout<<"INGRESE EL ANIO LECTIVO A CONSULTAR :"<<endl;
+                rlutil::locate(55,9);
+                cin>>anio;
+
+               obj.ListarAlumnosxCurso(anio);
 
                 system("cls");
             }
             break;
-            case 3:     ///SALIR
+             case 4:     ///SALIR
             {
                 system("cls");
                 menuAdmin();
@@ -1210,7 +1245,7 @@ void menuInformes()
                 rectangulo (2, 2, 100, 26);
                 mostrar_mensaje ("***** INFORMES POR CURSO ***** ", 34, 4);
 
-                obj.ListarAlumnosxCurso();
+                //obj.ListarAlumnosxCurso();
                 system("pause>nul");
                 system("cls");
 

@@ -106,7 +106,7 @@ bool CursoArchivo::guardar(Curso *vec, int cantidadRegistrosAEscribir){
 	return cantidadRegistrosEscritos == cantidadRegistrosAEscribir;
 }
 
-int CursoArchivo::buscarReg(int curso){
+int CursoArchivo::buscarReg(int dni){
 
   int nroRegistro = -1;
   int cantidad = this->getCantidad();
@@ -115,7 +115,7 @@ int CursoArchivo::buscarReg(int curso){
   for (int i = 0; i < cantidad; i++)
   {
     registro =this->leerReg(i);
-    if (registro.getCurso() == curso)
+    if (registro.getDniAlumno() == dni)
     {
       nroRegistro = i;
       break;

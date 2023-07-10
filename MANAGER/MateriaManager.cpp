@@ -8,6 +8,7 @@
 #include "../MENUS/FUNCIONES_FRONT.h"
 #include"Curso.h"
 #include"CursoArchivo.h"
+#include"../MENUS/FUNCIONES_ADMIN.h"
 
 using namespace std;
 
@@ -43,17 +44,17 @@ void MateriaManager::Cargar()
     rlutil::locate(50,13);
     cin.ignore();
     getline(cin,dia1);
-   rlutil::locate(15,14);
+    rlutil::locate(15,14);
     cout << "INGRESE HORARIO 1 DE LA MATERIA: "<<endl;
     rlutil::locate(50,14);
-     cin.ignore();
+    cin.ignore();
     getline(cin,horario1);
     rlutil::locate(15,15);
     cout << "INGRESE DIA 2 DE LA MATERIA: "<<endl;
     rlutil::locate(50,15);
     cin.ignore();
     getline(cin,dia2);
-   rlutil::locate(15,16);
+    rlutil::locate(15,16);
     cout << "INGRESE HORARIO 2 DE LA MATERIA: "<<endl;
     rlutil::locate(50,16);
     cin.ignore();
@@ -96,54 +97,315 @@ int MateriaManager::generarId()
 
 }
 
-//void MateriaManager::ListarXcurso()
-//{
-//    int curso;
-//    rectangulo (2, 2, 100, 26);
-//    rlutil::setColor(rlutil::YELLOW);
-//
-//    rlutil::locate(20,9);
-//    cout << "INGRESE CURSO ";
-//    cin >> curso;
-//    system("cls");
-//
-//    int posicion = _archivo.buscarReg(curso);
-//    if (posicion >= 0)
-//    {
-//        Materia reg = _archivo.leerReg(posicion);
-//        Listar(reg);
-//    }
-//    else
-//    {
-//        rlutil::locate(20,10);
-//        cout << "** NO EXISTE ESE NUMERO DE CURSO **" << endl;
-//        system("pause>nul");
-//    }
-//}
+void MateriaManager::ModificarMateria()
+{
+    int mate;
+    rectangulo (2, 2, 100, 26);
+    rlutil::setColor(rlutil::YELLOW);
+    mostrar_mensaje ("***** MODIFICAR MATERIA ***** ", 34, 4);
+
+    rlutil::locate(20,9);
+    cout << "INGRESE EL ID DE LA MATERIA:  ";
+    rlutil::locate(49,9);
+    cin >> mate;
+    system("cls");
+
+    int posicion = _archivo.buscarReg(mate);
+    if (posicion >= 0)
+    {
+        Materia reg = _archivo.leerReg(posicion);
+        Listar(reg);
+        rectangulo (2, 2, 100, 26);
+        mostrar_mensaje ("*** DESEA MODIFICAR LA MATERIA (1-SI/ 2- NO)***** ", 20, 9);
+        int resp;
+        rlutil::locate(20,12);
+        cout << "RESPUESTA:  ";
+        rlutil::locate(30,12);
+        cin >> resp;
+        if(resp==1)
+        {
+            OpModificar(reg,posicion);
+
+        }
+
+    }
+    else
+    {
+        rlutil::locate(20,10);
+        cout << "** NO EXISTE ESE NUMERO DE CURSO **" << endl;
+        system("pause>nul");
+    }
 
 
-//int MateriaManager::buscarDNI(int dni)
-//{
-//
-//    Alumno obj;
-//    AlumnoArchivo _archivoalumno;
-//    int nroReg=-1;
-//    int cantRegArchivo=_archivoalumno.getCantidad();
-//
-//
-//    for (int i = 0; i < cantRegArchivo; i++)
-//    {
-//        obj=_archivoalumno.leerReg(i);
-//
-//        if (obj.getDni()== dni)
-//        {
-//            nroReg=i;
-//            break;
-//        }
-//    }
-//
-//    return nroReg;
-//}
+}
+
+void MateriaManager::OpModificar(Materia reg, int pos)
+{
+
+    system("cls");
+
+    const char *opciones[] = {"MODIFICAR NOMBRE","MODIFICAR ANIO LECTIVO", "MODIFICAR ID PROFESOR",
+                              "MODIFICAR DIA 1", "MODIFICAR HORARIO 1",  "MODIFICAR DIA 2","MODIFICAR HORARIO 2", "MODIFICAR ESTADO", "VOLVER AL MENU ANTERIOR"
+                             };
+
+    int op=1, y=0;
+
+    rlutil::hidecursor();
+
+    do
+    {
+
+        rectangulo (2, 2, 100, 26);
+        rlutil::setColor(rlutil::YELLOW);
+        mostrar_mensaje ("*****  MODIFICAR MATERIAS  ***** ", 34, 4);
+
+        showItem (opciones[0],30,10,y==0);
+        showItem (opciones[1],30,11,y==1);
+        showItem (opciones[2],30,12,y==2);
+        showItem (opciones[3],30,13,y==3);
+        showItem (opciones[4],30,14,y==4);
+        showItem (opciones[5],30,15,y==5);
+        showItem (opciones[6],30,16,y==6);
+        showItem (opciones[7],30,17,y==7);
+        showItem (opciones[8],30,18,y==8);
+
+        rlutil::locate(26,10+y);
+        cout <<"==> " <<endl;
+
+        switch(rlutil::getkey())
+        {
+        case 14: //UP
+            rlutil::locate(26,10+y);
+            cout <<"   " <<endl;
+            y--;
+
+            if (y<0)
+            {
+                y=0;
+            }
+            break;
+
+        case 15: //DOWN
+            rlutil::locate(26,10+y);
+            cout <<"   " <<endl;
+            y++;
+
+            if (y>8)
+            {
+                y=8;
+            }
+            break;
+
+        case 1:     /// OPCIONES AL INGRESAR ENTER (EL ENTER ES LA TECLA 1):
+
+            switch(y)
+            {
+
+            case 0:     ///NOMBRE
+            {
+                system("cls");
+
+                rlutil::setColor(rlutil::YELLOW);
+                rectangulo (2, 2, 100, 26);
+                mostrar_mensaje ("***** MODIFICAR NOMBRE DE LA MATERIA ***** ", 34, 4);
+                string nombre;
+                rlutil::locate(20,9);
+                cout<<"INGRESE NUEVO NOMBRE"<<endl;
+                rlutil::locate(48,9);
+                cin.ignore();
+                getline(cin,nombre);
+
+                reg.setNombreMateria(nombre);
+                _archivo.modificar(reg,pos);
+
+                mostrar_mensaje ("***** MATERIA MODIFICADA ***** ", 34, 15);
+                system("pause>nul");
+                system("cls");
+            }
+
+            break;
+
+            case 1:     /// ANIO LECTIVO
+
+            {
+                system("cls");
+
+                rlutil::setColor(rlutil::YELLOW);
+                rectangulo (2, 2, 100, 26);
+                mostrar_mensaje ("***** MODIFICAR ANIO LECTIVO ***** ", 34, 4);
+                int anio;
+                rlutil::locate(20,9);
+                cout<<"INGRESE NUEVO ANIO"<<endl;
+                rlutil::locate(48,9);
+                cin>>anio;
+
+                reg.setAnioLectivo(anio);
+                _archivo.modificar(reg,pos);
+
+                mostrar_mensaje ("***** MATERIA MODIFICADA ***** ", 34, 15);
+                system("pause>nul");
+                system("cls");
+
+            }
+
+            break;
+            case 2:     /// ID PROFESOR
+            {
+                system("cls");
+
+                rlutil::setColor(rlutil::YELLOW);
+                rectangulo (2, 2, 100, 26);
+                mostrar_mensaje ("***** MODIFICAR ID PROFESOR ***** ", 34, 4);
+                int id;
+                rlutil::locate(20,9);
+                cout<<"INGRESE EL NUEVO ID DEL PROFESOR:"<<endl;
+                rlutil::locate(48,9);
+                cin>>id;
+
+                reg.setidProfesor(id);
+                _archivo.modificar(reg,pos);
+
+                mostrar_mensaje ("***** MATERIA MODIFICADA ***** ", 34, 15);
+                system("pause>nul");
+                system("cls");
+            }
+            break;
+
+            case 3:     /// DIA 1
+
+            {
+                system("cls");
+                rlutil::setColor(rlutil::YELLOW);
+                rectangulo (2, 2, 100, 26);
+                mostrar_mensaje ("***** MODIFICAR DIA 1***** ", 34, 4);
+                string dia1;
+                rlutil::locate(20,9);
+                cout<<"INGRESE NUEVO DIA:"<<endl;
+                rlutil::locate(48,9);
+                cin.ignore();
+                getline(cin,dia1);
+
+                reg.setDia1(dia1);
+                _archivo.modificar(reg,pos);
+
+                mostrar_mensaje ("***** MATERIA MODIFICADA ***** ", 34, 15);
+                system("pause>nul");
+                system("cls");
+            }
+
+            break;
+
+            case 4:     /// HORARIO 1
+            {
+                system("cls");
+
+                rlutil::setColor(rlutil::YELLOW);
+                rectangulo (2, 2, 100, 26);
+                mostrar_mensaje ("***** MODIFICAR HORARIO 1 ***** ", 34, 4);
+                string horario1;
+                rlutil::locate(20,9);
+                cout<<"INGRESE HORARIO 1: "<<endl;
+                rlutil::locate(48,9);
+                cin.ignore();
+                getline(cin,horario1);
+
+                reg.setHorario1(horario1);
+                _archivo.modificar(reg,pos);
+
+                mostrar_mensaje ("***** MATERIA MODIFICADA ***** ", 34, 15);
+                system("pause>nul");
+                system("cls");
+            }
+
+            break;
+            case 5:     /// DIA 2
+            {
+                system("cls");
+
+                rlutil::setColor(rlutil::YELLOW);
+                rectangulo (2, 2, 100, 26);
+                mostrar_mensaje ("***** MODIFICAR DIA 2***** ", 34, 4);
+                string dia2;
+                rlutil::locate(20,9);
+                cout<<"INGRESE NUEVO DIA:"<<endl;
+                rlutil::locate(48,9);
+                cin.ignore();
+                getline(cin,dia2);
+
+                reg.setDia2(dia2);
+                _archivo.modificar(reg,pos);
+
+                mostrar_mensaje ("***** MATERIA MODIFICADA ***** ", 34, 15);
+                system("pause>nul");
+                system("cls");
+            }
+
+            break;
+            case 6:     /// HORARIO 2
+            {
+                system("cls");
+
+                rlutil::setColor(rlutil::YELLOW);
+                rectangulo (2, 2, 100, 26);
+                mostrar_mensaje ("***** MODIFICAR HORARIO 2***** ", 34, 4);
+                string horario2;
+                rlutil::locate(20,9);
+                cout<<"INGRESE HORARIO 1: "<<endl;
+                rlutil::locate(48,9);
+                cin.ignore();
+                getline(cin,horario2);
+
+                reg.setHorario2(horario2);
+                _archivo.modificar(reg,pos);
+
+                mostrar_mensaje ("***** MATERIA MODIFICADA ***** ", 34, 15);
+                system("pause>nul");
+                system("cls");
+            }
+
+            break;
+            case 7:     /// ESTADO
+            {
+                system("cls");
+                rlutil::setColor(rlutil::YELLOW);
+                rectangulo (2, 2, 100, 26);
+                mostrar_mensaje ("***** MODIFICAR ESTADO ***** ", 34, 4);
+                int resp;
+                rlutil::locate(15,9);
+                cout<<"DESEA DAR DE BAJA LA MATERIA (1-SI/2-NO): "<<endl;
+                rlutil::locate(60,9);
+                cin >>resp;
+                if(resp==1)
+                {
+
+                    reg.setEliminada(true);
+                    _archivo.modificar(reg,pos);
+                }
+
+                mostrar_mensaje ("***** VUELVE AL MENU ANTERIOR***** ", 34, 15);
+
+                system("pause>nul");
+                system("cls");
+            }
+
+            break;
+
+            case 8:     /// SALIR
+            {
+                system("cls");
+                menuCargarMateria();
+                system("cls");
+            }
+            break;
+            }
+        }
+    }
+    while(op!=0);
+
+    system("pause");
+
+}
+
 
 
 void MateriaManager::ListarTodos()
@@ -151,21 +413,27 @@ void MateriaManager::ListarTodos()
 
     int cantidadRegistros = _archivo.getCantidad();
 
+    int cont;
+
     for (int i = 0; i<cantidadRegistros; i++)
     {
+        rlutil::locate(46,5);
+        cout<< cont+1<<"  / " <<cantidadRegistros;
+
         Materia reg = _archivo.leerReg(i);
 
         Listar(reg);
-        cout << endl;
-
+        cont++;
     }
+     rectangulo (2, 2, 100, 26);
+    mostrar_mensaje ("***** FIN DEL LISTADO ***** ", 34, 10);
+
 }
 void MateriaManager::Listar(Materia materia)
 {
     rectangulo (2, 2, 100, 26);
     rlutil::setColor(rlutil::YELLOW);
 
-    mostrar_mensaje ("***** LISTA DE MATERIAS ***** ", 34, 4);
     rlutil::locate(20,9);
     cout<<"ANIO LECTIVO: " <<materia.getAnioLectivo()<<endl;
     rlutil::locate(20,10);
@@ -188,7 +456,7 @@ void MateriaManager::Listar(Materia materia)
 }
 
 
-void MateriaManager::ListarXanioLectivo(int anio)
+void MateriaManager::BuscarxID(int id)
 {
 
 
@@ -198,21 +466,24 @@ void MateriaManager::ListarXanioLectivo(int anio)
     Materia obj;
     int cantReg=_archivo.getCantidad();
 
-    int d=1;
+
     for (int x=0; x<cantReg; x++)
     {
         obj=_archivo.leerReg(x);
 
-        if (anio==obj.getAnioLectivo()&&obj.getEliminada()==false)
+        if (id==obj.getIdMateria()&&obj.getEliminada()==false)
         {
-            d++;
-            rlutil::locate(20,11+d);
-            cout <<"MATERIA:  "<<obj.getNombreMateria()<< "     " <<"PROFESOR :  "<<obj.getidProfesor()<<endl;
-
+            rlutil::locate(20,11);
+            cout <<"NOMBRE:  "<<obj.getNombreMateria()<< "          " <<"PROFESOR ID:  "<<obj.getidProfesor()<<endl;
+            rlutil::locate(20,12);
+            cout <<"DIA 1:  "<<obj.getDia1()<< "           " <<"HORARIO 1:  "<<obj.getHorario1()<<endl;
+            rlutil::locate(20,13);
+            cout <<"DIA 2:  "<<obj.getDia2()<< "         " <<"HORARIO 2:  "<<obj.getHorario2()<<endl;
+            system("pause>nul");
         }
 
     }
-    system("pause>nul");
+
 }
 
 void MateriaManager::MenuUserMaterias(int dni)

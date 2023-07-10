@@ -15,13 +15,13 @@ public:
 
     void Cargar();
     void ListarTodos();
-//	void Editar();
-//	void Eliminar();
+    void ModificarMateria();
+    void OpModificar(Materia reg, int pos);
     void Listar(Materia materia);
-    void ListarXanioLectivo(int anio);
+    void BuscarxID(int id);
     void MenuUserMaterias(int dni);
     int generarId();
-    void cargarCadena(char *pal, int tam);
+
 
     void HacerCopiaDeSeguridad();
     void RestaurarCopiaDeSeguridad();
