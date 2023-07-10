@@ -9,24 +9,27 @@ class Notas
 private:
 
     int _DNIalumno;
-    char _nombre_materia[30];
-    int _Nro_examen; //1- PARCIAL 1/ 2- PARCIAL 2;
+    int _IDmateria;
+    int _Nro_examen; //1- PARCIAL 1/ 2- PARCIAL 2/ 3-final
     float _nota;
+    int _IDNota;
     bool _eliminada;
 
 
 public:
 
     void setDNIalumno(int dni);
-    void setNombreMateria( std::string nombre_materia);
+    void setIDMateria(int id);
     void setNroExamen(int nro);
     void setNota(float nota);
+    void setIDNota(int idnota);
     void setEliminada(bool eliminada);
 
     int getDNIalumno();
-    std::string getNombreMateria();
+    int getIDMateria();
     int getNroExamen();
     float getNota();
+    int getIDNota();
     bool getEliminada();
 
 

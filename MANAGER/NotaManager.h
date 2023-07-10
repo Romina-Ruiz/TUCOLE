@@ -12,15 +12,17 @@ private:
 
 public:
 
-
-    int buscarDNI(int dni);
     void Cargar();
     void ListarTodos();
     void Listar(Notas nota);
+    int buscarDNI(int dni);
     void ListarXdni(int dni);
     void Editar();
-    void ModificarDatos(int dni);
+    void ModificarDatos(int dni, int id, int pos);
+    int GenerarID();
     void BuscarNotas();
+    int BuscarMaterias(std::string nombreMateria);
+    std::string BuscarMateriaxID(int id);
 
     void HacerCopiaDeSeguridad();
     void RestaurarCopiaDeSeguridad();

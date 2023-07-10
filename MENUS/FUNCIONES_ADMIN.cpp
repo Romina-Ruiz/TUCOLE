@@ -910,7 +910,7 @@ void menuCargarNotas()
                 NotaManager obj;
                 rlutil::setColor(rlutil::YELLOW);
                 rectangulo (2, 2, 100, 26);
-                mostrar_mensaje ("***** CARGAR NOTAS ***** ", 34, 4);
+                mostrar_mensaje ("***** MODIFICAR NOTAS ***** ", 34, 4);
 
                 obj.Editar();
 

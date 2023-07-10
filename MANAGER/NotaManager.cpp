@@ -9,8 +9,8 @@ using namespace std;
 #include "../MENUS/FUNCIONES_FRONT.h"
 #include "AlumnoArchivo.h"
 #include "Alumno.h"
-
-
+#include"Materia.h"
+#include"MateriaArchivo.h"
 
 int NotaManager::buscarDNI(int dni)
 {
@@ -19,13 +19,20 @@ int NotaManager::buscarDNI(int dni)
 
 }
 
+int NotaManager::GenerarID()
+{
+
+    return _archivo.getCantidad()+1;
+}
+
+
 void NotaManager::Cargar()
 
 {
     AlumnoArchivo alumno;
 
     int dni, NroExamen;
-   string nombreMateria;
+    string nombreMateria;
     float nota;
 
 
@@ -45,28 +52,35 @@ void NotaManager::Cargar()
     }
     else
     {
-
-        rlutil::locate(20,9);
+        rlutil::locate(10,10);
         cout << "NOMBRE DE MATERIA: "<<endl;
-        rlutil::locate(39,9);
+        rlutil::locate(35,10);
         cin.ignore();
         getline(cin,nombreMateria);
-        rlutil::locate(20,10);
-        cout << "Nro EXAMEN: "<<endl;
-        rlutil::locate(35,10);
-        cin >> NroExamen;
-        rlutil::locate(20,11);
-        cout << "INGRESE NOTA: "<<endl;
-        rlutil::locate(38,11);
-        cin >> nota;
-        rlutil::locate(20,12);
 
+        int id=BuscarMaterias(nombreMateria);
+        int nume;
+
+        rlutil::locate(10,11);
+        cout << "Nro EXAMEN (1-Primer examen/2-Segundo Examen/3-Final): "<<endl;
+        rlutil::locate(65,11);
+        cin >> NroExamen;
+        rlutil::locate(10,12);
+        cout << "INGRESE NOTA: "<<endl;
+        rlutil::locate(28,12);
+        cin >> nota;
+        rlutil::locate(10,13);
+        cout << "ID DE LA NOTA: "<<endl;
+        nume=this->GenerarID();
+        rlutil::locate(28,13);
+        cout << nume<<endl;
 
         Notas aux;
         aux.setDNIalumno(dni);
-        aux.setNombreMateria(nombreMateria);
+        aux.setIDMateria(id);
         aux.setNroExamen(NroExamen);
         aux.setNota(nota);
+        aux.setIDNota(nume);
         aux.setEliminada(0);
 
         if (_archivo.agregar(aux))
@@ -82,9 +96,55 @@ void NotaManager::Cargar()
             system("pause>nul");
         }
     }
-    system("pause");
 
 }
+
+int NotaManager::BuscarMaterias(std::string nombremateria)
+{
+    Materia aux;
+    MateriaArchivo ArMateria;
+
+    int canReg=ArMateria.getCantidad();
+
+    for (int x=0; x<canReg; x++)
+    {
+
+        aux=ArMateria.leerReg(x);
+
+        if(nombremateria==aux.getNombreMateria())
+        {
+
+            return aux.getIdMateria();
+        }
+
+    }
+
+    return 0;
+}
+std::string NotaManager::BuscarMateriaxID(int id)
+{
+
+    Materia aux;
+    MateriaArchivo ArMateria;
+
+    int canReg=ArMateria.getCantidad();
+
+    for (int x=0; x<canReg; x++)
+    {
+
+        aux=ArMateria.leerReg(x);
+
+        if(id==aux.getIdMateria())
+        {
+
+            return aux.getNombreMateria();
+        }
+
+    }
+
+}
+
+
 void NotaManager::ListarTodos()
 {
 
@@ -108,17 +168,20 @@ void NotaManager::Listar(Notas nota)
 
     rectangulo (2, 2, 100, 26);
     rlutil::setColor(rlutil::YELLOW);
-    mostrar_mensaje ("*****   LISTA DE NOTAS   *****", 34, 4);
+
+    std::string materia;
 
     rlutil::locate(20,9);
     cout<<"DNI ALUMNO:    " <<nota.getDNIalumno()<<endl;
+
+    materia=this->BuscarMateriaxID(nota.getIDMateria());
     rlutil::locate(20,10);
-    cout<<"NOMBRE DE MATERIA :    "<<nota.getNombreMateria()<<endl;
+    cout<<"NOMBRE DE MATERIA :    "<<materia<<endl;
+
     rlutil::locate(20,11);
     cout<<"NUMERO DE EXAMEN:    "<<nota.getNroExamen()<<endl;
     rlutil::locate(20,12);
     cout<<"NOTA  :    " <<nota.getNota()<<endl;
-    rlutil::locate(20,13);
 
     system("pause>nul");
     system("cls");
@@ -133,6 +196,7 @@ void NotaManager::ListarXdni(int dni)
     Notas obj;
     int cantReg=_archivo.getCantidad();
     int can=1;
+    std::string materia;
     for (int x=0; x<cantReg; x++)
     {
         obj=_archivo.leerReg(x);
@@ -140,119 +204,106 @@ void NotaManager::ListarXdni(int dni)
         if (dni==obj.getDNIalumno())
         {
             can++;
-            rlutil::locate(8,9+can);
-            cout <<"MATERIA:  "<<obj.getNombreMateria()<<endl;
-            rlutil::locate(33,9+can);
-            cout <<"Nro. DE EXAMEN:   "<<obj.getNroExamen()<<endl;
-            rlutil::locate(60,9+can);
-            cout <<"NOTA:   "<<obj.getNota()<<endl;
+            materia=this->BuscarMateriaxID(obj.getIDMateria());
+            rlutil::locate(5,10+can);
+            cout <<"MATERIA: "<<materia<<endl;
+            rlutil::locate(30,10+can);
+            cout <<"Nro. DE EXAMEN:  "<<obj.getNroExamen()<<endl;
+            rlutil::locate(53,10+can);
+            cout <<"NOTA:  "<<obj.getNota()<<endl;
+            rlutil::locate(66,10+can);
+            cout <<"ID NOTA: "<<obj.getIDNota()<<endl;
             system("pause>nul");
-            // system("cls");
+
         }
 
     }
-    rlutil::locate(30,25);
-    cout <<"FIN DEL LISTADO "<<endl;
+    system("cls");
+    rectangulo (2, 2, 100, 26);
+    rlutil::locate(40,12);
+    cout <<"** FIN DEL LISTADO **"<<endl;
 }
 
 void NotaManager::Editar()
 {
 
     Notas reg;
-    int dni, posicion;
+    int dni, ID, posicion;
 
     rlutil::locate(20,9);
     cout << "DNI A MODIFICAR: ";
     cin >> dni;
-    cout << endl;
+    rlutil::locate(20,10);
+    cout << "INGRESE EL ID DE LA NOTA A MODIFICAR: ";
+    cin >> ID;
 
-    system("cls");
-    mostrar_mensaje ("***** MODIFICAR DE NOTAS***** ", 34, 4);
     posicion = _archivo.buscarReg(dni);
     if (posicion >= 0)
     {
         reg = _archivo.leerReg(posicion);
 
         int nuevoEstado;
-        rlutil::locate(20,11);
+        rlutil::locate(20,13);
         cout << "DESEA MODIFICAR ALGUN DATO? (1-SI/2-NO): ";
-        rlutil::locate(64,11);
         cin >> nuevoEstado;
 
         if (nuevoEstado==1)
         {
-            ModificarDatos(dni);
+            ModificarDatos(dni,ID,posicion);
 
         }
 
     }
     else
     {
+        mostrar_mensaje ("**  NO EXISTE ESE REGISTRO  ** ", 34, 10);
         system("pause>nul");
     }
 
 
 }
 
-void NotaManager::ModificarDatos(int dni)
+void NotaManager::ModificarDatos(int dni, int id, int pos)
 {
     system("cls");
 
-    rlutil::saveDefaultColor();
-    rectangulo (2, 2, 100, 26);
+   rectangulo (2, 2, 100, 26);
     rlutil::setColor(rlutil::YELLOW);
-
-    mostrar_mensaje ("* MODIFICAR NOTAS *", 40, 4);
-    mostrar_mensaje ("--------------------------------", 40, 5);
+    mostrar_mensaje ("***   MODIFICAR NOTAS   ***", 40, 4);
 
     Notas aux;
     NotasArchivo arNotas;
 
-
-    int tipo;
     float nota;
-    string nombre;
-
-    rlutil::locate(10,9);
-    cout << "INGRESE EL NOMBRE DE LA MATERIA: "<<endl;
-    rlutil::locate(43,9);
-    cin>>nombre;
 
     int canReg=arNotas.getCantidad();
 
     for(int x=0; x<canReg; x++)
     {
-
         aux=arNotas.leerReg(x);
 
-        if(nombre==aux.getNombreMateria()&&dni==aux.getDNIalumno())
+        if(id==aux.getIDMateria()&&dni==aux.getDNIalumno()&&aux.getEliminada()==false)
         {
             rlutil::locate(10,10);
-            cout << "INGRESE TIPO DE NOTA (1-PARCIAL 1/ 2-PARCIAL2): "<<endl;
-            rlutil::locate(60,10);
-            cin>>tipo;
-            if (tipo==1 || tipo==2)
+            cout << "INGRESE LA NUEVA NOTA DEL EXAMEN: "<<endl;
+            rlutil::locate(50,10);
+            cin>>nota;
+
+            aux.setNota(nota);
+            if(arNotas.modificar(aux,pos))
             {
-                rlutil::locate(10,11);
-                cout << "INGRESE LA NUEVA NOTA: "<<endl;
-                rlutil::locate(35,11);
-                cin>>nota;
-                aux.setNota(nota);
 
-                if(arNotas.modificar(aux,x))
-                {
-
-                    rlutil::locate(30,15);
-                    cout << "** REGISTRO MODIFICADO **"<<endl;
-                }
+                rlutil::locate(30,15);
+                rectangulo (2, 2, 100, 26);
+                cout << "** REGISTRO MODIFICADO **"<<endl;
+                system("pause>nul");
             }
         }
-
     }
-    system("pause>nul");
-    system("cls");
 
 }
+
+
 void NotaManager::BuscarNotas()
 {
     system("cls");
@@ -263,26 +314,14 @@ void NotaManager::BuscarNotas()
     rlutil::setColor(rlutil::YELLOW);
     rectangulo (2, 2, 100, 26);
     mostrar_mensaje ("***** BUSCAR NOTAS POR DNI ***** ", 34, 4);
-    rlutil::locate(20,9);
+    rlutil::locate(10,9);
     cout << "DNI: ";
-    rlutil::locate(28,9);
+    rlutil::locate(18,9);
     cin >> dni;
-    cout << endl;
 
-    int can=1;
-    for (int x=0; x<canReg; x++)
-    {
+    this->ListarXdni(dni);
 
-        obj=arNotas.leerReg(x);
 
-        if(dni==obj.getDNIalumno())
-        {
-            can++;
-            rlutil::locate(28,10+can);
-            this->ListarXdni(dni);
-
-        }
-    }
 }
 
 void NotaManager::HacerCopiaDeSeguridad()

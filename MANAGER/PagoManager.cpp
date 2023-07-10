@@ -213,36 +213,6 @@ int PagoManager::generarPago()
     PagoArchivo _archivo;
     return _archivo.getCantidad()+1;
 }
-//void PagoManager::ListarXdni()
-//{
-//
-//    PagoArchivo _archivo;
-//
-//    int dni;
-//    rectangulo (2, 2, 100, 26);
-//    rlutil::setColor(rlutil::YELLOW);
-//
-//    rlutil::locate(20,9);
-//    cout << "INGRESE DNI ALUMNO: ";
-//    cin >> dni;
-//    system("cls");
-//
-//
-//
-//    int posicion = _archivo.buscarReg(dni);
-//    if (posicion >= 0)
-//    {
-//        Pago reg = _archivo.leerReg(posicion);
-//        Listar(reg);
-//    }
-//    else
-//    {
-//        rlutil::locate(20,10);
-//        cout << "** NO EXISTE UN PAGO CON ESE DNI **" << endl;
-//        system("pause>nul");
-//    }
-//}
-
 
 
 void PagoManager::Listar(Pago pago)
@@ -288,44 +258,6 @@ int PagoManager::buscarDNI(int dni)
 
     return nroReg;
 }
-//void PagoManager::Editar()
-//{
-//    Pago reg;
-//    int dni, posicion;
-//
-//    rlutil::locate(20,9);
-//    cout << "DNI A MODIFICAR: ";
-//    cin >> dni;
-//    cout << endl;
-//
-//    system("cls");
-//    mostrar_mensaje ("***** MODIFICAR DE PAGOS ***** ", 34, 4);
-//    posicion = _archivo.buscarReg(dni);
-//    if (posicion >= 0)
-//    {
-//        reg = _archivo.leerReg(posicion);
-//
-//        Listar(reg);
-//        cout << endl;
-//
-//        int nuevoEstado;
-//        rlutil::locate(20,10);
-//        cout << "DESEA MODIFICAR ALGUN DATO? (1-SI/2-NO): ";
-//        rlutil::locate(64,20);
-//        cin >> nuevoEstado;
-//
-//        if (nuevoEstado==1)
-//        {
-//            ModificarDatos(reg,posicion);
-//
-//        }
-//
-//    }
-//    else
-//    {
-//        system("pause>nul");
-//    }
-//}
 
 
 void PagoManager::EliminarPago()
