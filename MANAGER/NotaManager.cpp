@@ -192,7 +192,7 @@ void NotaManager::ListarXdni(int dni)
 
     rectangulo (2, 2, 100, 26);
     rlutil::setColor(rlutil::YELLOW);
-
+    mostrar_mensaje ("***** LISTADO DE NOTAS ***** ", 34, 4);
     Notas obj;
     int cantReg=_archivo.getCantidad();
     int can=1;
@@ -213,10 +213,9 @@ void NotaManager::ListarXdni(int dni)
             cout <<"NOTA:  "<<obj.getNota()<<endl;
             rlutil::locate(66,10+can);
             cout <<"ID NOTA: "<<obj.getIDNota()<<endl;
-            system("pause>nul");
 
         }
-
+   system("pause>nul");
     }
     system("cls");
     rectangulo (2, 2, 100, 26);
@@ -237,7 +236,7 @@ void NotaManager::Editar()
     cout << "INGRESE EL ID DE LA NOTA A MODIFICAR: ";
     cin >> ID;
 
-    posicion = _archivo.buscarReg(dni);
+    posicion = _archivo.buscarReg(dni,ID);
     if (posicion >= 0)
     {
         reg = _archivo.leerReg(posicion);
@@ -249,7 +248,7 @@ void NotaManager::Editar()
 
         if (nuevoEstado==1)
         {
-            ModificarDatos(dni,ID,posicion);
+            ModificarDatos(posicion);
 
         }
 
@@ -263,7 +262,7 @@ void NotaManager::Editar()
 
 }
 
-void NotaManager::ModificarDatos(int dni, int id, int pos)
+void NotaManager::ModificarDatos(int pos)
 {
     system("cls");
 
@@ -276,13 +275,9 @@ void NotaManager::ModificarDatos(int dni, int id, int pos)
 
     float nota;
 
-    int canReg=arNotas.getCantidad();
+     aux=arNotas.leerReg(pos);
 
-    for(int x=0; x<canReg; x++)
-    {
-        aux=arNotas.leerReg(x);
-
-        if(id==aux.getIDMateria()&&dni==aux.getDNIalumno()&&aux.getEliminada()==false)
+        if(aux.getEliminada()==false)
         {
             rlutil::locate(10,10);
             cout << "INGRESE LA NUEVA NOTA DEL EXAMEN: "<<endl;
@@ -293,24 +288,21 @@ void NotaManager::ModificarDatos(int dni, int id, int pos)
             if(arNotas.modificar(aux,pos))
             {
 
-                rlutil::locate(30,15);
                 rectangulo (2, 2, 100, 26);
+                rlutil::locate(30,15);
                 cout << "** REGISTRO MODIFICADO **"<<endl;
                 system("pause>nul");
             }
         }
     }
 
-}
-
 
 void NotaManager::BuscarNotas()
 {
     system("cls");
-    Notas obj;
+
     NotasArchivo arNotas;
     int dni;
-    int canReg= arNotas.getCantidad();
     rlutil::setColor(rlutil::YELLOW);
     rectangulo (2, 2, 100, 26);
     mostrar_mensaje ("***** BUSCAR NOTAS POR DNI ***** ", 34, 4);

@@ -290,24 +290,26 @@ void ComunicadosManager::EliminarComunicado()
         reg = _archivo.leerReg(posicion);
 
          int res;
-         rlutil::locate(10,18);
+         rlutil::locate(20,12);
          cout << "DESEA DAR DE BAJA EL COMUNICADO (1-SI/2-NO): ";
-         rlutil::locate(55,10);
+         rlutil::locate(55,12);
          cin >> res;
          cout << endl;
 
          if (res==1)
          {
         reg.setEliminado(false);
-        _archivo.guardar(reg, posicion);
-        cout << "Comunicado #" << comunicado<< " eliminado correctamente" << endl;
+        _archivo.modificarReg(reg, posicion);
+        rlutil::locate(35,15);
+        cout << "** COMUNICADO N#  " << comunicado<< " ELIMINADO CORRECTAMENTE ***" << endl;
         system("pause>nul");
 
         }
     }
     else
     {
-        cout << "No existe el comunicado con ese ID #"  << endl;
+      rlutil::locate(35,10);
+        cout << "**  NO EXISTE UN COMUNICADO CON ESE ID  **"  << endl;
         system("pause>nul");
     }
 
@@ -327,20 +329,24 @@ void ComunicadosManager::ComunicadosActivos()
         if (reg.getEliminado()==true)
         {
             rlutil::setColor(rlutil::YELLOW);
-            rectangulo (2, 2, 100, 26);
-            mostrar_mensaje ("***** COMUNICADOS ACTIVOS ***** ", 34, 4);
+
+            mostrar_mensaje ("***** COMUNICADOS ACTIVOS ***** ", 38, 4);
 
             rlutil::locate(10,9);
             cout<<"COMUNICADO N#:  "<<reg.getIdComunicado()<< endl;
             rlutil::locate(10,10);
             cout<<"FECHA:  "<<reg.getFechaComunicado().toString()<< endl;
-            rlutil::locate(10,11);
+            rlutil::locate(10,12);
             cout << reg.getComunicado()<< endl;
-
+            rlutil::locate(30,20);
+            cout << "---------------------  SALUDOS  -------------------------"<< endl;
             system("pause>nul");
             system("cls");
         }
     }
+    rectangulo (2, 2, 100, 26);
+    mostrar_mensaje ("***** FIN DE LOS COMUNICADOS ***** ", 34, 10);
+
 }
 
 void ComunicadosManager::BuscarComunicado()

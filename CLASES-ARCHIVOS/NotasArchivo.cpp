@@ -86,6 +86,30 @@ bool NotasArchivo::modificar(Notas registro, int nroRegistro)
 
 /// SOLO MUESTRA 1 REGISTRO  HACER UN FOR SI QUIERO MOSTRAR TODO EL REGISTRO DE NOTAS?
 
+
+int NotasArchivo::buscarReg(int dni, int id){
+
+    int nroRegistro = -1;
+   int cantidad =this->getCantidad();
+
+  Notas registro;
+
+  for (int i = 0; i < cantidad; i++)
+  {
+    registro =this->leerReg(i);
+
+    if (registro.getDNIalumno() == dni&& registro.getIDNota()==id )
+    {
+      nroRegistro = i;
+      break;
+            }
+  }
+  return nroRegistro;
+
+
+}
+
+
 int NotasArchivo::buscarReg(int dni)
 {
     int nroRegistro = -1;
@@ -106,6 +130,7 @@ int NotasArchivo::buscarReg(int dni)
   return nroRegistro;
 
 }
+
 
 void NotasArchivo::leer(Notas *vec, int cantidadRegistrosALeer){
 	FILE *p = fopen(_ruta, "rb");

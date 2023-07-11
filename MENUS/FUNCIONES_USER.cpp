@@ -14,10 +14,6 @@ using namespace std;
 #include"CuotaManager.h"
 
 
-
-
-
-
 void menuUser(int dni)
 {
     system("cls");
@@ -33,7 +29,7 @@ void menuUser(int dni)
     do
     {
         mostrar_mensaje ("*****  BIENVENIDO  ALUMNO  ***** ", 34, 4);
-        mostrar_mensaje ( " ESTAS SON TUS OPCIONES:  ", 40, 6);
+        mostrar_mensaje ( " ESTAS SON TUS OPCIONES:  ", 36, 6);
 
 
         rlutil::saveDefaultColor();
@@ -82,16 +78,12 @@ void menuUser(int dni)
             case 0:     ///FACTURACION Y PAGOS
             {
                 system("cls");
-
                 CuotaManager obj;
 
                 obj.MenuUserPagosyCuotas(dni);
 
                 system("pause>nul");
-                system("cls");
-
-
-            }
+               }
 
             break;
 
@@ -103,7 +95,7 @@ void menuUser(int dni)
                 NotaManager obj;
                 rlutil::setColor(rlutil::YELLOW);
                 rectangulo (2, 2, 100, 26);
-                mostrar_mensaje ("***** LISTADO DE NOTAS ***** ", 34, 4);
+
 
                 obj.ListarXdni(dni);
 
@@ -116,11 +108,7 @@ void menuUser(int dni)
 
             case 2:     ///MATERIAS
             {
-
                 system("cls");
-
-
-
 
                 MateriaManager obj;
 

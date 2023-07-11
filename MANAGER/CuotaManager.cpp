@@ -259,6 +259,8 @@ void CuotaManager::MenuUserPagosyCuotas(int dni)
     }
     rlutil::locate(10,4);
     cout <<"FACTURAS: " <<endl;
+    rlutil::locate(10,6);
+    cout <<"NUMERO" <<"      " <<"FECHA " <<"      " <<"IMPORTE" <<endl;
     int c=0;
     for(int x=0; x<canRegCuota; x++)
     {
@@ -266,21 +268,24 @@ void CuotaManager::MenuUserPagosyCuotas(int dni)
 
         if (dni==vecCuota[x].getDNIalumno()&&vecCuota[x].getDebe()==true)
         {
+            rectangulo (2, 2, 100, 26);
             sumaCuotas+=vecCuota[x].getMonto();
             c++;
-            rlutil::locate(10,5+c);
-            cout <<vecCuota[x].getFechaDeFact().toString();
-            rlutil::locate(20,5+c);
+            rlutil::locate(10,7+c);
             cout <<vecCuota[x].getNroFact();
-            rlutil::locate(30,5+c);
-            cout <<vecCuota[x].getMonto();
-            cout<<endl;
+            rlutil::locate(20,7+c);
+            cout <<vecCuota[x].getFechaDeFact().toString();
+            rlutil::locate(35,7+c);
+            cout <<"$ " <<vecCuota[x].getMonto();
+
         }
     }
-    rlutil::locate(10,13);
-    cout <<"-------------------------------------------" <<endl;
-    rlutil::locate(10,14);
+    rlutil::locate(10,15);
+    cout <<"----------------------------------------------------------------" <<endl;
+    rlutil::locate(10,16);
     cout <<"PAGOS: " <<endl;
+     rlutil::locate(10,18);
+    cout <<"NUMERO" <<"      " <<"FECHA " <<"      " <<"IMPORTE" <<endl;
     int d=0;
 
     for (int j=0; j<canRegPago; j++)
@@ -292,23 +297,22 @@ void CuotaManager::MenuUserPagosyCuotas(int dni)
 
             sumaPagos+=vecPago[j].getMonto();
             d++;
-            rlutil::locate(10,15+d);
-            cout <<vecPago[j].getFechaDePago().toString();
-            rlutil::locate(20,15+d);
+            rlutil::locate(10,19+d);
             cout <<vecPago[j].getNroPago();
-            rlutil::locate(30,15+d);
-            cout <<vecPago[j].getMonto();
-            cout<<endl;
+            rlutil::locate(20,19+d);
+            cout <<vecPago[j].getFechaDePago().toString();
+            rlutil::locate(35,19+d);
+            cout <<"$ " <<vecPago[j].getMonto();
+
         }
     }
-    rlutil::locate(15,27);
+    rlutil::locate(30,28);
     cout <<"EL TOTAL A PAGAR $: "<<sumaCuotas-sumaPagos<<endl;
 
     delete []vecPago;
     delete []vecCuota;
 
     system("pause>nul");
-    cout << endl;
     system("cls");
 
 }

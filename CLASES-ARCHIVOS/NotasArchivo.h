@@ -19,6 +19,7 @@ public:
     bool guardar(Notas *vec, int cantidadRegistrosAEscribir);
     void leer(Notas *vec, int cantidadRegistrosALeer);
     int buscarReg(int dni);
+    int buscarReg(int dni, int id);
     void vaciar();
 
 

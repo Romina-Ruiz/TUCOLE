@@ -35,21 +35,21 @@ void FaltaManager::Cargar()
     else
     {
 
-        rlutil::locate(60,10);
+        rlutil::locate(60,9);
         cout << "FALTAS ANUALES PERMITIDAD: "<<endl;
-        rlutil::locate(90,10);
+        rlutil::locate(90,9);
         cout << anuales <<endl;
         rlutil::locate(20,11);
         cout << "INGRESE DIA DE LA FALTA: "<<endl;
-        rlutil::locate(45,11);
+        rlutil::locate(46,11);
         cin >> dia;
         rlutil::locate(20,12);
         cout << "INGRESE MES DE LA FALTA: "<<endl;
-        rlutil::locate(45,12);
+        rlutil::locate(46,12);
         cin >> mes;
         rlutil::locate(20,13);
         cout << "INGRESE ANIO DE LA FALTA: "<<endl;
-        rlutil::locate(45,13);
+        rlutil::locate(46,13);
         cin >> anio;
 
         rlutil::locate(20,15);
@@ -88,11 +88,8 @@ void FaltaManager::Cargar()
 
         }
 
-
-
     }
     system("pause");
-
 }
 
 void FaltaManager::ListarTodos()

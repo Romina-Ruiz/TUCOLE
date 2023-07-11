@@ -18,7 +18,7 @@ public:
     int buscarDNI(int dni);
     void ListarXdni(int dni);
     void Editar();
-    void ModificarDatos(int dni, int id, int pos);
+    void ModificarDatos(int pos);
     int GenerarID();
     void BuscarNotas();
     int BuscarMaterias(std::string nombreMateria);

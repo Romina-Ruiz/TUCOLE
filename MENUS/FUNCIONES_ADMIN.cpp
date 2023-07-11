@@ -1028,16 +1028,13 @@ void menuAusencias()
                 FaltaManager obj;
                 rlutil::setColor(rlutil::YELLOW);
                 rectangulo (2, 2, 100, 26);
-                mostrar_mensaje ("***** CARGAR AUSENCIAS ***** ", 34, 4);
+                mostrar_mensaje ("***** MODIFICAR AUSENCIAS ***** ", 34, 4);
 
                 obj.Editar();
 
                 system("pause>nul");
                 system("cls");
             }
-
-
-                ///LLAMAR A LA FUNCION MODIFICAR
 
             break;
 
@@ -1141,21 +1138,22 @@ void menuComunicados()
             break;
 
             case 1:     /// Eliminar comunicados
-//                system("cls");
-//                {
-//                    ComunicadosManager obj;
-//
-//                    obj.EliminarComunicado();
-//
-//                    system("pause>nul");
-//                    system("cls");
-//                }
-                break;
+            system("cls");
+            {
+                ComunicadosManager obj;
+
+                obj.EliminarComunicado();
+
+
+                system("cls");
+            }
+                    break;
 
             case 2:     ///comunicados activos
             {
                 system("cls");
                 ComunicadosManager obj;
+
                 obj.ComunicadosActivos();
 
                 system("pause>nul");
@@ -1183,9 +1181,8 @@ void menuInformes()
 {
     system("cls");
 
-    const char *opciones[] = {"INFORME POR CURSO","INFORME DE FACTURACION","INFORME DE PAGOS POR FECHA",
-                              "INFORME DE AUSENCIAS POR FECHAS","INFORME DE ALUMNOS","VOLVER AL MENU PRINCIPAL"
-                             };
+    const char *opciones[] = {"INFORME POR CURSO","INFORME DE FACTURACION", "INFORME DE AUSENCIAS ",
+                                                    "VOLVER AL MENU PRINCIPAL"};
 
     int op=1, y=0;
 
@@ -1201,9 +1198,6 @@ void menuInformes()
         showItem (opciones[1],30,11,y==1);
         showItem (opciones[2],30,12,y==2);
         showItem (opciones[3],30,13,y==3);
-        showItem (opciones[4],30,14,y==4);
-        showItem (opciones[5],30,15,y==5);
-
 
         rlutil::locate(26,10+y);
         cout <<"==> " <<endl;
@@ -1226,9 +1220,9 @@ void menuInformes()
             cout <<"   " <<endl;
             y++;
 
-            if (y>5)
+            if (y>3)
             {
-                y=5;
+                y=3;
             }
             break;
 
@@ -1245,7 +1239,7 @@ void menuInformes()
                 rectangulo (2, 2, 100, 26);
                 mostrar_mensaje ("***** INFORMES POR CURSO ***** ", 34, 4);
 
-                //obj.ListarAlumnosxCurso();
+
                 system("pause>nul");
                 system("cls");
 
@@ -1261,62 +1255,40 @@ void menuInformes()
                 mostrar_mensaje ("***** INFORMES DE FACTURACION ***** ", 34, 4);
 
                 CuotaManager obj;
+               // PagoManager obj;
 
                 obj.MenuInformeCuotas();
+             //  obj.MenuInformePagos();
 
                 system("pause>nul");
                 system("cls");
             }
             break;
 
-            case 2: ///Informe de pagos por fecha
+            case 2: ///Informe de ausencias
             {
                 system("cls");
-                PagoManager obj;
 
-                obj.MenuInformePagos();
-
-                rlutil::locate(30,15);
-                cout <<" NO HAY MAS REGISTROS" << endl;
-
-                system("pause>nul");
-                system("cls");
-            }
-            break;
-            case 3: ///Informe de ausencias por fechas
-            {
-                system("cls");
-                FaltaManager obj;
+               FaltaManager obj;
                 rlutil::setColor(rlutil::YELLOW);
                 rectangulo (2, 2, 100, 26);
                 mostrar_mensaje ("***** INFORME DE AUSENCIAS ***** ", 34, 4);
-                obj.AusenciasXfecha();
-                system("pause>nul");
-                system("cls");
 
+               obj.AusenciasXfecha();
+
+                 system("pause>nul");
+                system("cls");
             }
             break;
-            case 4:
-            {
-                system("cls");
-                rlutil::setColor(rlutil::YELLOW);
-                rectangulo (2, 2, 100, 26);
-                mostrar_mensaje ("***** INFORME DE ALUMNOS ***** ", 34, 4);
-
-                system("pause>nul");
-                system("cls");
-
-            }
-
-            break;
-            case 5:
+            case 3: ///Salir
             {
                 system("cls");
                 menuAdmin();
+                system("pause>nul");
                 system("cls");
             }
-
             break;
+
 
             }
         }
