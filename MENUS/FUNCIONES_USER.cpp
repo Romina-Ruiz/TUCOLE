@@ -12,7 +12,7 @@ using namespace std;
 #include "MateriaManager.h"
 #include "NotaManager.h"
 #include"CuotaManager.h"
-
+#include"FaltaManager.h"
 
 void menuUser(int dni)
 {
@@ -83,7 +83,7 @@ void menuUser(int dni)
                 obj.MenuUserPagosyCuotas(dni);
 
                 system("pause>nul");
-               }
+            }
 
             break;
 
@@ -120,12 +120,18 @@ void menuUser(int dni)
             }
 
             case 3:     ///ESTADO DE AUSENCIAS
+            {
                 system("cls");
+                FaltaManager obj;
+                mostrar_mensaje ("**  6 SON LA CANTIDAD DE FALTAS PERMITIDAS ** ", 23, 6);
+
+                obj.ListarXdni(dni);
 
                 system("pause>nul");
                 system("cls");
+            }
 
-                break;
+            break;
 
             case 4:    ///COMUNICADOS ESPECIALES
                 system("cls");

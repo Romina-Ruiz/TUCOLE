@@ -696,7 +696,8 @@ void menuCargarCursos()
     system("cls");
 
     const char *opciones[] = {"CARGAR CURSO", "MODIFICAR CURSOS","LISTAR MATERIAS POR ANIO LECTIVO",
-                                                    "LISTAR ALUMNOS POR ANIO LECTIVO", "VOLVER AL MENU PRINCIPAL"};
+                              "LISTAR ALUMNOS POR ANIO LECTIVO", "VOLVER AL MENU PRINCIPAL"
+                             };
     int op=1, y=0;
 
     rlutil::hidecursor();
@@ -810,12 +811,12 @@ void menuCargarCursos()
                 rlutil::locate(55,9);
                 cin>>anio;
 
-               obj.ListarAlumnosxCurso(anio);
+                obj.ListarAlumnosxCurso(anio);
 
                 system("cls");
             }
             break;
-             case 4:     ///SALIR
+            case 4:     ///SALIR
             {
                 system("cls");
                 menuAdmin();
@@ -1046,8 +1047,13 @@ void menuAusencias()
                 rlutil::setColor(rlutil::YELLOW);
                 rectangulo (2, 2, 100, 26);
                 mostrar_mensaje ("***** LISTA DE AUSENCIAS ***** ", 34, 4);
+                int dni;
+                rlutil::locate(10,8);
+                cout<<"INGRESE EL DNI A CONSULTAR: "<<endl;
+                rlutil::locate(40,8);
+                cin>>dni;
 
-                obj.ListarXdni();
+                obj.ListarXdni(dni);
 
                 system("pause>nul");
                 system("cls");
@@ -1138,16 +1144,16 @@ void menuComunicados()
             break;
 
             case 1:     /// Eliminar comunicados
-            system("cls");
-            {
-                ComunicadosManager obj;
-
-                obj.EliminarComunicado();
-
-
                 system("cls");
-            }
-                    break;
+                {
+                    ComunicadosManager obj;
+
+                    obj.EliminarComunicado();
+
+
+                    system("cls");
+                }
+                break;
 
             case 2:     ///comunicados activos
             {
@@ -1182,7 +1188,8 @@ void menuInformes()
     system("cls");
 
     const char *opciones[] = {"INFORME POR CURSO","INFORME DE FACTURACION", "INFORME DE AUSENCIAS ",
-                                                    "VOLVER AL MENU PRINCIPAL"};
+                              "VOLVER AL MENU PRINCIPAL"
+                             };
 
     int op=1, y=0;
 
@@ -1255,10 +1262,10 @@ void menuInformes()
                 mostrar_mensaje ("***** INFORMES DE FACTURACION ***** ", 34, 4);
 
                 CuotaManager obj;
-               // PagoManager obj;
+                // PagoManager obj;
 
                 obj.MenuInformeCuotas();
-             //  obj.MenuInformePagos();
+                //  obj.MenuInformePagos();
 
                 system("pause>nul");
                 system("cls");
@@ -1269,14 +1276,14 @@ void menuInformes()
             {
                 system("cls");
 
-               FaltaManager obj;
+                FaltaManager obj;
                 rlutil::setColor(rlutil::YELLOW);
                 rectangulo (2, 2, 100, 26);
                 mostrar_mensaje ("***** INFORME DE AUSENCIAS ***** ", 34, 4);
 
-               obj.AusenciasXfecha();
+                obj.AusenciasXfecha();
 
-                 system("pause>nul");
+                system("pause>nul");
                 system("cls");
             }
             break;

@@ -17,13 +17,13 @@ public:
     void Cargar();
 	void ListarTodos();
 	void Listar(Falta falta);
-	void ListarXdni();
+	void ListarXdni(int dni);
     void Editar();
     void ModificarDatos(Falta obj, int posicion);
     void AusenciasXfecha();
     void ListarOrdenadosPorFecha();
     void Ordenar(Falta *vec, int cantidadRegistros);
-    int BuscarFalta(int dia,int mes,int anio);
+    int BuscarFalta(int dni, int dia,int mes,int anio);
 //
 //	void Eliminar();
 //	void Listar(Alumno alumno);
