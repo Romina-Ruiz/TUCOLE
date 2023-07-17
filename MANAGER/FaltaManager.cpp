@@ -520,6 +520,65 @@ void FaltaManager::ListarOrdenadosPorFecha()
 
 }
 
+void FaltaManager::TotalAusencias(){
+
+Falta obj;
+int cantidadRegistros =_archivo.getCantidad();
+int MatrizTotales[12][3]={};
+
+for (int x=0; x<cantidadRegistros; x++){
+
+    obj=_archivo.leerReg(x);
+
+    int curso, dni;/// HACER UNA FUNCION PARA QUE LEA EL ARC DE ALUMNO Y EL ARC DE CURSOS Y TRAIGA EL CURSO DONDE ESTA EL DNI
+    if(obj.getEliminada()==false&&dni==obj.getDNIAlumno()){
+
+        VecTotales[obj.getFechaAusencia().getMes()][curso] ++;
+
+
+    }
+
+}
+
+
+
+
+}
+
+void FaltaManager::InformeAusencias(){
+
+system("cls");
+    rlutil::saveDefaultColor();
+    rectangulo (2, 2, 100, 26);
+    rlutil::setColor(rlutil::YELLOW);
+
+    mostrar_mensaje ("***** INFORME SOBRE AUSENCIA ANUAL ***** ", 30, 4);
+
+    mostrar_mensaje ("CURSO 1 ", 25, 6);
+    mostrar_mensaje ("CURSO 2 ", 45, 6);
+    mostrar_mensaje ("CURSO 3 ", 65, 6);
+    mostrar_mensaje ("MES: ", 6, 6);
+    mostrar_mensaje ("TOTAL / %", 23, 7);
+    mostrar_mensaje ("TOTAL / %", 43, 7);
+    mostrar_mensaje ("TOTAL / %", 63, 7);
+
+    mostrar_mensaje ("ENERO: ", 6, 9);
+    mostrar_mensaje ("FEBRERO: ", 6, 10);
+    mostrar_mensaje ("MARZO: ", 6, 11);
+    mostrar_mensaje ("ABRIL: ", 6, 12);
+    mostrar_mensaje ("MAYO: ", 6, 13);
+    mostrar_mensaje ("JUNIO: ", 6, 14);
+    mostrar_mensaje ("JULIO: ", 6, 15);
+    mostrar_mensaje ("AGOSTO: ", 6, 16);
+    mostrar_mensaje ("SEPTIEMBRE: ", 6, 17);
+    mostrar_mensaje ("OCTUBRE: ", 6, 18);
+    mostrar_mensaje ("NOVIEMBRE: ", 6, 19);
+    mostrar_mensaje ("DICIEMBRE: ", 6, 20);
+
+
+
+
+}
 
 void FaltaManager::HacerCopiaDeSeguridad()
 {

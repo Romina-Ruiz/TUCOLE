@@ -200,7 +200,6 @@ void CursoManager::ListarAlumnosxCurso(int anio)
 
 void CursoManager::Editar()
 {
-
     system("cls");
     rlutil::saveDefaultColor();
     rectangulo (2, 2, 100, 26);
@@ -374,6 +373,217 @@ void CursoManager::Editar()
     system("pause>nul");
 
 }
+
+void CursoManager::InformeCursos(){
+
+system("cls");
+    rlutil::saveDefaultColor();
+    rectangulo (2, 2, 100, 26);
+    rlutil::setColor(rlutil::YELLOW);
+
+    mostrar_mensaje ("***** INFORME SOBRE ANIOS/CURSOS ***** ", 30, 4);
+
+    const char *opciones[] = {"PROMEDIO NOTAS POR CURSOS", "PROMEDIO MATERIAS APROBADAS",
+                              "PROMEDIO POR ALUMNO", "VOLVER AL MENU ANTERIOR"
+                             };
+
+    int op=1, y=0;
+
+    rlutil::hidecursor();
+
+    do
+    {
+        rlutil::saveDefaultColor();
+        rlutil::setColor(rlutil::YELLOW);
+
+        showItem (opciones[0],30,10,y==0);
+        showItem (opciones[1],30,11,y==1);
+        showItem (opciones[2],30,12,y==2);
+        showItem (opciones[3],30,13,y==3);
+
+        rlutil::locate(26,10+y);
+        cout <<"==> " <<endl;
+
+        switch(rlutil::getkey())
+        {
+        case 14: //UP
+            rlutil::locate(26,10+y);
+            cout <<"   " <<endl;
+            y--;
+
+            if (y<0)
+            {
+                y=0;
+            }
+            break;
+
+        case 15: //DOWN
+            rlutil::locate(26,10+y);
+            cout <<"   " <<endl;
+            y++;
+
+            if (y>3)
+            {
+                y=3;
+            }
+            break;
+
+        case 1:   /// OPCIONES AL INGRESAR ENTER (EL ENTER ES LA TECLA 1):
+
+            switch(y)
+            {
+            case 0:      /// PROMEDIO NOTAS POR CURSOS
+              {
+                 system("cls");
+
+                 this->InformePromedioCursos();
+
+                system("cls");
+                }
+
+                break;
+
+            case 1:       /// PROMEDIO MATERIAS APROBADAS
+            {
+                system("cls");
+                this->InformeMateriasAprobadas();
+                system("cls");
+            }
+            break;
+
+            case 2:       ///  PROMEDIO POR ALUMNO
+            {
+                system("cls");
+                this->InformePromedioAlumno();
+                system("cls");
+            }
+            break;
+            case 3:     /// SALIR
+            {
+                system("cls");
+                menuInformes();
+                system("cls");
+            }
+            break;
+            }
+        }
+
+    }
+    while(op!=0);
+    system("pause>nul");
+
+}
+
+
+void CursoManager::InformePromedioCursos()
+{
+    system("cls");
+    rlutil::saveDefaultColor();
+    rectangulo (2, 2, 100, 26);
+    rlutil::setColor(rlutil::YELLOW);
+
+    mostrar_mensaje ("***** INFORME SOBRE PROMEDIO DE CURSOS ***** ", 30, 4);
+
+    mostrar_mensaje ("CURSO 1 ", 25, 6);
+    mostrar_mensaje ("CURSO 2 ", 45, 6);
+    mostrar_mensaje ("CURSO 3 ", 65, 6);
+    mostrar_mensaje ("MATERIAS: ", 4, 7);
+
+    rlutil::locate(4,8);
+    cout<<"PONER NOMBRE MATERIA"<<endl;
+    rlutil::locate(4,9);
+    cout<<"PONER NOMBRE MATERIA"<<endl;
+    rlutil::locate(4,10);
+    cout<<"PONER NOMBRE MATERIA"<<endl;
+    rlutil::locate(4,11);
+    cout<<"PONER NOMBRE MATERIA"<<endl;
+    rlutil::locate(4,12);
+    cout<<"PONER NOMBRE MATERIA"<<endl;
+
+
+
+
+
+
+
+
+ system("pause>nul");
+}
+
+void CursoManager::InformeMateriasAprobadas()
+{
+
+    system("cls");
+    rlutil::saveDefaultColor();
+    rectangulo (2, 2, 100, 26);
+    rlutil::setColor(rlutil::YELLOW);
+
+    mostrar_mensaje ("***** INFORME SOBRE MATERIAS APROBADAS ***** ", 30, 4);
+
+    mostrar_mensaje ("CURSO 1 ", 30, 6);
+    mostrar_mensaje ("CURSO 2 ", 50, 6);
+    mostrar_mensaje ("CURSO 3 ", 70, 6);
+    mostrar_mensaje ("MATERIA: ", 4, 7);
+
+    rlutil::locate(4,8);
+    cout<<"PONER NOMBRE MATERIA"<<endl;
+    mostrar_mensaje ("Notas de 1 A 6: ", 6, 9);
+    mostrar_mensaje ("Notas de 6 A 8: ", 6, 10);
+    mostrar_mensaje ("Notas de 8 A 10:  ", 6, 11);
+
+    rlutil::locate(4,12);
+    cout<<"PONER NOMBRE MATERIA"<<endl;
+    mostrar_mensaje ("Notas de 1 A 6: ", 6, 13);
+    mostrar_mensaje ("Notas de 6 A 8: ", 6, 14);
+    mostrar_mensaje ("Notas de 8 A 10:  ", 6, 15);
+
+    rlutil::locate(4,16);
+    cout<<"PONER NOMBRE MATERIA"<<endl;
+    mostrar_mensaje ("Notas de 1 A 6: ", 6, 17);
+    mostrar_mensaje ("Notas de 6 A 8: ", 6, 18);
+    mostrar_mensaje ("Notas de 8 A 10:  ", 6, 19);
+
+    rlutil::locate(4,20);
+    cout<<"PONER NOMBRE MATERIA"<<endl;
+    mostrar_mensaje ("Notas de 1 A 6: ", 6, 21);
+    mostrar_mensaje ("Notas de 6 A 8: ", 6, 22);
+    mostrar_mensaje ("Notas de 8 A 10:  ", 6, 23);
+
+    rlutil::locate(4,24);
+    cout<<"PONER NOMBRE MATERIA"<<endl;
+    mostrar_mensaje ("Notas de 1 A 6: ", 6, 25);
+    mostrar_mensaje ("Notas de 6 A 8: ", 6, 26);
+    mostrar_mensaje ("Notas de 8 A 10:  ", 6, 27);
+
+ system("pause>nul");
+}
+
+void CursoManager::InformePromedioAlumno()
+{
+    system("cls");
+    rlutil::saveDefaultColor();
+    rectangulo (2, 2, 100, 26);
+    rlutil::setColor(rlutil::YELLOW);
+
+    mostrar_mensaje ("***** INFORME PROMEDIO POR MATERIA POR ALUMNO ***** ", 30, 4);
+
+     rlutil::locate(4,8);
+    cout<<"PONER NOMBRE MATERIA"<<endl;
+    rlutil::locate(4,9);
+    cout<<"PONER NOMBRE MATERIA"<<endl;
+    rlutil::locate(4,10);
+    cout<<"PONER NOMBRE MATERIA"<<endl;
+    rlutil::locate(4,11);
+    cout<<"PONER NOMBRE MATERIA"<<endl;
+    rlutil::locate(4,12);
+    cout<<"PONER NOMBRE MATERIA"<<endl;
+
+mostrar_mensaje ("PROMEDIO GENERAL:", 20, 15);
+
+
+ system("pause>nul");
+}
+
 
 
 void CursoManager::HacerCopiaDeSeguridad()

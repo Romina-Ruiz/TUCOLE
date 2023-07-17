@@ -20,10 +20,13 @@ public:
 	int buscarDNI(int dni);
 
 	void Editar();
-//	void Eliminar();
 	void Listar(Curso curso);
 	void ModificarDatos(Curso curso, int posicion);
-//	bool validarIngreso(int dni);
+	void InformeCursos();
+	void InformePromedioCursos();
+	void InformeMateriasAprobadas();
+	void InformePromedioAlumno();
+
 
 	void HacerCopiaDeSeguridad();
 	void RestaurarCopiaDeSeguridad();

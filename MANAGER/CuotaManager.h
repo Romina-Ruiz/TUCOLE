@@ -19,13 +19,14 @@ public:
     int generarFactura();
     void ListarTodos();
     void ListarxDNI(int dni);
-    void MenuInformeCuotas();
     void ListarOrdenadosPorFecha(int mes);
     void MenuUserPagosyCuotas(int dni);
-//	void Editar();
-//	void Eliminar();
     void Listar(Cuota cuota);
-//	int buscarDNI(int dni);
+    void MenuInformeCuotas();
+    void InformeFacturacion();
+    void TotalFacturacion();
+    void TotalPagos();
+
 
 
     void HacerCopiaDeSeguridad();

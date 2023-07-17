@@ -24,9 +24,9 @@ public:
     void ListarOrdenadosPorFecha();
     void Ordenar(Falta *vec, int cantidadRegistros);
     int BuscarFalta(int dni, int dia,int mes,int anio);
-//
-//	void Eliminar();
-//	void Listar(Alumno alumno);
+    void InformeAusencias();
+    void TotalAusencias();
+
 
 
 	void HacerCopiaDeSeguridad();

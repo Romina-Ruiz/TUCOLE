@@ -284,7 +284,7 @@ void CuotaManager::MenuUserPagosyCuotas(int dni)
     cout <<"----------------------------------------------------------------" <<endl;
     rlutil::locate(10,16);
     cout <<"PAGOS: " <<endl;
-     rlutil::locate(10,18);
+    rlutil::locate(10,18);
     cout <<"NUMERO" <<"      " <<"FECHA " <<"      " <<"IMPORTE" <<endl;
     int d=0;
 
@@ -316,6 +316,96 @@ void CuotaManager::MenuUserPagosyCuotas(int dni)
     system("cls");
 
 }
+void CuotaManager::TotalFacturacion(){
+
+ CuotaArchivo _arCuota;
+ Cuota obj;
+ int canRegCuota = _arCuota.getCantidad();
+
+float VecTotal[12]={};
+int VecAcu[12]={};
+
+    for(int x=0; x<canRegCuota; x++){
+
+        obj=_arCuota.leerReg(x);
+
+        if (obj.getDebe()==true){
+
+            VecTotal[obj.getFechaDeFact().getMes()-1]+=obj.getMonto();
+            VecAcu[obj.getFechaDeFact().getMes()-1]++;
+
+        }
+
+
+    }
+
+
+
+}
+
+void CuotaManager::TotalPagos(){
+
+PagoArchivo _arPago;
+Pago obj;
+
+ int canRegPago= _arPago.getCantidad();
+
+
+ float VecTotal[12]={};
+int VecAcu[12]={};
+
+    for(int x=0; x<canRegCuota; x++){
+
+        obj=_arCuota.leerReg(x);
+
+        if (obj.getEliminado()==false){
+
+            VecTotal[obj.getFechaDeFact().getMes()-1]+=obj.getMonto();
+            VecAcu[obj.getFechaDeFact().getMes()-1]++;
+
+        }
+
+
+    }
+
+}
+
+void CuotaManager::InformeFacturacion()
+{
+    system("cls");
+    rlutil::saveDefaultColor();
+    rectangulo (2, 2, 100, 26);
+    rlutil::setColor(rlutil::YELLOW);
+
+    mostrar_mensaje ("***** INFORME SOBRE FACTURACION ANUAL ***** ", 25, 4);
+
+    mostrar_mensaje ("CURSO 1 ", 25, 6);
+    mostrar_mensaje ("CURSO 2 ", 45, 6);
+    mostrar_mensaje ("CURSO 3 ", 65, 6);
+    mostrar_mensaje ("MES: ", 6, 6);
+
+    mostrar_mensaje ("ENERO: ", 6, 8);
+    mostrar_mensaje ("FEBRERO: ", 6, 9);
+    mostrar_mensaje ("MARZO: ", 6, 10);
+    mostrar_mensaje ("ABRIL: ", 6, 11);
+    mostrar_mensaje ("MAYO: ", 6, 12);
+    mostrar_mensaje ("JUNIO: ", 6, 13);
+    mostrar_mensaje ("JULIO: ", 6, 14);
+    mostrar_mensaje ("AGOSTO: ", 6, 15);
+    mostrar_mensaje ("SEPTIEMBRE: ", 6, 16);
+    mostrar_mensaje ("OCTUBRE: ", 6, 17);
+    mostrar_mensaje ("NOVIEMBRE: ", 6, 18);
+    mostrar_mensaje ("DICIEMBRE: ", 6, 19);
+
+    mostrar_mensaje ("PORCENTAJE DE FACTURAS COBRADAS POR CURSO: ", 4, 22);
+    mostrar_mensaje ("CURSO 1:  ", 6, 23);
+    mostrar_mensaje ("CURSO 2: ", 6, 24);
+    mostrar_mensaje ("CURSO 3:  ", 6, 25);
+
+
+}
+
+
 
 
 void CuotaManager::HacerCopiaDeSeguridad()
@@ -404,28 +494,28 @@ void CuotaManager::ListarxDNI(int dni)
     {
 
 
-    for(int x=0; x<cantidadRegistros; x++)
-    {
-        vec[x]=_archivo.leerReg(x);
-    }
-
-
-    for(int i=0; i<cantidadRegistros; i++)
-    {
-
-        if (vec[i].getDNIalumno()==dni)
+        for(int x=0; x<cantidadRegistros; x++)
         {
-            system("cls");
-            Listar(vec[i]);
-            cout << endl;
-            system("pause>nul");
-            system("cls");
-
+            vec[x]=_archivo.leerReg(x);
         }
 
-        rlutil::locate(30,10);
-        cout <<" NO HAY MAS REGISTROS" << endl;
-    }
+
+        for(int i=0; i<cantidadRegistros; i++)
+        {
+
+            if (vec[i].getDNIalumno()==dni)
+            {
+                system("cls");
+                Listar(vec[i]);
+                cout << endl;
+                system("pause>nul");
+                system("cls");
+
+            }
+
+            rlutil::locate(30,10);
+            cout <<" NO HAY MAS REGISTROS" << endl;
+        }
     }
     delete []vec;
 

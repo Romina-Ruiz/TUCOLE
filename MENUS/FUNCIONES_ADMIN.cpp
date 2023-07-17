@@ -1246,7 +1246,7 @@ void menuInformes()
                 rectangulo (2, 2, 100, 26);
                 mostrar_mensaje ("***** INFORMES POR CURSO ***** ", 34, 4);
 
-
+                obj.InformeCursos();
                 system("pause>nul");
                 system("cls");
 
@@ -1262,9 +1262,10 @@ void menuInformes()
                 mostrar_mensaje ("***** INFORMES DE FACTURACION ***** ", 34, 4);
 
                 CuotaManager obj;
-                // PagoManager obj;
 
-                obj.MenuInformeCuotas();
+                    obj.InformeFacturacion();
+
+                //obj.MenuInformeCuotas();
                 //  obj.MenuInformePagos();
 
                 system("pause>nul");
@@ -1281,7 +1282,8 @@ void menuInformes()
                 rectangulo (2, 2, 100, 26);
                 mostrar_mensaje ("***** INFORME DE AUSENCIAS ***** ", 34, 4);
 
-                obj.AusenciasXfecha();
+                //obj.AusenciasXfecha();
+                obj.InformeAusencias();
 
                 system("pause>nul");
                 system("cls");
