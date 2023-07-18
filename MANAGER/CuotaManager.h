@@ -24,8 +24,9 @@ public:
     void Listar(Cuota cuota);
     void MenuInformeCuotas();
     void InformeFacturacion();
-    void TotalFacturacion();
+    void TotalFacturacion(float m[12][3]);
     void TotalPagos();
+    int CuotasCurso(int dni);
 
 
 

@@ -9,6 +9,8 @@
 #include "../MENUS/FUNCIONES_FRONT.h"
 #include "Pago.h"
 #include"PagoArchivo.h"
+#include"Curso.h"
+#include"CursoArchivo.h"
 using namespace std;
 
 
@@ -316,32 +318,48 @@ void CuotaManager::MenuUserPagosyCuotas(int dni)
     system("cls");
 
 }
-void CuotaManager::TotalFacturacion(){
+
+int CuotaManager::CuotasCurso(int dni){
+Curso obj;
+CursoArchivo ArCurso;
+
+int canReg=ArCurso.getCantidad();
+
+for (int x=0; x<canReg; x++){
+
+    obj=ArCurso.leerReg(x);
+
+            if(dni==obj.getDniAlumno()){
+
+                return obj.getCurso();
+            }
+    }
+
+}
+void CuotaManager::TotalFacturacion(float m[12][3]){
 
  CuotaArchivo _arCuota;
  Cuota obj;
  int canRegCuota = _arCuota.getCantidad();
-
-float VecTotal[12]={};
-int VecAcu[12]={};
+int curso;
 
     for(int x=0; x<canRegCuota; x++){
 
         obj=_arCuota.leerReg(x);
 
+        curso=0;
+        curso=this->CuotasCurso(obj.getDNIalumno());
+
         if (obj.getDebe()==true){
 
-            VecTotal[obj.getFechaDeFact().getMes()-1]+=obj.getMonto();
-            VecAcu[obj.getFechaDeFact().getMes()-1]++;
+            m[obj.getFechaDeFact().getMes()-1][curso-1]=obj.getMonto();
 
+                }
         }
-
-
-    }
-
-
-
 }
+
+
+
 
 void CuotaManager::TotalPagos(){
 
@@ -374,32 +392,125 @@ void CuotaManager::InformeFacturacion()
     rectangulo (2, 2, 100, 26);
     rlutil::setColor(rlutil::YELLOW);
 
+
     mostrar_mensaje ("***** INFORME SOBRE FACTURACION ANUAL ***** ", 25, 4);
 
+float MatrizTotales[12][3]={};
+int anio1, anio2,anio3=0;
+int total=0;
+float p1, p2,p3=0;
+
+this->TotalFacturacion(MatrizTotales);
+
+for(int i=0; i<12; i++){
+
+    for (int j=0; j<3; j++){
     mostrar_mensaje ("CURSO 1 ", 25, 6);
     mostrar_mensaje ("CURSO 2 ", 45, 6);
     mostrar_mensaje ("CURSO 3 ", 65, 6);
-    mostrar_mensaje ("MES: ", 6, 6);
 
-    mostrar_mensaje ("ENERO: ", 6, 8);
-    mostrar_mensaje ("FEBRERO: ", 6, 9);
-    mostrar_mensaje ("MARZO: ", 6, 10);
-    mostrar_mensaje ("ABRIL: ", 6, 11);
-    mostrar_mensaje ("MAYO: ", 6, 12);
-    mostrar_mensaje ("JUNIO: ", 6, 13);
-    mostrar_mensaje ("JULIO: ", 6, 14);
-    mostrar_mensaje ("AGOSTO: ", 6, 15);
-    mostrar_mensaje ("SEPTIEMBRE: ", 6, 16);
-    mostrar_mensaje ("OCTUBRE: ", 6, 17);
-    mostrar_mensaje ("NOVIEMBRE: ", 6, 18);
-    mostrar_mensaje ("DICIEMBRE: ", 6, 19);
+    mostrar_mensaje ("ENERO: ", 6, 9);
+    rlutil::locate(25,9);
+    cout <<MatrizTotales[0][0];
+    rlutil::locate(45,9);
+    cout <<MatrizTotales[0][1];
+    rlutil::locate(65,9);
+    cout <<MatrizTotales[0][2];
+    mostrar_mensaje ("FEBRERO: ", 6, 10);
+    rlutil::locate(25,10);
+    cout <<MatrizTotales[1][0];
+    rlutil::locate(45,10);
+    cout <<MatrizTotales[1][1];
+    rlutil::locate(65,10);
+    cout <<MatrizTotales[1][2];
+    mostrar_mensaje ("MARZO: ", 6, 11);
+    rlutil::locate(25,11);
+    cout <<MatrizTotales[2][0];
+    rlutil::locate(45,11);
+    cout <<MatrizTotales[2][1];
+    rlutil::locate(65,11);
+    cout <<MatrizTotales[2][2];
+    mostrar_mensaje ("ABRIL: ", 6, 12);
+    rlutil::locate(25,12);
+    cout <<MatrizTotales[3][0];
+    rlutil::locate(45,12);
+    cout <<MatrizTotales[3][1];
+    rlutil::locate(65,12);
+    cout <<MatrizTotales[3][2];
+    mostrar_mensaje ("MAYO: ", 6, 13);
+    rlutil::locate(25,13);
+    cout <<MatrizTotales[4][0];
+    rlutil::locate(45,13);
+    cout <<MatrizTotales[4][1];
+    rlutil::locate(65,13);
+    cout <<MatrizTotales[4][2];
+    mostrar_mensaje ("JUNIO: ", 6, 14);
+    rlutil::locate(25,14);
+    cout <<MatrizTotales[5][0];
+    rlutil::locate(45,14);
+    cout <<MatrizTotales[5][1];
+    rlutil::locate(65,14);
+    cout <<MatrizTotales[5][2];
+    mostrar_mensaje ("JULIO: ", 6, 15);
+    rlutil::locate(25,15);
+    cout <<MatrizTotales[6][0];
+    rlutil::locate(45,15);
+    cout <<MatrizTotales[6][1];
+    rlutil::locate(65,15);
+    cout <<MatrizTotales[6][2];
+    mostrar_mensaje ("AGOSTO: ", 6, 16);
+     rlutil::locate(25,16);
+    cout <<MatrizTotales[7][0];
+    rlutil::locate(45,16);
+    cout <<MatrizTotales[7][1];
+    rlutil::locate(65,16);
+    cout <<MatrizTotales[7][2];
+    mostrar_mensaje ("SEPTIEMBRE: ", 6, 17);
+    rlutil::locate(25,17);
+    cout <<MatrizTotales[8][0];
+    rlutil::locate(45,17);
+    cout <<MatrizTotales[8][1];
+    rlutil::locate(65,17);
+    cout <<MatrizTotales[8][2];
+    mostrar_mensaje ("OCTUBRE: ", 6, 18);
+    rlutil::locate(25,18);
+    cout <<MatrizTotales[9][0];
+    rlutil::locate(45,18);
+    cout <<MatrizTotales[9][1];
+    rlutil::locate(65,18);
+    cout <<MatrizTotales[9][2];
+    mostrar_mensaje ("NOVIEMBRE: ", 6, 19);
+        rlutil::locate(25,19);
+    cout <<MatrizTotales[10][0];
+    rlutil::locate(45,19);
+    cout <<MatrizTotales[10][1];
+    rlutil::locate(65,19);
+    cout <<MatrizTotales[10][2];
+    mostrar_mensaje ("DICIEMBRE: ", 6, 20);
+    rlutil::locate(25,20);
+    cout <<MatrizTotales[11][0];
+    rlutil::locate(45,20);
+    cout <<MatrizTotales[11][1];
+    rlutil::locate(65,20);
+    cout <<MatrizTotales[11][2];
+    anio1=MatrizTotales[0][0]+MatrizTotales[1][0]+MatrizTotales[2][0]+MatrizTotales[3][0]+MatrizTotales[4][0]+MatrizTotales[5][0]+MatrizTotales[6][0]+MatrizTotales[7][0]+MatrizTotales[8][0]+MatrizTotales[9][0]+MatrizTotales[10][0]+MatrizTotales[11][0];
+    anio2=MatrizTotales[0][1]+MatrizTotales[1][1]+MatrizTotales[2][1]+MatrizTotales[3][1]+MatrizTotales[4][1]+MatrizTotales[5][1]+MatrizTotales[6][1]+MatrizTotales[7][1]+MatrizTotales[8][1]+MatrizTotales[9][1]+MatrizTotales[10][1]+MatrizTotales[11][1];
+    anio3=MatrizTotales[0][2]+MatrizTotales[1][2]+MatrizTotales[2][2]+MatrizTotales[3][2]+MatrizTotales[4][2]+MatrizTotales[5][2]+MatrizTotales[6][2]+MatrizTotales[7][2]+MatrizTotales[8][2]+MatrizTotales[9][2]+MatrizTotales[10][2]+MatrizTotales[11][2];
+    total=anio1+anio2+anio3;
+    p1=anio1*100/total;
+    p2=anio2*100/total;
+    p3=anio3*100/total;
 
-    mostrar_mensaje ("PORCENTAJE DE FACTURAS COBRADAS POR CURSO: ", 4, 22);
+                }
+        }
+
+    mostrar_mensaje ("PORCENTAJE DE FACTURAS EMITIDAS POR CURSO: ", 4, 22);
     mostrar_mensaje ("CURSO 1:  ", 6, 23);
+     cout<<p1  <<" %";
     mostrar_mensaje ("CURSO 2: ", 6, 24);
+    cout<<p2 <<" %";
     mostrar_mensaje ("CURSO 3:  ", 6, 25);
-
-
+    cout<<p3 <<" %";
 }
 
 

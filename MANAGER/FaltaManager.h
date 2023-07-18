@@ -26,7 +26,6 @@ public:
     int BuscarFalta(int dni, int dia,int mes,int anio);
     void InformeAusencias();
     void TotalAusencias(int m[12][3]);
-    int TotalesAusenciasxmes(int m[12][3]);
     int AusenciaCurso(int dni);
 
 

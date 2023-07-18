@@ -565,21 +565,6 @@ for (int x=0; x<cantidadRegistros; x++){
 
 }
 
-int FaltaManager::TotalesAusenciasxmes(int m[12][3]){
-
-int Vec[12]={0};
-
-for(int x=0; x<12; x++){
-
-                for (int i=0; i<3; i++){
-
-                            Vec[x]+=m[x][i];
-                                        }
-                            }
-
-return *Vec;
-
-}
 
 void FaltaManager::InformeAusencias(){
 
