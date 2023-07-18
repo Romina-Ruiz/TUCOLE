@@ -26,7 +26,9 @@ public:
 	void InformePromedioCursos();
 	void InformeMateriasAprobadas();
 	void InformePromedioAlumno();
-
+	float InformePromedioCurso1();
+	float InformePromedioCurso2();
+	float InformePromedioCurso3();
 
 	void HacerCopiaDeSeguridad();
 	void RestaurarCopiaDeSeguridad();

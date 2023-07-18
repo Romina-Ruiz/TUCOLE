@@ -6,6 +6,8 @@
 #include"Materia.h"
 #include"MateriaArchivo.h"
 #include"MateriaManager.h"
+#include"Notas.h"
+#include"NotasArchivo.h"
 
 using namespace std;
 
@@ -484,28 +486,25 @@ void CursoManager::InformePromedioCursos()
 
     mostrar_mensaje ("***** INFORME SOBRE PROMEDIO DE CURSOS ***** ", 30, 4);
 
-    mostrar_mensaje ("CURSO 1 ", 25, 6);
-    mostrar_mensaje ("CURSO 2 ", 45, 6);
-    mostrar_mensaje ("CURSO 3 ", 65, 6);
-    mostrar_mensaje ("MATERIAS: ", 4, 7);
 
-    rlutil::locate(4,8);
-    cout<<"PONER NOMBRE MATERIA"<<endl;
-    rlutil::locate(4,9);
-    cout<<"PONER NOMBRE MATERIA"<<endl;
-    rlutil::locate(4,10);
-    cout<<"PONER NOMBRE MATERIA"<<endl;
-    rlutil::locate(4,11);
-    cout<<"PONER NOMBRE MATERIA"<<endl;
-    rlutil::locate(4,12);
-    cout<<"PONER NOMBRE MATERIA"<<endl;
+    mostrar_mensaje ("CURSO 1 ", 35, 6);
+    mostrar_mensaje ("CURSO 2 ", 52, 6);
+    mostrar_mensaje ("CURSO 3 ", 72, 6);
+    mostrar_mensaje ("PROMEDIO GRAL DEL ALUMNADO: ", 4, 8);
 
+    float Curso1, Curso2, Curso3=0;
 
+    rlutil::locate(36,8);
+    Curso1=this->InformePromedioCurso1();
+    cout<<Curso1<<" % " <<endl;
 
+    rlutil::locate(53,8);
+     Curso2=this->InformePromedioCurso2();
+    cout<<Curso2<<" % " <<endl;
 
-
-
-
+    rlutil::locate(73,8);
+    Curso3=this->InformePromedioCurso3();
+    cout<<Curso3<<" % " <<endl;
 
  system("pause>nul");
 }
@@ -584,7 +583,107 @@ mostrar_mensaje ("PROMEDIO GENERAL:", 20, 15);
  system("pause>nul");
 }
 
+float CursoManager::InformePromedioCurso1(){
 
+Materia obj;
+MateriaArchivo ArMate;
+
+Notas Aux;
+NotasArchivo ArNotas;
+
+int canRegMate=ArMate.getCantidad();
+int canRegNotas=ArNotas.getCantidad();
+
+float Totales=0;
+int Cantidad=0;
+
+for(int x=0; x<canRegMate; x++){
+
+            obj=ArMate.leerReg(x);
+
+        for(int i=0; i<canRegNotas; i++){
+
+                    Aux=ArNotas.leerReg(i);
+
+                         if (obj.getAnioLectivo()==1&& obj.getIdMateria()==Aux.getIDMateria()){
+
+                                        Totales=Aux.getNota();
+                                        Cantidad++;
+                                         }
+                                    }
+                            }
+
+                      return Totales/Cantidad;
+
+}
+
+float CursoManager::InformePromedioCurso2(){
+
+Materia obj;
+MateriaArchivo ArMate;
+
+Notas Aux;
+NotasArchivo ArNotas;
+
+int canRegMate=ArMate.getCantidad();
+int canRegNotas=ArNotas.getCantidad();
+
+float Totales=0;
+int Cantidad=0;
+
+for(int x=0; x<canRegMate; x++){
+
+            obj=ArMate.leerReg(x);
+
+        for(int i=0; i<canRegNotas; i++){
+
+                    Aux=ArNotas.leerReg(i);
+
+                         if (obj.getAnioLectivo()==2&& obj.getIdMateria()==Aux.getIDMateria()){
+
+                                        Totales=Aux.getNota();
+                                        Cantidad++;
+                                         }
+                                    }
+                            }
+
+                      return Totales/Cantidad;
+
+}
+
+float CursoManager::InformePromedioCurso3(){
+
+Materia obj;
+MateriaArchivo ArMate;
+
+Notas Aux;
+NotasArchivo ArNotas;
+
+int canRegMate=ArMate.getCantidad();
+int canRegNotas=ArNotas.getCantidad();
+
+float Totales=0;
+int Cantidad=0;
+
+for(int x=0; x<canRegMate; x++){
+
+            obj=ArMate.leerReg(x);
+
+        for(int i=0; i<canRegNotas; i++){
+
+                    Aux=ArNotas.leerReg(i);
+
+                         if (obj.getAnioLectivo()==3&& obj.getIdMateria()==Aux.getIDMateria()){
+
+                                        Totales=Aux.getNota();
+                                        Cantidad++;
+                                         }
+                                    }
+                            }
+
+                      return Totales/Cantidad;
+
+}
 
 void CursoManager::HacerCopiaDeSeguridad()
 {

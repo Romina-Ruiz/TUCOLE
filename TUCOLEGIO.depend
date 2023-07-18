@@ -821,7 +821,7 @@
 	"Materia.h"
 	"MateriaArchivo.h"
 
-1689647670 source:c:\users\romina\documents\github\tucolegio\tucole\manager\cuotamanager.cpp
+1689647756 source:c:\users\romina\documents\github\tucolegio\tucole\manager\cuotamanager.cpp
 	<iostream>
 	<iomanip>
 	<cstring>
@@ -1126,7 +1126,7 @@
 1688954554 c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\cursoarchivo.h
 	"Curso.h"
 
-1689547040 source:c:\users\romina\documents\github\tucolegio\tucole\manager\cursomanager.cpp
+1689721285 source:c:\users\romina\documents\github\tucolegio\tucole\manager\cursomanager.cpp
 	"CursoManager.h"
 	"../MENUS/rlutil.h"
 	"AlumnoArchivo.h"
@@ -1135,8 +1135,10 @@
 	"Materia.h"
 	"MateriaArchivo.h"
 	"MateriaManager.h"
+	"Notas.h"
+	"NotasArchivo.h"
 
-1689541845 c:\users\romina\documents\github\tucolegio\tucole\manager\cursomanager.h
+1689720399 c:\users\romina\documents\github\tucolegio\tucole\manager\cursomanager.h
 	"Curso.h"
 	"CursoArchivo.h"
 
