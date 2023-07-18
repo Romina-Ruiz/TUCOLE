@@ -8,6 +8,8 @@
 #include"AlumnoArchivo.h"
 #include "../MENUS/FUNCIONES_FRONT.h"
 #include"../MENUS/FUNCIONES_ADMIN.h"
+#include"Curso.h"
+#include"CursoArchivo.h"
 
 using namespace std;
 
@@ -449,8 +451,6 @@ void FaltaManager::AusenciasXfecha()
                 rlutil::locate(22,11);
                 cout<<obj.getFalta()<<"FALTA ."<<endl;
 
-                rlutil::locate(33,9);
-
                 system("pause>nul");
                 system("cls");
             }
@@ -520,28 +520,64 @@ void FaltaManager::ListarOrdenadosPorFecha()
 
 }
 
-void FaltaManager::TotalAusencias(){
+int FaltaManager::AusenciaCurso(int dni){
+Curso obj;
+CursoArchivo ArCurso;
 
-Falta obj;
-int cantidadRegistros =_archivo.getCantidad();
-int MatrizTotales[12][3]={};
-
-for (int x=0; x<cantidadRegistros; x++){
-
-    obj=_archivo.leerReg(x);
-
-    int curso, dni;/// HACER UNA FUNCION PARA QUE LEA EL ARC DE ALUMNO Y EL ARC DE CURSOS Y TRAIGA EL CURSO DONDE ESTA EL DNI
-    if(obj.getEliminada()==false&&dni==obj.getDNIAlumno()){
-
-        VecTotales[obj.getFechaAusencia().getMes()][curso] ++;
+int canReg=ArCurso.getCantidad();
 
 
-    }
+for (int x=0; x<canReg; x++){
+
+    obj=ArCurso.leerReg(x);
+
+            if(dni==obj.getDniAlumno()){
+
+                return obj.getCurso();
+            }
+
 
 }
 
 
+}
 
+void FaltaManager::TotalAusencias(int m[12][3]){
+
+Falta obj;
+int cantidadRegistros =_archivo.getCantidad();
+
+int curso;
+for (int x=0; x<cantidadRegistros; x++){
+
+    obj=_archivo.leerReg(x);
+
+    curso=0;
+    curso=this->AusenciaCurso(obj.getDNIAlumno());
+
+
+    if(obj.getEliminada()==false){
+
+        m[obj.getFechaAusencia().getMes()-1][curso-1] ++;
+
+                    }
+            }
+
+}
+
+int FaltaManager::TotalesAusenciasxmes(int m[12][3]){
+
+int Vec[12]={0};
+
+for(int x=0; x<12; x++){
+
+                for (int i=0; i<3; i++){
+
+                            Vec[x]+=m[x][i];
+                                        }
+                            }
+
+return *Vec;
 
 }
 
@@ -554,30 +590,136 @@ system("cls");
 
     mostrar_mensaje ("***** INFORME SOBRE AUSENCIA ANUAL ***** ", 30, 4);
 
-    mostrar_mensaje ("CURSO 1 ", 25, 6);
-    mostrar_mensaje ("CURSO 2 ", 45, 6);
-    mostrar_mensaje ("CURSO 3 ", 65, 6);
-    mostrar_mensaje ("MES: ", 6, 6);
-    mostrar_mensaje ("TOTAL / %", 23, 7);
-    mostrar_mensaje ("TOTAL / %", 43, 7);
-    mostrar_mensaje ("TOTAL / %", 63, 7);
+int MatrizTotales[12][3]={};
+int anio1, anio2,anio3=0;
+int total=0;
+float p1, p2,p3=0;
+
+  this->TotalAusencias(MatrizTotales);
+
+  for(int i=0; i<12; i++){
+
+
+    for (int j=0; j<3; j++){
+           // anio1+=MatrizTotales[i][0];
+           // anio2+=MatrizTotales[i][1];
+           // anio3+=MatrizTotales[i][2];
+    mostrar_mensaje ("CURSO 1 ", 23, 6);
+    mostrar_mensaje ("CURSO 2 ", 43, 6);
+    mostrar_mensaje ("CURSO 3 ", 63, 6);
+    mostrar_mensaje ("TOTAL ", 23, 7);
+    mostrar_mensaje ("TOTAL ", 43, 7);
+    mostrar_mensaje ("TOTAL ", 63, 7);
+
 
     mostrar_mensaje ("ENERO: ", 6, 9);
+    rlutil::locate(25,9);
+    cout <<MatrizTotales[0][0];
+    rlutil::locate(45,9);
+    cout <<MatrizTotales[0][1];
+    rlutil::locate(65,9);
+    cout <<MatrizTotales[0][2];
     mostrar_mensaje ("FEBRERO: ", 6, 10);
+    rlutil::locate(25,10);
+    cout <<MatrizTotales[1][0];
+    rlutil::locate(45,10);
+    cout <<MatrizTotales[1][1];
+    rlutil::locate(65,10);
+    cout <<MatrizTotales[1][2];
     mostrar_mensaje ("MARZO: ", 6, 11);
+    rlutil::locate(25,11);
+    cout <<MatrizTotales[2][0];
+    rlutil::locate(45,11);
+    cout <<MatrizTotales[2][1];
+    rlutil::locate(65,11);
+    cout <<MatrizTotales[2][2];
     mostrar_mensaje ("ABRIL: ", 6, 12);
+    rlutil::locate(25,12);
+    cout <<MatrizTotales[3][0];
+    rlutil::locate(45,12);
+    cout <<MatrizTotales[3][1];
+    rlutil::locate(65,12);
+    cout <<MatrizTotales[3][2];
     mostrar_mensaje ("MAYO: ", 6, 13);
+    rlutil::locate(25,13);
+    cout <<MatrizTotales[4][0];
+    rlutil::locate(45,13);
+    cout <<MatrizTotales[4][1];
+    rlutil::locate(65,13);
+    cout <<MatrizTotales[4][2];
     mostrar_mensaje ("JUNIO: ", 6, 14);
+    rlutil::locate(25,14);
+    cout <<MatrizTotales[5][0];
+    rlutil::locate(45,14);
+    cout <<MatrizTotales[5][1];
+    rlutil::locate(65,14);
+    cout <<MatrizTotales[5][2];
     mostrar_mensaje ("JULIO: ", 6, 15);
+    rlutil::locate(25,15);
+    cout <<MatrizTotales[6][0];
+    rlutil::locate(45,15);
+    cout <<MatrizTotales[6][1];
+    rlutil::locate(65,15);
+    cout <<MatrizTotales[6][2];
     mostrar_mensaje ("AGOSTO: ", 6, 16);
+    rlutil::locate(25,16);
+    cout <<MatrizTotales[7][0];
+    rlutil::locate(45,16);
+    cout <<MatrizTotales[7][1];
+    rlutil::locate(65,16);
+    cout <<MatrizTotales[7][2];
     mostrar_mensaje ("SEPTIEMBRE: ", 6, 17);
+    rlutil::locate(25,17);
+    cout <<MatrizTotales[8][0];
+    rlutil::locate(45,17);
+    cout <<MatrizTotales[8][1];
+    rlutil::locate(65,17);
+    cout <<MatrizTotales[8][2];
     mostrar_mensaje ("OCTUBRE: ", 6, 18);
+    rlutil::locate(25,18);
+    cout <<MatrizTotales[9][0];
+    rlutil::locate(45,18);
+    cout <<MatrizTotales[9][1];
+    rlutil::locate(65,18);
+    cout <<MatrizTotales[9][2];
     mostrar_mensaje ("NOVIEMBRE: ", 6, 19);
+    rlutil::locate(25,19);
+    cout <<MatrizTotales[10][0];
+    rlutil::locate(45,19);
+    cout <<MatrizTotales[10][1];
+    rlutil::locate(65,19);
+    cout <<MatrizTotales[10][2];
     mostrar_mensaje ("DICIEMBRE: ", 6, 20);
+    rlutil::locate(25,20);
+    cout <<MatrizTotales[11][0];
+    rlutil::locate(45,20);
+    cout <<MatrizTotales[11][1];
+    rlutil::locate(65,20);
+    cout <<MatrizTotales[11][2];
+    anio1=MatrizTotales[0][0]+MatrizTotales[1][0]+MatrizTotales[2][0]+MatrizTotales[3][0]+MatrizTotales[4][0]+MatrizTotales[5][0]+MatrizTotales[6][0]+MatrizTotales[7][0]+MatrizTotales[8][0]+MatrizTotales[9][0]+MatrizTotales[10][0]+MatrizTotales[11][0];
+    anio2=MatrizTotales[0][1]+MatrizTotales[1][1]+MatrizTotales[2][1]+MatrizTotales[3][1]+MatrizTotales[4][1]+MatrizTotales[5][1]+MatrizTotales[6][1]+MatrizTotales[7][1]+MatrizTotales[8][1]+MatrizTotales[9][1]+MatrizTotales[10][1]+MatrizTotales[11][1];
+    anio3=MatrizTotales[0][2]+MatrizTotales[1][2]+MatrizTotales[2][2]+MatrizTotales[3][2]+MatrizTotales[4][2]+MatrizTotales[5][2]+MatrizTotales[6][2]+MatrizTotales[7][2]+MatrizTotales[8][2]+MatrizTotales[9][2]+MatrizTotales[10][2]+MatrizTotales[11][2];
+    total=anio1+anio2+anio3;
+    p1=anio1*100/total;
+    p2=anio2*100/total;
+    p3=anio3*100/total;
+  }
+}
+    mostrar_mensaje ("TOTALES: ", 4, 22);
+     rlutil::locate(25,22);
+     cout<<anio1;
+     rlutil::locate(45,22);
+     cout<<anio2;
+      rlutil::locate(65,22);
+     cout<<anio3;
 
-
-
-
+    mostrar_mensaje ("PORCENTAJE: ", 4, 23);
+    rlutil::locate(25,23);
+     cout<<p1  <<" %";
+     rlutil::locate(45,23);
+     cout<<p2 <<" %";
+      rlutil::locate(65,23);
+     cout<<p3 <<" %";
 }
 
 void FaltaManager::HacerCopiaDeSeguridad()

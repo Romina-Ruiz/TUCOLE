@@ -407,7 +407,7 @@
 	<cstring>
 	<iostream>
 
-1689542299 source:c:\users\romina\documents\github\tucolegio\tucole\menus\funciones_admin.cpp
+1689634190 source:c:\users\romina\documents\github\tucolegio\tucole\menus\funciones_admin.cpp
 	<iostream>
 	<iomanip>
 	<string>
@@ -800,7 +800,7 @@
 	"Profesor.h"
 	"ProfesorArchivo.h"
 
-1689539437 c:\users\romina\documents\github\tucolegio\tucole\manager\cuotamanager.h
+1689548796 c:\users\romina\documents\github\tucolegio\tucole\manager\cuotamanager.h
 	"Cuota.h"
 	"CuotaArchivo.h"
 
@@ -821,7 +821,7 @@
 	"Materia.h"
 	"MateriaArchivo.h"
 
-1689540298 source:c:\users\romina\documents\github\tucolegio\tucole\manager\cuotamanager.cpp
+1689556068 source:c:\users\romina\documents\github\tucolegio\tucole\manager\cuotamanager.cpp
 	<iostream>
 	<iomanip>
 	<cstring>
@@ -834,7 +834,7 @@
 	"Pago.h"
 	"PagoArchivo.h"
 
-1689541617 source:c:\users\romina\documents\github\tucolegio\tucole\manager\faltamanager.cpp
+1689640683 source:c:\users\romina\documents\github\tucolegio\tucole\manager\faltamanager.cpp
 	<iostream>
 	"FaltaManager.h"
 	"Falta.h"
@@ -845,8 +845,10 @@
 	"AlumnoArchivo.h"
 	"../MENUS/FUNCIONES_FRONT.h"
 	"../MENUS/FUNCIONES_ADMIN.h"
+	"Curso.h"
+	"CursoArchivo.h"
 
-1689541027 c:\users\romina\documents\github\tucolegio\tucole\manager\faltamanager.h
+1689636134 c:\users\romina\documents\github\tucolegio\tucole\manager\faltamanager.h
 	"Falta.h"
 	"FaltaArchivo.h"
 

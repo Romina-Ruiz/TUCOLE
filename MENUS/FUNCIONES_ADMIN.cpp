@@ -1283,7 +1283,7 @@ void menuInformes()
                 mostrar_mensaje ("***** INFORME DE AUSENCIAS ***** ", 34, 4);
 
                 //obj.AusenciasXfecha();
-                obj.InformeAusencias();
+               obj.InformeAusencias();
 
                 system("pause>nul");
                 system("cls");

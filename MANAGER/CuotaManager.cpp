@@ -354,18 +354,15 @@ Pago obj;
  float VecTotal[12]={};
 int VecAcu[12]={};
 
-    for(int x=0; x<canRegCuota; x++){
+    for(int x=0; x<canRegPago; x++){
 
-        obj=_arCuota.leerReg(x);
+        obj=_arPago.leerReg(x);
 
         if (obj.getEliminado()==false){
 
-            VecTotal[obj.getFechaDeFact().getMes()-1]+=obj.getMonto();
-            VecAcu[obj.getFechaDeFact().getMes()-1]++;
-
+            VecTotal[obj.getFechaDePago().getMes()-1]+=obj.getMonto();
+            VecAcu[obj.getFechaDePago().getMes()-1]++;
         }
-
-
     }
 
 }
