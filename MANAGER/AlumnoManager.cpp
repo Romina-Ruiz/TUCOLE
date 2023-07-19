@@ -65,17 +65,17 @@ void AlumnoManager::Cargar()
         rlutil::locate(20,9);
         cout << "INGRESE EL NOMBRE: "<<endl;
         rlutil::locate(39,9);
-         cin.ignore();
-         getline(cin,nombre);
+        getline(cin,nombre);
+        cin.ignore();
         rlutil::locate(20,10);
         cout << "INGRESE EL APELLIDO: "<<endl;
         rlutil::locate(41,10);
-         cin.ignore();
-         getline(cin,apellido);
+        cin.ignore();
+       getline(cin,apellido);
         rlutil::locate(20,11);
         cout << "INGRESE EL MAIL: "<<endl;
         rlutil::locate(38,11);
-         cin.ignore();
+        cin.ignore();
         getline(cin,email);
         rlutil::locate(20,12);
         cout << "INGRESE EL TELEFONO: "<<endl;
@@ -98,7 +98,6 @@ void AlumnoManager::Cargar()
         cout << "LEGAJO: "<<  Legajo <<endl;
         rlutil::locate(20,16);
         cout << "ESTADO: "<< "Activo" <<endl;
-
 
 
         Alumno aux;
@@ -155,7 +154,7 @@ void AlumnoManager::ListarTodos()
         if (reg.getEstado()==true)
         {
             Listar(reg);
-            cout << endl;
+             system("cls");
         }
     }
 }
@@ -355,9 +354,6 @@ void AlumnoManager::ModificarDatos(Alumno alumno, int posicion)
     mostrar_mensaje ("* MODIFICAR DATOS DEL ALUMNO *", 40, 4);
     mostrar_mensaje ("--------------------------------", 40, 5);
 
-    rlutil::saveDefaultColor();
-    rectangulo (2, 2, 100, 26);
-    rlutil::setColor(rlutil::YELLOW);
 
     int op=1, y=0;
 
@@ -367,6 +363,7 @@ void AlumnoManager::ModificarDatos(Alumno alumno, int posicion)
     {
         rlutil::saveDefaultColor();
         rlutil::setColor(rlutil::YELLOW);
+        rectangulo (2, 2, 100, 26);
 
         showItem (opciones[0],30,10,y==0);
         showItem (opciones[1],30,11,y==1);
@@ -572,6 +569,8 @@ void AlumnoManager::ModificarDatos(Alumno alumno, int posicion)
                     case 6:     /// VOLVER AL MENU PRINCIPAL
                         system("cls");
                         {
+                            menuCargarAlumnos();
+
                             system("pause>nul");
                             system("cls");
 

@@ -372,7 +372,7 @@ void menuCargarAlumnos()
             {
                 system("cls");
 
-                CursoManager obj;
+                AlumnoManager obj;
                 rectangulo (2, 2, 100, 26);
                 rlutil::setColor(rlutil::YELLOW);
                 mostrar_mensaje ("***** LISTADO DE ALUMNO ***** ", 34, 4);

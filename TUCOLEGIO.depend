@@ -407,7 +407,7 @@
 	<cstring>
 	<iostream>
 
-1689634190 source:c:\users\romina\documents\github\tucolegio\tucole\menus\funciones_admin.cpp
+1689736099 source:c:\users\romina\documents\github\tucolegio\tucole\menus\funciones_admin.cpp
 	<iostream>
 	<iomanip>
 	<string>
@@ -770,7 +770,7 @@
 	"Profesor.h"
 	"ProfesorArchivo.h"
 
-1688956332 source:c:\users\romina\documents\github\tucolegio\tucole\manager\alumnomanager.cpp
+1689737842 source:c:\users\romina\documents\github\tucolegio\tucole\manager\alumnomanager.cpp
 	<iostream>
 	"AlumnoManager.h"
 	"Alumno.h"
@@ -1126,7 +1126,7 @@
 1688954554 c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\cursoarchivo.h
 	"Curso.h"
 
-1689721285 source:c:\users\romina\documents\github\tucolegio\tucole\manager\cursomanager.cpp
+1689734563 source:c:\users\romina\documents\github\tucolegio\tucole\manager\cursomanager.cpp
 	"CursoManager.h"
 	"../MENUS/rlutil.h"
 	"AlumnoArchivo.h"
@@ -1138,7 +1138,7 @@
 	"Notas.h"
 	"NotasArchivo.h"
 
-1689720399 c:\users\romina\documents\github\tucolegio\tucole\manager\cursomanager.h
+1689734014 c:\users\romina\documents\github\tucolegio\tucole\manager\cursomanager.h
 	"Curso.h"
 	"CursoArchivo.h"
 

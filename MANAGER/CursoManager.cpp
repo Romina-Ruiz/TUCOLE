@@ -376,14 +376,11 @@ void CursoManager::Editar()
 
 }
 
-void CursoManager::InformeCursos(){
+void CursoManager::InformeCursos()
+{
 
-system("cls");
-    rlutil::saveDefaultColor();
-    rectangulo (2, 2, 100, 26);
-    rlutil::setColor(rlutil::YELLOW);
+    system("cls");
 
-    mostrar_mensaje ("***** INFORME SOBRE ANIOS/CURSOS ***** ", 30, 4);
 
     const char *opciones[] = {"PROMEDIO NOTAS POR CURSOS", "PROMEDIO MATERIAS APROBADAS",
                               "PROMEDIO POR ALUMNO", "VOLVER AL MENU ANTERIOR"
@@ -395,8 +392,12 @@ system("cls");
 
     do
     {
-        rlutil::saveDefaultColor();
-        rlutil::setColor(rlutil::YELLOW);
+
+    rlutil::saveDefaultColor();
+    rectangulo (2, 2, 100, 26);
+    rlutil::setColor(rlutil::YELLOW);
+
+    mostrar_mensaje ("***** INFORME SOBRE ANIOS/CURSOS ***** ", 30, 4);
 
         showItem (opciones[0],30,10,y==0);
         showItem (opciones[1],30,11,y==1);
@@ -435,15 +436,15 @@ system("cls");
             switch(y)
             {
             case 0:      /// PROMEDIO NOTAS POR CURSOS
-              {
-                 system("cls");
+            {
+                system("cls");
 
-                 this->InformePromedioCursos();
+                this->InformePromedioCursos();
 
                 system("cls");
-                }
+            }
 
-                break;
+            break;
 
             case 1:       /// PROMEDIO MATERIAS APROBADAS
             {
@@ -456,6 +457,11 @@ system("cls");
             case 2:       ///  PROMEDIO POR ALUMNO
             {
                 system("cls");
+
+                rlutil::saveDefaultColor();
+                rectangulo (2, 2, 100, 26);
+                rlutil::setColor(rlutil::YELLOW);
+
                 this->InformePromedioAlumno();
                 system("cls");
             }
@@ -499,14 +505,14 @@ void CursoManager::InformePromedioCursos()
     cout<<Curso1<<" % " <<endl;
 
     rlutil::locate(53,8);
-     Curso2=this->InformePromedioCurso2();
+    Curso2=this->InformePromedioCurso2();
     cout<<Curso2<<" % " <<endl;
 
     rlutil::locate(73,8);
     Curso3=this->InformePromedioCurso3();
     cout<<Curso3<<" % " <<endl;
 
- system("pause>nul");
+    system("pause>nul");
 }
 
 void CursoManager::InformeMateriasAprobadas()
@@ -522,39 +528,14 @@ void CursoManager::InformeMateriasAprobadas()
     mostrar_mensaje ("CURSO 1 ", 30, 6);
     mostrar_mensaje ("CURSO 2 ", 50, 6);
     mostrar_mensaje ("CURSO 3 ", 70, 6);
-    mostrar_mensaje ("MATERIA: ", 4, 7);
 
-    rlutil::locate(4,8);
-    cout<<"PONER NOMBRE MATERIA"<<endl;
-    mostrar_mensaje ("Notas de 1 A 6: ", 6, 9);
-    mostrar_mensaje ("Notas de 6 A 8: ", 6, 10);
-    mostrar_mensaje ("Notas de 8 A 10:  ", 6, 11);
 
-    rlutil::locate(4,12);
-    cout<<"PONER NOMBRE MATERIA"<<endl;
-    mostrar_mensaje ("Notas de 1 A 6: ", 6, 13);
-    mostrar_mensaje ("Notas de 6 A 8: ", 6, 14);
-    mostrar_mensaje ("Notas de 8 A 10:  ", 6, 15);
+    this->InformePromedioNotas1();
+    this->InformePromedioNotas2();
+    this->InformePromedioNotas3();
 
-    rlutil::locate(4,16);
-    cout<<"PONER NOMBRE MATERIA"<<endl;
-    mostrar_mensaje ("Notas de 1 A 6: ", 6, 17);
-    mostrar_mensaje ("Notas de 6 A 8: ", 6, 18);
-    mostrar_mensaje ("Notas de 8 A 10:  ", 6, 19);
 
-    rlutil::locate(4,20);
-    cout<<"PONER NOMBRE MATERIA"<<endl;
-    mostrar_mensaje ("Notas de 1 A 6: ", 6, 21);
-    mostrar_mensaje ("Notas de 6 A 8: ", 6, 22);
-    mostrar_mensaje ("Notas de 8 A 10:  ", 6, 23);
-
-    rlutil::locate(4,24);
-    cout<<"PONER NOMBRE MATERIA"<<endl;
-    mostrar_mensaje ("Notas de 1 A 6: ", 6, 25);
-    mostrar_mensaje ("Notas de 6 A 8: ", 6, 26);
-    mostrar_mensaje ("Notas de 8 A 10:  ", 6, 27);
-
- system("pause>nul");
+    system("pause>nul");
 }
 
 void CursoManager::InformePromedioAlumno()
@@ -564,126 +545,353 @@ void CursoManager::InformePromedioAlumno()
     rectangulo (2, 2, 100, 26);
     rlutil::setColor(rlutil::YELLOW);
 
-    mostrar_mensaje ("***** INFORME PROMEDIO POR MATERIA POR ALUMNO ***** ", 30, 4);
+    mostrar_mensaje ("***** INFORME SOBRE PROMEDIO POR ALUMNO ***** ", 30, 4);
+    int dni;
+    rlutil::locate(5,8);
+    cout <<" POR FAVOR INGRESE EL DNI A CONSULTAR: ";
+    rlutil::locate(50,8);
+    cin>>dni;
 
-     rlutil::locate(4,8);
-    cout<<"PONER NOMBRE MATERIA"<<endl;
-    rlutil::locate(4,9);
-    cout<<"PONER NOMBRE MATERIA"<<endl;
-    rlutil::locate(4,10);
-    cout<<"PONER NOMBRE MATERIA"<<endl;
-    rlutil::locate(4,11);
-    cout<<"PONER NOMBRE MATERIA"<<endl;
-    rlutil::locate(4,12);
-    cout<<"PONER NOMBRE MATERIA"<<endl;
+    Notas Aux;
+    NotasArchivo ArNotas;
 
-mostrar_mensaje ("PROMEDIO GENERAL:", 20, 15);
+    int canRegNotas=ArNotas.getCantidad();
+
+    float Totales=0;
+    int Cantidad=0;
 
 
- system("pause>nul");
+    for(int i=0; i<canRegNotas; i++)
+    {
+
+        Aux=ArNotas.leerReg(i);
+
+        if (Aux.getDNIalumno()==dni&&Aux.getEliminada()==false)
+        {
+
+            Totales+=Aux.getNota();
+            Cantidad++;
+        }
+    }
+
+    mostrar_mensaje ("PROMEDIO GENERAL:", 10, 10);
+    rlutil::locate(30,10);
+    cout<<Totales/Cantidad <<" % "<<endl;
+     rlutil::locate(10,11);
+    cout<<"CANTIDAD DE MATERIAS CURSADAS:  " <<Cantidad<<endl;
+
+
+    system("pause>nul");
 }
 
-float CursoManager::InformePromedioCurso1(){
+float CursoManager::InformePromedioCurso1()
+{
 
-Materia obj;
-MateriaArchivo ArMate;
+    Materia obj;
+    MateriaArchivo ArMate;
 
-Notas Aux;
-NotasArchivo ArNotas;
+    Notas Aux;
+    NotasArchivo ArNotas;
 
-int canRegMate=ArMate.getCantidad();
-int canRegNotas=ArNotas.getCantidad();
+    int canRegMate=ArMate.getCantidad();
+    int canRegNotas=ArNotas.getCantidad();
 
-float Totales=0;
-int Cantidad=0;
+    float Totales=0;
+    int Cantidad=0;
 
-for(int x=0; x<canRegMate; x++){
+    for(int x=0; x<canRegMate; x++)
+    {
 
-            obj=ArMate.leerReg(x);
+        obj=ArMate.leerReg(x);
 
-        for(int i=0; i<canRegNotas; i++){
+        for(int i=0; i<canRegNotas; i++)
+        {
 
-                    Aux=ArNotas.leerReg(i);
+            Aux=ArNotas.leerReg(i);
 
-                         if (obj.getAnioLectivo()==1&& obj.getIdMateria()==Aux.getIDMateria()){
+            if (obj.getAnioLectivo()==1&& obj.getIdMateria()==Aux.getIDMateria())
+            {
 
-                                        Totales=Aux.getNota();
-                                        Cantidad++;
+                Totales+=Aux.getNota();
+                Cantidad++;
+            }
+        }
+    }
+
+    return Totales/Cantidad;
+
+}
+
+float CursoManager::InformePromedioCurso2()
+{
+
+    Materia obj;
+    MateriaArchivo ArMate;
+
+    Notas Aux;
+    NotasArchivo ArNotas;
+
+    int canRegMate=ArMate.getCantidad();
+    int canRegNotas=ArNotas.getCantidad();
+
+    float Totales=0;
+    int Cantidad=0;
+
+    for(int x=0; x<canRegMate; x++)
+    {
+
+        obj=ArMate.leerReg(x);
+
+        for(int i=0; i<canRegNotas; i++)
+        {
+
+            Aux=ArNotas.leerReg(i);
+
+            if (obj.getAnioLectivo()==2&& obj.getIdMateria()==Aux.getIDMateria())
+            {
+
+                Totales+=Aux.getNota();
+                Cantidad++;
+            }
+        }
+    }
+
+    return Totales/Cantidad;
+
+}
+
+float CursoManager::InformePromedioCurso3()
+{
+
+    Materia obj;
+    MateriaArchivo ArMate;
+
+    Notas Aux;
+    NotasArchivo ArNotas;
+
+    int canRegMate=ArMate.getCantidad();
+    int canRegNotas=ArNotas.getCantidad();
+
+    float Totales=0;
+    int Cantidad=0;
+
+    for(int x=0; x<canRegMate; x++)
+    {
+
+        obj=ArMate.leerReg(x);
+
+        for(int i=0; i<canRegNotas; i++)
+        {
+
+            Aux=ArNotas.leerReg(i);
+
+            if (obj.getAnioLectivo()==3&& obj.getIdMateria()==Aux.getIDMateria())
+            {
+
+                Totales+=Aux.getNota();
+                Cantidad++;
+            }
+        }
+    }
+
+    return Totales/Cantidad;
+
+}
+
+void CursoManager::InformePromedioNotas1()
+{
+
+    Materia obj;
+    MateriaArchivo ArMate;
+
+    Notas Aux;
+    NotasArchivo ArNotas;
+
+    int canRegMate=ArMate.getCantidad();
+    int canRegNotas=ArNotas.getCantidad();
+
+
+    int Cantidad1=0;
+    int Cantidad2=0;
+    int Cantidad3=0;
+    float Prome10=0;
+    float Prome8=0;
+    float Prome6=0;
+
+    for(int x=0; x<canRegMate; x++){
+
+                obj=ArMate.leerReg(x);
+
+            for(int i=0; i<canRegNotas; i++){
+
+                        Aux=ArNotas.leerReg(i);
+
+                             if (obj.getAnioLectivo()==1&& obj.getIdMateria()==Aux.getIDMateria()){
+
+                                          if (Aux.getNota()>8&& Aux.getNota()<=10){
+
+                                          Cantidad1++;
+                                             }
+                                         else { if (Aux.getNota()>=6 && Aux.getNota()<=8){
+
+                                             Cantidad2++;
+
+                                                        }
+                                          else {
+
+                                            Cantidad3++;
+                                                    }
                                          }
-                                    }
-                            }
+                                        }
+                                }
+                }
 
-                      return Totales/Cantidad;
+                int totalesnotas=Cantidad1+Cantidad2+Cantidad3;
+                Prome10=Cantidad1*100/totalesnotas;
+                Prome8=Cantidad2*100/totalesnotas;
+                Prome6=Cantidad3*100/totalesnotas;
+
+
+    mostrar_mensaje ("Notas de 1 A 6: ", 6, 9);
+    mostrar_mensaje ("Notas de 6 A 8: ", 6, 10);
+    mostrar_mensaje ("Notas de 8 A 10:  ", 6, 11);
+
+    rlutil::locate(30,9);
+    cout<<Prome10<<endl;
+    rlutil::locate(30,10);
+    cout<<Prome8<<endl;
+    rlutil::locate(30,11);
+    cout<<Prome6<<endl;
 
 }
 
-float CursoManager::InformePromedioCurso2(){
+void CursoManager::InformePromedioNotas2()
+{
 
-Materia obj;
-MateriaArchivo ArMate;
+    Materia obj;
+    MateriaArchivo ArMate;
 
-Notas Aux;
-NotasArchivo ArNotas;
+    Notas Aux;
+    NotasArchivo ArNotas;
 
-int canRegMate=ArMate.getCantidad();
-int canRegNotas=ArNotas.getCantidad();
+    int canRegMate=ArMate.getCantidad();
+    int canRegNotas=ArNotas.getCantidad();
 
-float Totales=0;
-int Cantidad=0;
 
-for(int x=0; x<canRegMate; x++){
+    int Cantidad1=0;
+    int Cantidad2=0;
+    int Cantidad3=0;
+    float Prome10=0;
+    float Prome8=0;
+    float Prome6=0;
 
-            obj=ArMate.leerReg(x);
+    for(int x=0; x<canRegMate; x++){
 
-        for(int i=0; i<canRegNotas; i++){
+                obj=ArMate.leerReg(x);
 
-                    Aux=ArNotas.leerReg(i);
+            for(int i=0; i<canRegNotas; i++){
 
-                         if (obj.getAnioLectivo()==2&& obj.getIdMateria()==Aux.getIDMateria()){
+                        Aux=ArNotas.leerReg(i);
 
-                                        Totales=Aux.getNota();
-                                        Cantidad++;
+                             if (obj.getAnioLectivo()==2 && obj.getIdMateria()==Aux.getIDMateria()){
+
+                                          if (Aux.getNota()>8&& Aux.getNota()<=10){
+
+                                            Cantidad1++;
+                                             }
+                                         else { if (Aux.getNota()>=6 && Aux.getNota()<=8){
+
+                                            Cantidad2++;
+
+                                                        }
+                                          else {
+
+                                            Cantidad3++;
+                                                    }
                                          }
-                                    }
-                            }
+                                        }
+                                }
+                }
 
-                      return Totales/Cantidad;
+                int totalesnotas=Cantidad1+Cantidad2+Cantidad3;
+                Prome10=Cantidad1*100/totalesnotas;
+                Prome8=Cantidad2*100/totalesnotas;
+                Prome6=Cantidad3*100/totalesnotas;
+
+
+    rlutil::locate(30,15);
+    cout<<Prome10<<endl;
+    rlutil::locate(30,16);
+    cout<<Prome8<<endl;
+    rlutil::locate(30,17);
+    cout<<Prome6<<endl;
+
 
 }
 
-float CursoManager::InformePromedioCurso3(){
+void CursoManager::InformePromedioNotas3()
+{
 
-Materia obj;
-MateriaArchivo ArMate;
+    Materia obj;
+    MateriaArchivo ArMate;
 
-Notas Aux;
-NotasArchivo ArNotas;
+    Notas Aux;
+    NotasArchivo ArNotas;
 
-int canRegMate=ArMate.getCantidad();
-int canRegNotas=ArNotas.getCantidad();
+    int canRegMate=ArMate.getCantidad();
+    int canRegNotas=ArNotas.getCantidad();
 
-float Totales=0;
-int Cantidad=0;
+      int Cantidad1=0;
+      int Cantidad2=0;
+      int Cantidad3=0;
+    float Prome10=0;
+    float Prome8=0;
+    float Prome6=0;
 
-for(int x=0; x<canRegMate; x++){
+    for(int x=0; x<canRegMate; x++){
 
-            obj=ArMate.leerReg(x);
+                obj=ArMate.leerReg(x);
 
-        for(int i=0; i<canRegNotas; i++){
+            for(int i=0; i<canRegNotas; i++){
 
-                    Aux=ArNotas.leerReg(i);
+                        Aux=ArNotas.leerReg(i);
 
-                         if (obj.getAnioLectivo()==3&& obj.getIdMateria()==Aux.getIDMateria()){
+                             if (obj.getAnioLectivo()==3&& obj.getIdMateria()==Aux.getIDMateria()){
 
-                                        Totales=Aux.getNota();
-                                        Cantidad++;
+                                          if (Aux.getNota()>8&& Aux.getNota()<=10){
+
+                                              Cantidad1++;
+                                             }
+                                         else { if (Aux.getNota()>=6 && Aux.getNota()<=8){
+
+                                              Cantidad2++;
+
+                                                        }
+                                          else {
+
+                                            Cantidad3++;
+                                                    }
                                          }
-                                    }
-                            }
+                                        }
+                                }
+                }
 
-                      return Totales/Cantidad;
+                int totalesnotas=Cantidad1+Cantidad2+Cantidad3;
+                Prome10=Cantidad1*100/totalesnotas;
+                Prome8=Cantidad2*100/totalesnotas;
+                Prome6=Cantidad3*100/totalesnotas;
+
+    rlutil::locate(30,19);
+    cout<<Prome10<<endl;
+    rlutil::locate(30,20);
+    cout<<Prome8<<endl;
+    rlutil::locate(30,11);
+    cout<<Prome6<<endl;
+
 
 }
+
+
 
 void CursoManager::HacerCopiaDeSeguridad()
 {
