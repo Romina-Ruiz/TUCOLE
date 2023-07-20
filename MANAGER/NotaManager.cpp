@@ -121,11 +121,12 @@ int NotaManager::BuscarMaterias(std::string nombremateria)
 
     return 0;
 }
-std::string NotaManager::BuscarMateriaxID(int id)
+string NotaManager::BuscarMateriaxID(int id)
 {
 
     Materia aux;
     MateriaArchivo ArMateria;
+    string NombreMateria;
 
     int canReg=ArMateria.getCantidad();
 
@@ -136,14 +137,15 @@ std::string NotaManager::BuscarMateriaxID(int id)
 
         if(id==aux.getIdMateria())
         {
+            NombreMateria=aux.getNombreMateria();
 
-            return aux.getNombreMateria();
+            return NombreMateria;
         }
 
     }
 
-}
 
+}
 
 void NotaManager::ListarTodos()
 {
@@ -215,8 +217,9 @@ void NotaManager::ListarXdni(int dni)
             cout <<"ID NOTA: "<<obj.getIDNota()<<endl;
 
         }
-   system("pause>nul");
+
     }
+    system("pause>nul");
     system("cls");
     rectangulo (2, 2, 100, 26);
     rlutil::locate(40,12);

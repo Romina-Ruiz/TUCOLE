@@ -322,7 +322,7 @@ void CuotaManager::MenuUserPagosyCuotas(int dni)
 int CuotaManager::CuotasCurso(int dni){
 Curso obj;
 CursoArchivo ArCurso;
-
+int NumeroCurso=0;
 int canReg=ArCurso.getCantidad();
 
 for (int x=0; x<canReg; x++){
@@ -330,8 +330,9 @@ for (int x=0; x<canReg; x++){
     obj=ArCurso.leerReg(x);
 
             if(dni==obj.getDniAlumno()){
+                    NumeroCurso=obj.getCurso();
 
-                return obj.getCurso();
+                return NumeroCurso;
             }
     }
 
@@ -352,7 +353,7 @@ int curso;
 
         if (obj.getDebe()==true){
 
-            m[obj.getFechaDeFact().getMes()-1][curso-1]=obj.getMonto();
+            m[obj.getFechaDeFact().getMes()-1][curso-1]+=obj.getMonto();
 
                 }
         }
