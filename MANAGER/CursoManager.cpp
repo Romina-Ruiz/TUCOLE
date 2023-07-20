@@ -175,7 +175,7 @@ void CursoManager::ListarAlumnosxCurso(int anio)
 
             obj=_archivo.leerReg(j);
 
-            if(encontro==false&&obj.getCurso()==anio&&alumno.getDni()==obj.getDniAlumno())
+            if(encontro==false&&obj.getCurso()==anio&&alumno.getDni()==obj.getDniAlumno()&&obj.getEstado()==true)
             {
                 rlutil::locate(30,4);
                 cout<<"***      ALUMNOS DEL CURSO "<<anio <<"      ***";

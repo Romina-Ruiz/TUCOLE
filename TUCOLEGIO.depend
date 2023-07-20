@@ -993,7 +993,7 @@
 1688923549 c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\comunicadosarchivo.h
 	"Comunicados.h"
 
-1689827753 source:c:\users\romina\documents\github\tucolegio\tucole\manager\comunicadosmanager.cpp
+1689830705 source:c:\users\romina\documents\github\tucolegio\tucole\manager\comunicadosmanager.cpp
 	"ComunicadosManager.h"
 	"Comunicados.h"
 	"ComunicadosArchivo.h"
@@ -1006,7 +1006,7 @@
 	"Curso.h"
 	"CursoArchivo.h"
 
-1689825502 c:\users\romina\documents\github\tucolegio\tucole\manager\comunicadosmanager.h
+1689830705 c:\users\romina\documents\github\tucolegio\tucole\manager\comunicadosmanager.h
 	"Comunicados.h"
 	"ComunicadosArchivo.h"
 
@@ -1128,7 +1128,7 @@
 	<cstring>
 	"Curso.h"
 
-1688271377 c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\curso.h
+1689830556 c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\curso.h
 
 1688954554 source:c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\cursoarchivo.cpp
 	<iostream>
@@ -1138,7 +1138,7 @@
 1688954554 c:\users\romina\documents\github\tucolegio\tucole\clases-archivos\cursoarchivo.h
 	"Curso.h"
 
-1689827185 source:c:\users\romina\documents\github\tucolegio\tucole\manager\cursomanager.cpp
+1689830786 source:c:\users\romina\documents\github\tucolegio\tucole\manager\cursomanager.cpp
 	"CursoManager.h"
 	"../MENUS/rlutil.h"
 	"AlumnoArchivo.h"

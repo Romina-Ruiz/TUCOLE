@@ -21,7 +21,6 @@ public:
     void listar(Comunicados obj);
     void ComunicadosActivos();
     void ListarTodos();
-    //void Listar(Comunicados comunicado);
     void ComunicadoUser(int dni);
     int BuscarCurso(int dni);
 

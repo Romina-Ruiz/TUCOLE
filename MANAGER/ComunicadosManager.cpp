@@ -164,7 +164,7 @@ for (int x=0; x<canReg; x++){
 
     aux=ArCurso.leerReg(x);
 
-    if(aux.getDniAlumno()==dni)
+    if(aux.getDniAlumno()==dni&&aux.getEstado()==true)
            return  aux.getCurso();
 
 
@@ -187,7 +187,7 @@ for (int x=0; x<cantReg; x++){
             aux=_archivo.leerReg(x);
 
             int curso1=this->BuscarCurso(dni);
-     //       cout <<curso1;
+
 
             if(aux.getDni()==dni || aux.getAnioCurso()==curso1 &&aux.getEliminado()==true){
                 rlutil::setColor(rlutil::YELLOW);
@@ -407,13 +407,7 @@ void ComunicadosManager::ComunicadosActivos()
 
 }
 
-void ComunicadosManager::BuscarComunicado()
-{
 
-
-
-
-}
 void ComunicadosManager::HacerCopiaDeSeguridad()
 {
     ComunicadosArchivo _archivoBkp = ComunicadosArchivo("comunicados.bkp");
