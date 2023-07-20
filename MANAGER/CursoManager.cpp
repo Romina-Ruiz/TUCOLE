@@ -638,7 +638,7 @@ void CursoManager::InformePromedioAlumno()
     rlutil::locate(30,10);
     cout<<fixed<<setprecision(2)<<Totales/Cantidad <<" % "<<endl;
     rlutil::locate(10,11);
-    cout<<"CANTIDAD DE MATERIAS CURSADAS:  " <<Cantidad<<endl;
+    cout<<"CANTIDAD DE NOTAS: " <<Cantidad<<endl;
 
 
     system("pause>nul");

@@ -862,7 +862,7 @@
 	"Cuota.h"
 	"CuotaArchivo.h"
 
-1689874853 source:c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\manager\alumnomanager.cpp
+1689876108 source:c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\manager\alumnomanager.cpp
 	<iostream>
 	"AlumnoManager.h"
 	"Alumno.h"
@@ -1159,7 +1159,7 @@
 	"Curso.h"
 	"CursoArchivo.h"
 
-1689869873 source:c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\manager\cursomanager.cpp
+1689876397 source:c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\manager\cursomanager.cpp
 	"CursoManager.h"
 	"../MENUS/rlutil.h"
 	"AlumnoArchivo.h"
