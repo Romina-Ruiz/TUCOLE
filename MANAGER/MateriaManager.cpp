@@ -235,8 +235,8 @@ void MateriaManager::OpModificar(Materia reg, int pos)
                 mostrar_mensaje ("***** MODIFICAR ANIO LECTIVO ***** ", 34, 4);
                 int anio;
                 rlutil::locate(20,9);
-                cout<<"INGRESE NUEVO ANIO"<<endl;
-                rlutil::locate(48,9);
+                cout<<"INGRESE NUEVO ANIO: "<<endl;
+                rlutil::locate(45,9);
                 cin>>anio;
 
                 reg.setAnioLectivo(anio);
@@ -258,8 +258,8 @@ void MateriaManager::OpModificar(Materia reg, int pos)
                 mostrar_mensaje ("***** MODIFICAR ID PROFESOR ***** ", 34, 4);
                 int id;
                 rlutil::locate(20,9);
-                cout<<"INGRESE EL NUEVO ID DEL PROFESOR:"<<endl;
-                rlutil::locate(48,9);
+                cout<<"INGRESE EL NUEVO ID DEL PROFESOR :"<<endl;
+                rlutil::locate(55,9);
                 cin>>id;
 
                 reg.setidProfesor(id);
@@ -280,8 +280,8 @@ void MateriaManager::OpModificar(Materia reg, int pos)
                 mostrar_mensaje ("***** MODIFICAR DIA 1***** ", 34, 4);
                 string dia1;
                 rlutil::locate(20,9);
-                cout<<"INGRESE NUEVO DIA:"<<endl;
-                rlutil::locate(48,9);
+                cout<<"INGRESE NUEVO DIA :"<<endl;
+                rlutil::locate(45,9);
                 cin.ignore();
                 getline(cin,dia1);
 
@@ -305,7 +305,7 @@ void MateriaManager::OpModificar(Materia reg, int pos)
                 string horario1;
                 rlutil::locate(20,9);
                 cout<<"INGRESE HORARIO 1: "<<endl;
-                rlutil::locate(48,9);
+                rlutil::locate(45,9);
                 cin.ignore();
                 getline(cin,horario1);
 
@@ -328,7 +328,7 @@ void MateriaManager::OpModificar(Materia reg, int pos)
                 string dia2;
                 rlutil::locate(20,9);
                 cout<<"INGRESE NUEVO DIA:"<<endl;
-                rlutil::locate(48,9);
+                rlutil::locate(45,9);
                 cin.ignore();
                 getline(cin,dia2);
 
@@ -351,7 +351,7 @@ void MateriaManager::OpModificar(Materia reg, int pos)
                 string horario2;
                 rlutil::locate(20,9);
                 cout<<"INGRESE HORARIO 1: "<<endl;
-                rlutil::locate(48,9);
+                rlutil::locate(45,9);
                 cin.ignore();
                 getline(cin,horario2);
 

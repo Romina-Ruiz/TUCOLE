@@ -410,6 +410,7 @@ void AlumnoManager::ModificarDatos(Alumno alumno, int posicion)
                     mostrar_mensaje ("* MODIFICAR DATOS DEL ALUMNO *", 40, 4);
                     mostrar_mensaje ("--------------------------------", 40, 5);
                     int dni;
+                      rectangulo (2, 2, 100, 26);
                     rlutil::locate(20,9);
                     cout << "INGRESE EL NUEVO DNI: "<<endl;
                     rlutil::locate(39,9);
@@ -436,6 +437,7 @@ void AlumnoManager::ModificarDatos(Alumno alumno, int posicion)
                 {
 
                     char nombre[30];
+                      rectangulo (2, 2, 100, 26);
                     rlutil::locate(20,9);
                     cout << "INGRESE EL NUEVO NOMBRE: "<<endl;
                     rlutil::locate(47,9);
@@ -462,6 +464,7 @@ void AlumnoManager::ModificarDatos(Alumno alumno, int posicion)
 
                 {
                     char apellido[30];
+                      rectangulo (2, 2, 100, 26);
                     rlutil::locate(20,9);
                     cout << "INGRESE EL NUEVO APELLIDO: "<<endl;
                     rlutil::locate(47,9);
@@ -489,6 +492,7 @@ void AlumnoManager::ModificarDatos(Alumno alumno, int posicion)
                 {
 
                     char email[30];
+                      rectangulo (2, 2, 100, 26);
                     rlutil::locate(20,9);
                     cout << "INGRESE EL NUEVO EMAIL: "<<endl;
                     rlutil::locate(45,9);
@@ -514,6 +518,7 @@ void AlumnoManager::ModificarDatos(Alumno alumno, int posicion)
                 {
 
                     int tele;
+                      rectangulo (2, 2, 100, 26);
                     rlutil::locate(20,9);
                     cout << "INGRESE EL NUEVO TELEFONO: "<<endl;
                     rlutil::locate(53,9);
@@ -537,9 +542,11 @@ void AlumnoManager::ModificarDatos(Alumno alumno, int posicion)
                             mostrar_mensaje ("* MODIFICAR DATOS DEL ALUMNO *", 40, 4);
                             mostrar_mensaje ("--------------------------------", 40, 5);
                             int op;
+                              rectangulo (2, 2, 100, 26);
                             rlutil::locate(20,9);
                             cout << "DESEA MODIFICAR ESTADO DEL ALUMNO (1-BAJA/2-ALTA): "<<endl;
                             rlutil::locate(72,9);
+
                             cin>>op;
                             if (op==1)
                             {
@@ -548,6 +555,8 @@ void AlumnoManager::ModificarDatos(Alumno alumno, int posicion)
 
                                     rlutil::locate(30,15);
                                 cout << "** REGISTRO MODIFICADO ** "<<endl;
+                                system("pause>nul");
+                                system("cls");
                             }
                             else if(op==2)
                             {

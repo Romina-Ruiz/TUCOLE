@@ -862,7 +862,7 @@
 	"Cuota.h"
 	"CuotaArchivo.h"
 
-1689873763 source:c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\manager\alumnomanager.cpp
+1689874853 source:c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\manager\alumnomanager.cpp
 	<iostream>
 	"AlumnoManager.h"
 	"Alumno.h"
@@ -911,7 +911,7 @@
 	"Falta.h"
 	"FaltaArchivo.h"
 
-1689829579 source:c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\manager\materiamanager.cpp
+1689874470 source:c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\manager\materiamanager.cpp
 	<iostream>
 	<cstring>
 	"MateriaManager.h"
@@ -928,7 +928,7 @@
 	"Materia.h"
 	"MateriaArchivo.h"
 
-1689873285 source:c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\manager\profesormanager.cpp
+1689874083 source:c:\users\gabri\desktop\proyectocolegio\proyectocolegio\tucole\manager\profesormanager.cpp
 	<iostream>
 	"ProfesorManager.h"
 	"Profesor.h"
