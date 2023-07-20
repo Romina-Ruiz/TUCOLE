@@ -18,10 +18,12 @@ public:
     void ComunicadoxCurso();
     void EliminarComunicado();
     void BuscarComunicado();
-    void listarxDNI(Comunicados obj);
+    void listar(Comunicados obj);
     void ComunicadosActivos();
     void ListarTodos();
-    void Listar(Comunicados comunicado);
+    //void Listar(Comunicados comunicado);
+    void ComunicadoUser(int dni);
+    int BuscarCurso(int dni);
 
 
     void HacerCopiaDeSeguridad();

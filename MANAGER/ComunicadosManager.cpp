@@ -7,6 +7,8 @@
 #include"../MENUS/FUNCIONES_USER.h"
 #include"../MENUS/Fecha.h"
 #include"../MENUS/MENUS.h"
+#include"Curso.h"
+#include"CursoArchivo.h"
 
 using namespace std;
 
@@ -130,23 +132,80 @@ void ComunicadosManager::Cargar()
 
 }
 
-void ComunicadosManager::listarxDNI(Comunicados obj)
+void ComunicadosManager::listar(Comunicados obj)
 {
 
-    rectangulo (2, 2, 100, 26);
     rlutil::setColor(rlutil::YELLOW);
-    mostrar_mensaje ("*****      COMUNICADO  ***** ", 34, 4);
+    mostrar_mensaje ("*****      COMUNICADO    ***** ", 34, 4);
+    mostrar_mensaje ("------------------------------------ ", 34, 5);
 
-    rlutil::locate(20,10);
+    rlutil::locate(15,10);
     cout<<"ID COMUNICADO:    "<<obj.getIdComunicado()<<endl;
 
-    rlutil::locate(20,12);
+    rlutil::locate(15,12);
     cout<<"COMUNICADO:    " <<endl;
-    rlutil::locate(35,13);
+    rlutil::locate(20,15);
     cout<<obj.getComunicado()<<endl;
 
+mostrar_mensaje ("*****      SALUDOS   ***** ", 40, 25);
+
     system("pause>nul");
-    system("cls");
+
+}
+int ComunicadosManager::BuscarCurso(int dni){
+
+Curso aux;
+CursoArchivo ArCurso;
+int curso=-1;
+
+int canReg=ArCurso.getCantidad();
+
+for (int x=0; x<canReg; x++){
+
+    aux=ArCurso.leerReg(x);
+
+    if(aux.getDniAlumno()==dni)
+           return  aux.getCurso();
+
+
+}
+
+
+
+}
+
+
+void ComunicadosManager::ComunicadoUser(int dni){
+
+Comunicados aux;
+
+int cantReg=_archivo.getCantidad();
+
+
+for (int x=0; x<cantReg; x++){
+
+            aux=_archivo.leerReg(x);
+
+            int curso1=this->BuscarCurso(dni);
+     //       cout <<curso1;
+
+            if(aux.getDni()==dni || aux.getAnioCurso()==curso1 &&aux.getEliminado()==true){
+                rlutil::setColor(rlutil::YELLOW);
+                              rlutil::locate(20,10);
+                                 this->listar(aux);
+                                 system("pause>nul");
+
+                        }
+
+
+
+                }
+
+            system("cls");
+            rlutil::locate(20,10);
+            cout <<"*** FIN DE LOS COMUNICADOS  ***";
+            system("pause>nul");
+
 }
 
 
@@ -223,7 +282,7 @@ void ComunicadosManager::ComunicadoxCurso()
 
     rlutil::locate(20,9);
     cout << "INGRESE EL CURSO: "<<endl;
-    rlutil::locate(20,9);
+    rlutil::locate(38,9);
     cin>>CURSO;
 
     int id=this->generarID();
@@ -282,7 +341,7 @@ void ComunicadosManager::EliminarComunicado()
     cout << "INGRESE EL ID DEL COMUNICADO: ";
     rlutil::locate(51,10);
     cin >> comunicado;
-    cout << endl;
+
 
     posicion =_archivo.buscarReg(comunicado);
     if (posicion >= 0)
@@ -292,9 +351,8 @@ void ComunicadosManager::EliminarComunicado()
          int res;
          rlutil::locate(20,12);
          cout << "DESEA DAR DE BAJA EL COMUNICADO (1-SI/2-NO): ";
-         rlutil::locate(55,12);
+         rlutil::locate(60,12);
          cin >> res;
-         cout << endl;
 
          if (res==1)
          {

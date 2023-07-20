@@ -503,7 +503,7 @@ void MateriaManager::MenuUserMaterias(int dni)
 
         objCurso=ArCurso.leerReg(i);
 
-        if(objCurso.getDniAlumno()==dni)
+        if(objCurso.getDniAlumno()==dni&& objCurso.getEstado()==true)
         {
 
             anio=objCurso.getCurso();
@@ -516,18 +516,15 @@ void MateriaManager::MenuUserMaterias(int dni)
 
         objMateria=ArMateria.leerReg(x);
 
-        rlutil::locate(43,6);
-        cout <<"MATERIA: ";
-
-        if (objMateria.getAnioLectivo()==anio)
+       if (objMateria.getAnioLectivo()==anio)
         {
             rlutil::setColor(rlutil::YELLOW);
             rectangulo (2, 2, 100, 26);
             mostrar_mensaje ("***** ESTAS SON TUS MATERIAS ***** ", 34, 4);
 
             d++;
-            rlutil::locate(55,6);
-            cout <<d <<"  /5";
+            rlutil::locate(50,6);
+            cout <<d <<"  /6";
             rlutil::locate(10,9);
             cout <<"MATERIA: " <<objMateria.getNombreMateria();
             rlutil::locate(10,11);
@@ -539,49 +536,10 @@ void MateriaManager::MenuUserMaterias(int dni)
 
         }
     }
-
+mostrar_mensaje ("***** FIN DEL REPORTE***** ", 34, 10);
 
 }
-//
-//
-//void MateriaManager::Editar()
-//{
-//    Materia reg;
-//    int id, posicion;
-//
-//    rlutil::locate(20,9);
-//    cout << "ID A MODIFICAR: ";
-//    cin >> id;
-//    cout << endl;
-//
-//    system("cls");
-//    mostrar_mensaje ("***** MODIFICAR DE MATERIA***** ", 34, 4);
-//    posicion = _archivo.buscarReg(id);
-//    if (posicion >= 0)
-//    {
-//        reg = _archivo.leerReg(posicion);
-//        Listar(reg);
-//        cout << endl;
-//
-//        int nuevoEstado;
-//        rlutil::locate(20,20);
-//        cout << "DESEA MODIFICAR ALGUN DATO? (1-SI/2-NO): ";
-//        rlutil::locate(64,20);
-//        cin >> nuevoEstado;
-//
-//        if (nuevoEstado==1)
-//        {
-//            ModificarDatos(reg,posicion);
-//
-//        }
-//
-//    }
-//    else
-//    {
-//        system("pause>nul");
-//    }
-//}
-//
+
 void MateriaManager::HacerCopiaDeSeguridad()
 {
 

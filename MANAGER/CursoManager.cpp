@@ -8,6 +8,7 @@
 #include"MateriaManager.h"
 #include"Notas.h"
 #include"NotasArchivo.h"
+#include<iomanip>
 
 using namespace std;
 
@@ -52,6 +53,7 @@ void CursoManager::Cargar()
         aux.setidCurso(idcurso);
         aux.setCurso(curso);
         aux.setEstado(true);
+        aux.setIdProfesor(0);
 
         if (_archivo.agregar(aux))
         {
@@ -502,15 +504,15 @@ void CursoManager::InformePromedioCursos()
 
     rlutil::locate(36,8);
     Curso1=this->InformePromedioCurso1();
-    cout<<Curso1<<" % " <<endl;
+    cout<<fixed<<setprecision(2)<<Curso1<<" % " <<endl;
 
     rlutil::locate(53,8);
     Curso2=this->InformePromedioCurso2();
-    cout<<Curso2<<" % " <<endl;
+    cout<<fixed<<setprecision(2)<<Curso2<<" % " <<endl;
 
     rlutil::locate(73,8);
     Curso3=this->InformePromedioCurso3();
-    cout<<Curso3<<" % " <<endl;
+    cout<<fixed<<setprecision(2)<<Curso3<<" % " <<endl;
 
     system("pause>nul");
 }
@@ -524,10 +526,10 @@ void CursoManager::InformeMateriasAprobadas()
     rlutil::setColor(rlutil::YELLOW);
 
     mostrar_mensaje ("***** INFORME SOBRE MATERIAS APROBADAS ***** ", 30, 4);
-
-    mostrar_mensaje ("CURSO 1 ", 30, 6);
-    mostrar_mensaje ("CURSO 2 ", 50, 6);
-    mostrar_mensaje ("CURSO 3 ", 70, 6);
+    CursoManager obj;
+    mostrar_mensaje ("-- CURSO 1 -- ", 28, 7);
+    mostrar_mensaje ("-- CURSO 2 --", 28, 13);
+    mostrar_mensaje ("-- CURSO 3 --", 28, 19);
 
 
     this->InformePromedioNotas1();
@@ -576,7 +578,7 @@ void CursoManager::InformePromedioAlumno()
 
     mostrar_mensaje ("PROMEDIO GENERAL:", 10, 10);
     rlutil::locate(30,10);
-    cout<<Totales/Cantidad <<" % "<<endl;
+    cout<<fixed<<setprecision(2)<<Totales/Cantidad <<" % "<<endl;
      rlutil::locate(10,11);
     cout<<"CANTIDAD DE MATERIAS CURSADAS:  " <<Cantidad<<endl;
 
@@ -614,9 +616,9 @@ float CursoManager::InformePromedioCurso1()
 
                 Totales+=Aux.getNota();
                 Cantidad++;
+                    }
+                }
             }
-        }
-    }
 
     return Totales/Cantidad;
 
@@ -757,11 +759,11 @@ void CursoManager::InformePromedioNotas1()
     mostrar_mensaje ("Notas de 8 A 10:  ", 6, 11);
 
     rlutil::locate(30,9);
-    cout<<Prome10<<endl;
+    cout<<fixed<<setprecision(2)<<Prome10<< " %" <<endl;
     rlutil::locate(30,10);
-    cout<<Prome8<<endl;
+    cout<<fixed<<setprecision(2)<<Prome8<<" %" <<endl;
     rlutil::locate(30,11);
-    cout<<Prome6<<endl;
+    cout<<fixed<<setprecision(2)<<Prome6<<" %" <<endl;
 
 }
 
@@ -819,12 +821,16 @@ void CursoManager::InformePromedioNotas2()
                 Prome6=Cantidad3*100/totalesnotas;
 
 
+    mostrar_mensaje ("Notas de 1 A 6: ", 6, 15);
+    mostrar_mensaje ("Notas de 6 A 8: ", 6, 16);
+    mostrar_mensaje ("Notas de 8 A 10:  ", 6, 17);
+
     rlutil::locate(30,15);
-    cout<<Prome10<<endl;
+    cout<<fixed<<setprecision(2)<<Prome10<<" %" <<endl;
     rlutil::locate(30,16);
-    cout<<Prome8<<endl;
+    cout<<fixed<<setprecision(2)<<Prome8<<" %" <<endl;
     rlutil::locate(30,17);
-    cout<<Prome6<<endl;
+    cout<<fixed<<setprecision(2)<<Prome6<<" %" <<endl;
 
 
 }
@@ -881,12 +887,16 @@ void CursoManager::InformePromedioNotas3()
                 Prome8=Cantidad2*100/totalesnotas;
                 Prome6=Cantidad3*100/totalesnotas;
 
-    rlutil::locate(30,19);
-    cout<<Prome10<<endl;
-    rlutil::locate(30,20);
-    cout<<Prome8<<endl;
-    rlutil::locate(30,11);
-    cout<<Prome6<<endl;
+    mostrar_mensaje ("Notas de 1 A 6: ", 6, 21);
+    mostrar_mensaje ("Notas de 6 A 8: ", 6, 22);
+    mostrar_mensaje ("Notas de 8 A 10:  ", 6, 23);
+
+    rlutil::locate(30,21);
+    cout<<fixed<<setprecision(2)<<Prome10<<" %" <<endl;
+    rlutil::locate(30,22);
+    cout<<fixed<<setprecision(2)<<Prome8<<" %" <<endl;
+    rlutil::locate(30,23);
+    cout<<fixed<<setprecision(2)<<Prome6<<" %" <<endl;
 
 
 }

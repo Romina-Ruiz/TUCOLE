@@ -130,23 +130,24 @@ void FaltaManager::ListarXdni(int dni)
             cout <<"FECHA DE LA AUSENCIA :  "<<obj.getFechaAusencia().toString()<<endl;
             rlutil::locate(35,10+can);
             FaltasTotales+=obj.getFalta();
-            system("pause>nul");
 
         }
 
     }
-    rlutil::locate(20,25);
+    rlutil::locate(20,20);
     cout<<"FALTAS TOTALES : " << FaltasTotales<<endl;
-    system("pause>nul");
+
 
     if(FaltasTotales>=6)
     {
-        rlutil::locate(10,10);
+        rlutil::locate(25,22);
         cout<<"ATENCION ! "<<endl;
-        rlutil::locate(10,12);
-        cout<<"TIENE EL MAXIMO DE FALTAS PERMITIDAS,POR FAVOR, COMUNIQUESE CON LAS AUTORIDADES DEL COLEGIO. "<<endl;
-    }
+        rlutil::locate(7,23);
+        cout<<"TIENE EL MAXIMO DE FALTAS PERMITIDAS!! POR FAVOR, COMUNIQUESE CON LAS AUTORIDADES DEL COLEGIO. "<<endl;
+        system("pause>nul");
 
+    }
+    system("pause>nul");
     system("cls");
     rectangulo (2, 2, 100, 26);
     rlutil::locate(30,10);

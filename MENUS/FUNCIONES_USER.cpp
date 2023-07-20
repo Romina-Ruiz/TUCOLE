@@ -13,6 +13,7 @@ using namespace std;
 #include "NotaManager.h"
 #include"CuotaManager.h"
 #include"FaltaManager.h"
+#include"ComunicadosManager.h"
 
 void menuUser(int dni)
 {
@@ -96,7 +97,6 @@ void menuUser(int dni)
                 rlutil::setColor(rlutil::YELLOW);
                 rectangulo (2, 2, 100, 26);
 
-
                 obj.ListarXdni(dni);
 
                 system("pause>nul");
@@ -109,6 +109,8 @@ void menuUser(int dni)
             case 2:     ///MATERIAS
             {
                 system("cls");
+                rlutil::setColor(rlutil::YELLOW);
+                rectangulo (2, 2, 100, 26);
 
                 MateriaManager obj;
 
@@ -118,7 +120,7 @@ void menuUser(int dni)
                 system("cls");
 
             }
-
+                break;
             case 3:     ///ESTADO DE AUSENCIAS
             {
                 system("cls");
@@ -134,11 +136,16 @@ void menuUser(int dni)
             break;
 
             case 4:    ///COMUNICADOS ESPECIALES
-                system("cls");
+                {
+
+                 system("cls");
+                ComunicadosManager obj;
+
+                obj.ComunicadoUser(dni);
 
                 system("pause>nul");
                 system("cls");
-
+                    }
                 break;
 
             case 5:     /// SALIR
