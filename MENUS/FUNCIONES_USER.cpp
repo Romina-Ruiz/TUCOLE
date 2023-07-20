@@ -14,6 +14,7 @@ using namespace std;
 #include"CuotaManager.h"
 #include"FaltaManager.h"
 #include"ComunicadosManager.h"
+#include "MENUS.h"
 
 void menuUser(int dni)
 {
@@ -153,6 +154,7 @@ void menuUser(int dni)
                 mostrar_mensaje ("*** ¿ESTAS SEGURO DE SALIR?***", 40, 5);
                 system("pause>nul");
                 system("cls");
+                menuIncio();
 
                 break;
 

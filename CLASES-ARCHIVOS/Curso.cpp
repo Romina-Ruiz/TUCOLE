@@ -12,12 +12,7 @@ void Curso::setidCurso(int idcur)
 
 _idCurso=idcur;
 }
-void Curso::setIdProfesor(int idprofesor)
-{
 
-_id_profesor = idprofesor;
-
-}
 void Curso::setCurso(int curso)
 {
 
@@ -40,11 +35,7 @@ int  Curso::getIdCurso()
 return _idCurso;
 
 }
-int Curso::getIdProfesor()
-{
-return _id_profesor;
 
-}
 int Curso::getCurso()
 {
 

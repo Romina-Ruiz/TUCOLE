@@ -167,46 +167,6 @@ void PagoManager::ListarOrdenadosPorFecha(int mes)
     delete []vec;
 
 }
-/*
-void PagoManager::Ordenar(Pago *vec, int cantidadRegistros, int mes)
-{
-    int mayor = 0;
-
-    Pago aux;
-
-    for (int j=0; j<cantidadRegistros; j++)
-    {
-
-        if(vec[j].getFechaDePago().getMes()==mes)
-        {
-
-            for (int i=0; i<cantidadRegistros; i++)
-            {
-                mayor = i;
-
-                for (int j = i + 1; j < cantidadRegistros; j++)
-                {
-
-
-                    if (vec[j].getFechaDePago().getMes()<= vec[mayor].getFechaDePago().getMes()&&
-                            vec[j].getFechaDePago().getDia()<= vec[mayor].getFechaDePago().getDia() )
-                    {
-                        mayor = j;
-                    }
-                }
-
-                if (i != mayor)
-                {
-                    aux = vec[i];
-                    vec[i] = vec[mayor];
-                    vec[mayor] = aux;
-                }
-
-            }
-        }
-    }
-}
-*/
 
 int PagoManager::generarPago()
 {
@@ -364,7 +324,10 @@ void PagoManager::ListarxDNI(int dni)
             system("cls");
         }
 
+
     }
+
+
     rectangulo (2, 2, 100, 26);
     mostrar_mensaje ("***** FIN DEL LISTADO ***** ", 32, 12);
 

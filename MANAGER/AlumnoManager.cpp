@@ -347,7 +347,7 @@ void AlumnoManager::RestaurarCopiaDeSeguridad()
 void AlumnoManager::ModificarDatos(Alumno alumno, int posicion)
 {
     system("cls");
-    const char *opciones[] = {"DNI", "NOMBRE","APELLIDO", "EMAIL", "TELEFONO", "MODIFICAR ESTADO", "VOLVER AL MENU PRINCIPAL"};
+    const char *opciones[] = {"DNI", "NOMBRE","APELLIDO", "EMAIL", "TELEFONO", "MODIFICAR ESTADO","FECHA ", "VOLVER AL MENU PRINCIPAL"};
 
     mostrar_mensaje ("* MODIFICAR DATOS DEL ALUMNO *", 40, 4);
     mostrar_mensaje ("--------------------------------", 40, 5);
@@ -370,6 +370,7 @@ void AlumnoManager::ModificarDatos(Alumno alumno, int posicion)
         showItem (opciones[4],30,14,y==4);
         showItem (opciones[5],30,15,y==5);
         showItem (opciones[6],30,16,y==6);
+        showItem (opciones[7],30,17,y==7);
 
 
         rlutil::locate(26,10+y);
@@ -563,8 +564,44 @@ void AlumnoManager::ModificarDatos(Alumno alumno, int posicion)
 
                         }
                         break;
+                    case 6:
 
-                    case 6:     /// VOLVER AL MENU PRINCIPAL
+                        system("cls");
+                {
+                    rectangulo (2, 2, 100, 26);
+                    mostrar_mensaje ("* MODIFICAR FECHA DE INGRESO *", 40, 4);
+                    mostrar_mensaje ("--------------------------------", 40, 5);
+                    int dia,mes,anio;
+                    rlutil::locate(20,9);
+                    cout << "INGRESE EL NUEVO DIA : "<<endl;
+                    rlutil::locate(45,9);
+                    cin>>dia;
+                    rlutil::locate(20,10);
+                    cout << "INGRESE EL NUEVO MES : "<<endl;
+                    rlutil::locate(45,10);
+                    cin>>mes;
+                    rlutil::locate(20,11);
+                    cout << "INGRESE EL NUEVO ANIO : "<<endl;
+                    rlutil::locate(45,11);
+                    cin>>anio;
+
+
+                    alumno.setIngreso(Fecha(dia,mes,anio));
+
+                    if (_archivo.guardar(alumno, posicion))
+                    {
+
+                        rlutil::locate(30,15);
+                        cout << "** REGISTRO MODIFICADO **"<<endl;
+                    }
+
+                    system("pause>nul");
+                    system("cls");
+                }
+
+
+
+                    case 7:     /// VOLVER AL MENU PRINCIPAL
                         system("cls");
                         {
                             menuCargarAlumnos();

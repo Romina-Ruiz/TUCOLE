@@ -216,8 +216,11 @@ void ProfesorManager::Editar()
     {
         reg = _archivo.leerReg(posicion);
         Listar(reg);
+         system("pause>nul");
+        system("cls");
 
         int nuevoEstado;
+        rectangulo (2, 2, 100, 26);
         rlutil::locate(20,10);
         cout << "DESEA MODIFICAR ALGUN DATO? (1-SI/2-NO): ";
         rlutil::locate(64,10);

@@ -13,7 +13,7 @@ private:
 public:
 
 	void Cargar();
-    int generarId();
+    int generarId(int curso);
 	void ListarTodos();
 	void ListarAlumnosxCurso(int anio);
 	void ListarMateriasxCurso(int anio);
@@ -22,6 +22,7 @@ public:
 	void Editar();
 	void Listar(Curso curso);
 	void ModificarDatos(Curso curso, int posicion);
+
 	void InformeCursos();
 	void InformePromedioCursos();
 	void InformeMateriasAprobadas();

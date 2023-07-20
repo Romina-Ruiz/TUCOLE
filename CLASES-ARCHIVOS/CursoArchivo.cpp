@@ -123,6 +123,41 @@ int CursoArchivo::buscarReg(int dni){
   }
   return nroRegistro;
 }
+int CursoArchivo::buscarIDcurso(int id){
+
+  int nroRegistro = -1;
+  int cantidad = this->getCantidad();
+
+  Curso registro;
+  for (int i = 0; i < cantidad; i++)
+  {
+    registro =this->leerReg(i);
+    if (registro.getIdCurso() == id)
+    {
+      nroRegistro = i;
+      break;
+    }
+  }
+  return nroRegistro;
+}
+
+int CursoArchivo::buscarCurso(int curso){
+
+  int nroRegistro = -1;
+  int cantidad = this->getCantidad();
+
+  Curso registro;
+  for (int i = 0; i < cantidad; i++)
+  {
+    registro =this->leerReg(i);
+    if (registro.getCurso() == curso)
+    {
+      nroRegistro = i;
+      break;
+    }
+  }
+  return nroRegistro;
+}
 
 void CursoArchivo::vaciar(){
 
@@ -134,4 +169,18 @@ FILE *p = fopen(_ruta, "wb");
 	fclose(p);
 
 
+}
+bool CursoArchivo::guardar(Curso reg, int posicionAReemplazar)
+{
+    FILE *p = fopen(_ruta,"rb+");
+
+    if (p == NULL)
+    {
+        return false;
+    }
+
+    fseek(p, posicionAReemplazar * sizeof(Curso), SEEK_SET);
+    bool pudoEscribir = fwrite(&reg, sizeof(Curso), 1, p);
+    fclose(p);
+    return pudoEscribir;
 }

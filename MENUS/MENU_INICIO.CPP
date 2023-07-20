@@ -68,6 +68,9 @@ void SalirSistemaUser()
     rlutil::setColor(rlutil::YELLOW);
     mostrar_mensaje ("*****   MUCHAS GRACIAS POR USAR NUESTRO SISTEMA *****", 28, 10);
     mostrar_mensaje ("By ARIANA & ROMINA", 68, 20);
+    system("pause>nul");
+    system("cls");
+    menuIncio();
 }
 
 void menuAdmin()

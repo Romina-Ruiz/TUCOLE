@@ -20,6 +20,7 @@ void CursoManager::Cargar()
     int idcurso;
 
 
+
     rlutil::locate(20,8);
     cout << "INGRESE DNI #: " <<endl;
     rlutil::locate(38,8);
@@ -41,19 +42,21 @@ void CursoManager::Cargar()
         cout << "CURSO N#: "<<endl;
         rlutil::locate(30,9);
         cin>> curso;
-
         rlutil::locate(20,10);
         cout << "ID CURSO #: "<<endl;
-        idcurso=this->generarId();
+        idcurso=this->generarId(curso);
         rlutil::locate(37,10);
         cout <<idcurso;
+         rlutil::locate(20,11);
+        cout << "ESTADO: "<< "Activo" <<endl;
+
 
         Curso aux;
         aux.setDniAlumno(dniAlumno);
         aux.setidCurso(idcurso);
         aux.setCurso(curso);
         aux.setEstado(true);
-        aux.setIdProfesor(0);
+
 
         if (_archivo.agregar(aux))
         {
@@ -74,10 +77,17 @@ void CursoManager::Cargar()
 }
 
 
-int CursoManager::generarId()
+int CursoManager::generarId( int curso)
 {
 
-    return _archivo.getCantidad()+100;
+    if(curso==1){
+        return 202301;
+    }
+    else if(curso==2){
+        return 202302;
+    }
+    else return 202303;
+
 }
 
 void CursoManager::ListarTodos()
@@ -108,7 +118,9 @@ void CursoManager::Listar(Curso curso)
     rlutil::locate(20,11);
     cout<<"DNI ALUMNO :    " <<curso.getDniAlumno()<<endl;
     rlutil::locate(20,12);
-    cout<<"ID PROFESOR:    "<<curso.getIdProfesor()<<endl;
+    cout<<"ESTADO:" <<"Activo"<<endl;
+
+
 
     system("pause>nul");
     system("cls");
@@ -186,7 +198,7 @@ void CursoManager::ListarAlumnosxCurso(int anio)
                 alumanager.Listar(alumno);
 
                 can++;
-                system("pause>nul");
+
                 system("cls");
             }
 
@@ -200,20 +212,60 @@ void CursoManager::ListarAlumnosxCurso(int anio)
     system("pause>nul");
 
 }
-
-
 void CursoManager::Editar()
 {
+    Curso reg;
+    int ncurso, posicion;
+
+    rlutil::locate(20,9);
+    cout << "CURSO A MODIFICAR: ";
+    rlutil::locate(40,9);
+    cin >> ncurso;
+
     system("cls");
+    mostrar_mensaje ("***** MODIFICAR DE CURSO ***** ", 34, 4);
+    posicion = _archivo.buscarCurso(ncurso);
+    if (posicion >= 0)
+    {
+        reg = _archivo.leerReg(posicion);
+
+
+        int nuevoEstado;
+        rlutil::locate(20,10);
+        cout << "DESEA MODIFICAR ALGUN DATO? (1-SI/2-NO): ";
+        rlutil::locate(64,10);
+        cin >> nuevoEstado;
+
+        if (nuevoEstado==1)
+        {
+            ModificarDatos(reg,posicion);
+
+        }
+
+    }
+    else
+    {
+        rectangulo (2, 2, 100, 26);
+        mostrar_mensaje ("** NO EXISTE ESE NUMERO DE CURSO ** ", 30, 12);
+
+        system("pause>nul");
+    }
+}
+
+
+void CursoManager::ModificarDatos(Curso curso, int posicion)
+{
+    system("cls");
+    const char *opciones[] = {"DAR DE BAJA UN ALUMNO","MODIFICAR ID DE CURSO","ELIMINAR CURSO"
+                              ,"VOLVER AL MENU ANTERIOR"
+                             };
+
+    mostrar_mensaje ("* MODIFICAR DATOS DEL CURSO *", 40, 4);
+    mostrar_mensaje ("--------------------------------", 40, 5);
+
     rlutil::saveDefaultColor();
     rectangulo (2, 2, 100, 26);
     rlutil::setColor(rlutil::YELLOW);
-
-    mostrar_mensaje ("***** MODIFICAR DE DATOS DEL CURSO ***** ", 30, 4);
-
-    const char *opciones[] = {"DAR DE BAJA UN ALUMNO", "MODIFICAR ID DEL CURSO",
-                              "MODIFICAR CURSO/ANIO", "VOLVER AL MENU ANTERIOR"
-                             };
 
     int op=1, y=0;
 
@@ -223,11 +275,14 @@ void CursoManager::Editar()
     {
         rlutil::saveDefaultColor();
         rlutil::setColor(rlutil::YELLOW);
+        mostrar_mensaje ("* MODIFICAR DATOS DEL CURSO *", 40, 4);
+        mostrar_mensaje ("--------------------------------", 40, 5);
 
         showItem (opciones[0],30,10,y==0);
         showItem (opciones[1],30,11,y==1);
         showItem (opciones[2],30,12,y==2);
         showItem (opciones[3],30,13,y==3);
+
 
         rlutil::locate(26,10+y);
         cout <<"==> " <<endl;
@@ -250,9 +305,9 @@ void CursoManager::Editar()
             cout <<"   " <<endl;
             y++;
 
-            if (y>3)
+            if (y>6)
             {
-                y=3;
+                y=6;
             }
             break;
 
@@ -263,112 +318,114 @@ void CursoManager::Editar()
             case 0:      /// DAR DE BAJA ALUMNO DEL CURSO
                 system("cls");
                 {
-                    Curso aux;
-                    rectangulo (2, 2, 100, 26);
-                    mostrar_mensaje ("***  DAR DE BAJA A UN ALUMNO  ***", 34, 4);
-                    int dni;
-                    rlutil::locate(20,9);
-                    cout << "INGRESE EL DNI A DAR DE BAJA: "<<endl;
-                    rlutil::locate(55,9);
-                    cin>>dni;
 
-                    int posicion =_archivo.buscarReg(dni);
+                    int dni;
+                    rectangulo (2, 2, 100, 26);
+                    rlutil::locate(20,9);
+                    cout << "DNI A BUSCAR: ";
+
+                    rlutil::locate(35,9);
+                    cin >> dni;
+                    cout << endl;
+                    system("cls");
+
+                    posicion = _archivo.buscarReg(dni);
                     if (posicion >= 0)
                     {
-                        int resp;
-                        mostrar_mensaje ("DESEA DAR DE BAJA AL ALUMNO DEL CURSO (1-SI/ 2-NO) ", 15, 6);
-                        rlutil::locate(20,7);
-                        cout <<"RESPUESTA: ";
-                        rlutil::locate(35,7);
-                        cin>>resp;
+                        curso = _archivo.leerReg(posicion);
+                         rlutil::locate(35,15);
+                        Listar(curso);
+                        system("cls");
+                        cout << endl;
+                        curso.setEstado(false);
+                        _archivo.guardar(curso, posicion);
+                         rectangulo (2, 2, 100, 26);
+                         rlutil::locate(20,9);
+                        cout << "Registro #" << dni << " eliminado correctamente" << endl;
+                        system("pause>nul");
+                        system("cls");
 
-                        if(resp==1)
-                        {
-                            aux.setEstado(false);
-                            _archivo.modificarReg(aux, posicion);
-                            mostrar_mensaje ("REGISTRO MODIFICADO", 30, 10);
-                            system("pause>nul");
-                            system("cls");
-                        }
+
                     }
+                }
+                break;
+
+            case 1:       /// SETEAR ID DE CURSO
+                system("cls");
+                mostrar_mensaje ("* MODIFICAR DATOS DEL CURSO *", 40, 4);
+                mostrar_mensaje ("--------------------------------", 40, 5);
+
+                {
+
+                    int id,nuevoid;
+                     rectangulo (2, 2, 100, 26);
+                    rlutil::locate(20,9);
+                    cout << "INGRESE EL ID DE CURSO QUE DESEA MODIFICAR : "<<endl;
+                    rlutil::locate(65,9);
+                    cin>>id;
+                    posicion = _archivo.buscarIDcurso(id);
+                    if (posicion >= 0)
+                    {
+                        cout<<"ingrese el nuevo ID de curso"<<endl;
+                        cin>>nuevoid;
+                        curso.setidCurso(nuevoid);
+                        _archivo.guardar(curso, posicion);
+
+
+                        rlutil::locate(30,15);
+                        cout << "** REGISTRO MODIFICADO **"<<endl;
+                        system("pause>nul");
+                        system("cls");
+                    }
+
+
+                else {
+                    cout<<" EL ID DE CURSO NO EXISTE"<<endl;
+                    system("pause>nul");
+                        system("cls");
+                }
                 }
 
                 break;
 
-            case 1:       /// MODIFICAR ID CURSO
-            {
+            case 2:       /// DAR DE BAJA UN CURSO
                 system("cls");
-                Curso aux;
-                rectangulo (2, 2, 100, 26);
-                mostrar_mensaje ("* MODIFICAR DATOS DEL CURSO *", 30, 4);
-                int dni;
-                rlutil::locate(20,9);
-                cout << "INGRESE EL DNI A MODIFICAR: "<<endl;
-                rlutil::locate(55,9);
-                cin>>dni;
-
-                int posicion =_archivo.buscarReg(dni);
-                if (posicion >= 0)
                 {
-                    int resp;
-                    rlutil::locate(20,12);
-                    cout <<"INGRESE EL NUEVO ID DEL CURSO: ";
-                    rlutil::locate(55,12);
-                    cin>>resp;
-                    aux.setidCurso(resp);
-                    _archivo.modificarReg(aux, posicion);
-                    mostrar_mensaje ("REGISTRO MODIFICADO", 30, 15);
-                    system("pause>nul");
-                    system("cls");
 
+                    int IDCurso;
+                     rectangulo (2, 2, 100, 26);
+                      rlutil::locate(20,9);
+                    cout << "ID DEL CURSO QUE DESEA DAR DE BAJA ";
+                     rlutil::locate(60,9);
+                    cin >> IDCurso;
+                    cout << endl;
+
+                    posicion = _archivo.buscarIDcurso(IDCurso);
+                    if (posicion >= 0)
+                    {
+                        curso = _archivo.leerReg(posicion);
+                        Listar(curso);
+                        cout << endl;
+                        curso.setidCurso(IDCurso);
+                        _archivo.guardar(curso, posicion);
+                        cout << "Curso #" << IDCurso << " eliminado correctamente" << endl;
+                        system("pause>nul");
+
+
+                    }
                 }
+                break;
 
-            }
-            break;
+            case 3:     /// VOLVER AL MENU PRINCIPAL
 
-            case 2:       ///  MODIFICAR CURSO/ANIO
-            {
-                system("cls");
-                Curso aux;
-                rectangulo (2, 2, 100, 26);
-                mostrar_mensaje ("* MODIFICAR DATOS DEL CURSO *", 30, 4);
-                int dni;
-                rlutil::locate(20,9);
-                cout << "INGRESE EL DNI A MODIFICAR: "<<endl;
-                rlutil::locate(55,9);
-                cin>>dni;
-
-                int posicion =_archivo.buscarReg(dni);
-
-                if (posicion >= 0)
-                {
-                    int resp;
-                    rlutil::locate(20,12);
-                    cout <<"INGRESE EL NUEVO CURSO/ANIO: ";
-                    rlutil::locate(50,12);
-                    cin>>resp;
-                    aux.setCurso(resp);
-                    _archivo.modificarReg(aux, posicion);
-                    mostrar_mensaje ("REGISTRO MODIFICADO", 30, 15);
-                    system("pause>nul");
-                    system("cls");
-
-                }
-                else
-                {
-                    system("cls");
-                    mostrar_mensaje ("NO EXISTE UN REGISTRO CON ESE DNI", 30, 15);
-                }
-                system("cls");
-            }
-            break;
-            case 3:     /// SALIR
-            {
-                system("cls");
                 menuCargarCursos();
-                system("cls");
-            }
-            break;
+
+
+
+                break;
+
+
+
             }
         }
 
@@ -377,6 +434,7 @@ void CursoManager::Editar()
     system("pause>nul");
 
 }
+
 
 void CursoManager::InformeCursos()
 {
@@ -395,11 +453,11 @@ void CursoManager::InformeCursos()
     do
     {
 
-    rlutil::saveDefaultColor();
-    rectangulo (2, 2, 100, 26);
-    rlutil::setColor(rlutil::YELLOW);
+        rlutil::saveDefaultColor();
+        rectangulo (2, 2, 100, 26);
+        rlutil::setColor(rlutil::YELLOW);
 
-    mostrar_mensaje ("***** INFORME SOBRE ANIOS/CURSOS ***** ", 30, 4);
+        mostrar_mensaje ("***** INFORME SOBRE ANIOS/CURSOS ***** ", 30, 4);
 
         showItem (opciones[0],30,10,y==0);
         showItem (opciones[1],30,11,y==1);
@@ -579,7 +637,7 @@ void CursoManager::InformePromedioAlumno()
     mostrar_mensaje ("PROMEDIO GENERAL:", 10, 10);
     rlutil::locate(30,10);
     cout<<fixed<<setprecision(2)<<Totales/Cantidad <<" % "<<endl;
-     rlutil::locate(10,11);
+    rlutil::locate(10,11);
     cout<<"CANTIDAD DE MATERIAS CURSADAS:  " <<Cantidad<<endl;
 
 
@@ -616,9 +674,9 @@ float CursoManager::InformePromedioCurso1()
 
                 Totales+=Aux.getNota();
                 Cantidad++;
-                    }
-                }
             }
+        }
+    }
 
     return Totales/Cantidad;
 
@@ -720,38 +778,46 @@ void CursoManager::InformePromedioNotas1()
     float Prome8=0;
     float Prome6=0;
 
-    for(int x=0; x<canRegMate; x++){
+    for(int x=0; x<canRegMate; x++)
+    {
 
-                obj=ArMate.leerReg(x);
+        obj=ArMate.leerReg(x);
 
-            for(int i=0; i<canRegNotas; i++){
+        for(int i=0; i<canRegNotas; i++)
+        {
 
-                        Aux=ArNotas.leerReg(i);
+            Aux=ArNotas.leerReg(i);
 
-                             if (obj.getAnioLectivo()==1&& obj.getIdMateria()==Aux.getIDMateria()){
+            if (obj.getAnioLectivo()==1&& obj.getIdMateria()==Aux.getIDMateria())
+            {
 
-                                          if (Aux.getNota()>8&& Aux.getNota()<=10){
+                if (Aux.getNota()>8&& Aux.getNota()<=10)
+                {
 
-                                          Cantidad1++;
-                                             }
-                                         else { if (Aux.getNota()>=6 && Aux.getNota()<=8){
-
-                                             Cantidad2++;
-
-                                                        }
-                                          else {
-
-                                            Cantidad3++;
-                                                    }
-                                         }
-                                        }
-                                }
+                    Cantidad1++;
                 }
+                else
+                {
+                    if (Aux.getNota()>=6 && Aux.getNota()<=8)
+                    {
 
-                int totalesnotas=Cantidad1+Cantidad2+Cantidad3;
-                Prome10=Cantidad1*100/totalesnotas;
-                Prome8=Cantidad2*100/totalesnotas;
-                Prome6=Cantidad3*100/totalesnotas;
+                        Cantidad2++;
+
+                    }
+                    else
+                    {
+
+                        Cantidad3++;
+                    }
+                }
+            }
+        }
+    }
+
+    int totalesnotas=Cantidad1+Cantidad2+Cantidad3;
+    Prome10=Cantidad1*100/totalesnotas;
+    Prome8=Cantidad2*100/totalesnotas;
+    Prome6=Cantidad3*100/totalesnotas;
 
 
     mostrar_mensaje ("Notas de 1 A 6: ", 6, 9);
@@ -787,38 +853,46 @@ void CursoManager::InformePromedioNotas2()
     float Prome8=0;
     float Prome6=0;
 
-    for(int x=0; x<canRegMate; x++){
+    for(int x=0; x<canRegMate; x++)
+    {
 
-                obj=ArMate.leerReg(x);
+        obj=ArMate.leerReg(x);
 
-            for(int i=0; i<canRegNotas; i++){
+        for(int i=0; i<canRegNotas; i++)
+        {
 
-                        Aux=ArNotas.leerReg(i);
+            Aux=ArNotas.leerReg(i);
 
-                             if (obj.getAnioLectivo()==2 && obj.getIdMateria()==Aux.getIDMateria()){
+            if (obj.getAnioLectivo()==2 && obj.getIdMateria()==Aux.getIDMateria())
+            {
 
-                                          if (Aux.getNota()>8&& Aux.getNota()<=10){
+                if (Aux.getNota()>8&& Aux.getNota()<=10)
+                {
 
-                                            Cantidad1++;
-                                             }
-                                         else { if (Aux.getNota()>=6 && Aux.getNota()<=8){
-
-                                            Cantidad2++;
-
-                                                        }
-                                          else {
-
-                                            Cantidad3++;
-                                                    }
-                                         }
-                                        }
-                                }
+                    Cantidad1++;
                 }
+                else
+                {
+                    if (Aux.getNota()>=6 && Aux.getNota()<=8)
+                    {
 
-                int totalesnotas=Cantidad1+Cantidad2+Cantidad3;
-                Prome10=Cantidad1*100/totalesnotas;
-                Prome8=Cantidad2*100/totalesnotas;
-                Prome6=Cantidad3*100/totalesnotas;
+                        Cantidad2++;
+
+                    }
+                    else
+                    {
+
+                        Cantidad3++;
+                    }
+                }
+            }
+        }
+    }
+
+    int totalesnotas=Cantidad1+Cantidad2+Cantidad3;
+    Prome10=Cantidad1*100/totalesnotas;
+    Prome8=Cantidad2*100/totalesnotas;
+    Prome6=Cantidad3*100/totalesnotas;
 
 
     mostrar_mensaje ("Notas de 1 A 6: ", 6, 15);
@@ -847,45 +921,53 @@ void CursoManager::InformePromedioNotas3()
     int canRegMate=ArMate.getCantidad();
     int canRegNotas=ArNotas.getCantidad();
 
-      int Cantidad1=0;
-      int Cantidad2=0;
-      int Cantidad3=0;
+    int Cantidad1=0;
+    int Cantidad2=0;
+    int Cantidad3=0;
     float Prome10=0;
     float Prome8=0;
     float Prome6=0;
 
-    for(int x=0; x<canRegMate; x++){
+    for(int x=0; x<canRegMate; x++)
+    {
 
-                obj=ArMate.leerReg(x);
+        obj=ArMate.leerReg(x);
 
-            for(int i=0; i<canRegNotas; i++){
+        for(int i=0; i<canRegNotas; i++)
+        {
 
-                        Aux=ArNotas.leerReg(i);
+            Aux=ArNotas.leerReg(i);
 
-                             if (obj.getAnioLectivo()==3&& obj.getIdMateria()==Aux.getIDMateria()){
+            if (obj.getAnioLectivo()==3&& obj.getIdMateria()==Aux.getIDMateria())
+            {
 
-                                          if (Aux.getNota()>8&& Aux.getNota()<=10){
+                if (Aux.getNota()>8&& Aux.getNota()<=10)
+                {
 
-                                              Cantidad1++;
-                                             }
-                                         else { if (Aux.getNota()>=6 && Aux.getNota()<=8){
-
-                                              Cantidad2++;
-
-                                                        }
-                                          else {
-
-                                            Cantidad3++;
-                                                    }
-                                         }
-                                        }
-                                }
+                    Cantidad1++;
                 }
+                else
+                {
+                    if (Aux.getNota()>=6 && Aux.getNota()<=8)
+                    {
 
-                int totalesnotas=Cantidad1+Cantidad2+Cantidad3;
-                Prome10=Cantidad1*100/totalesnotas;
-                Prome8=Cantidad2*100/totalesnotas;
-                Prome6=Cantidad3*100/totalesnotas;
+                        Cantidad2++;
+
+                    }
+                    else
+                    {
+
+                        Cantidad3++;
+                    }
+                }
+            }
+        }
+    }
+
+    int totalesnotas=Cantidad1+Cantidad2+Cantidad3;
+    Prome10=Cantidad1*100/totalesnotas;
+    Prome8=Cantidad2*100/totalesnotas;
+    Prome6=Cantidad3*100/totalesnotas;
 
     mostrar_mensaje ("Notas de 1 A 6: ", 6, 21);
     mostrar_mensaje ("Notas de 6 A 8: ", 6, 22);

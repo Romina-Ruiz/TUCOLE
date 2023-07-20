@@ -20,6 +20,9 @@ public:
     int buscarReg(int dni);
     void leer(Curso *vec, int cantidadRegistrosALeer);
     bool guardar(Curso *vec, int cantidadRegistrosAEscribir);
+    bool guardar(Curso reg, int posicionAReemplazar);
+    int buscarCurso(int curso);
+    int buscarIDcurso(int id);
 
     void vaciar();
 };
